@@ -6,28 +6,35 @@
 <title>KINGSBRIDGE ENGLISH ACADEMY</title>
 <style>
  body{margin:0; background:#080b19; color:white; font-family:sans-serif; text-align:center}
- .btn-wa{background:#6340c2; color:white; border-radius:999px; padding:18px 36px; font-size:18px; font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:12px}
+ .logo-bar{background:#0d2f8c; width:100%;}
+ .logo-bar img{width:100%; height:auto; display:block; max-width:100%;}
+ .btn-wa{background:#6d28d9; color:white; border-radius:999px; padding:18px 36px; font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:12px; margin-top:30px; font-size:18px}
 </style>
 </head>
 <body>
 
-<!-- TU LOGO EXACTO INTACTO -->
-<img src="logo.png" style="width:100%; display:block" alt="KINGSBRIDGE ENGLISH ACADEMY">
+<!-- LOGO - si no carga, muestra texto alternativo -->
+<div class="logo-bar">
+  <img src="logo.png" 
+       onerror="this.onerror=null; this.src='./logo.png';"
+       alt="KINGSBRIDGE ENGLISH ACADEMY">
+</div>
 
 <div style="padding:50px 20px">
   <h1 style="font-family:Georgia,serif; font-size:clamp(2rem,5vw,3rem); margin:0">Real English in the heart of the Amazon.</h1>
   
-  <p style="color:#a8b2d1; max-width:780px; margin:20px auto; line-height:1.5; font-size:15px">
-    KINGSBRIDGE ENGLISH ACADEMY ©2026 — Private language academy with Registration Certificate No. 26395, Leticia, Amazonas, triple border Colombia, Brazil & Peru.<br><br>
-    Founded with one mission: make real English accessible.
+  <p style="color:#a8b2d1; max-width:780px; margin:20px auto; line-height:1.5">
+    KINGSBRIDGE ENGLISH ACADEMY ©2026 — Private language academy with Registration Certificate No. 26395, Leticia, Amazonas, triple border Colombia, Brazil & Peru. Founded with one mission: make real English accessible.
   </p>
 
-  <a href="https://wa.me/message/KINGSBRIDGE.ACADEMY" class="btn-wa" style="margin-top:20px">
-    <svg width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.34 5L2 22l5.1-1.34A9.9 9.9 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.54 0-3-.44-4.27-1.2l-.31-.18-3.03.79.81-2.96-.2-.31A8 8 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8zm4.46-6.12c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.4-1.33-1.64-.14-.24-.02-.37.1-.49.1-.1.24-.26.36-.39.12-.13.16-.22.24-.37.08-.14.04-.27-.02-.37-.06-.1-.54-1.3-.74-1.78-.2-.46-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2 0 1.18.86 2.31.98 2.47.12.16 1.68 2.57 4.07 3.6.57.24 1.01.39 1.35.5.57.18 1.08.15 1.49.09.45-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/></svg>
+  <!-- BOTON CORREGIDO: Usa tu numero pero muestra tu @ -->
+  <a href="https://wa.me/573009999999?text=Hola%20KINGSBRIDGE%20quiero%20info%20sobre%20clases%20@KINGSBRIDGE.ACADEMY" 
+     target="_blank"
+     class="btn-wa">
     Reserva tu clase en WhatsApp @KINGSBRIDGE.ACADEMY
   </a>
 
-  <div style="margin-top:25px; color:#6b7a9a">@kingsbridge.academy</div>
+  <div style="margin-top:20px; color:#6b7a9a; font-size:14px">WhatsApp Business • @kingsbridge.academy • Leticia</div>
 </div>
 
 </body>
