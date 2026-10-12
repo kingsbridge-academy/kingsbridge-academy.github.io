@@ -54,6 +54,53 @@ WHATSAPP: @KINGSBRIDGE.ACADEMY
 </div>
 
 </div>
+  <style>
+.kbs{position:relative;max-width:1100px;margin:0 auto;border-radius:20px;overflow:hidden;background:#0a1f8f;aspect-ratio:16/9;touch-action:pan-y;font-family:system-ui,sans-serif}
+.kbs *{box-sizing:border-box}
+.kbs-t{display:flex;height:100%;transition:transform .6s ease}
+.kbs-s{flex:0 0 100%;height:100%;display:flex;flex-direction:column;justify-content:flex-end;background:#1f4bff}
+.kbs-s img{display:block;flex:1;min-height:0;width:100%;object-fit:cover}
+.kbs-c{flex:none;background:#0a1f8f;color:#fff;padding:.85rem 1.5rem 2.4rem}
+.kbs-h{font-size:clamp(1.1rem,3vw,1.7rem);font-weight:800;line-height:1.15}
+.kbs-p{margin-top:.25rem;font-size:clamp(.85rem,1.8vw,1.05rem);color:#bcd0ff}
+.kbs-n{position:absolute;top:40%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:#1f4bff;font-size:28px;line-height:1;cursor:pointer}
+.kbs-n:hover{background:#1f4bff;color:#fff}
+.kbs-a{left:10px}.kbs-b{right:10px}
+.kbs-d{position:absolute;left:0;right:0;bottom:.9rem;display:flex;justify-content:center;gap:.5rem}
+.kbs-d button{width:12px;height:12px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.5);cursor:pointer}
+.kbs-d button.on{width:34px;border-radius:6px;background:#ffd84d}
+@media(max-width:600px){.kbs{aspect-ratio:4/3;border-radius:14px}.kbs-n{width:36px;height:36px}}
+</style>
+
+<section class="kbs" aria-label="Fotografías de la academia">
+  <div class="kbs-t">
+    <div class="kbs-s"><img src="foto1.jpg" alt="Estudiantes practicando inglés" onerror="this.remove()"><div class="kbs-c"><div class="kbs-h">Habla con confianza</div><div class="kbs-p">Clases en grupos pequeños</div></div></div>
+    <div class="kbs-s"><img src="foto2.jpg" alt="Profesor en clase" onerror="this.remove()"><div class="kbs-c"><div class="kbs-h">Profesores que te escuchan</div><div class="kbs-p">Atención personalizada en cada clase</div></div></div>
+    <div class="kbs-s"><img src="foto3.jpg" alt="Actividad de conversación" onerror="this.remove()"><div class="kbs-c"><div class="kbs-h">Practica de verdad</div><div class="kbs-p">Conversación desde el primer día</div></div></div>
+    <div class="kbs-s"><img src="foto4.jpg" alt="Grupo de estudiantes" onerror="this.remove()"><div class="kbs-c"><div class="kbs-h">Una comunidad que te impulsa</div><div class="kbs-p">Kingsbridge English Academy</div></div></div>
+  </div>
+  <button class="kbs-n kbs-a" aria-label="Anterior">&#8249;</button>
+  <button class="kbs-n kbs-b" aria-label="Siguiente">&#8250;</button>
+  <div class="kbs-d"></div>
+</section>
+
+<script>
+(function(){
+var r=document.querySelector('.kbs'),t=r.querySelector('.kbs-t'),n=t.children.length,i=0,tm,db=r.querySelector('.kbs-d'),ds=[];
+for(var k=0;k<n;k++){(function(k){var b=document.createElement('button');b.setAttribute('aria-label','Foto '+(k+1));b.onclick=function(){go(k);rs()};db.appendChild(b);ds.push(b)})(k)}
+function go(x){i=(x+n)%n;t.style.transform='translateX(-'+i*100+'%)';ds.forEach(function(d,j){d.className=j===i?'on':''})}
+function st(){tm=setInterval(function(){go(i+1)},5000)}
+function rs(){clearInterval(tm);st()}
+r.querySelector('.kbs-a').onclick=function(){go(i-1);rs()};
+r.querySelector('.kbs-b').onclick=function(){go(i+1);rs()};
+var sx=null;
+r.addEventListener('pointerdown',function(e){sx=e.clientX});
+r.addEventListener('pointerup',function(e){if(sx===null)return;var d=e.clientX-sx;if(Math.abs(d)>50){go(d<0?i+1:i-1);rs()}sx=null});
+go(0);st();
+})();
+</script>
+
+  
   <span>KINGSBRIDGE ENGLISH ACADEMY ©2026</span><br>
   </div>
 
