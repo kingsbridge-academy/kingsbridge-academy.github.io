@@ -7,188 +7,303 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Propuesta de clases de inglés | Colegio Selva Alegre</title>
 <meta name="description" content="Propuesta de Kingsbridge English Academy para ofrecer clases de inglés a estudiantes interesados en el Colegio Selva Alegre, Leticia, Amazonas.">
-<meta name="theme-color" content="#14284b">
+<meta name="theme-color" content="#0a1a36">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_CO">
 <meta property="og:title" content="Propuesta de clases de inglés en el Colegio Selva Alegre">
 <meta property="og:description" content="Una propuesta de Kingsbridge English Academy para ofrecer clases de inglés a estudiantes interesados.">
 <style>
-:root{--navy:#14284b;--navy-d:#0d1b33;--ink:#1d2433;--muted:#566176;--bg:#f4f6fa;--line:#dde2ec;--verde:#a6ce39;--naranja:#f58220;--amarillo:#ffc20e;--azul:#6cc3e0}
+@font-face{font-family:Lora;src:url(fonts/lora.woff) format("woff");font-weight:400 700;font-style:normal;font-display:swap}
+@font-face{font-family:Lora;src:url(fonts/lora-italic.woff) format("woff");font-weight:400 700;font-style:italic;font-display:swap}
+@font-face{font-family:Inter;src:url(fonts/inter-400.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:Inter;src:url(fonts/inter-600.woff) format("woff");font-weight:600;font-style:normal;font-display:swap}
+
+:root{
+  --navy:#0f2547;--navy-d:#08142b;--navy-m:#17356a;
+  --brass:#c4a04d;--brass-l:#e8d08a;--brass-d:#8d6f2a;
+  --paper:#f3f1ea;--white:#fff;--ink:#17202f;--muted:#566075;--line:#d9d5c6;
+  --verde:#a6ce39;--amarillo:#ffc20e;--naranja:#f58220;--azul:#6cc3e0;
+  --serif:Lora,Georgia,"Times New Roman",serif;
+  --sans:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --foil:linear-gradient(100deg,#8d6f2a 0%,#e8d08a 28%,#c4a04d 50%,#f3e2a8 72%,#9c7c30 100%);
+}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:64px}
-body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.65}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{font-family:var(--sans);color:var(--ink);background:var(--white);line-height:1.7;font-size:16px}
 a{color:inherit}
-.skip{position:absolute;left:-999px;top:0;background:#fff;color:var(--navy);padding:10px 14px;z-index:100;font-weight:700}
+:focus-visible{outline:3px solid var(--amarillo);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:0;background:#fff;color:var(--navy);padding:10px 14px;z-index:100;font-weight:600}
 .skip:focus{left:8px;top:8px}
-.top{background:var(--navy-d);color:#c9d3e6;font-size:13px;text-align:center;padding:8px 14px}
-.brand{background:var(--navy)}
-.brand img{display:block;width:100%;max-width:1100px;margin:0 auto;height:auto}
-.stripe{height:5px;background:linear-gradient(90deg,var(--verde) 0 25%,var(--amarillo) 25% 50%,var(--naranja) 50% 75%,var(--azul) 75% 100%)}
-nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 8px rgba(13,27,51,.07)}
-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:0 4px;max-width:1000px;margin:0 auto;padding:2px 10px}
-nav a{display:block;padding:12px 12px;text-decoration:none;color:var(--navy);font-weight:600;font-size:14px;border-bottom:3px solid transparent}
-nav a:hover,nav a:focus-visible{border-bottom-color:var(--naranja);outline:none}
-.hero{color:#fff;background-color:#0d1b33;background-image:radial-gradient(circle at 8% 0%,rgba(245,130,32,.26),transparent 42%),radial-gradient(circle at 96% 20%,rgba(166,206,57,.24),transparent 42%),radial-gradient(circle at 50% 110%,rgba(108,195,224,.22),transparent 48%),linear-gradient(160deg,#0d1b33,#14284b);padding:64px 20px 80px;text-align:center}
-.partner{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px;margin:6px auto 26px}
-.partner img{display:block;height:120px;width:auto;max-width:100%;border-radius:12px;background:#121212;border:1px solid rgba(255,255,255,.18)}
-.eyebrow{display:inline-block;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--verde);font-weight:700;margin-bottom:14px}
-.hero h1{font-family:Georgia,"Times New Roman",serif;font-weight:normal;font-size:clamp(2rem,6.5vw,3.5rem);line-height:1.12;max-width:820px;margin:0 auto 16px}
-.hero p{max-width:640px;margin:0 auto 28px;color:#dfe6f3;font-size:clamp(1rem,2.6vw,1.15rem)}
-.btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
-.btn{display:inline-block;padding:14px 26px;border-radius:6px;font-weight:700;text-decoration:none;font-size:15px}
-.btn:hover{filter:brightness(1.08)}
-.btn:focus-visible{outline:3px solid var(--amarillo);outline-offset:2px}
-.btn-p{background:var(--naranja);color:var(--navy-d)}
-.btn-s{border:2px solid #fff;color:#fff}
-.btn-wa{background:#128C7E;color:#fff}
-main section{padding:58px 20px}
+.stripe{height:6px;background:linear-gradient(90deg,var(--verde) 0 25%,var(--amarillo) 25% 50%,var(--naranja) 50% 75%,var(--azul) 75% 100%)}
+
+/* ---------- Portada ---------- */
+.hero{position:relative;overflow:hidden;color:#fff;background:
+  radial-gradient(ellipse 70% 80% at 78% 45%,rgba(60,110,200,.38),transparent 62%),
+  radial-gradient(ellipse 50% 60% at 5% 0%,rgba(196,160,77,.16),transparent 60%),
+  linear-gradient(165deg,var(--navy-d),var(--navy) 70%,#0c1e3d);
+  padding:34px 22px 70px}
+.hero::before{content:"";position:absolute;inset:0;opacity:.07;pointer-events:none;
+  background-image:repeating-linear-gradient(45deg,#fff 0 1px,transparent 1px 22px),repeating-linear-gradient(-45deg,#fff 0 1px,transparent 1px 22px)}
+.bar{position:relative;max-width:1080px;margin:0 auto 38px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.bar img{display:block;height:52px;width:auto}
+.bar span{font-size:13px;color:#b9c6df}
+.hero-in{position:relative;max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,5.6vw,3.7rem);line-height:1.1;letter-spacing:-.01em}
+.hero h1 em{display:block;font-weight:400;font-style:italic;font-size:.62em;margin-top:12px;background:var(--foil);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{margin:22px 0 30px;max-width:30em;color:#d3dcee;font-size:clamp(1rem,2.4vw,1.12rem)}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:14px 26px;border-radius:4px;font-weight:600;text-decoration:none;font-size:15px;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-p{background:var(--foil);color:var(--navy-d);box-shadow:0 6px 18px rgba(196,160,77,.35)}
+.btn-s{border:1.5px solid rgba(255,255,255,.7);color:#fff}
+.btn-wa{background:#128C7E;color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+
+/* Libro 3D */
+.stage{perspective:1400px;display:flex;justify-content:center;padding:20px 0 30px}
+.book{--w:270px;--h:370px;--d:46px;position:relative;width:var(--w);height:var(--h);transform-style:preserve-3d;
+  transform:rotateX(8deg) rotateY(-28deg) rotateZ(0deg);animation:open 1.8s cubic-bezier(.2,.8,.2,1) both}
+@keyframes open{from{transform:rotateX(14deg) rotateY(-78deg) translateX(-30px)}to{transform:rotateX(8deg) rotateY(-28deg)}}
+.book>*{position:absolute}
+.cover{inset:0;transform:translateZ(calc(var(--d)/2));border-radius:3px 8px 8px 3px;
+  background:linear-gradient(135deg,rgba(255,255,255,.14),transparent 38%),linear-gradient(160deg,#1c3f7a,#0f2547 55%,#0a1a36);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
+  display:flex;flex-direction:column;align-items:center;padding:30px 24px;text-align:center}
+.cover::before{content:"";position:absolute;inset:12px;border:1.5px solid var(--brass);border-radius:2px}
+.cover::after{content:"";position:absolute;inset:18px;border:1px solid rgba(196,160,77,.5)}
+.cover .k{position:relative;z-index:1;font-family:var(--serif);font-size:11px;letter-spacing:.22em;color:var(--brass-l);margin-top:8px}
+.cover .t{position:relative;z-index:1;font-family:var(--serif);font-weight:600;font-size:26px;line-height:1.15;margin-top:26px;background:var(--foil);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cover .t small{display:block;font-weight:400;font-style:italic;font-size:15px;margin-top:8px}
+.cover .plate{position:relative;z-index:1;margin-top:auto;margin-bottom:6px;border:1.5px solid var(--brass);border-radius:2px;padding:2px;background:#121212;box-shadow:0 2px 8px rgba(0,0,0,.5)}
+.cover .plate img{display:block;width:170px;height:auto}
+.cover .yr{position:relative;z-index:1;font-family:var(--serif);font-style:italic;font-size:12px;color:var(--brass-l);margin-top:8px}
+.spine{width:var(--d);height:100%;left:0;top:0;transform:translateX(calc(var(--d)/-2)) rotateY(-90deg);background:linear-gradient(90deg,#071127,#16377a 45%,#0a1a36)}
+.spine::before{content:"";position:absolute;left:0;right:0;top:36px;height:2px;background:var(--brass);box-shadow:0 8px 0 var(--brass)}
+.spine::after{content:"";position:absolute;left:0;right:0;bottom:36px;height:2px;background:var(--brass);box-shadow:0 -8px 0 var(--brass)}
+.pages{width:var(--d);height:calc(100% - 10px);top:5px;left:calc(var(--w) - var(--d)/2);transform:rotateY(90deg);background:repeating-linear-gradient(90deg,#fbfaf5 0 2px,#ddd8c6 2px 3px)}
+.back{inset:0;transform:translateZ(calc(var(--d)/-2));background:#0a1a36;border-radius:3px 8px 8px 3px}
+.top{width:calc(var(--w) - 6px);height:var(--d);left:0;top:calc(var(--d)/-2);transform:rotateX(90deg);background:repeating-linear-gradient(0deg,#fbfaf5 0 2px,#ddd8c6 2px 3px)}
+.ribbons{display:flex;gap:5px;left:44px;top:calc(var(--h) - 6px);height:54px;transform:translateZ(calc(var(--d)/2 - 3px))}
+.ribbons i{display:block;width:12px;height:100%;clip-path:polygon(0 0,100% 0,100% 100%,50% 84%,0 100%)}
+.ribbons i:nth-child(1){background:var(--verde)}.ribbons i:nth-child(2){background:var(--amarillo)}.ribbons i:nth-child(3){background:var(--naranja)}.ribbons i:nth-child(4){background:var(--azul)}
+.shadow{position:absolute;left:50%;bottom:6px;width:300px;height:36px;margin-left:-120px;background:radial-gradient(ellipse,rgba(0,0,0,.55),transparent 70%);filter:blur(6px);transform:rotate(-4deg)}
+.stage-wrap{position:relative}
+
+/* ---------- Contenido ---------- */
+main section{padding:70px 22px}
 .in{max-width:1000px;margin:0 auto}
-h2{font-family:Georgia,"Times New Roman",serif;font-weight:normal;color:var(--navy);font-size:clamp(1.6rem,4.5vw,2.15rem);line-height:1.2}
-.rule{width:56px;height:4px;background:var(--verde);border-radius:2px;margin:12px 0 24px}
-.lead{color:var(--muted);font-size:1.05rem;max-width:620px}
-.alt{background:var(--bg)}
-.two{display:grid;grid-template-columns:1.4fr 1fr;gap:34px;align-items:start}
-@media(max-width:780px){.two{grid-template-columns:1fr;gap:26px}}
-.panel{background:#fff;border:1px solid var(--line);border-top:5px solid var(--navy);border-radius:8px;padding:20px 22px;box-shadow:0 4px 14px rgba(13,27,51,.06)}
-.panel h3{font-family:Georgia,"Times New Roman",serif;font-weight:normal;color:var(--navy);font-size:1.2rem;margin-bottom:6px}
-.panel div{padding:10px 0;border-bottom:1px solid var(--line)}
-.panel div:last-child{border-bottom:0}
-.panel dt{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);font-weight:700}
-.panel dd{font-size:15px;color:var(--ink)}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:8px}
-.card{background:#fff;border:1px solid var(--line);border-top:5px solid var(--verde);border-radius:8px;padding:24px 20px;box-shadow:0 4px 14px rgba(13,27,51,.05)}
-.card:nth-child(2){border-top-color:var(--naranja)}
-.card:nth-child(3){border-top-color:var(--azul)}
-.ic{width:46px;height:46px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
-.ic svg{width:24px;height:24px;stroke:var(--navy);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.card h3{font-family:Georgia,"Times New Roman",serif;font-weight:normal;color:var(--navy);font-size:1.2rem;margin-bottom:6px}
-.card p{color:var(--muted);font-size:15px}
-.check{list-style:none;display:grid;gap:12px;margin-top:8px}
-.check li{position:relative;padding:14px 16px 14px 52px;background:#fff;border:1px solid var(--line);border-radius:8px;font-size:15px}
-.alt .check li{background:#fff}
-.check li::before{content:"✓";position:absolute;left:16px;top:14px;width:24px;height:24px;border-radius:50%;background:var(--verde);color:var(--navy-d);font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center}
-.notice{background:#fff8e6;border-left:5px solid var(--amarillo);padding:16px 18px;border-radius:0 8px 8px 0;font-size:14px;color:#4a4330;max-width:760px}
-.contact{background:var(--navy);color:#fff;text-align:center}
-.contact h2{color:#fff}
-.contact .rule{margin:12px auto 22px}
-.contact p{color:#d5dded;max-width:520px;margin:0 auto 26px}
-.sig{margin-top:30px;font-family:Georgia,"Times New Roman",serif;font-size:1.2rem}
-.sig small{display:block;font-family:system-ui,sans-serif;font-size:13px;color:#aeb9cf;margin-top:2px}
-footer{background:var(--navy-d);color:#aeb9cf;font-size:13px;text-align:center;padding:26px 20px;line-height:1.7}
+.chap{display:grid;grid-template-columns:120px 1fr;gap:10px 34px}
+.num{font-family:var(--serif);font-weight:600;font-size:4.4rem;line-height:1;color:transparent;background:var(--foil);-webkit-background-clip:text;background-clip:text;opacity:.9;user-select:none}
+h2{font-family:var(--serif);font-weight:600;color:var(--navy);font-size:clamp(1.7rem,4.6vw,2.3rem);line-height:1.2;margin-bottom:6px}
+h2+.kick{font-family:var(--serif);font-style:italic;color:var(--muted);margin-bottom:24px}
+.chap p{max-width:38em}
+.chap p+p{margin-top:14px}
+.paper{background:var(--paper)}
+.navy{background:linear-gradient(165deg,var(--navy-d),var(--navy));color:#fff}
+.navy h2{color:#fff}
+.navy h2+.kick{color:#b9c6df}
+@media(max-width:760px){.chap{grid-template-columns:1fr}.num{font-size:3rem}.hero-in{grid-template-columns:1fr}}
+
+/* Contenidos con puntos guía */
+.toc{background:var(--white);padding:46px 22px;border-bottom:1px solid var(--line)}
+.toc h2{font-size:1.5rem;margin-bottom:18px}
+.toc ol{list-style:none;max-width:560px}
+.toc a{display:flex;align-items:baseline;gap:8px;text-decoration:none;padding:6px 0;font-family:var(--serif);font-size:1.08rem}
+.toc a::after{content:"";order:1;flex:1;border-bottom:2px dotted var(--brass)}
+.toc a span:last-child{order:2;font-family:var(--serif);color:var(--muted)}
+.toc a:hover span:first-child{color:var(--navy-m);text-decoration:underline}
+
+/* Hoja de datos */
+.sheet{margin-top:6px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--navy);padding:6px 24px;box-shadow:0 14px 30px -14px rgba(8,20,43,.35)}
+.sheet dl>div{display:grid;grid-template-columns:9em 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.sheet dl>div:last-child{border-bottom:0}
+.sheet dt{font-family:var(--serif);font-style:italic;color:var(--muted)}
+.sheet dd{font-weight:600;color:var(--navy)}
+@media(max-width:520px){.sheet dl>div{grid-template-columns:1fr;gap:0}}
+
+/* Principios */
+.pr{display:grid;gap:0;margin-top:10px}
+.pr article{display:grid;grid-template-columns:8px 1fr;gap:22px;padding:22px 0;border-bottom:1px solid var(--line)}
+.pr article:last-child{border-bottom:0}
+.pr article::before{content:"";border-radius:4px;background:var(--verde)}
+.pr article:nth-child(2)::before{background:var(--amarillo)}
+.pr article:nth-child(3)::before{background:var(--azul)}
+.pr h3{font-family:var(--serif);font-weight:600;font-size:1.3rem;color:var(--navy)}
+.pr p{color:var(--muted)}
+
+/* Listas */
+.ledger{list-style:none;max-width:40em;display:grid;gap:0}
+.ledger li{position:relative;padding:15px 0 15px 38px;border-bottom:1px solid rgba(196,160,77,.45)}
+.ledger li::before{content:"";position:absolute;left:6px;top:24px;width:10px;height:10px;transform:rotate(45deg);background:var(--brass)}
+.navy .ledger li{border-color:rgba(232,208,138,.3)}
+
+/* Línea de tiempo (secuencia real) */
+.line{list-style:none;position:relative;max-width:40em;counter-reset:s;margin-top:4px}
+.line::before{content:"";position:absolute;left:19px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--verde),var(--amarillo),var(--naranja),var(--azul))}
+.line li{position:relative;padding:0 0 26px 62px;counter-increment:s}
+.line li:last-child{padding-bottom:0}
+.line li::before{content:counter(s);position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:var(--navy);color:var(--brass-l);border:2px solid var(--brass);font-family:var(--serif);font-weight:600;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 5px var(--paper)}
+.line b{display:block;font-family:var(--serif);font-size:1.12rem;color:var(--navy)}
+.line span{color:var(--muted);font-size:15px}
+
+.notice{margin-top:30px;max-width:40em;background:#fff;border:1px solid var(--line);border-left:5px solid var(--amarillo);padding:16px 20px;font-size:14.5px;color:#3d4252}
+
+.contact{text-align:center}
+.contact .in{max-width:640px}
+.contact p{color:#d3dcee;margin:0 auto 28px}
+.seal{width:64px;height:64px;margin:0 auto 18px;border-radius:50%;border:2px solid var(--brass);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;font-size:1.6rem;color:var(--brass-l);background:radial-gradient(circle,rgba(196,160,77,.22),transparent 70%)}
+.sig{margin-top:34px;font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--brass-l)}
+.sig small{display:block;font-family:var(--sans);font-style:normal;font-size:13px;color:#b9c6df;margin-top:2px}
+footer{background:var(--navy-d);color:#9fb0cf;font-size:13px;text-align:center;padding:28px 20px;line-height:1.8}
 footer b{color:#fff}
+
+@media(prefers-reduced-motion:reduce){.book{animation:none}html{scroll-behavior:auto}.btn{transition:none}}
+@media(max-width:760px){.book{--w:236px;--h:324px;--d:40px}.cover .plate img{width:140px}.cover .t{font-size:22px}}
 </style>
 </head>
 <body>
 
 <a class="skip" href="#propuesta">Saltar al contenido</a>
 
-<div class="top">Propuesta preliminar &middot; Leticia, Amazonas, Colombia</div>
-
-<header class="brand">
-  <img src="logo.png" alt="Kingsbridge English Academy">
+<header class="hero">
+  <div class="bar">
+    <img src="logo.png" alt="Kingsbridge English Academy">
+    <span>Propuesta preliminar · Leticia, Amazonas, Colombia</span>
+  </div>
+  <div class="hero-in">
+    <div>
+      <h1>Clases de inglés en el Colegio Selva Alegre<em>Una propuesta de Kingsbridge English Academy</em></h1>
+      <p class="sub">Una propuesta para ofrecer los primeros cursos en un espacio donde los estudiantes puedan concentrarse y aprender.</p>
+      <div class="btns">
+        <a class="btn btn-p" href="#propuesta">Leer la propuesta</a>
+        <a class="btn btn-s" href="#contacto">Conversemos</a>
+      </div>
+    </div>
+    <div class="stage-wrap" aria-hidden="true">
+      <div class="stage">
+        <div class="book">
+          <div class="back"></div>
+          <div class="spine"></div>
+          <div class="pages"></div>
+          <div class="top"></div>
+          <div class="cover">
+            <div class="k">PROPUESTA</div>
+            <div class="t">Clases de inglés<small>para estudiantes interesados</small></div>
+            <div class="plate"><img src="selva-alegre-logo.jpg" alt="" width="170" height="66"></div>
+            <div class="yr">Leticia, Amazonas</div>
+          </div>
+          <div class="ribbons"><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+      <div class="shadow"></div>
+    </div>
+  </div>
 </header>
 <div class="stripe"></div>
 
-<nav aria-label="Secciones de la página">
-  <ul>
-    <li><a href="#propuesta">La propuesta</a></li>
-    <li><a href="#clases">Las clases</a></li>
-    <li><a href="#necesidades">Lo que se necesita</a></li>
-    <li><a href="#conversar">Para conversar</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-  </ul>
+<nav class="toc" aria-label="Contenido de la propuesta">
+  <div class="in">
+    <h2>Contenido</h2>
+    <ol>
+      <li><a href="#propuesta"><span>La propuesta</span><span>I</span></a></li>
+      <li><a href="#clases"><span>Cómo serían las clases</span><span>II</span></a></li>
+      <li><a href="#necesidades"><span>Lo que se necesitaría</span><span>III</span></a></li>
+      <li><a href="#ruta"><span>Ruta propuesta</span><span>IV</span></a></li>
+      <li><a href="#conversar"><span>A conversar con el colegio</span><span>V</span></a></li>
+      <li><a href="#contacto"><span>Contacto</span><span>VI</span></a></li>
+    </ol>
+  </div>
 </nav>
 
-<section class="hero" aria-labelledby="titulo">
-  <span class="eyebrow">Kingsbridge English Academy &middot; Propuesta para</span>
-  <div class="partner">
-    <img src="selva-alegre-logo.jpg" alt="Colegio Selva Alegre" width="310" height="120">
-  </div>
-  <h1 id="titulo">Clases de inglés en el Colegio Selva Alegre</h1>
-  <p>Una propuesta para ofrecer los primeros cursos en un espacio donde los estudiantes puedan concentrarse y aprender.</p>
-  <div class="btns">
-    <a class="btn btn-p" href="#propuesta">Ver la propuesta</a>
-    <a class="btn btn-s" href="#contacto">Conversemos</a>
-  </div>
-</section>
-
 <main>
-  <section id="propuesta" aria-labelledby="h-prop">
-    <div class="in two">
+  <section id="propuesta" aria-labelledby="h1">
+    <div class="in chap">
+      <div class="num" aria-hidden="true">I</div>
       <div>
-        <h2 id="h-prop">La propuesta</h2>
-        <div class="rule"></div>
+        <h2 id="h1">La propuesta</h2>
+        <p class="kick">Un lugar adecuado para aprender</p>
         <p>Hay estudiantes que quieren aprender inglés de verdad y cursarlo con su profesor. Esta propuesta busca reunirlos en un lugar adecuado: el Colegio Selva Alegre, que el profesor conoce porque fue docente de inglés de bachillerato en esta institución.</p>
-        <p style="margin-top:14px">La idea es empezar con clases particulares y de refuerzo, con conversación desde la primera clase y atención cercana a cada estudiante.</p>
-      </div>
-      <aside class="panel" aria-label="Datos de la propuesta">
-        <h3>Datos de la propuesta</h3>
-        <dl>
-          <div><dt>Lugar</dt><dd>Colegio Selva Alegre, Leticia, Amazonas</dd></div>
-          <div><dt>Tipo de clases</dt><dd>Particulares y de refuerzo de inglés</dd></div>
-          <div><dt>Dirigidas a</dt><dd>Estudiantes interesados</dd></div>
-          <div><dt>Estado</dt><dd>Propuesta preliminar</dd></div>
-          <div><dt>Contacto</dt><dd>WhatsApp @kingsbridge.academy</dd></div>
-        </dl>
-      </aside>
-    </div>
-  </section>
-
-  <section id="clases" class="alt" aria-labelledby="h-clases">
-    <div class="in">
-      <h2 id="h-clases">Cómo serían las clases</h2>
-      <div class="rule"></div>
-      <div class="cards">
-        <article class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H5l-2 2V12a8 8 0 0 1 8-8h2a8 8 0 0 1 8 8z"/></svg></div>
-          <h3>Conversación</h3>
-          <p>Practicar el idioma hablando desde la primera clase.</p>
-        </article>
-        <article class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg></div>
-          <h3>Grupos pequeños</h3>
-          <p>Pocos estudiantes por grupo, para que cada voz se escuche.</p>
-        </article>
-        <article class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg></div>
-          <h3>Cercanía</h3>
-          <p>Atención cercana a cada estudiante y a su familia.</p>
-        </article>
+        <p>La idea es empezar con clases particulares y de refuerzo, con conversación desde la primera clase y atención cercana a cada estudiante.</p>
+        <aside class="sheet" aria-label="Datos de la propuesta" style="margin-top:30px">
+          <dl>
+            <div><dt>Lugar</dt><dd>Colegio Selva Alegre, Leticia, Amazonas</dd></div>
+            <div><dt>Tipo de clases</dt><dd>Particulares y de refuerzo de inglés</dd></div>
+            <div><dt>Dirigidas a</dt><dd>Estudiantes interesados</dd></div>
+            <div><dt>Estado</dt><dd>Propuesta preliminar</dd></div>
+            <div><dt>Contacto</dt><dd>WhatsApp @kingsbridge.academy</dd></div>
+          </dl>
+        </aside>
       </div>
     </div>
   </section>
 
-  <section id="necesidades" aria-labelledby="h-nec">
-    <div class="in">
-      <h2 id="h-nec">Lo que se necesitaría</h2>
-      <div class="rule"></div>
-      <ul class="check">
-        <li>Un salón tranquilo, que permita la concentración.</li>
-        <li>Muebles adecuados para trabajar con comodidad.</li>
-        <li>Horarios que no afecten las actividades del colegio, por acordar.</li>
-      </ul>
+  <section id="clases" class="paper" aria-labelledby="h2">
+    <div class="in chap">
+      <div class="num" aria-hidden="true">II</div>
+      <div>
+        <h2 id="h2">Cómo serían las clases</h2>
+        <p class="kick">Tres ideas que guían el trabajo en el aula</p>
+        <div class="pr">
+          <article><div><h3>Conversación</h3><p>Practicar el idioma hablando desde la primera clase.</p></div></article>
+          <article><div><h3>Grupos pequeños</h3><p>Pocos estudiantes por grupo, para que cada voz se escuche.</p></div></article>
+          <article><div><h3>Cercanía</h3><p>Atención cercana a cada estudiante y a su familia.</p></div></article>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="conversar" class="alt" aria-labelledby="h-conv">
-    <div class="in">
-      <h2 id="h-conv">A conversar con el colegio</h2>
-      <div class="rule"></div>
-      <ul class="check">
-        <li>Espacios y horarios disponibles.</li>
-        <li>Responsabilidades de cada parte durante las clases, en especial con los menores de edad.</li>
-        <li>Cómo se puede mencionar al colegio en la información de las clases.</li>
-        <li>Cualquier otra condición que el colegio considere importante.</li>
-      </ul>
-      <p class="notice" style="margin-top:26px"><b>Importante:</b> esta es una propuesta preliminar, sujeta a lo que acuerden las partes y a los permisos y requisitos que correspondan.</p>
+  <section id="necesidades" aria-labelledby="h3">
+    <div class="in chap">
+      <div class="num" aria-hidden="true">III</div>
+      <div>
+        <h2 id="h3">Lo que se necesitaría</h2>
+        <p class="kick">Para que la clase se pueda dar como debe ser</p>
+        <ul class="ledger">
+          <li>Un salón tranquilo, que permita la concentración.</li>
+          <li>Muebles adecuados para trabajar con comodidad.</li>
+          <li>Horarios que no afecten las actividades del colegio, por acordar.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section id="contacto" class="contact" aria-labelledby="h-cont">
+  <section id="ruta" class="paper" aria-labelledby="h4">
+    <div class="in chap">
+      <div class="num" aria-hidden="true">IV</div>
+      <div>
+        <h2 id="h4">Ruta propuesta</h2>
+        <p class="kick">Un orden posible, sujeto a lo que se acuerde</p>
+        <ol class="line">
+          <li><b>Conversar con el colegio</b><span>Presentar la propuesta y escuchar la opinión de la rectoría.</span></li>
+          <li><b>Acordar las condiciones</b><span>Espacio, horarios y responsabilidades de cada parte.</span></li>
+          <li><b>Invitar a los estudiantes interesados</b><span>Pre-inscripción y comunicación con las familias.</span></li>
+          <li><b>Iniciar el primer grupo</b><span>Empezar con un grupo pequeño y ajustar según la experiencia.</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="conversar" aria-labelledby="h5">
+    <div class="in chap">
+      <div class="num" aria-hidden="true">V</div>
+      <div>
+        <h2 id="h5">A conversar con el colegio</h2>
+        <p class="kick">Puntos abiertos, para decidir juntos</p>
+        <ul class="ledger">
+          <li>Espacios y horarios disponibles.</li>
+          <li>Responsabilidades de cada parte durante las clases, en especial con los menores de edad.</li>
+          <li>Cómo se puede mencionar al colegio en la información de las clases.</li>
+          <li>Cualquier otra condición que el colegio considere importante.</li>
+        </ul>
+        <p class="notice"><b>Importante:</b> esta es una propuesta preliminar, sujeta a lo que acuerden las partes y a los permisos y requisitos que correspondan.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="navy contact" aria-labelledby="h6">
     <div class="in">
-      <h2 id="h-cont">Conversemos</h2>
-      <div class="rule"></div>
-      <p>Con gusto atiendo cualquier pregunta o sugerencia sobre esta propuesta.</p>
+      <div class="seal" aria-hidden="true">K</div>
+      <h2 id="h6">Conversemos</h2>
+      <p class="kick" style="font-family:var(--serif);font-style:italic;color:#b9c6df;margin-bottom:18px">Con gusto atiendo cualquier pregunta o sugerencia.</p>
       <a class="btn btn-wa" href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener">Escribir por WhatsApp</a>
       <p class="sig">Eduardo J. López<small>Profesor de inglés y fundador de Kingsbridge English Academy</small></p>
     </div>
@@ -197,8 +312,8 @@ footer b{color:#fff}
 
 <div class="stripe"></div>
 <footer>
-  <b>Kingsbridge English Academy</b> &middot; Leticia, Amazonas, Colombia<br>
-  Fundada y registrada ante la Cámara de Comercio (No. 26395) &middot; En etapa de lanzamiento<br>
+  <b>Kingsbridge English Academy</b> · Leticia, Amazonas, Colombia<br>
+  Fundada y registrada ante la Cámara de Comercio (No. 26395) · En etapa de lanzamiento<br>
   Esta página es una propuesta de Kingsbridge English Academy y no es un sitio oficial del Colegio Selva Alegre.<br>
   Los logotipos del Colegio Selva Alegre pertenecen al colegio y se muestran solo para presentar esta propuesta.<br>
   &copy;2026 Kingsbridge English Academy
