@@ -152,10 +152,15 @@ h2+.kick{font-family:var(--serif);font-style:italic;color:var(--muted);margin-bo
 .posters figure{margin:0}
 .posters img{display:block;width:100%;height:auto}
 .sign{position:relative;overflow:hidden;container-type:inline-size;box-shadow:0 22px 40px -16px rgba(0,0,0,.65)}
-.sign img{transform-origin:72% 55%;animation:kb 20s ease-in-out infinite alternate}
+.zoom{position:relative;transform-origin:72% 55%;animation:kb 20s ease-in-out infinite alternate}
 @keyframes kb{to{transform:scale(1.05)}}
 .sign>span{position:absolute;pointer-events:none}
 .glow{left:60%;top:22%;width:38%;height:64%;background:radial-gradient(ellipse at center,rgba(245,130,32,.6),transparent 66%);opacity:0;animation:pulse 3.6s ease-in-out infinite}
+.sign img.paw{position:absolute;left:62.29%;top:25.71%;width:31.79%;height:57.57%;transform-origin:50% 62%;animation:pounce 3.6s ease-in-out infinite;filter:drop-shadow(0 6px 8px rgba(160,70,0,.35))}
+@keyframes pounce{0%,100%{transform:none}38%{transform:scale(1.07) rotate(-2.5deg)}50%{transform:scale(.98) rotate(.5deg)}62%{transform:scale(1.03) rotate(1deg)}}
+.ring{left:78.2%;top:54.5%;width:26cqw;height:26cqw;margin:-13cqw 0 0 -13cqw;border:.5cqw solid rgba(245,130,32,.7);border-radius:50%;opacity:0;animation:ring 3.6s ease-out infinite;animation-delay:1.3s}
+.ring.r2{animation-delay:1.9s}
+@keyframes ring{0%{opacity:.7;transform:scale(.35)}70%,100%{opacity:0;transform:scale(1.25)}}
 @keyframes pulse{0%,100%{opacity:0;transform:scale(.92)}50%{opacity:.45;transform:scale(1.04)}}
 .shine{inset:0;background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.6) 50%,transparent 58%);transform:translateX(-130%);animation:sweep 8s ease-in-out infinite}
 @keyframes sweep{0%{transform:translateX(-130%)}24%,100%{transform:translateX(130%)}}
@@ -167,7 +172,7 @@ h2+.kick{font-family:var(--serif);font-style:italic;color:var(--muted);margin-bo
 .ticker b{position:absolute;right:0;top:0;bottom:0;display:flex;align-items:center;font-family:var(--sans);font-weight:600;font-size:2.2cqw;letter-spacing:.05em;color:var(--navy-d);opacity:0;animation:tick 16s ease-in-out infinite}
 .ticker b:nth-child(2){animation-delay:4s}.ticker b:nth-child(3){animation-delay:8s}.ticker b:nth-child(4){animation-delay:12s}
 @keyframes tick{0%{opacity:0;transform:translateY(40%)}4%,22%{opacity:1;transform:none}26%,100%{opacity:0;transform:translateY(-40%)}}
-@media(prefers-reduced-motion:reduce){.sign img,.glow,.shine,.words i,.ticker b{animation:none}.words,.glow,.shine{display:none}.ticker b:last-child{opacity:1}}
+@media(prefers-reduced-motion:reduce){.zoom,.sign img,.glow,.ring,.shine,.words i,.ticker b{animation:none}.ring{display:none}.words,.glow,.shine{display:none}.ticker b:last-child{opacity:1}}
 .posters figcaption{margin-top:12px;font-family:var(--serif);font-style:italic;color:#b9c6df;font-size:.95rem}
 .navy .chap p{max-width:38em}
 .notice{margin-top:30px;max-width:40em;background:#fff;border:1px solid var(--line);border-left:5px solid var(--amarillo);padding:16px 20px;font-size:14.5px;color:#3d4252}
@@ -304,7 +309,9 @@ footer b{color:#fff}
         <div class="posters">
           <figure>
             <div class="sign">
-              <img src="anuncio-claro.jpg" alt="Letrero de anuncio sobre fondo claro con las banderas del Reino Unido y Estados Unidos y una huella naranja: Colegio Selva Alegre, English Program for New Students, New Enrollment, Leticia, Colombia" width="1400" height="700" loading="lazy">
+              <div class="zoom"><img src="anuncio-claro.jpg" alt="Letrero de anuncio sobre fondo claro con las banderas del Reino Unido y Estados Unidos y una huella naranja: Colegio Selva Alegre, English Program for New Students, New Enrollment, Leticia, Colombia" width="1400" height="700" loading="lazy">
+              <img class="paw" src="paw-tigre.png" alt="" aria-hidden="true" width="607" height="403"></div>
+              <span class="ring" aria-hidden="true"></span><span class="ring r2" aria-hidden="true"></span>
               <span class="glow" aria-hidden="true"></span>
               <span class="shine" aria-hidden="true"></span>
               <span class="words" aria-hidden="true"><i>Hello</i><i>Speak</i><i>Learn</i><i>Dream</i><i>Welcome</i></span>
