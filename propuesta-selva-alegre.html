@@ -12,6 +12,8 @@
 <meta property="og:locale" content="es_CO">
 <meta property="og:title" content="Propuesta de clases de inglés en el Colegio Selva Alegre">
 <meta property="og:description" content="Una propuesta de Kingsbridge English Academy para ofrecer clases de inglés a estudiantes interesados.">
+<meta property="og:image" content="https://kingsbridge-academy.github.io/anuncio-oscuro.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <style>
 @font-face{font-family:Lora;src:url(fonts/lora.woff) format("woff");font-weight:400 700;font-style:normal;font-display:swap}
 @font-face{font-family:Lora;src:url(fonts/lora-italic.woff) format("woff");font-weight:400 700;font-style:italic;font-display:swap}
@@ -145,6 +147,14 @@ h2+.kick{font-family:var(--serif);font-style:italic;color:var(--muted);margin-bo
 .line b{display:block;font-family:var(--serif);font-size:1.12rem;color:var(--navy)}
 .line span{color:var(--muted);font-size:15px}
 
+.posters{display:grid;gap:34px;margin-top:30px}
+.posters figure{margin:0}
+.posters a{display:block;padding:8px;background:linear-gradient(135deg,#8d6f2a,#e8d08a 30%,#c4a04d 55%,#f3e2a8 80%,#9c7c30);border-radius:3px;box-shadow:0 22px 40px -16px rgba(0,0,0,.65);transition:transform .25s}
+.posters a:hover{transform:perspective(900px) rotateX(2deg) translateY(-4px)}
+.posters img{display:block;width:100%;height:auto}
+.posters figcaption{margin-top:12px;font-family:var(--serif);font-style:italic;color:#b9c6df;font-size:.95rem}
+.navy .chap p{max-width:38em}
+@media(prefers-reduced-motion:reduce){.posters a{transition:none}}
 .notice{margin-top:30px;max-width:40em;background:#fff;border:1px solid var(--line);border-left:5px solid var(--amarillo);padding:16px 20px;font-size:14.5px;color:#3d4252}
 
 .contact{text-align:center}
@@ -207,9 +217,10 @@ footer b{color:#fff}
       <li><a href="#propuesta"><span>La propuesta</span><span>I</span></a></li>
       <li><a href="#clases"><span>Cómo serían las clases</span><span>II</span></a></li>
       <li><a href="#necesidades"><span>Lo que se necesitaría</span><span>III</span></a></li>
-      <li><a href="#ruta"><span>Ruta propuesta</span><span>IV</span></a></li>
-      <li><a href="#conversar"><span>A conversar con el colegio</span><span>V</span></a></li>
-      <li><a href="#contacto"><span>Contacto</span><span>VI</span></a></li>
+      <li><a href="#anuncios"><span>Cómo se anunciaría</span><span>IV</span></a></li>
+      <li><a href="#ruta"><span>Ruta propuesta</span><span>V</span></a></li>
+      <li><a href="#conversar"><span>A conversar con el colegio</span><span>VI</span></a></li>
+      <li><a href="#contacto"><span>Contacto</span><span>VII</span></a></li>
     </ol>
   </div>
 </nav>
@@ -266,9 +277,24 @@ footer b{color:#fff}
     </div>
   </section>
 
-  <section id="ruta" class="paper" aria-labelledby="h4">
+  <section id="anuncios" class="navy" aria-labelledby="h-an">
     <div class="in chap">
       <div class="num" aria-hidden="true">IV</div>
+      <div>
+        <h2 id="h-an">Cómo se anunciaría</h2>
+        <p class="kick">Dos borradores de anuncio para invitar a nuevos estudiantes</p>
+        <p style="color:#d3dcee">Estos son ejemplos de cómo podría presentarse el programa de inglés a las familias. Son solo borradores de diseño: el colegio decide si los usa, los cambia o prefiere otros.</p>
+        <div class="posters">
+          <figure><a href="anuncio-oscuro.jpg" target="_blank" rel="noopener"><img src="anuncio-oscuro.jpg" alt="Borrador de anuncio sobre fondo azul oscuro: Colegio Selva Alegre, English Program, British and American English, para nuevos estudiantes, inscripciones abiertas, Leticia, Colombia" width="1400" height="700" loading="lazy"></a><figcaption>Borrador A · fondo oscuro</figcaption></figure>
+          <figure><a href="anuncio-claro.jpg" target="_blank" rel="noopener"><img src="anuncio-claro.jpg" alt="Borrador de anuncio sobre fondo claro con las banderas del Reino Unido y Estados Unidos y una huella naranja: English Program for New Students, New Enrollment, Leticia, Colombia" width="1400" height="700" loading="lazy"></a><figcaption>Borrador B · fondo claro</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ruta" class="paper" aria-labelledby="h4">
+    <div class="in chap">
+      <div class="num" aria-hidden="true">V</div>
       <div>
         <h2 id="h4">Ruta propuesta</h2>
         <p class="kick">Un orden posible, sujeto a lo que se acuerde</p>
@@ -284,7 +310,7 @@ footer b{color:#fff}
 
   <section id="conversar" aria-labelledby="h5">
     <div class="in chap">
-      <div class="num" aria-hidden="true">V</div>
+      <div class="num" aria-hidden="true">VI</div>
       <div>
         <h2 id="h5">A conversar con el colegio</h2>
         <p class="kick">Puntos abiertos, para decidir juntos</p>
