@@ -47,8 +47,11 @@ a{color:inherit}
 .hero::before{content:"";position:absolute;inset:0;opacity:.07;pointer-events:none;
   background-image:repeating-linear-gradient(45deg,#fff 0 1px,transparent 1px 22px),repeating-linear-gradient(-45deg,#fff 0 1px,transparent 1px 22px)}
 .bar{position:relative;max-width:1080px;margin:0 auto 38px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
-.bar img{display:block;height:100px;width:auto;max-width:100%}
-@media(max-width:760px){.bar img{height:auto;width:min(330px,100%)}}
+.duo{display:flex;align-items:center;gap:22px}
+.duo img{display:block;height:100px;width:auto}
+.duo .school{border:1px solid rgba(232,208,138,.45);box-shadow:0 8px 20px -8px rgba(0,0,0,.6)}
+.duo i{width:1px;align-self:stretch;margin:6px 0;background:linear-gradient(transparent,var(--brass),transparent)}
+@media(max-width:760px){.duo{gap:12px;width:100%}.duo img{height:auto;max-height:54px;min-width:0;flex:0 1 auto}.duo>img:first-child{width:57%}.duo .school{width:calc(43% - 14px)}}
 .bar span{font-size:13px;color:#b9c6df}
 .hero-in{position:relative;max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
 .hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.85rem,5.2vw,3.15rem);line-height:1.1;letter-spacing:-.01em}
@@ -107,8 +110,11 @@ h2+.kick{font-family:var(--serif);font-style:italic;color:var(--muted);margin-bo
 .salute{max-width:38em;margin:0 0 26px;padding:4px 0 4px 20px;border-left:3px solid var(--brass);font-family:var(--serif);font-size:1.08rem;line-height:1.65;color:var(--navy)}
 .salute b{display:block;font-weight:600;font-size:1.18rem}
 .salute span{display:block;font-style:italic;color:var(--muted);margin-bottom:10px}
-.chap .salute p{max-width:none;margin-top:6px}
+.chap .salute p+p{text-align:left}
+.chap .salute p{max-width:none;margin-top:6px;text-align:justify;hyphens:auto;-webkit-hyphens:auto;line-height:1.8}
 .chap p+p{margin-top:14px}
+.chap .prose{font-family:var(--serif);font-size:1.1rem;line-height:1.85;color:#1d2840;text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+.chap .salute+.prose::first-letter{float:left;font-family:var(--serif);font-weight:600;font-size:3.6em;line-height:.82;padding:7px 10px 0 0;color:var(--navy);background:var(--foil);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .paper{background:var(--paper)}
 .navy{background:linear-gradient(165deg,var(--navy-d),var(--navy));color:#fff}
 .navy h2{color:#fff}
@@ -217,7 +223,11 @@ footer b{color:#fff}
 
 <header class="hero">
   <div class="bar">
-    <img src="logo.png" alt="Kingsbridge English Academy">
+    <div class="duo">
+      <img src="logo.png" alt="Kingsbridge English Academy">
+      <i aria-hidden="true"></i>
+      <img class="school" src="selva-alegre-logo.jpg" alt="Colegio Selva Alegre" width="258" height="100">
+    </div>
     <span>Propuesta preliminar · Leticia, Amazonas, Colombia</span>
   </div>
   <div class="hero-in">
@@ -275,8 +285,8 @@ footer b{color:#fff}
           <p>Reciba un respetuoso y cordial saludo. Le agradezco la amable atención que brindó a mi llamada y, en cumplimiento de lo prometido, me permito presentar a su consideración la siguiente propuesta académica, con la cual Kingsbridge English Academy desea contribuir a la formación en lengua inglesa de los estudiantes de Leticia, en una eventual colaboración con el Colegio Selva Alegre.</p>
           <p>Quedo atento a sus observaciones y a la oportunidad de conversarla personalmente.</p>
         </div>
-        <p>Existen estudiantes comprometidos con aprender inglés de manera efectiva y con cursarlo bajo mi orientación. La presente propuesta busca reunirlos en un entorno adecuado para el estudio: el Colegio Selva Alegre, institución que conozco de primera mano por haberme desempeñado en ella como docente de inglés de bachillerato.</p>
-        <p>Se propone iniciar con clases particulares y de refuerzo, orientadas a la práctica de la conversación desde la primera sesión y con una atención cercana y personalizada a cada estudiante.</p>
+        <p class="prose">Existen estudiantes comprometidos con aprender inglés de manera efectiva y con cursarlo bajo mi orientación. La presente propuesta busca reunirlos en un entorno adecuado para el estudio: el Colegio Selva Alegre, institución que conozco de primera mano por haberme desempeñado en ella como docente de inglés de bachillerato.</p>
+        <p class="prose">Se propone iniciar con clases particulares y de refuerzo, orientadas a la práctica de la conversación desde la primera sesión y con una atención cercana y personalizada a cada estudiante.</p>
         <aside class="sheet" aria-label="Datos de la propuesta" style="margin-top:30px">
           <dl>
             <div><dt>Lugar</dt><dd>Sede principal del Colegio Selva Alegre, Leticia, Amazonas</dd></div>
