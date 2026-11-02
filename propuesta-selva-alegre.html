@@ -107,10 +107,12 @@ h2{font-family:var(--serif);font-weight:600;color:var(--navy);font-size:clamp(1.
 h2+.kick{font-family:var(--serif);font-style:italic;color:var(--muted);margin-bottom:24px}
 .chap p{max-width:38em}
 .salute{max-width:38em;margin:0 0 26px;padding:4px 0 4px 20px;border-left:3px solid var(--brass);font-family:var(--serif);font-size:1.08rem;line-height:1.65;color:var(--navy)}
-.salute b{display:block;font-weight:600;font-size:1.18rem}
+.salute b{display:block;font-weight:600;font-size:1.18rem;text-wrap:balance}
+.br-m{display:none}
 .salute span{display:block;font-style:italic;color:var(--muted);margin-bottom:10px}
 .chap .salute p+p{text-align:left}
 .chap .salute p{max-width:none;margin-top:6px;text-align:justify;hyphens:auto;-webkit-hyphens:auto;line-height:1.8}
+@media(max-width:700px){.br-m{display:inline}.chap .salute p,.chap .salute p+p{text-align:left;hyphens:none;-webkit-hyphens:none}}
 .chap p+p{margin-top:14px}
 .chap .prose{font-family:var(--serif);font-size:1.1rem;line-height:1.85;color:#1d2840;text-align:justify;hyphens:auto;-webkit-hyphens:auto}
 .chap .salute+.prose::first-letter{float:left;font-family:var(--serif);font-weight:600;font-size:3.6em;line-height:.82;padding:7px 10px 0 0;color:var(--navy);background:var(--foil);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
@@ -284,7 +286,7 @@ footer b{color:#fff}
         <h2 id="h1">Presentación de la propuesta</h2>
         <p class="kick">Un entorno adecuado para el aprendizaje</p>
         <div class="salute">
-          <b>Distinguida Doctora Clara Patricia Peña</b>
+          <b>Distinguida Doctora<br class="br-m"> Clara&nbsp;Patricia&nbsp;Peña</b>
           <span>Colegio Selvalegre · Leticia, Amazonas</span>
           <p>Reciba un respetuoso y cordial saludo. Le agradezco la amable atención que brindó a mi llamada y, en cumplimiento de lo prometido, me permito presentar a su consideración la siguiente propuesta académica, con la cual Kingsbridge English Academy desea contribuir a la formación en lengua inglesa de los estudiantes de Leticia, en una eventual colaboración con el Colegio Selvalegre.</p>
           <p>Quedo atento a sus observaciones y a la oportunidad de conversarla personalmente.</p>
