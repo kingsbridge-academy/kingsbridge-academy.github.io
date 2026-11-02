@@ -181,23 +181,22 @@ h2+.kick{font-family:var(--serif);font-style:italic;color:var(--muted);margin-bo
 .navy .chap p{max-width:38em}
 .notice{margin-top:30px;max-width:40em;background:#fff;border:1px solid var(--line);border-left:5px solid var(--amarillo);padding:16px 20px;font-size:14.5px;color:#3d4252}
 
-.cf{background:#fff;border-top:6px solid var(--navy);padding:0 22px 74px;position:relative}
-.cf::before{content:"";display:block;max-width:1000px;margin:6px auto 0;border-top:1px solid var(--brass)}
-.cf .in{max-width:900px;padding-top:56px;text-align:center}
-.cf .mark{width:60px;height:60px;margin:0 auto 18px;border:1.5px solid var(--navy);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;font-size:1.7rem;color:var(--navy);outline:1px solid var(--brass);outline-offset:4px}
-.cf h2{font-size:clamp(1.9rem,5vw,2.6rem);margin-bottom:8px}
-.cf .lede{font-family:var(--serif);font-style:italic;color:var(--muted);max-width:34em;margin:0 auto 38px}
-.cf .cols{display:grid;grid-template-columns:1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:left}
-.cf .col{padding:30px 34px;text-align:center}
-.cf h3{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--muted);font-size:1rem;margin-bottom:10px}
-.cf .name{font-family:var(--serif);font-weight:600;font-size:1.35rem;color:var(--navy);line-height:1.3}
-.cf .col p{color:var(--ink);font-size:15px;margin-top:4px}
-.cf .col p.sm{color:var(--muted);font-size:14px}
-.cf .btn-n{background:var(--navy);color:#fff;margin-top:18px;border-radius:2px}
-.cf .btn-n:hover{background:var(--navy-m)}
-.cf .close{margin-top:38px;font-family:var(--serif);font-style:italic;color:var(--navy);font-size:1.15rem}
-.cf .close span{display:block;margin-top:6px;font-style:normal;font-weight:600;font-size:1.3rem}
-@media(max-width:700px){.cf .col{padding:24px 6px}}
+.cf{position:relative;overflow:hidden;color:#fff;padding:84px 22px;background:radial-gradient(ellipse 60% 70% at 50% 0%,rgba(60,110,200,.35),transparent 65%),linear-gradient(170deg,var(--navy-d),var(--navy) 70%,#0b1d3b)}
+.cf::before{content:"";position:absolute;inset:0;opacity:.06;pointer-events:none;background-image:repeating-linear-gradient(45deg,#fff 0 1px,transparent 1px 22px),repeating-linear-gradient(-45deg,#fff 0 1px,transparent 1px 22px)}
+.cf .frame{position:relative;max-width:940px;margin:0 auto;padding:68px 34px 56px;text-align:center;border:1.5px solid var(--brass);box-shadow:inset 0 0 0 7px var(--navy-d),inset 0 0 0 8px rgba(196,160,77,.55),0 30px 60px -20px rgba(0,0,0,.6)}
+.cf .mark{width:62px;height:62px;margin:0 auto 26px;border-radius:50%;border:1.5px solid var(--brass);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;font-size:1.8rem;color:var(--brass-l);background:radial-gradient(circle,rgba(196,160,77,.25),transparent 70%)}
+.cf h2{font-family:var(--serif);font-weight:600;font-size:clamp(2.2rem,7.2vw,4.1rem);line-height:1.08;letter-spacing:-.01em;margin:0 0 18px;background:var(--foil);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cf .lede{font-family:var(--serif);font-style:italic;font-size:clamp(1.02rem,2.6vw,1.2rem);color:#cdd8ee;max-width:30em;margin:0 auto 34px}
+.cf .btn-p{padding:17px 38px;font-size:16px;border-radius:2px}
+.cf .facts{display:grid;grid-template-columns:repeat(3,1fr);margin:52px 0 0;border-top:1px solid rgba(196,160,77,.45)}
+.cf .facts div{padding:22px 14px 0}
+.cf .facts div+div{border-left:1px solid rgba(196,160,77,.45)}
+.cf .facts dt{font-family:var(--serif);font-style:italic;color:var(--brass-l);font-size:.98rem;margin-bottom:4px}
+.cf .facts dd{font-size:14.5px;color:#e6ecf8;line-height:1.5}
+.cf .close{margin-top:48px}
+.cf .close i{display:block;font-family:var(--serif);color:#b9c6df;font-size:1.05rem}
+.cf .close b{display:inline-block;margin-top:6px;padding-top:10px;border-top:1px solid var(--brass);min-width:15em;font-family:var(--serif);font-style:italic;font-weight:600;font-size:clamp(1.6rem,4.6vw,2.2rem);background:var(--foil);-webkit-background-clip:text;background-clip:text;color:transparent}
+@media(max-width:700px){.cf{padding:44px 14px}.cf .frame{padding:48px 18px 40px}.cf .facts{grid-template-columns:1fr}.cf .facts div+div{border-left:0;border-top:1px solid rgba(196,160,77,.3);margin-top:16px}.cf .close b{min-width:0;width:100%}}
 footer{background:var(--navy-d);color:#9fb0cf;font-size:13px;text-align:center;padding:28px 20px;line-height:1.8}
 footer b{color:#fff}
 
@@ -400,20 +399,17 @@ footer b{color:#fff}
   </section>
 
   <section id="contacto" class="cf" aria-labelledby="h6">
-    <div class="in">
+    <div class="frame">
       <div class="mark" aria-hidden="true">K</div>
-      <h2 id="h6">Contacto</h2>
-      <p class="lede">Para cualquier consulta sobre esta propuesta, puede comunicarse a través de los siguientes medios.</p>
-      <div class="cols">
-        <div class="col">
-          <h3>Medios de contacto</h3>
-          <p>WhatsApp: @kingsbridge.academy</p>
-          <p>Leticia, Amazonas, Colombia</p>
-          <p class="sm">Registro ante la Cámara de Comercio No. 26395</p>
-          <a class="btn btn-n" href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener">Contactar por WhatsApp</a>
-        </div>
-      </div>
-      <p class="close">Atentamente,<span>Eduardo J. López</span></p>
+      <h2 id="h6">Quedo a su disposición</h2>
+      <p class="lede">Para cualquier consulta sobre esta propuesta, puede comunicarse a través del siguiente medio.</p>
+      <a class="btn btn-p" href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener">Contactar por WhatsApp</a>
+      <dl class="facts">
+        <div><dt>WhatsApp</dt><dd>@kingsbridge.academy</dd></div>
+        <div><dt>Ubicación</dt><dd>Leticia, Amazonas, Colombia</dd></div>
+        <div><dt>Registro</dt><dd>Cámara de Comercio No. 26395</dd></div>
+      </dl>
+      <p class="close"><i>Atentamente,</i><b>Eduardo J. López</b></p>
     </div>
   </section>
 </main>
