@@ -76,10 +76,8 @@ a{color:inherit}
 .cover::before{content:"";position:absolute;inset:12px;border:1.5px solid var(--brass);border-radius:2px}
 .cover::after{content:"";position:absolute;inset:18px;border:1px solid rgba(196,160,77,.5)}
 .cover .k{position:relative;z-index:1;font-family:var(--serif);font-size:11px;letter-spacing:.22em;color:var(--brass-l);margin-top:8px}
-.cover .t{position:relative;z-index:1;font-family:var(--serif);font-weight:600;font-size:23px;line-height:1.15;margin-top:26px;background:var(--foil);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cover .t{position:relative;z-index:1;font-family:var(--serif);font-weight:600;font-size:23px;line-height:1.15;margin:auto 0;background:var(--foil);-webkit-background-clip:text;background-clip:text;color:transparent}
 .cover .t small{display:block;font-weight:400;font-style:italic;font-size:15px;margin-top:8px}
-.cover .plate{position:relative;z-index:1;margin-top:auto;margin-bottom:6px;border:1.5px solid var(--brass);border-radius:2px;padding:2px;background:#121212;box-shadow:0 2px 8px rgba(0,0,0,.5)}
-.cover .plate img{display:block;width:170px;height:auto}
 .cover .yr{position:relative;z-index:1;font-family:var(--serif);font-style:italic;font-size:12px;color:var(--brass-l);margin-top:8px}
 .spine{width:var(--d);height:100%;left:0;top:0;transform:translateX(calc(var(--d)/-2)) rotateY(-90deg);background:linear-gradient(90deg,#071127,#16377a 45%,#0a1a36)}
 .spine::before{content:"";position:absolute;left:0;right:0;top:36px;height:2px;background:var(--brass);box-shadow:0 8px 0 var(--brass)}
@@ -206,7 +204,7 @@ footer{background:var(--navy-d);color:#9fb0cf;font-size:13px;text-align:center;p
 footer b{color:#fff}
 
 @media(prefers-reduced-motion:reduce){.book{animation:none}html{scroll-behavior:auto}.btn{transition:none}}
-@media(max-width:760px){.stage{--w:236px;--h:324px;--d:40px}.cover .plate img{width:140px}.cover .t{font-size:22px}}
+@media(max-width:760px){.stage{--w:236px;--h:324px;--d:40px}.cover .t{font-size:22px}}
 </style>
 </head>
 <body>
@@ -238,7 +236,6 @@ footer b{color:#fff}
           <div class="cover">
             <div class="k">PROPUESTA</div>
             <div class="t">Programa de inglés personalizado e intensivo<small>para preescolar, primaria y bachillerato</small></div>
-            <div class="plate"><img src="selva-alegre-logo.jpg" alt="" width="170" height="66"></div>
             <div class="yr">Leticia, Amazonas</div>
           </div>
           <div class="ribbons"><i></i><i></i><i></i><i></i></div>
