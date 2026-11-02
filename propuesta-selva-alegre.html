@@ -150,12 +150,26 @@ h2+.kick{font-family:var(--serif);font-style:italic;color:var(--muted);margin-bo
 
 .posters{display:grid;gap:34px;margin-top:30px}
 .posters figure{margin:0}
-.posters a{display:block;box-shadow:0 22px 40px -16px rgba(0,0,0,.65);transition:transform .25s}
-.posters a:hover{transform:translateY(-4px)}
 .posters img{display:block;width:100%;height:auto}
+.sign{position:relative;overflow:hidden;container-type:inline-size;box-shadow:0 22px 40px -16px rgba(0,0,0,.65)}
+.sign img{transform-origin:72% 55%;animation:kb 20s ease-in-out infinite alternate}
+@keyframes kb{to{transform:scale(1.05)}}
+.sign>span{position:absolute;pointer-events:none}
+.glow{left:60%;top:22%;width:38%;height:64%;background:radial-gradient(ellipse at center,rgba(245,130,32,.6),transparent 66%);opacity:0;animation:pulse 3.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:0;transform:scale(.92)}50%{opacity:.45;transform:scale(1.04)}}
+.shine{inset:0;background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.6) 50%,transparent 58%);transform:translateX(-130%);animation:sweep 8s ease-in-out infinite}
+@keyframes sweep{0%{transform:translateX(-130%)}24%,100%{transform:translateX(130%)}}
+.words{inset:0 0 9.2% 0;overflow:hidden}
+.words i{position:absolute;bottom:-12%;font-family:var(--serif);font-style:italic;font-size:3.4cqw;color:var(--navy);text-shadow:0 0 6px #fff,0 0 12px #fff;opacity:0;animation:rise 11s ease-in infinite}
+.words i:nth-child(1){left:6%;animation-delay:0s}.words i:nth-child(2){left:30%;animation-delay:2.6s}.words i:nth-child(3){left:50%;animation-delay:5.2s}.words i:nth-child(4){left:76%;animation-delay:7.8s}.words i:nth-child(5){left:89%;animation-delay:1.3s}
+@keyframes rise{0%{opacity:0;transform:translateY(0)}15%{opacity:.55}70%{opacity:.35}100%{opacity:0;transform:translateY(-420%)}}
+.ticker{left:30%;right:3%;bottom:0;height:9.2%;overflow:hidden}
+.ticker b{position:absolute;right:0;top:0;bottom:0;display:flex;align-items:center;font-family:var(--sans);font-weight:600;font-size:2.2cqw;letter-spacing:.05em;color:var(--navy-d);opacity:0;animation:tick 16s ease-in-out infinite}
+.ticker b:nth-child(2){animation-delay:4s}.ticker b:nth-child(3){animation-delay:8s}.ticker b:nth-child(4){animation-delay:12s}
+@keyframes tick{0%{opacity:0;transform:translateY(40%)}4%,22%{opacity:1;transform:none}26%,100%{opacity:0;transform:translateY(-40%)}}
+@media(prefers-reduced-motion:reduce){.sign img,.glow,.shine,.words i,.ticker b{animation:none}.words,.glow,.shine{display:none}.ticker b:last-child{opacity:1}}
 .posters figcaption{margin-top:12px;font-family:var(--serif);font-style:italic;color:#b9c6df;font-size:.95rem}
 .navy .chap p{max-width:38em}
-@media(prefers-reduced-motion:reduce){.posters a{transition:none}}
 .notice{margin-top:30px;max-width:40em;background:#fff;border:1px solid var(--line);border-left:5px solid var(--amarillo);padding:16px 20px;font-size:14.5px;color:#3d4252}
 
 .contact{text-align:center}
@@ -288,7 +302,16 @@ footer b{color:#fff}
         <p style="color:#d3dcee">Este letrero es un ejemplo de cómo podría presentarse el programa de inglés a las familias. Es solo un diseño de muestra: el colegio decide si lo usa, lo cambia o prefiere otro.</p>
         <p style="color:#d3dcee;margin-top:14px">Este letrero sería un botón en la página principal de Kingsbridge English Academy. Al hacer clic, el estudiante o su familia llenan un formulario digital de pre-inscripción. Kingsbridge revisa las inscripciones y, cuando los estudiantes y las clases están confirmados, avisa al colegio para acordar con él el día de la clase grupal.</p>
         <div class="posters">
-          <figure><a href="anuncio-claro.jpg" target="_blank" rel="noopener"><img src="anuncio-claro.jpg" alt="Letrero de anuncio sobre fondo claro con las banderas del Reino Unido y Estados Unidos y una huella naranja: English Program for New Students, New Enrollment, Leticia, Colombia" width="1400" height="700" loading="lazy"></a><figcaption>Letrero de anuncio</figcaption></figure>
+          <figure>
+            <div class="sign">
+              <img src="anuncio-claro.jpg" alt="Letrero de anuncio sobre fondo claro con las banderas del Reino Unido y Estados Unidos y una huella naranja: Colegio Selva Alegre, English Program for New Students, New Enrollment, Leticia, Colombia" width="1400" height="700" loading="lazy">
+              <span class="glow" aria-hidden="true"></span>
+              <span class="shine" aria-hidden="true"></span>
+              <span class="words" aria-hidden="true"><i>Hello</i><i>Speak</i><i>Learn</i><i>Dream</i><i>Welcome</i></span>
+              <span class="ticker" aria-hidden="true"><b>Your future speaks English</b><b>Speak with courage</b><b>Tu primera clase te espera</b><b>Pre-inscríbete hoy</b></span>
+            </div>
+            <figcaption>Letrero de anuncio, con movimiento suave</figcaption>
+          </figure>
         </div>
       </div>
     </div>
