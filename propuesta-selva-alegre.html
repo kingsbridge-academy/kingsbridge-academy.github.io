@@ -47,7 +47,8 @@ a{color:inherit}
 .hero::before{content:"";position:absolute;inset:0;opacity:.07;pointer-events:none;
   background-image:repeating-linear-gradient(45deg,#fff 0 1px,transparent 1px 22px),repeating-linear-gradient(-45deg,#fff 0 1px,transparent 1px 22px)}
 .bar{position:relative;max-width:1080px;margin:0 auto 38px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
-.bar img{display:block;height:52px;width:auto}
+.bar img{display:block;height:100px;width:auto;max-width:100%}
+@media(max-width:760px){.bar img{height:auto;width:min(330px,100%)}}
 .bar span{font-size:13px;color:#b9c6df}
 .hero-in{position:relative;max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
 .hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,5.6vw,3.7rem);line-height:1.1;letter-spacing:-.01em}
