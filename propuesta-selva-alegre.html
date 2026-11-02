@@ -168,6 +168,11 @@ h2+.kick{font-family:var(--serif);font-style:italic;color:var(--muted);margin-bo
 .posters figure{margin:0}
 .posters img{display:block;width:100%;height:auto}
 .signlink{display:block;color:inherit;text-decoration:none;cursor:pointer}
+.navy .chap .live{display:flex;align-items:center;gap:10px;max-width:none;margin:10px 0 0;font-size:.92rem;color:#d3dcee}
+.live i{flex:none;width:9px;height:9px;border-radius:50%;background:var(--verde);box-shadow:0 0 0 0 rgba(166,206,57,.6);animation:liveDot 2.4s ease-out infinite}
+.live b{color:var(--brass-l);font-weight:600}
+@keyframes liveDot{70%,100%{box-shadow:0 0 0 9px rgba(166,206,57,0)}}
+@media(prefers-reduced-motion:reduce){.live i{animation:none}}
 .signlink:focus-visible{outline:3px solid var(--brass-l);outline-offset:4px}
 .sign{position:relative;overflow:hidden;container-type:inline-size;box-shadow:0 22px 40px -16px rgba(0,0,0,.65)}
 .zoom{position:relative;transform-origin:72% 55%;animation:kb 20s ease-in-out infinite alternate}
@@ -375,7 +380,8 @@ footer b{color:#fff}
               <span class="ticker" aria-hidden="true"><b>Your future speaks English</b><b>Speak with courage</b><b>Tu primera clase te espera</b><b>Pre-inscríbete hoy</b></span>
             </div>
             </a>
-            <figcaption>Letrero botón digital para la suscripción de nuevos estudiantes. Al hacer clic en él se abre el formulario de pre-inscripción.</figcaption>
+            <figcaption>Letrero botón digital para la suscripción de nuevos estudiantes</figcaption>
+            <p class="live"><i aria-hidden="true"></i><span><b>Enlace activado.</b> El formulario de pre-inscripción está habilitado: haga clic en el letrero para abrirlo.</span></p>
           </figure>
           <p class="why"><b>Importancia del botón digital.</b> Constituye el canal formal de pre-inscripción y reviste importancia y utilidad para ambas partes: centraliza las solicitudes, asegura que cada interesado sea evaluado en igualdad de condiciones y deja constancia ordenada de la demanda, lo que permite al colegio y a Kingsbridge English Academy planificar con certeza. Asimismo, cumple una función publicitaria, en tanto otorga visibilidad al programa y a las instituciones ante los nuevos estudiantes y sus familias.</p>
         </div>
