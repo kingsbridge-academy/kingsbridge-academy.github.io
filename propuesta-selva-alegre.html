@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Página no listada: no aparece en buscadores ni está enlazada desde el inicio -->
+<meta name="robots" content="noindex, nofollow">
+<title>Programa de Competencia Comunicativa en Inglés | Sede principal del Colegio Selvalegre</title>
+<meta name="description" content="Propuesta de Kingsbridge English Academy para ofrecer clases de inglés a estudiantes interesados en el Colegio Selvalegre, Leticia, Amazonas.">
+<meta name="theme-color" content="#0a1a36">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CO">
+<meta property="og:title" content="Programa de Competencia Comunicativa en Inglés: propuesta para la sede principal del Colegio Selvalegre">
+<meta property="og:description" content="Una propuesta de Kingsbridge English Academy para ofrecer clases de inglés a estudiantes interesados.">
+<meta property="og:image" content="https://kingsbridge-academy.github.io/anuncio-claro.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+@font-face{font-family:Lora;src:url(fonts/lora.woff) format("woff");font-weight:400 700;font-style:normal;font-display:swap}
+@font-face{font-family:Lora;src:url(fonts/lora-italic.woff) format("woff");font-weight:400 700;font-style:italic;font-display:swap}
+@font-face{font-family:Inter;src:url(fonts/inter-400.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:Inter;src:url(fonts/inter-600.woff) format("woff");font-weight:600;font-style:normal;font-display:swap}
+
+:root{
+  --navy:#0f2547;--navy-d:#08142b;--navy-m:#17356a;
+  --brass:#c4a04d;--brass-l:#e8d08a;--brass-d:#8d6f2a;
+  --paper:#f3f1ea;--white:#fff;--ink:#17202f;--muted:#566075;--line:#d9d5c6;
+  --verde:#a6ce39;--amarillo:#ffc20e;--naranja:#f58220;--azul:#6cc3e0;
+  --serif:Lora,Georgia,"Times New Roman",serif;
+  --sans:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --foil:linear-gradient(100deg,#8d6f2a 0%,#e8d08a 28%,#c4a04d 50%,#f3e2a8 72%,#9c7c30 100%);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{font-family:var(--sans);color:var(--ink);background:var(--white);line-height:1.7;font-size:16px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--amarillo);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:0;background:#fff;color:var(--navy);padding:10px 14px;z-index:100;font-weight:600}
+.skip:focus{left:8px;top:8px}
+.stripe{height:6px;background:linear-gradient(90deg,var(--verde) 0 25%,var(--amarillo) 25% 50%,var(--naranja) 50% 75%,var(--azul) 75% 100%)}
+
+/* ---------- Portada ---------- */
+.hero{position:relative;overflow:hidden;color:#fff;background:
+  radial-gradient(ellipse 70% 80% at 78% 45%,rgba(60,110,200,.38),transparent 62%),
+  radial-gradient(ellipse 50% 60% at 5% 0%,rgba(196,160,77,.16),transparent 60%),
+  linear-gradient(165deg,var(--navy-d),var(--navy) 70%,#0c1e3d);
+  padding:34px 22px 70px}
+.hero::before{content:"";position:absolute;inset:0;opacity:.07;pointer-events:none;
+  background-image:repeating-linear-gradient(45deg,#fff 0 1px,transparent 1px 22px),repeating-linear-gradient(-45deg,#fff 0 1px,transparent 1px 22px)}
+.bar{position:relative;max-width:1080px;margin:0 auto 40px;display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+.duo{display:flex;align-items:center;gap:22px}
+.duo img{display:block;height:128px;width:auto}
+.duo .school{border:1px solid rgba(232,208,138,.45);box-shadow:0 8px 20px -8px rgba(0,0,0,.6)}
+.duo i{width:1px;align-self:stretch;margin:6px 0;background:linear-gradient(transparent,var(--brass),transparent)}
+@media(max-width:760px){.duo{flex-direction:column;align-items:flex-start;gap:16px;width:100%}.duo img{height:auto;max-width:100%}.duo>img:first-child{width:min(340px,100%)}.duo .school{width:min(250px,72%)}.duo i{display:none}}
+.hero-in{position:relative;max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.85rem,5.2vw,3.15rem);line-height:1.1;letter-spacing:-.01em}
+.hero h1 em span{display:block}
+.hero h1 em span+span{margin-top:2px}
+.hero h1 em .en{font-size:1.32em;line-height:1.2;margin-bottom:22px}
+.hero h1 em .school{font-family:var(--serif);font-style:normal;font-weight:600;font-size:1.5em;line-height:1.2;color:#fff;background:none;-webkit-text-fill-color:#fff;margin-bottom:6px}
+.hero h1 em{display:block;font-weight:400;font-style:italic;font-size:max(.5em,1.15rem);line-height:1.3;margin-top:16px;text-wrap:balance;background:var(--foil);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{margin:22px 0 30px;max-width:30em;color:#d3dcee;font-size:clamp(1rem,2.4vw,1.12rem)}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:14px 26px;border-radius:4px;font-weight:600;text-decoration:none;font-size:15px;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-p{background:var(--foil);color:var(--navy-d);box-shadow:0 6px 18px rgba(196,160,77,.35)}
+.btn-s{border:1.5px solid rgba(255,255,255,.7);color:#fff}
+.btn-wa{background:#128C7E;color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+
+/* Libro 3D */
+.stage{--w:270px;--h:370px;--d:46px;perspective:1400px;display:flex;justify-content:center;padding:26px 0 44px}
+.sway{position:relative;width:var(--w);height:var(--h);transform-style:preserve-3d;animation:idle 12s ease-in-out 1.9s infinite alternate}
+@keyframes idle{from{transform:rotateY(-4deg)}to{transform:rotateY(5deg)}}
+.book{position:relative;width:var(--w);height:var(--h);transform-style:preserve-3d;
+  transform:rotateX(8deg) rotateY(-28deg) rotateZ(0deg);animation:open 1.8s cubic-bezier(.2,.8,.2,1) both}
+@keyframes open{from{transform:rotateX(14deg) rotateY(-78deg) translateX(-30px)}to{transform:rotateX(8deg) rotateY(-28deg)}}
+.book>*{position:absolute}
+.cover{inset:0;transform:translateZ(calc(var(--d)/2));border-radius:3px 8px 8px 3px;
+  background:linear-gradient(90deg,rgba(0,0,0,.4) 0,rgba(255,255,255,.14) 1.6%,rgba(0,0,0,.32) 3.4%,rgba(255,255,255,.06) 5.2%,transparent 8%),linear-gradient(135deg,rgba(255,255,255,.14),transparent 38%),linear-gradient(160deg,#1c3f7a,#0f2547 55%,#0a1a36);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
+  display:flex;flex-direction:column;align-items:center;padding:30px 24px;text-align:center}
+.cover::before{content:"";position:absolute;inset:12px;border:1.5px solid var(--brass);border-radius:2px}
+.cover::after{content:"";position:absolute;inset:18px;border:1px solid rgba(196,160,77,.5)}
+.cover .k{position:relative;z-index:1;font-family:var(--serif);font-size:11px;letter-spacing:.22em;color:var(--brass-l);margin-top:8px}
+.cover .t{position:relative;z-index:1;font-family:var(--serif);font-weight:600;font-size:23px;line-height:1.15;margin:auto 0;background:var(--foil);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cover .t small{display:block;font-weight:400;font-style:italic;font-size:15px;margin-top:8px}
+.cover .yr{position:relative;z-index:1;font-family:var(--serif);font-style:italic;font-size:12px;color:var(--brass-l);margin-top:8px}
+.spine{width:var(--d);height:100%;left:0;top:0;transform:translateX(calc(var(--d)/-2)) rotateY(-90deg);background:linear-gradient(90deg,#071127,#16377a 45%,#0a1a36)}
+.spine::before{content:"";position:absolute;left:0;right:0;top:36px;height:2px;background:var(--brass);box-shadow:0 8px 0 var(--brass)}
+.spine::after{content:"";position:absolute;left:0;right:0;bottom:36px;height:2px;background:var(--brass);box-shadow:0 -8px 0 var(--brass)}
+.pages{width:var(--d);height:calc(100% - 10px);top:5px;left:calc(var(--w) - var(--d)/2);transform:rotateY(90deg);background:linear-gradient(90deg,#0a1a36 0 3px,transparent 3px calc(100% - 3px),#0a1a36 calc(100% - 3px)),repeating-linear-gradient(90deg,#fbfaf5 0 2px,#ddd8c6 2px 3px)}
+.back{inset:0;transform:translateZ(calc(var(--d)/-2));background:#0a1a36;border-radius:3px 8px 8px 3px}
+.top{width:calc(var(--w) - 6px);height:var(--d);left:0;top:calc(var(--d)/-2);transform:rotateX(90deg);background:linear-gradient(0deg,#0a1a36 0 3px,transparent 3px calc(100% - 3px),#0a1a36 calc(100% - 3px)),repeating-linear-gradient(0deg,#fbfaf5 0 2px,#ddd8c6 2px 3px)}
+.ribbons{display:flex;gap:6px;left:calc(var(--w)*.55);top:calc(var(--h) - 8px);height:62px;transform:translateZ(0)}
+.ribbons i{display:block;width:12px;height:100%;transform-origin:50% 0;clip-path:polygon(0 0,100% 0,100% 100%,50% 85%,0 100%);animation:swing 4.6s ease-in-out 2s infinite alternate}
+.ribbons i:nth-child(1){background:var(--verde)}.ribbons i:nth-child(2){background:var(--amarillo);animation-delay:2.25s}.ribbons i:nth-child(3){background:var(--naranja);animation-delay:2.5s}.ribbons i:nth-child(4){background:var(--azul);animation-delay:2.75s}
+@keyframes swing{from{transform:rotate(-3deg)}to{transform:rotate(3.5deg)}}
+.floor{left:calc(var(--w)*-.2);top:calc(var(--h) - var(--d)*3.5);width:calc(var(--w)*1.4);height:calc(var(--d)*7);transform:rotateX(90deg);background:radial-gradient(ellipse at center,rgba(0,0,0,.6),rgba(0,0,0,.22) 38%,transparent 66%);filter:blur(18px);pointer-events:none}
+.stage-wrap{position:relative}
+
+/* ---------- Contenido ---------- */
+main section{padding:70px 22px}
+.in{max-width:1000px;margin:0 auto}
+.chap{display:grid;grid-template-columns:120px 1fr;gap:10px 34px}
+.num{font-family:var(--serif);font-weight:600;font-size:4.4rem;line-height:1;color:transparent;background:var(--foil);-webkit-background-clip:text;background-clip:text;opacity:.9;user-select:none}
+h2{font-family:var(--serif);font-weight:600;color:var(--navy);font-size:clamp(1.7rem,4.6vw,2.3rem);line-height:1.2;margin-bottom:6px}
+h2+.kick{font-family:var(--serif);font-style:italic;color:var(--muted);margin-bottom:24px}
+.chap p{max-width:38em}
+.salute{max-width:38em;margin:0 0 26px;padding:4px 0 4px 20px;border-left:3px solid var(--brass);font-family:var(--serif);font-size:1.08rem;line-height:1.65;color:var(--navy)}
+.salute b{display:block;font-weight:600;font-size:1.18rem;text-wrap:balance}
+.br-m{display:none}
+.salute span{display:block;font-style:italic;color:var(--muted);margin-bottom:10px}
+.chap .salute p+p{text-align:left}
+.chap .salute p{max-width:none;margin-top:6px;text-align:justify;hyphens:auto;-webkit-hyphens:auto;line-height:1.8}
+@media(max-width:700px){.br-m{display:inline}.chap .salute p,.chap .salute p+p{text-align:left;hyphens:none;-webkit-hyphens:none}}
+.chap p+p{margin-top:14px}
+.chap .prose{font-family:var(--serif);font-size:1.1rem;line-height:1.85;color:#1d2840;text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+.chap .salute+.prose::first-letter{float:left;font-family:var(--serif);font-weight:600;font-size:3.6em;line-height:.82;padding:7px 10px 0 0;color:var(--navy);background:var(--foil);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.paper{background:var(--paper)}
+.navy{background:linear-gradient(165deg,var(--navy-d),var(--navy));color:#fff}
+.navy h2{color:#fff}
+.navy h2+.kick{color:#b9c6df}
+@media(max-width:760px){.chap{grid-template-columns:1fr}.num{font-size:3rem}.hero-in{grid-template-columns:1fr}}
+
+/* Contenidos con puntos guía */
+.toc{background:var(--white);padding:46px 22px;border-bottom:1px solid var(--line)}
+.toc h2{font-size:1.5rem;margin-bottom:18px}
+.toc ol{list-style:none;max-width:560px}
+.toc a{display:flex;align-items:baseline;gap:8px;text-decoration:none;padding:6px 0;font-family:var(--serif);font-size:1.08rem}
+.toc a::after{content:"";order:1;flex:1;border-bottom:2px dotted var(--brass)}
+.toc a span:last-child{order:2;font-family:var(--serif);color:var(--muted)}
+.toc a:hover span:first-child{color:var(--navy-m);text-decoration:underline}
+
+/* Hoja de datos */
+.sheet{margin-top:6px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--navy);padding:6px 24px;box-shadow:0 14px 30px -14px rgba(8,20,43,.35)}
+.sheet dl>div{display:grid;grid-template-columns:11.5em 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.sheet dl>div:last-child{border-bottom:0}
+.sheet dt{font-family:var(--serif);font-style:italic;color:var(--muted)}
+.sheet dd{font-weight:600;color:var(--navy)}
+@media(max-width:520px){.sheet dl>div{grid-template-columns:1fr;gap:0}}
+
+/* Principios */
+.pr{display:grid;gap:0;margin-top:10px}
+.pr article{display:grid;grid-template-columns:8px 1fr;gap:22px;padding:22px 0;border-bottom:1px solid var(--line)}
+.pr article:last-child{border-bottom:0}
+.pr article::before{content:"";border-radius:4px;background:var(--verde)}
+.pr article:nth-child(2)::before{background:var(--amarillo)}
+.pr article:nth-child(3)::before{background:var(--azul)}
+.pr h3{font-family:var(--serif);font-weight:600;font-size:1.3rem;color:var(--navy)}
+.pr p{color:var(--muted)}
+
+/* Listas */
+.ledger{list-style:none;max-width:40em;display:grid;gap:0}
+.ledger li{position:relative;padding:15px 0 15px 38px;border-bottom:1px solid rgba(196,160,77,.45)}
+.ledger li::before{content:"";position:absolute;left:6px;top:24px;width:10px;height:10px;transform:rotate(45deg);background:var(--brass)}
+.navy .ledger li{border-color:rgba(232,208,138,.3)}
+
+/* Línea de tiempo (secuencia real) */
+.line{list-style:none;position:relative;max-width:40em;counter-reset:s;margin-top:4px}
+.line::before{content:"";position:absolute;left:19px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--verde),var(--amarillo),var(--naranja),var(--azul))}
+.line li{position:relative;padding:0 0 26px 62px;counter-increment:s}
+.line li:last-child{padding-bottom:0}
+.line li::before{content:counter(s);position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:var(--navy);color:var(--brass-l);border:2px solid var(--brass);font-family:var(--serif);font-weight:600;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 5px var(--paper)}
+.line b{display:block;font-family:var(--serif);font-size:1.12rem;color:var(--navy)}
+.line span{color:var(--muted);font-size:15px}
+
+.posters{display:grid;gap:34px;margin-top:30px}
+.posters figure{margin:0}
+.posters img{display:block;width:100%;height:auto}
+.signlink{display:block;color:inherit;text-decoration:none;cursor:pointer}
+.navy .chap .live{display:flex;align-items:center;gap:10px;max-width:none;margin:10px 0 0;font-size:.92rem;color:#d3dcee}
+.live i{flex:none;width:9px;height:9px;border-radius:50%;background:var(--verde);box-shadow:0 0 0 0 rgba(166,206,57,.6);animation:liveDot 2.4s ease-out infinite}
+.live b{color:var(--brass-l);font-weight:600}
+@keyframes liveDot{70%,100%{box-shadow:0 0 0 9px rgba(166,206,57,0)}}
+@media(prefers-reduced-motion:reduce){.live i{animation:none}}
+.signlink:focus-visible{outline:3px solid var(--brass-l);outline-offset:4px}
+.sign{position:relative;overflow:hidden;container-type:inline-size;box-shadow:0 22px 40px -16px rgba(0,0,0,.65)}
+.zoom{position:relative;transform-origin:72% 55%;animation:kb 20s ease-in-out infinite alternate}
+@keyframes kb{to{transform:scale(1.05)}}
+.sign>span{position:absolute;pointer-events:none}
+.glow{left:60%;top:22%;width:38%;height:64%;background:radial-gradient(ellipse at center,rgba(245,130,32,.6),transparent 66%);opacity:0;animation:pulse 3.6s ease-in-out infinite}
+.sign img.paw{position:absolute;left:62.29%;top:25.71%;width:31.79%;height:57.57%;transform-origin:50% 62%;animation:pounce 3.6s ease-in-out infinite;filter:drop-shadow(0 6px 8px rgba(160,70,0,.35))}
+@keyframes pounce{0%,100%{transform:none}38%{transform:scale(1.07) rotate(-2.5deg)}50%{transform:scale(.98) rotate(.5deg)}62%{transform:scale(1.03) rotate(1deg)}}
+.ring{left:78.2%;top:54.5%;width:26cqw;height:26cqw;margin:-13cqw 0 0 -13cqw;border:.5cqw solid rgba(245,130,32,.7);border-radius:50%;opacity:0;animation:ring 3.6s ease-out infinite;animation-delay:1.3s}
+.ring.r2{animation-delay:1.9s}
+@keyframes ring{0%{opacity:.7;transform:scale(.35)}70%,100%{opacity:0;transform:scale(1.25)}}
+@keyframes pulse{0%,100%{opacity:0;transform:scale(.92)}50%{opacity:.45;transform:scale(1.04)}}
+.shine{inset:0;background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.6) 50%,transparent 58%);transform:translateX(-130%);animation:sweep 8s ease-in-out infinite}
+@keyframes sweep{0%{transform:translateX(-130%)}24%,100%{transform:translateX(130%)}}
+.words{inset:0 0 9.2% 0;overflow:hidden}
+.words i{position:absolute;bottom:-12%;font-family:var(--serif);font-style:italic;font-size:3.4cqw;color:var(--navy);text-shadow:0 0 6px #fff,0 0 12px #fff;opacity:0;animation:rise 11s ease-in infinite}
+.words i:nth-child(1){left:6%;animation-delay:0s}.words i:nth-child(2){left:30%;animation-delay:2.6s}.words i:nth-child(3){left:50%;animation-delay:5.2s}.words i:nth-child(4){left:76%;animation-delay:7.8s}.words i:nth-child(5){left:89%;animation-delay:1.3s}
+@keyframes rise{0%{opacity:0;transform:translateY(0)}15%{opacity:.55}70%{opacity:.35}100%{opacity:0;transform:translateY(-420%)}}
+.ticker{left:30%;right:3%;bottom:0;height:9.2%;overflow:hidden}
+.ticker b{position:absolute;right:0;top:0;bottom:0;display:flex;align-items:center;font-family:var(--sans);font-weight:600;font-size:2.2cqw;letter-spacing:.05em;color:var(--navy-d);opacity:0;animation:tick 16s ease-in-out infinite}
+.ticker b:nth-child(2){animation-delay:4s}.ticker b:nth-child(3){animation-delay:8s}.ticker b:nth-child(4){animation-delay:12s}
+@keyframes tick{0%{opacity:0;transform:translateY(40%)}4%,22%{opacity:1;transform:none}26%,100%{opacity:0;transform:translateY(-40%)}}
+@media(prefers-reduced-motion:reduce){.sway,.ribbons i{animation:none}.zoom,.sign img,.glow,.ring,.shine,.words i,.ticker b{animation:none}.ring{display:none}.words,.glow,.shine{display:none}.ticker b:last-child{opacity:1}}
+.posters figcaption{margin-top:12px;font-family:var(--serif);font-style:italic;color:#b9c6df;font-size:.95rem}
+.navy .chap p{max-width:38em}
+.navy .chap .why{max-width:none;margin:0;padding:4px 0 4px 20px;border-left:2px solid var(--brass);font-family:var(--serif);font-style:italic;color:#d3dcee;line-height:1.7;font-size:1.02rem}
+.navy .chap .why b{font-style:normal;font-weight:600;color:var(--brass-l)}
+.notice{margin-top:30px;max-width:40em;background:#fff;border:1px solid var(--line);border-left:5px solid var(--amarillo);padding:16px 20px;font-size:14.5px;color:#3d4252}
+
+.cf{position:relative;overflow:hidden;color:#fff;padding:84px 22px;background:radial-gradient(ellipse 60% 70% at 50% 0%,rgba(60,110,200,.35),transparent 65%),linear-gradient(170deg,var(--navy-d),var(--navy) 70%,#0b1d3b)}
+.cf::before{content:"";position:absolute;inset:0;opacity:.06;pointer-events:none;background-image:repeating-linear-gradient(45deg,#fff 0 1px,transparent 1px 22px),repeating-linear-gradient(-45deg,#fff 0 1px,transparent 1px 22px)}
+.cf .frame{position:relative;max-width:940px;margin:0 auto;padding:76px 34px 56px;text-align:center;border:1.5px solid var(--brass);box-shadow:inset 0 0 0 7px var(--navy-d),inset 0 0 0 8px rgba(196,160,77,.55),0 30px 60px -20px rgba(0,0,0,.6)}
+.cf h2{font-family:var(--serif);font-weight:600;font-size:clamp(2.2rem,7.2vw,4.1rem);line-height:1.08;letter-spacing:-.01em;margin:0 0 18px;background:var(--foil);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cf .lede{font-family:var(--serif);font-style:italic;font-size:clamp(1.02rem,2.6vw,1.2rem);color:#cdd8ee;max-width:30em;margin:0 auto 34px}
+.cf .btn-p{padding:14px 34px;font-size:15px;border-radius:2px;background:transparent;color:var(--brass-l);border:1.5px solid var(--brass);box-shadow:none;transition:background .2s,color .2s}
+.cf .wa-end{margin-top:30px}
+.cf .btn-p:hover{background:var(--foil);color:var(--navy-d);transform:none}
+.cf .lede{margin-bottom:0}
+.cf .facts{display:grid;grid-template-columns:repeat(3,1fr);margin:40px 0 0;border-top:1px solid rgba(196,160,77,.45)}
+.cf .facts div{padding:22px 14px 0}
+.cf .facts div+div{border-left:1px solid rgba(196,160,77,.45)}
+.cf .facts dd .un{font-family:var(--serif);font-style:italic;color:var(--brass-l);margin-right:2px;letter-spacing:.06em;font-size:.88em}
+.cf .facts dd a{color:#e6ecf8;text-decoration:underline;text-decoration-color:rgba(232,208,138,.6);text-underline-offset:3px;overflow-wrap:anywhere}
+.cf .facts dt{font-family:var(--serif);font-style:italic;color:var(--brass-l);font-size:.98rem;margin-bottom:4px}
+.cf .facts dd{font-size:14.5px;color:#e6ecf8;line-height:1.5}
+.cf .close{margin-top:48px}
+.cf .close i{display:block;font-family:var(--serif);color:#b9c6df;font-size:1.05rem}
+.cf .close b{display:inline-block;margin-top:6px;padding-top:10px;border-top:1px solid var(--brass);min-width:15em;font-family:var(--serif);font-style:italic;font-weight:600;font-size:clamp(1.6rem,4.6vw,2.2rem);background:var(--foil);-webkit-background-clip:text;background-clip:text;color:transparent}
+@media(max-width:700px){.cf{padding:44px 14px}.cf .frame{padding:48px 18px 40px}.cf .facts{grid-template-columns:1fr}.cf .facts div+div{border-left:0;border-top:1px solid rgba(196,160,77,.3);margin-top:16px}.cf .close b{min-width:0;width:100%}}
+footer{background:var(--navy-d);color:#9fb0cf;font-size:13px;text-align:center;padding:28px 20px;line-height:1.8}
+footer b{color:#fff}
+
+@media(prefers-reduced-motion:reduce){.book{animation:none}html{scroll-behavior:auto}.btn{transition:none}}
+@media(max-width:760px){.stage{--w:236px;--h:324px;--d:40px}.cover .t{font-size:22px}}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#propuesta">Saltar al contenido</a>
+
+<header class="hero">
+  <div class="bar">
+    <div class="duo">
+      <img src="logo.png" alt="Kingsbridge English Academy">
+      <i aria-hidden="true"></i>
+      <img class="school" src="selva-alegre-logo.jpg" alt="Colegio Selvalegre, English Program, British and American English" width="246" height="128">
+    </div>
+  </div>
+  <div class="hero-in">
+    <div>
+      <h1>Programa de Competencia Comunicativa en Inglés<em><span class="en">English Program for New Students</span><span class="school">Propuesta para el Colegio Selvalegre</span><span>Sede principal · Leticia, Amazonas</span><span>Modalidad personalizada e intensiva</span></em></h1>
+      <p class="sub">Primeros cursos en la sede principal del colegio, un espacio propicio para la concentración y el aprendizaje.</p>
+    </div>
+    <div class="stage-wrap" aria-hidden="true">
+      <div class="stage">
+        <div class="sway"><div class="book">
+          <div class="floor"></div>
+          <div class="back"></div>
+          <div class="spine"></div>
+          <div class="pages"></div>
+          <div class="top"></div>
+          <div class="cover">
+            <div class="k">PROPUESTA</div>
+            <div class="t">Programa de Competencia Comunicativa en Inglés<small>para preescolar, primaria y bachillerato</small></div>
+            <div class="yr">Leticia, Amazonas</div>
+          </div>
+          <div class="ribbons"><i></i><i></i><i></i><i></i></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="stripe"></div>
+
+<nav class="toc" aria-label="Contenido de la propuesta">
+  <div class="in">
+    <h2>Contenido</h2>
+    <ol>
+      <li><a href="#propuesta"><span>Presentación de la propuesta</span><span>I</span></a></li>
+      <li><a href="#clases"><span>Enfoque de las clases</span><span>II</span></a></li>
+      <li><a href="#beneficios"><span>Beneficios para el colegio</span><span>III</span></a></li>
+      <li><a href="#necesidades"><span>Requerimientos</span><span>IV</span></a></li>
+      <li><a href="#anuncios"><span>Inscripción y difusión</span><span>V</span></a></li>
+      <li><a href="#ruta"><span>Ruta de implementación</span><span>VI</span></a></li>
+      <li><a href="#conversar"><span>Aspectos por acordar con el colegio</span><span>VII</span></a></li>
+      <li><a href="#contacto"><span>Contacto</span><span>VIII</span></a></li>
+    </ol>
+  </div>
+</nav>
+
+<main>
+  <section id="propuesta" aria-labelledby="h1">
+    <div class="in chap">
+      <div class="num" aria-hidden="true">I</div>
+      <div>
+        <h2 id="h1">Presentación de la propuesta</h2>
+        <p class="kick">Un entorno adecuado para el aprendizaje</p>
+        <div class="salute">
+          <b>Distinguida Doctora<br class="br-m"> Clara&nbsp;Patricia&nbsp;Peña</b>
+          <span>Colegio Selvalegre · Leticia, Amazonas</span>
+          <p>Reciba un respetuoso y cordial saludo. Le agradezco la amable atención que brindó a mi llamada y, en cumplimiento de lo prometido, me permito presentar a su consideración la siguiente propuesta académica, con la cual Kingsbridge English Academy desea contribuir a la formación en lengua inglesa de los estudiantes de Leticia, en una eventual colaboración con el Colegio Selvalegre.</p>
+          <p>Quedo atento a sus observaciones y a la oportunidad de conversarla personalmente.</p>
+        </div>
+        <p class="prose">Existen estudiantes comprometidos con aprender inglés de manera efectiva y con cursarlo bajo mi orientación. La presente propuesta busca reunirlos en un entorno adecuado para el estudio: el Colegio Selvalegre, institución que conozco de primera mano por haberme desempeñado en ella como docente de inglés de bachillerato.</p>
+        <p class="prose">Se propone iniciar con clases particulares y de refuerzo, orientadas a la práctica de la conversación desde la primera sesión y con una atención cercana y personalizada a cada estudiante.</p>
+        <aside class="sheet" aria-label="Datos de la propuesta" style="margin-top:30px">
+          <dl>
+            <div><dt>Lugar de ejecución</dt><dd>Sede principal del Colegio Selvalegre, Leticia, Amazonas</dd></div>
+            <div><dt>Modalidad</dt><dd>Clases particulares y de refuerzo de lengua inglesa</dd></div>
+            <div><dt>Población destinataria</dt><dd>Estudiantes de los niveles de preescolar (kínder), básica primaria y bachillerato que deseen adquirir una competencia básica en lengua inglesa y progresar, como máximo, hasta los niveles B1 o B2 del Marco Común Europeo de Referencia para las Lenguas</dd></div>
+            <div><dt>Estado de la propuesta</dt><dd>Preliminar, sujeta a lo que acuerden las partes</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="clases" class="paper" aria-labelledby="h2">
+    <div class="in chap">
+      <div class="num" aria-hidden="true">II</div>
+      <div>
+        <h2 id="h2">Enfoque de las clases</h2>
+        <p class="kick">Tres principios que orientan el trabajo en el aula</p>
+        <p>El programa está dirigido a estudiantes de preescolar (kínder), básica primaria y bachillerato, con el propósito de que adquieran un nivel básico de lengua inglesa y progresen hasta alcanzar, como máximo, los niveles B1 o B2 del Marco Común Europeo de Referencia para las Lenguas. Su diseño se adecuaría a la edad y al nivel de cada grupo de estudiantes.</p>
+        <div class="pr">
+          <article><div><h3>Conversación</h3><p>Práctica del idioma mediante la conversación desde la primera clase.</p></div></article>
+          <article><div><h3>Grupos reducidos</h3><p>Pocos estudiantes por grupo, de modo que cada uno participe y sea escuchado.</p></div></article>
+          <article><div><h3>Atención personalizada</h3><p>Acompañamiento cercano a cada estudiante y a su familia.</p></div></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="beneficios" aria-labelledby="h-ben">
+    <div class="in chap">
+      <div class="num" aria-hidden="true">III</div>
+      <div>
+        <h2 id="h-ben">Beneficios para el colegio</h2>
+        <p class="kick">Aspecto tratado previamente con la rectoría</p>
+        <p>Además de brindar un espacio de estudio, la propuesta procura beneficiar al colegio: que niños y jóvenes ajenos a la institución la conozcan y se motiven a vincularse a ella como estudiantes.</p>
+        <div class="pr">
+          <article><div><h3>Nuevos estudiantes que conocen la institución</h3><p>Niños y jóvenes ajenos al colegio conocerían sus instalaciones, su ambiente y su comunidad educativa.</p></div></article>
+          <article><div><h3>Una vía de vinculación</h3><p>Quienes se sientan a gusto durante las clases podrían motivarse a inscribirse en el colegio.</p></div></article>
+          <article><div><h3>Un docente que ya conoce la institución</h3><p>Eduardo J. López se desempeñó como docente de inglés de bachillerato en el colegio y conoce a su comunidad.</p></div></article>
+          <article><div><h3>Sin afectar la jornada escolar</h3><p>Se propone iniciar en fin de semana, para no interferir con las actividades regulares del colegio.</p></div></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="necesidades" class="paper" aria-labelledby="h3">
+    <div class="in chap">
+      <div class="num" aria-hidden="true">IV</div>
+      <div>
+        <h2 id="h3">Requerimientos</h2>
+        <p class="kick">Condiciones para el adecuado desarrollo de las clases</p>
+        <ul class="ledger">
+          <li>Un salón tranquilo que favorezca la concentración.</li>
+          <li>Mobiliario adecuado para trabajar con comodidad.</li>
+          <li>Horarios que no interfieran con las actividades del colegio, por acordar.</li>
+          <li>La primera sesión se programaría en fin de semana (sábado o domingo), sin perjuicio de que el viernes pueda constituir una alternativa, sujeta a lo que acuerden las partes.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="anuncios" class="navy" aria-labelledby="h-an">
+    <div class="in chap">
+      <div class="num" aria-hidden="true">V</div>
+      <div>
+        <h2 id="h-an">Inscripción y difusión</h2>
+        <p class="kick">Un letrero botón digital para que los nuevos estudiantes se suscriban</p>
+        <p style="color:#d3dcee">Este es el botón digital que se incorporará a la página de internet de Kingsbridge English Academy. Si el colegio lo aprueba, también podría publicarse en la página oficial de la institución. Es un diseño de muestra: el colegio decide si lo utiliza, lo modifica o prefiere otro.</p>
+        <p style="color:#d3dcee;margin-top:14px">Al hacer clic en el botón, el estudiante o su acudiente diligencia un formulario digital de pre-inscripción. Kingsbridge revisa las solicitudes y, una vez confirmados los estudiantes y las clases, informa al colegio para acordar con él el día de la clase grupal.</p>
+        <div class="posters">
+          <figure>
+            <a class="signlink" href="https://tally.so/r/2EQWlj" target="_blank" rel="noopener" aria-label="Abrir el formulario de pre-inscripción de nuevos estudiantes (se abre en una pestaña nueva)">
+            <div class="sign">
+              <div class="zoom"><img src="anuncio-claro.jpg" alt="Letrero de anuncio sobre fondo claro con las banderas del Reino Unido y Estados Unidos y una huella naranja: Colegio Selvalegre, English Program for New Students, New Enrollment, Leticia, Colombia" width="1400" height="700" loading="lazy">
+              <img class="paw" src="paw-tigre.png" alt="" aria-hidden="true" width="607" height="403"></div>
+              <span class="ring" aria-hidden="true"></span><span class="ring r2" aria-hidden="true"></span>
+              <span class="glow" aria-hidden="true"></span>
+              <span class="shine" aria-hidden="true"></span>
+              <span class="words" aria-hidden="true"><i>Hello</i><i>Speak</i><i>Learn</i><i>Dream</i><i>Welcome</i></span>
+              <span class="ticker" aria-hidden="true"><b>Your future speaks English</b><b>Speak with courage</b><b>Tu primera clase te espera</b><b>Pre-inscríbete hoy</b></span>
+            </div>
+            </a>
+            <figcaption>Letrero botón digital para la suscripción de nuevos estudiantes</figcaption>
+            <p class="live"><i aria-hidden="true"></i><span><b>Enlace activado.</b> El formulario de pre-inscripción está habilitado: haga clic en el letrero para abrirlo.</span></p>
+          </figure>
+          <p class="why"><b>Importancia del botón digital.</b> Constituye el canal formal de pre-inscripción y reviste importancia y utilidad para ambas partes: centraliza las solicitudes, asegura que cada interesado sea evaluado en igualdad de condiciones y deja constancia ordenada de la demanda, lo que permite al colegio y a Kingsbridge English Academy planificar con certeza. Asimismo, cumple una función publicitaria, en tanto otorga visibilidad al programa y a las instituciones ante los nuevos estudiantes y sus familias.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ruta" class="paper" aria-labelledby="h4">
+    <div class="in chap">
+      <div class="num" aria-hidden="true">VI</div>
+      <div>
+        <h2 id="h4">Ruta de implementación</h2>
+        <p class="kick">Secuencia sugerida, sujeta a lo que acuerden las partes</p>
+        <ol class="line">
+          <li><b>Reunión con el colegio</b><span>Presentar la propuesta y recibir las observaciones de la rectoría.</span></li>
+          <li><b>Acuerdo de condiciones</b><span>Las partes determinarán, de común acuerdo, el espacio de la sede principal en que se impartirán las clases y las condiciones para su uso, así como las responsabilidades que corresponden a cada una, de modo que la ejecución del programa se desarrolle con claridad, orden y mutuo beneficio.</span></li>
+          <li><b>Apertura de inscripciones</b><span>Publicación del botón digital en la página de Kingsbridge, que conduce al formulario de pre-inscripción. Con la aprobación del colegio, el botón digital podrá incorporarse también en la página oficial del Colegio Selvalegre.</span></li>
+          <li><b>Revisión de inscripciones</b><span>Recibidas las pre-inscripciones, Kingsbridge English Academy examinará cada solicitud, considerando la edad, el nivel de partida y los objetivos de aprendizaje de cada estudiante. Con base en dicha evaluación, confirmará los estudiantes admitidos y conformará los grupos de clase correspondientes.</span></li>
+          <li><b>Acuerdo del día de clase</b><span>Confirmados los estudiantes y los grupos, se comunicará formalmente al colegio, a fin de convenir el día de las sesiones grupales. Se propone un sábado o domingo, sin perjuicio de que el viernes pueda constituir una alternativa. Las horas de inicio y de finalización de cada sesión se establecerán de común acuerdo entre las partes, atendiendo a la estructura académica y a la intensidad que se pacten para el programa o taller de inglés.</span></li>
+          <li><b>Inicio del primer grupo</b><span>Comenzar con un grupo reducido y ajustar según la experiencia.</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="conversar" aria-labelledby="h5">
+    <div class="in chap">
+      <div class="num" aria-hidden="true">VII</div>
+      <div>
+        <h2 id="h5">Aspectos por acordar con el colegio</h2>
+        <p class="kick">Puntos abiertos, para decidir de común acuerdo</p>
+        <ul class="ledger">
+          <li>Espacios y horarios disponibles.</li>
+          <li>Condiciones para el uso del espacio.</li>
+          <li>Responsabilidades de cada parte durante las clases, en especial respecto de los menores de edad.</li>
+          <li>Forma en que se podrá mencionar al colegio en la información de las clases.</li>
+          <li>Cualquier otra condición que el colegio considere pertinente.</li>
+        </ul>
+        <p class="notice"><b>Nota:</b> la presente es una propuesta preliminar, sujeta a lo que acuerden las partes y a los permisos y requisitos que correspondan.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="cf" aria-labelledby="h6">
+    <div class="frame">
+      <h2 id="h6">A su consideración</h2>
+      <p class="lede">Distinguida Doctora Clara Patricia Peña: quedo atento a sus observaciones y a la oportunidad de presentarle personalmente esta propuesta, en la fecha y hora que usted disponga.</p>
+      <dl class="facts">
+        <div><dt>WhatsApp</dt><dd><span class="un">USERNAME:</span> @kingsbridge.academy</dd></div>
+        <div><dt>Correo electrónico</dt><dd><a href="mailto:kingsbridge.colombia@gmail.com">kingsbridge.colombia@gmail.com</a></dd></div>
+        <div><dt>Ubicación</dt><dd>Leticia, Amazonas, Colombia</dd></div>
+      </dl>
+      <p class="close"><i>Atentamente,</i><b>Eduardo J. López</b></p>
+      <a class="btn btn-p wa-end" href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener">Contactar por WhatsApp</a>
+
+    </div>
+  </section>
+</main>
+
+<div class="stripe"></div>
+<footer>
+  <b>Kingsbridge English Academy</b> · Leticia, Amazonas, Colombia<br>
+  Fundada y registrada ante la Cámara de Comercio (No. 26395) · En etapa de lanzamiento<br>
+  Propuesta de Kingsbridge English Academy; no es un sitio oficial del Colegio Selvalegre.<br>
+  Sus logotipos se muestran únicamente para efectos de esta propuesta.<br>
+  &copy;2026 Kingsbridge English Academy
+</footer>
+
+</body>
+</html>
