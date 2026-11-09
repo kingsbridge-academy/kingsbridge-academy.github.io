@@ -51,7 +51,7 @@ a{color:inherit}
 .duo img{display:block;height:128px;width:auto}
 .duo .school{border:1px solid rgba(232,208,138,.45);box-shadow:0 8px 20px -8px rgba(0,0,0,.6)}
 .duo i{width:1px;align-self:stretch;margin:6px 0;background:linear-gradient(transparent,var(--brass),transparent)}
-@media(max-width:760px){.duo{flex-direction:column;align-items:flex-start;gap:16px;width:100%}.duo img{height:auto;max-width:100%}.duo>img:first-child{width:min(340px,100%)}.duo .school{width:min(250px,72%)}.duo i{display:none}}
+@media(max-width:760px){.duo{flex-direction:column;align-items:flex-start;gap:16px;width:100%}.duo img{height:auto;max-width:100%}.duo>a:first-child img{width:min(340px,100%)}.duo .school{width:min(250px,72%)}.duo i{display:none}}
 .hero-in{position:relative;max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
 .hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.85rem,5.2vw,3.15rem);line-height:1.1;letter-spacing:-.01em}
 .hero h1 em span{display:block}
@@ -236,7 +236,7 @@ footer b{color:#fff}
 <header class="hero">
   <div class="bar">
     <div class="duo">
-      <img src="logo.png" alt="Kingsbridge English Academy">
+      <a href="index.html" aria-label="Ir al inicio de Kingsbridge English Academy"><img src="logo.png" alt="Kingsbridge English Academy"></a>
       <i aria-hidden="true"></i>
       <img class="school" src="selva-alegre-logo.jpg" alt="Colegio Selvalegre, English Program, British and American English" width="246" height="128">
     </div>
