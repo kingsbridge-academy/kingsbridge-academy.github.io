@@ -90,18 +90,61 @@ small{display:block;margin:8px 0 26px;color:#5a6688;font-size:12px}
   }
 </style>
 
-<div class="info">
-Clases particulares y de refuerzo de inglés en Leticia, Amazonas, en la triple frontera entre Colombia, Brasil y Perú.<br>
-Academia fundada y registrada ante la Cámara de Comercio (No. 26395). Actualmente en etapa de lanzamiento.<br>
-<span>Founded with one mission: make real English accessible.</span>
-</div>
+<!-- ===== PRESENTACIÓN (debajo del encabezado) ===== -->
+<style>
+.kb-intro{max-width:900px;margin:0 auto;padding:34px 18px 6px}
+.kb-eye{font:bold 12px Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#e2ba68}
+.kb-intro h2{font-family:Georgia,"Times New Roman",serif;font-weight:normal;font-size:clamp(1.6rem,6vw,2.5rem);line-height:1.2;color:#fff;margin:10px 0 0}
+.kb-intro h2 em{font-style:italic;color:#e2ba68}
+.kb-orn{display:flex;align-items:center;justify-content:center;gap:12px;margin:16px auto 14px;color:#e2ba68;font-size:12px}
+.kb-orn::before,.kb-orn::after{content:"";width:min(22vw,120px);height:1px;background:linear-gradient(90deg,transparent,#e2ba68)}
+.kb-orn::after{background:linear-gradient(90deg,#e2ba68,transparent)}
+.kb-intro p{color:#cfcbe6;font-size:16px;line-height:1.65;max-width:620px;margin:0 auto}
+.kb-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0 0}
+.kb-fact{background:linear-gradient(180deg,#141a33,#0d1226);border:1px solid rgba(226,186,104,.4);border-radius:14px;padding:16px 12px}
+.kb-fact b{display:block;font-family:Georgia,"Times New Roman",serif;font-weight:normal;font-size:1.05rem;color:#fff;line-height:1.25}
+.kb-fact span{display:block;margin-top:6px;color:#a09ac0;font-size:13px;line-height:1.45}
+.kb-fact i{display:block;width:34px;height:34px;margin:0 auto 10px;color:#e2ba68}
+.kb-fact svg{width:100%;height:100%;display:block}
+.kb-intro .kb-mission{margin:26px auto 0;font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:clamp(1rem,3.6vw,1.2rem);color:#fff}
+.kb-mission::before,.kb-mission::after{color:#e2ba68}
+.kb-mission::before{content:"\201C"}.kb-mission::after{content:"\201D"}
+@media(max-width:640px){.kb-facts{grid-template-columns:1fr;max-width:400px;margin-left:auto;margin-right:auto}.kb-fact{display:grid;grid-template-columns:34px 1fr;column-gap:14px;text-align:left;align-items:center}.kb-fact i{margin:0;grid-row:1 / span 2}.kb-fact span{margin-top:2px}}
+/* título del carrusel */
+.kb-kids{max-width:900px;margin:44px auto 0;padding:0 18px}
+.kb-kids .kb-pill{display:inline-block;background:#ffd43b;color:#3b2a20;border-radius:99px;padding:6px 16px;font:bold 12px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.kb-kids h2{font-family:Georgia,"Times New Roman",serif;font-weight:normal;font-size:clamp(1.7rem,6.4vw,2.6rem);line-height:1.15;color:#fff;margin:14px 0 0}
+.kb-kids h2 em{font-style:normal;color:#ffd43b}
+.kb-kids p{color:#cfcbe6;font-size:16px;line-height:1.6;max-width:600px;margin:10px auto 0}
+.kb-kids p b{color:#fff}
+</style>
+<section class="kb-intro" aria-labelledby="kb-intro-h">
+  <div class="kb-eye">Leticia · Amazonas · Colombia</div>
+  <h2 id="kb-intro-h">Clases particulares y de refuerzo <em>de inglés</em></h2>
+  <div class="kb-orn" aria-hidden="true">&#9670;</div>
+  <p>En Leticia, Amazonas, en la triple frontera entre Colombia, Brasil y Perú.</p>
+  <div class="kb-facts">
+    <div class="kb-fact"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9.5" r="2.3"/><path d="M2.5 20c0-3.3 2.5-5.5 5.5-5.5s5.500 2.200 5.500 5.500M14.500 20c0-2.600 1.300-4.300 3.300-4.300 1.900 0 3.700 1.500 3.700 4.300"/></svg></i><b>Niños, jóvenes y adultos</b><span>Y refuerzo para el colegio.</span></div>
+    <div class="kb-fact"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.500-3 8-7 10-4-2-7-5.500-7-10V6z"/><path d="M9 12l2.200 2.200L15.200 10"/></svg></i><b>Academia registrada</b><span>Cámara de Comercio, No. 26395.</span></div>
+    <div class="kb-fact"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 2.500 4.500 6 4.500 9.500L14.500 16h-5L7.500 12.500C7.500 9 9 5.500 12 3z"/><circle cx="12" cy="9.500" r="1.600"/><path d="M9.500 16l-2 4M14.500 16l2 4M12 17.500V21"/></svg></i><b>Etapa de lanzamiento</b><span>Academia fundada en Leticia.</span></div>
+  </div>
+  <p class="kb-mission">Founded with one mission: make real English accessible.</p>
+</section>
+
+<!-- ===== TÍTULO DEL CARRUSEL MY DAY ===== -->
+<section class="kb-kids" aria-labelledby="kb-kids-h">
+  <span class="kb-pill">Nuevo · Niños de 3 a 5 años</span>
+  <h2 id="kb-kids-h">Tu hijo aprende inglés <em>jugando</em></h2>
+  <p><b>My Day Games:</b> siete juegos con dibujos, voz en inglés y una canción, para que los más pequeños aprendan a decir lo que hacen cada día.</p>
+</section>
+
 
 
 <!-- ===== CARRUSEL MY DAY GAMES (portada de los 7 juegos) ===== -->
 <style>
 @font-face{font-family:"KB Poppins";font-weight:700;font-display:swap;src:url(fonts/poppins-700.woff) format("woff")}
 @font-face{font-family:"KB Poppins";font-weight:500;font-display:swap;src:url(fonts/poppins-500.woff) format("woff")}
-.mdc{--u:1cqw;container-type:inline-size;position:relative;max-width:1100px;margin:26px 12px 8px;border-radius:26px;overflow:hidden;border:4px solid #fff;background:#fff;
+.mdc{--u:1cqw;container-type:inline-size;position:relative;max-width:1100px;margin:22px 12px 8px;border-radius:26px;overflow:hidden;border:4px solid #fff;background:#fff;
   box-shadow:0 12px 34px rgba(0,0,0,.45);touch-action:pan-y;font-family:"KB Poppins","Trebuchet MS","Segoe UI",Arial,sans-serif}
 @media(min-width:1124px){.mdc{margin-left:auto;margin-right:auto}}
 .mdc *{box-sizing:border-box}
