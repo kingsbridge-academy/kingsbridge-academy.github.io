@@ -96,6 +96,146 @@ Academia fundada y registrada ante la Cámara de Comercio (No. 26395). Actualmen
 <span>Founded with one mission: make real English accessible.</span>
 </div>
 
+
+<!-- ===== CARRUSEL MY DAY GAMES (portada de los 7 juegos) ===== -->
+<style>
+.mdc{position:relative;max-width:1100px;margin:26px auto 6px;border-radius:20px;overflow:hidden;border:1.5px solid #D4AF37;background:#11162b;touch-action:pan-y;text-align:left}
+.mdc *{box-sizing:border-box}
+.mdc-t{display:flex;transition:transform .6s cubic-bezier(.3,.8,.3,1)}
+.mdc-s{flex:0 0 100%;display:flex;flex-direction:column;text-decoration:none;color:#fff}
+.mdc-st{container-type:inline-size;width:100%;aspect-ratio:16/10;overflow:hidden;color:#3b2a20;font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;font-weight:800;
+  background:radial-gradient(ellipse at 10% 12%,#fde7a6 0,rgba(253,231,166,0) 55%),radial-gradient(ellipse at 100% 0,#d3eaf7 0,rgba(211,234,247,0) 50%),linear-gradient(#f6edc9,#fffaf0)}
+.mdc-sc{width:100cqw;height:62.5cqw;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.6cqw}
+.mdc-hd{font-size:5.6cqw;line-height:1;color:#3b2a20;text-shadow:0 .4cqw 0 #fff}
+.mdc-hd b{color:#f59e0b}
+.mdc-row{display:flex;align-items:center;justify-content:center;gap:2.4cqw}
+.mdc-p{display:block;border:.9cqw solid;border-radius:4cqw;background:#fff;box-shadow:0 1cqw 0 rgba(59,42,32,.14);position:relative;flex:none}
+.mdc-p svg{display:block;width:100%;height:auto}
+.mdc-cap{padding:16px 20px 46px;background:#11162b}
+.mdc-k{font:bold 12px Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#e2ba68}
+.mdc-h{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.4rem,5vw,2.1rem);line-height:1.15;margin:4px 0 4px;color:#fff}
+.mdc-h small{display:inline;margin:0;font-size:.6em;color:#a09ac0;font-family:Arial,sans-serif}
+.mdc-d{color:#cfd9ff;font-size:clamp(.9rem,3.2vw,1.05rem);line-height:1.45;min-height:2.9em}
+.mdc-go{display:inline-block;margin-top:10px;background:#e2ba68;color:#080b19;border-radius:99px;padding:9px 20px;font:bold 14px Arial,sans-serif}
+.mdc-s:hover .mdc-go{background:#ffd98a}
+.mdc-n{position:absolute;bottom:5px;width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(226,186,104,.6);background:transparent;color:#e2ba68;font-size:24px;line-height:1;cursor:pointer;z-index:4;padding:0 0 3px}
+.mdc-n:hover{background:#e2ba68;color:#080b19}
+.mdc-a{left:12px}.mdc-b{right:12px}
+.mdc-dots{position:absolute;left:0;right:0;bottom:18px;display:flex;justify-content:center;gap:8px;z-index:3}
+.mdc-dots button{width:11px;height:11px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.4);cursor:pointer}
+.mdc-dots button.on{width:30px;border-radius:6px;background:#e2ba68}
+.mdc-bar{position:absolute;left:0;bottom:0;height:3px;width:0;background:#e2ba68;z-index:3}
+.mdc-bar.run{transition:width linear;width:100%}
+/* escenas */
+.mdc-fan .mdc-p{width:24cqw}.mdc-fan .mdc-p:nth-child(1){transform:rotate(-9deg) translateY(2cqw)}.mdc-fan .mdc-p:nth-child(3){transform:rotate(9deg) translateY(2cqw)}
+.mdc-fan .mdc-p:nth-child(2){width:30cqw;z-index:1;animation:mdcBob 2.4s ease-in-out infinite}
+.mdc-fan{gap:0}.mdc-fan .mdc-p{margin:0 -2cqw}
+.mdc-wh{width:46cqw;position:relative}.mdc-wh .w{animation:mdcSpin 9s linear infinite}.mdc-wh svg{display:block;width:100%}
+.mdc-wh::before{content:"";position:absolute;left:50%;top:-1.6cqw;transform:translateX(-50%);border:2.2cqw solid transparent;border-top:4cqw solid #3b2a20;z-index:2}
+.mdc-mem{display:grid;grid-template-columns:repeat(4,14.5cqw);gap:2cqw}
+.mdc-mem .mdc-p{aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;border-color:#3b2a20;background:#f59e0b;color:#fff;font-size:8cqw}
+.mdc-mem .mdc-p.up{animation:mdcPulse 2.2s ease-in-out infinite}
+.mdc-ord .mdc-p{width:20cqw;animation:mdcIn 4.8s ease-in-out infinite both}
+.mdc-ord .mdc-p:nth-child(2){animation-delay:.5s}.mdc-ord .mdc-p:nth-child(3){animation-delay:1s}.mdc-ord .mdc-p:nth-child(4){animation-delay:1.5s}
+.mdc-ord .mdc-p i{position:absolute;top:-2.4cqw;left:-2cqw;width:6cqw;height:6cqw;border-radius:50%;background:#3b2a20;color:#ffd98a;font-style:normal;font-size:3.4cqw;display:flex;align-items:center;justify-content:center}
+.mdc-spk{width:15cqw;height:15cqw;border-radius:50%;background:#fff;border:.9cqw solid #3b2a20;display:flex;align-items:center;justify-content:center;font-size:8cqw;flex:none;animation:mdcPulse 1.4s ease-in-out infinite}
+.mdc-lis .mdc-p{width:21cqw}.mdc-lis .mdc-p.ok{box-shadow:0 0 0 1.2cqw #58c27d;animation:mdcBob 1.8s ease-in-out infinite}
+.mdc-bin{display:grid;grid-template-columns:repeat(3,11.4cqw);gap:1.4cqw;background:#fff;border:.9cqw solid #3b2a20;border-radius:4cqw;padding:1.8cqw}
+.mdc-bin .mdc-p{border-width:.6cqw;border-radius:2.6cqw;box-shadow:none;overflow:hidden}
+.mdc-bin .mdc-p.hit::after{content:"";position:absolute;inset:14%;border-radius:50%;background:rgba(88,194,125,.55);border:.7cqw solid #2f9e44;animation:mdcChip 3.6s ease-in-out infinite both}
+.mdc-bin .mdc-p.free{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:7cqw;border-color:#f59e0b;background:#fff3b0}
+.mdc-bin .mdc-p.hit:nth-child(5)::after{animation-delay:.4s}.mdc-bin .mdc-p.hit:nth-child(6)::after{animation-delay:.8s}
+.mdc-sing .mdc-p{width:20.5cqw;animation:mdcHop 1.6s ease-in-out infinite}
+.mdc-sing .mdc-p:nth-child(2){animation-delay:.2s}.mdc-sing .mdc-p:nth-child(3){animation-delay:.4s}.mdc-sing .mdc-p:nth-child(4){animation-delay:.6s}
+.mdc-notes{font-size:7cqw;color:#6a5acd;letter-spacing:5cqw;line-height:1;animation:mdcBob 1.6s ease-in-out infinite}
+@keyframes mdcBob{50%{transform:translateY(-1.6cqw)}}
+@keyframes mdcSpin{to{transform:rotate(360deg)}}
+@keyframes mdcPulse{50%{transform:scale(1.07)}}
+@keyframes mdcIn{0%,4%{opacity:0;transform:scale(.6)}12%,92%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.6)}}
+@keyframes mdcChip{0%,10%{opacity:0;transform:scale(.3)}22%,90%{opacity:1;transform:scale(1)}100%{opacity:0}}
+@keyframes mdcHop{30%{transform:translateY(-2.4cqw)}60%{transform:translateY(0)}}
+@media(min-width:760px){
+  .mdc-s{flex-direction:row;align-items:stretch}
+  .mdc-st{width:56%;flex:none}
+  .mdc-cap{flex:1;display:flex;flex-direction:column;justify-content:center;padding:24px 34px 50px}
+  .mdc-dots{left:56%}.mdc-a{left:calc(56% + 22px)}.mdc-b{right:22px}.mdc-n{bottom:8px}
+}
+@media(prefers-reduced-motion:reduce){.mdc *{animation:none!important}.mdc-t{transition:none}}
+</style>
+
+<section class="mdc" id="mdc" aria-label="My Day Games: siete juegos para aprender inglés" aria-roledescription="carrusel">
+  <div class="mdc-t" id="mdcT"></div>
+  <button class="mdc-n mdc-a" type="button" aria-label="Juego anterior">&#8249;</button>
+  <button class="mdc-n mdc-b" type="button" aria-label="Juego siguiente">&#8250;</button>
+  <div class="mdc-dots" id="mdcDots"></div>
+  <div class="mdc-bar" id="mdcBar"></div>
+</section>
+
+<script src="my-day-art.js"></script>
+<script>
+(function(){
+"use strict";
+var A = window.MyDayArt, root = document.getElementById('mdc');
+if (!A || !root){ if (root) root.style.display = 'none'; return; }
+var I = A.ITEMS, T = document.getElementById('mdcT'), D = document.getElementById('mdcDots'), BAR = document.getElementById('mdcBar');
+var TIME = 4500;  /* milisegundos por juego: más alto = más lento */
+function p(i, cls, extra){ var it = I[i]; return '<span class="mdc-p ' + (cls || '') + '" style="border-color:' + it.color + ';background:' + it.bg + '">' + (extra || '') + A.pic(it) + '</span>'; }
+function q(){ return '<span class="mdc-p">?</span>'; }
+var S = [
+  ['Tarjetas', 'Cards', 'Toca un dibujo, escucha la frase en inglés y haz el gesto.',
+    '<div class="mdc-hd">I <b>wake up</b>!</div><div class="mdc-row mdc-fan">' + p(1) + p(0) + p(3) + '</div>'],
+  ['Ruleta', 'Wheel', 'Gira la ruleta y actúa la rutina que salga.',
+    '<div class="mdc-hd"><b>Spin</b> the wheel!</div><div class="mdc-wh"><div class="w">' + A.wheel() + '</div></div>'],
+  ['Memoria', 'Memory', 'Encuentra las parejas. Cada carta dice su frase.',
+    '<div class="mdc-hd">Find the <b>pairs</b>!</div><div class="mdc-mem">' + q() + p(6, 'up') + q() + q() + q() + q() + p(6, 'up') + q() + '</div>'],
+  ['Ordenar el día', 'Order my day', '¿Qué hago primero? Ordena el día del 1 al 4.',
+    '<div class="mdc-hd">What do I do <b>first</b>?</div><div class="mdc-row mdc-ord">' + p(0, '', '<i>1</i>') + p(2, '', '<i>2</i>') + p(4, '', '<i>3</i>') + p(7, '', '<i>4</i>') + '</div>'],
+  ['Escuchar y tocar', 'Listen & tap', 'Escucha la frase y toca el dibujo correcto.',
+    '<div class="mdc-hd"><b>Listen</b> and tap!</div><div class="mdc-row mdc-lis"><span class="mdc-spk">🔊</span>' + p(3) + p(1, 'ok') + p(7) + '</div>'],
+  ['Bingo', 'Bingo', 'Marca lo que oyes. ¡Tres en línea y gana!',
+    '<div class="mdc-hd"><b>BINGO!</b></div><div class="mdc-bin">' + p(5) + p(7) + p(2) + p(1, 'hit') + '<span class="mdc-p free hit">⭐</span>' + p(0, 'hit') + p(6) + p(3) + p(4) + '</div>'],
+  ['Cantar', 'Sing', 'Una canción con gestos, con una melodía que ya conocen.',
+    '<div class="mdc-notes">♪♫♪</div><div class="mdc-row mdc-sing">' + p(0) + p(1) + p(3) + p(7) + '</div><div class="mdc-hd"><b>Sing</b> along!</div>']
+];
+var n = S.length, i = 0, tm = null, hold = false, seen = true, dots = [];
+var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+T.innerHTML = S.map(function(s, k){
+  return '<a class="mdc-s" href="my-day-ninos.html#juegos" aria-label="' + s[0] + ': ' + s[2] + '"><div class="mdc-st" aria-hidden="true"><div class="mdc-sc">' + s[3] + '</div></div>' +
+    '<div class="mdc-cap"><div class="mdc-k">My Day Games · ' + (k + 1) + ' de ' + n + ' · 3 a 5 años</div><div class="mdc-h">' + s[0] + ' <small>· ' + s[1] + '</small></div>' +
+    '<div class="mdc-d">' + s[2] + '</div><div><span class="mdc-go">Conocer My Day &rarr;</span></div></div></a>';
+}).join('');
+S.forEach(function(s, k){ var b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Juego ' + (k + 1) + ': ' + s[0]); b.onclick = function(){ go(k); }; D.appendChild(b); dots.push(b); });
+function go(x){
+  i = (x + n) % n; T.style.transform = 'translateX(-' + (i * 100) + '%)';
+  dots.forEach(function(d, j){ d.className = j === i ? 'on' : ''; });
+  [].forEach.call(T.children, function(a, j){ a.tabIndex = j === i ? 0 : -1; });
+  play();
+}
+function play(){
+  clearTimeout(tm); BAR.className = 'mdc-bar'; BAR.style.transitionDuration = '0ms'; void BAR.offsetWidth;
+  if (hold || !seen || reduce || document.hidden) return;
+  BAR.style.transitionDuration = TIME + 'ms'; BAR.className = 'mdc-bar run';
+  tm = setTimeout(function(){ go(i + 1); }, TIME);
+}
+root.querySelector('.mdc-a').onclick = function(){ go(i - 1); };
+root.querySelector('.mdc-b').onclick = function(){ go(i + 1); };
+root.addEventListener('mouseenter', function(){ hold = true; play(); });
+root.addEventListener('mouseleave', function(){ hold = false; play(); });
+root.addEventListener('focusin', function(){ hold = true; play(); });
+root.addEventListener('focusout', function(){ hold = false; play(); });
+root.addEventListener('keydown', function(e){ if (e.key === 'ArrowLeft') go(i - 1); else if (e.key === 'ArrowRight') go(i + 1); });
+var sx = null, moved = false;
+root.addEventListener('pointerdown', function(e){ sx = e.clientX; moved = false; });
+root.addEventListener('pointerup', function(e){ if (sx === null) return; var d = e.clientX - sx; sx = null; if (Math.abs(d) > 45){ moved = true; go(d < 0 ? i + 1 : i - 1); } });
+root.addEventListener('pointercancel', function(){ sx = null; });
+root.addEventListener('click', function(e){ if (moved){ e.preventDefault(); moved = false; } }, true);
+document.addEventListener('visibilitychange', play);
+if ('IntersectionObserver' in window){ new IntersectionObserver(function(en){ seen = en[0].isIntersecting; play(); }, { threshold: .3 }).observe(root); }
+go(0);
+})();
+</script>
+<!-- ===== FIN CARRUSEL MY DAY GAMES ===== -->
+
 <div>
   <div style="padding:20px; max-width:400px; margin:auto;">
 
