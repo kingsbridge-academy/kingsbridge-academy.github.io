@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flight English · Lesson 1 · Parts of the Airplane</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#c9a24b;--gold2:#e8c877;--bg:#0b0d10;--panel:#12151a;--line:#2a2f37;--ink:#e8e6df;--mute:#8d939c;--cyan:#6fd3e8}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:'Rajdhani',system-ui,sans-serif}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 18px;border-bottom:1px solid var(--line);background:linear-gradient(#0f1217,#0b0d10)}
+.brand{font-weight:700;letter-spacing:.28em;color:var(--gold);font-size:20px}
+.sub{font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase}
+main{display:grid;grid-template-columns:1fr 370px;height:calc(100% - 58px)}
+#stage{position:relative;min-height:320px;background:linear-gradient(180deg,#070d18 0%,#1c2c47 62%,#3a4a63 100%);overflow:hidden}
+#stage canvas{display:block;width:100%;height:100%;touch-action:none}
+.hud{position:absolute;left:14px;bottom:12px;font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--cyan);letter-spacing:.06em;opacity:.85;pointer-events:none;text-shadow:0 0 6px #000}
+.corner{position:absolute;width:26px;height:26px;border:2px solid var(--gold);opacity:.7;pointer-events:none}
+.c1{left:10px;top:10px;border-right:0;border-bottom:0}.c2{right:10px;top:10px;border-left:0;border-bottom:0}
+.c3{left:10px;bottom:10px;border-right:0;border-top:0}.c4{right:10px;bottom:10px;border-left:0;border-top:0}
+aside{background:var(--panel);border-left:1px solid var(--line);padding:16px;overflow:auto;display:flex;flex-direction:column;gap:14px}
+.card{border:1px solid var(--line);border-radius:6px;padding:14px;background:#0f1216}
+.tag{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase}
+#pname{font-size:40px;font-weight:700;line-height:1.05;margin:4px 0 0;color:#fff}
+#pes{color:var(--mute);font-size:17px;min-height:22px}
+#psent{font-size:21px;margin:10px 0 12px;color:var(--gold2);font-weight:600}
+button{font-family:inherit;cursor:pointer}
+.btn{background:var(--gold);color:#14110a;border:0;border-radius:4px;padding:9px 16px;font-weight:700;font-size:16px;letter-spacing:.06em}
+.btn:hover{background:var(--gold2)}
+.btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:#171b21;color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:7px 12px;font-size:16px;font-weight:600}
+.chip:hover,.chip.on{border-color:var(--gold);color:var(--gold2)}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+label{font-size:14px;color:var(--mute);display:flex;align-items:center;gap:6px}
+#qtext{font-size:26px;font-weight:700;margin:6px 0}
+#qmsg{min-height:24px;font-size:18px}
+.ok{color:#7be08f}.no{color:#ff8b7a}
+footer{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--mute);letter-spacing:.08em;margin-top:auto;padding-top:6px;border-top:1px solid var(--line)}
+@media(max-width:820px){
+ main{grid-template-columns:1fr;grid-template-rows:56vh auto;height:auto}
+ aside{border-left:0;border-top:1px solid var(--line)}
+ #pname{font-size:34px}
+ .brand{font-size:16px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">FLIGHT ENGLISH</div>
+  <div class="sub">Cadet training · Lesson 1 · Parts of the airplane</div>
+</header>
+<main>
+  <section id="stage">
+    <div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
+    <div class="hud">DRAG: ROTATE · SCROLL / PINCH: ZOOM · TAP A PART</div>
+  </section>
+  <aside>
+    <div class="card" id="info">
+      <div class="tag">Selected part</div>
+      <h1 id="pname" style="font-size:40px">Tap a part</h1>
+      <div id="pes">&nbsp;</div>
+      <div id="psent">Tap the airplane or choose a word below.</div>
+      <div class="row">
+        <button class="btn" id="listen">▶ LISTEN</button>
+        <label><input type="checkbox" id="es" checked> Español</label>
+        <label><input type="checkbox" id="snd" checked> Sound</label>
+      </div>
+      <div id="audiomsg" style="margin-top:8px;font-size:14px;color:#ff8b7a"></div>
+    </div>
+    <div>
+      <div class="tag" style="margin-bottom:8px">Vocabulary</div>
+      <div class="chips" id="chips"></div>
+    </div>
+    <div class="card">
+      <div class="tag">Mission · Quiz</div>
+      <div id="qtext">Ready, Captain?</div>
+      <div id="qmsg">Find each part on the airplane.</div>
+      <div class="row" style="margin-top:8px">
+        <button class="btn" id="qstart">START MISSION</button>
+        <button class="btn ghost" id="qstop" style="display:none">STOP</button>
+        <span id="qscore" class="sub"></span>
+      </div>
+    </div>
+    <footer>Design · Graphics Records</footer>
+  </aside>
+</main>
+
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+
+/* ---------- DATA ---------- */
+const PARTS = {
+  nose:    {en:'Nose',          es:'Morro / Nariz',        say:'The nose is at the front of the airplane.', cam:[[11,1.8,4.5],[7,0,0]]},
+  cockpit: {en:'Cockpit',       es:'Cabina de pilotos',    say:'The pilot sits in the cockpit.',            cam:[[9.5,2.6,4.2],[6,0.4,0]]},
+  window:  {en:'Window',        es:'Ventana',              say:'Passengers look out of the window.',        cam:[[2.2,1.6,6.5],[1,0.3,1]]},
+  door:    {en:'Door',          es:'Puerta',               say:'Passengers enter through the door.',        cam:[[6,1.2,4.6],[4.7,0.1,1]]},
+  fuselage:{en:'Fuselage',      es:'Fuselaje',             say:'The passengers sit in the fuselage.',       cam:[[-2,3,13],[0,0,0]]},
+  wing:    {en:'Wing',          es:'Ala',                  say:'The wings help the airplane fly.',          cam:[[5,6.5,9.5],[-0.5,-0.6,4]]},
+  engine:  {en:'Engine',        es:'Motor',                say:'The engines push the airplane forward.',    cam:[[5.2,-0.2,6.4],[1.5,-1.15,3.1]]},
+  tail:    {en:'Tail',          es:'Cola',                 say:'The tail keeps the airplane straight.',     cam:[[-11.5,5.5,7],[-6,2.4,0]]},
+  gear:    {en:'Landing gear',  es:'Tren de aterrizaje',   say:'The landing gear has wheels.',              cam:[[3.5,-0.4,5.5],[-0.5,-1.6,1.4]]},
+  runway:  {en:'Runway',        es:'Pista',                say:'The airplane takes off on the runway.',     cam:[[-9,3,14],[0,-2.3,5]]}
+};
+const IDS = Object.keys(PARTS);
+
+/* ---------- SCENE ---------- */
+const stage = document.getElementById('stage');
+const renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+stage.insertBefore(renderer.domElement, stage.firstChild);
+
+const scene = new THREE.Scene();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 300);
+camera.position.set(9, 3.5, 15);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.minDistance = 3; controls.maxDistance = 45;
+controls.maxPolarAngle = Math.PI/2 - 0.03;
+controls.autoRotate = true; controls.autoRotateSpeed = 0.7;
+controls.target.set(0,0,0);
+controls.addEventListener('start', () => controls.autoRotate = false);
+
+const sun = new THREE.DirectionalLight(0xfff1d6, 2.4);
+sun.position.set(10,16,9); sun.castShadow = true;
+sun.shadow.mapSize.set(2048,2048);
+Object.assign(sun.shadow.camera,{left:-16,right:16,top:16,bottom:-16,near:1,far:60});
+scene.add(sun, new THREE.HemisphereLight(0x9bb7e0, 0x1a1d22, 0.5));
+
+/* ---------- HELPERS ---------- */
+const M = (color,o={}) => new THREE.MeshStandardMaterial({color,metalness:.3,roughness:.35,...o});
+const plane = new THREE.Group(); scene.add(plane);
+const hit = [], hl = {}, fans = [];
+function add(parent, mesh, id, glow=true){
+  mesh.userData.part = id; mesh.castShadow = true; mesh.receiveShadow = true;
+  hit.push(mesh); if(glow) (hl[id] ||= []).push(mesh);
+  parent.add(mesh); return mesh;
+}
+function slab(pts, depth, mat){
+  const s = new THREE.Shape();
+  pts.forEach(([a,b],i) => i ? s.lineTo(a,b) : s.moveTo(a,b)); s.closePath();
+  const g = new THREE.ExtrudeGeometry(s,{depth,bevelEnabled:true,bevelSize:.03,bevelThickness:.03,bevelSegments:2});
+  g.translate(0,0,-depth/2);
+  return new THREE.Mesh(g, mat);
+}
+
+/* ---------- FUSELAGE + NOSE (smooth profile) ---------- */
+const WHITE = {color:0xf1f3f6, metalness:.25, roughness:.28};
+const prof = new THREE.SplineCurve([
+  [-7.5,.12],[-7,.28],[-6,.55],[-4.5,.85],[-3,1.05],[-1,1.1],[3,1.1],[5,1.06],[5.9,.93],[6.8,.62],[7.3,.3],[7.5,.02]
+].map(([y,r]) => new THREE.Vector2(y,r)));
+const P = prof.getPoints(220).map(p => new THREE.Vector2(Math.max(p.y,.001), p.x));
+const bodyPts = P.filter(p => p.y <= 5.9), nosePts = P.filter(p => p.y >= 5.9);
+const fus = new THREE.Mesh(new THREE.LatheGeometry(bodyPts,72), M(WHITE.color,WHITE));
+fus.rotation.z = -Math.PI/2; add(plane, fus, 'fuselage');
+const nose = new THREE.Mesh(new THREE.LatheGeometry(nosePts,72), M(0x2d3238,{metalness:.2,roughness:.4}));
+nose.rotation.z = -Math.PI/2; add(plane, nose, 'nose');
+
+/* Windows, door, cockpit glass */
+const glass = () => M(0x0a1220,{metalness:.9,roughness:.06});
+const winGeo = new THREE.SphereGeometry(.12,16,12), winMat = glass();
+for(let x=-2.4; x<=3.75; x+=.7) for(const s of [-1,1]){
+  const w = new THREE.Mesh(winGeo, winMat); w.scale.set(1,1.3,.35); w.position.set(x,.3,s*1.03);
+  add(plane, w, 'window');
+}
+for(const s of [-1,1]){
+  const d = new THREE.Mesh(new THREE.BoxGeometry(.55,1.05,.05), M(0xdfe3e8,{metalness:.2,roughness:.4}));
+  d.position.set(4.7,.1,s*1.06); add(plane, d, 'door');
+  const h = new THREE.Mesh(new THREE.BoxGeometry(.1,.04,.03), M(0x777d85)); h.position.set(4.9,.15,s*1.09); add(plane,h,'door');
+}
+for(const s of [-1,1]){
+  const c = new THREE.Mesh(new THREE.SphereGeometry(.25,20,14), glass());
+  c.scale.set(1.1,.6,.5); c.position.set(6.1,.5,s*.62); c.rotation.y = s*.5; add(plane,c,'cockpit');
+}
+const ws = new THREE.Mesh(new THREE.SphereGeometry(.24,20,14), glass());
+ws.scale.set(.5,.5,1.1); ws.position.set(6.45,.6,0); add(plane, ws, 'cockpit');
+
+/* ---------- WINGS, WINGLETS, TAIL ---------- */
+const wingMat = () => M(0xe6e9ee,{metalness:.3,roughness:.3,side:THREE.DoubleSide});
+for(const s of [-1,1]){
+  const w = slab([[1.5,.9*s],[-1.4,6.8*s],[-2.2,6.8*s],[-1.0,.9*s]], .12, wingMat());
+  w.rotation.x = Math.PI/2; w.position.y = -.5; add(plane,w,'wing');
+  const wl = slab([[-1.5,0],[-2.2,0],[-2.45,.8],[-2.1,.8]], .05, M(0x1c3f7a,{side:THREE.DoubleSide}));
+  wl.position.set(0,-.45,s*6.78); add(plane,wl,'wing');
+}
+const BLUE = {color:0x1c3f7a, metalness:.3, roughness:.3, side:THREE.DoubleSide};
+add(plane, slab([[-4.5,.85],[-6.1,3.6],[-6.9,3.6],[-6.4,.85]], .1, M(BLUE.color,BLUE)), 'tail');
+for(const s of [-1,1]){
+  const st = slab([[-5.6,.2*s],[-6.9,3.0*s],[-7.3,3.0*s],[-6.9,.2*s]], .08, wingMat());
+  st.rotation.x = Math.PI/2; st.position.y = .1; add(plane,st,'tail');
+}
+
+/* ---------- ENGINES (turbofan) ---------- */
+const metal = () => M(0xbfc5cc,{metalness:.9,roughness:.2}), dark = () => M(0x101215,{metalness:.5,roughness:.5});
+const V2 = ([r,y]) => new THREE.Vector2(r,y);
+const smooth = (pts,n) => new THREE.SplineCurve(pts.map(V2)).getPoints(n).map(v => [v.x,v.y]);
+function lathe(parent, pts, mat, id){
+  const m = new THREE.Mesh(new THREE.LatheGeometry(pts.map(V2), 72), mat);
+  m.rotation.z = -Math.PI/2; return add(parent, m, id);
+}
+const skinMat  = M(0xe9ecef,{metalness:.3,roughness:.3,side:THREE.DoubleSide});
+const linerMat = M(0x23272c,{metalness:.4,roughness:.7,side:THREE.DoubleSide});
+const cowlMat  = M(0x6b6f75,{metalness:.85,roughness:.38,side:THREE.DoubleSide});
+const plugMat  = M(0x3e4249,{metalness:.8,roughness:.4,side:THREE.DoubleSide});
+const bladeMat = M(0xaab1ba,{metalness:.95,roughness:.22,side:THREE.DoubleSide});
+const bladeShape = new THREE.Shape();
+[[-.04,.13],[.05,.13],[.085,.53],[-.10,.53]].forEach(([u,v],i) => i ? bladeShape.lineTo(u,v) : bladeShape.moveTo(u,v));
+bladeShape.closePath();
+const bladeGeo = new THREE.ExtrudeGeometry(bladeShape,{depth:.016,bevelEnabled:false});
+bladeGeo.translate(0,0,-.008);
+const FAN_BLADES = 22;
+
+for(const s of [-1,1]){
+  const e = new THREE.Group(); e.position.set(.6,-1.15,s*3.1); plane.add(e);
+
+  /* Nacelle: outer skin (rear nozzle lip -> rounded front lip) and inner liner (open intake) */
+  lathe(e, [...smooth([[.40,-1.25],[.47,-1.05],[.56,-.65],[.64,-.15],[.68,.35],[.69,.75],[.67,1.05],[.63,1.22]],60),
+            [.605,1.285],[.58,1.31],[.555,1.29],[.55,1.265]], skinMat, 'engine');
+  lathe(e, smooth([[.55,1.265],[.54,1.0],[.535,.6],[.53,.3],[.52,0],[.49,-.5],[.45,-1.0],[.40,-1.25]],40), linerMat, 'engine');
+
+  /* Bypass nozzle ring (rear edge of the nacelle) */
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(.40,.018,10,56), metal());
+  ring.rotation.y = Math.PI/2; ring.position.x = -1.25; add(e, ring, 'engine');
+
+  /* Dark backing behind the fan so the blades stand out */
+  const back = new THREE.Mesh(new THREE.CylinderGeometry(.53,.53,.05,48), M(0x0b0c0e,{metalness:.3,roughness:.8}));
+  back.rotation.z = -Math.PI/2; back.position.x = .55; add(e, back, 'engine');
+
+  /* Fan: 22 pitched blades + hub + spinner (rotates) */
+  const fan = new THREE.Group(); fan.position.x = .85; e.add(fan); fans.push(fan);
+  for(let i=0;i<FAN_BLADES;i++){
+    const g = new THREE.Group(); g.rotation.x = i/FAN_BLADES*Math.PI*2;
+    const b = new THREE.Mesh(bladeGeo, bladeMat); b.rotation.y = .75;
+    add(g, b, 'engine'); fan.add(g);
+  }
+  const hub = new THREE.Mesh(new THREE.CylinderGeometry(.17,.17,.22,36), metal());
+  hub.rotation.z = -Math.PI/2; add(fan, hub, 'engine');
+  const spin = new THREE.Mesh(new THREE.ConeGeometry(.17,.30,40), M(0xe9ecef,{metalness:.5,roughness:.25}));
+  spin.rotation.z = -Math.PI/2; spin.position.x = .26; add(fan, spin, 'engine');
+
+  /* Rear: core cowl -> core nozzle (hollow ring) + exhaust plug cone */
+  lathe(e, [...smooth([[.20,.45],[.27,-.2],[.30,-.8],[.28,-1.25]],24),
+            [.255,-1.45],[.235,-1.45],[.24,-1.30]], cowlMat, 'engine');
+  lathe(e, [[.22,-1.2],[.20,-1.5],[.15,-1.72],[.085,-1.90],[.02,-1.99],[0,-2.0]], plugMat, 'engine');
+
+  /* Pylon to the wing */
+  const py = new THREE.Mesh(new THREE.BoxGeometry(1.3,.3,.12), M(0xdfe3e8));
+  py.position.set(-.2,.62,0); add(e, py, 'engine');
+}
+
+/* ---------- LANDING GEAR ---------- */
+function wheel(r,w){
+  const g = new THREE.Group();
+  const t = new THREE.Mesh(new THREE.CylinderGeometry(r,r,w,32), M(0x121212,{metalness:0,roughness:.9}));
+  const h = new THREE.Mesh(new THREE.CylinderGeometry(r*.5,r*.5,w*1.05,24), metal());
+  g.add(t,h); g.rotation.x = Math.PI/2; return [t,h,g];
+}
+function leg(x,z,h,top,r,wr,ww,pair){
+  const strut = new THREE.Mesh(new THREE.CylinderGeometry(.07,.07,h,16), metal());
+  strut.position.set(x,top-h/2,z); add(plane,strut,'gear');
+  for(const dz of pair){
+    const [t,hub,g] = wheel(wr,ww); g.position.set(x,-2.3+wr,z+dz);
+    for(const m of [t,hub]){ m.userData.part='gear'; hit.push(m); (hl.gear ||= []).push(m); m.castShadow = true; }
+    plane.add(g);
+  }
+}
+leg(4.3,0,.95,-1.0,.07,.32,.14,[-.14,.14]);
+for(const s of [-1,1]) leg(-.5,s*1.6,1.33,-.62,.07,.4,.2,[-.15,.15]);
+
+/* ---------- RUNWAY ---------- */
+const ground = new THREE.Mesh(new THREE.PlaneGeometry(160,40), M(0x23262b,{metalness:0,roughness:.92}));
+ground.rotation.x = -Math.PI/2; ground.position.y = -2.3; ground.receiveShadow = true;
+ground.userData.part='runway'; hit.push(ground); scene.add(ground);
+const paint = M(0xe8e8e8,{metalness:0,roughness:.8});
+for(let i=-8;i<=8;i++){ const m = new THREE.Mesh(new THREE.BoxGeometry(4,.01,.3), paint); m.position.set(i*9,-2.29,0); m.userData.part='runway'; hit.push(m); (hl.runway ||= []).push(m); scene.add(m); }
+for(const z of [-7,7]){ const m = new THREE.Mesh(new THREE.BoxGeometry(160,.01,.25), paint); m.position.set(0,-2.29,z); m.userData.part='runway'; hit.push(m); hl.runway.push(m); scene.add(m); }
+
+/* ---------- HIGHLIGHT ---------- */
+let current = null;
+function setHL(id){
+  if(current && hl[current]) hl[current].forEach(m => { m.material.emissive?.set(0x000000); });
+  current = id;
+  if(id && hl[id]) hl[id].forEach(m => { m.material.emissive?.set(0xffb938); m.material.emissiveIntensity = .55; });
+}
+
+/* ---------- CAMERA FLY ---------- */
+let fly = null;
+function flyTo(id){
+  const [p,t] = PARTS[id].cam;
+  fly = {t:0,p0:camera.position.clone(),t0:controls.target.clone(),p1:new THREE.Vector3(...p),t1:new THREE.Vector3(...t)};
+  controls.autoRotate = false;
+}
+
+/* ---------- UI ---------- */
+const $ = id => document.getElementById(id);
+const chips = $('chips');
+IDS.forEach(id => {
+  const b = document.createElement('button'); b.className='chip'; b.textContent = PARTS[id].en; b.dataset.id = id;
+  b.onclick = () => pick(id); chips.appendChild(b);
+});
+const SS = 'speechSynthesis' in window ? window.speechSynthesis : null;
+let VOICE = null;
+function loadVoices(){
+  if(!SS) return;
+  const vs = SS.getVoices();
+  VOICE = vs.find(v => /^en[-_]US/i.test(v.lang)) || vs.find(v => /^en/i.test(v.lang)) || null;
+}
+if(SS){ loadVoices(); SS.addEventListener('voiceschanged', loadVoices); }
+function audioMsg(t){ $('audiomsg').textContent = t || ''; }
+function speak(text){
+  if(!$('snd').checked) return;
+  if(!SS){ audioMsg('Este navegador no tiene audio. Usa Chrome, Edge o Safari actualizado.'); return; }
+  loadVoices();
+  if(SS.getVoices().length && !VOICE) audioMsg('Este dispositivo no tiene voz en inglés instalada. Instálala en Ajustes (Idioma / Texto a voz) o prueba otro navegador.');
+  else audioMsg('');
+  const go = () => {
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = (VOICE && VOICE.lang) || 'en-US'; if(VOICE) u.voice = VOICE;
+    u.rate = .85; u.volume = 1;
+    u.onerror = e => { if(e.error && e.error !== 'canceled' && e.error !== 'interrupted') audioMsg('Error de audio (' + e.error + '). Sube el volumen y revisa que el teléfono no esté en silencio.'); };
+    SS.resume(); SS.speak(u);
+  };
+  if(SS.speaking || SS.pending){ SS.cancel(); setTimeout(go, 90); } else go();
+}
+let sel = null;
+function show(id){
+  sel = id; const p = PARTS[id];
+  $('pname').textContent = p.en; $('psent').textContent = p.say;
+  $('pes').textContent = $('es').checked ? p.es : '\u00a0';
+  chips.querySelectorAll('.chip').forEach(c => c.classList.toggle('on', c.dataset.id===id));
+}
+$('es').onchange = () => { if(sel) $('pes').textContent = $('es').checked ? PARTS[sel].es : '\u00a0'; };
+$('listen').onclick = () => { if(sel) speak(PARTS[sel].en + '. ' + PARTS[sel].say); };
+
+/* ---------- QUIZ ---------- */
+let quiz = null;
+function nextQ(){
+  if(quiz.i >= quiz.order.length){
+    $('qtext').textContent = 'Mission complete!';
+    $('qmsg').innerHTML = `<span class="ok">Score: ${quiz.score}/${quiz.order.length}. Well done, Captain!</span>`;
+    speak('Mission complete. Well done, Captain!');
+    endQuiz(true); return;
+  }
+  const id = quiz.order[quiz.i];
+  $('qtext').textContent = 'Find: ' + PARTS[id].en.toUpperCase();
+  $('qmsg').textContent = ''; $('qscore').textContent = `${quiz.i+1}/${quiz.order.length} · ★ ${quiz.score}`;
+  speak('Find the ' + PARTS[id].en);
+}
+function endQuiz(done){
+  quiz = null; $('qstart').style.display=''; $('qstop').style.display='none'; setHL(null);
+  if(!done){ $('qtext').textContent='Ready, Captain?'; $('qmsg').textContent='Find each part on the airplane.'; $('qscore').textContent=''; }
+}
+$('qstart').onclick = () => {
+  quiz = {order:[...IDS].sort(() => Math.random()-.5), i:0, score:0, tries:0};
+  $('qstart').style.display='none'; $('qstop').style.display=''; setHL(null);
+  flyTo('fuselage'); nextQ();
+};
+$('qstop').onclick = () => endQuiz(false);
+
+function pick(id){
+  if(quiz){
+    setHL(id); setTimeout(() => !fly && quiz && setHL(null), 900);
+    if(id === quiz.order[quiz.i]){
+      if(quiz.tries===0) quiz.score++;
+      quiz.tries = 0; quiz.i++;
+      $('qmsg').innerHTML = '<span class="ok">Correct!</span>'; speak('Correct!');
+      setTimeout(() => quiz && nextQ(), 900);
+    } else {
+      quiz.tries++; $('qmsg').innerHTML = '<span class="no">Not yet. Try again.</span>'; speak('Try again.');
+    }
+    return;
+  }
+  setHL(id); show(id); flyTo(id); speak(PARTS[id].en);
+}
+
+/* ---------- PICKING ---------- */
+const ray = new THREE.Raycaster(), ptr = new THREE.Vector2();
+let down = null;
+renderer.domElement.addEventListener('pointerdown', e => down = {x:e.clientX,y:e.clientY});
+renderer.domElement.addEventListener('pointerup', e => {
+  if(!down || Math.hypot(e.clientX-down.x, e.clientY-down.y) > 6) return;
+  const r = renderer.domElement.getBoundingClientRect();
+  ptr.set(((e.clientX-r.left)/r.width)*2-1, -((e.clientY-r.top)/r.height)*2+1);
+  ray.setFromCamera(ptr, camera);
+  const h = ray.intersectObjects(hit, false)[0];
+  if(h && h.object.userData.part) pick(h.object.userData.part);
+});
+
+/* ---------- LOOP ---------- */
+function resize(){
+  const w = stage.clientWidth, h = stage.clientHeight;
+  renderer.setSize(w,h,false); camera.aspect = w/h; camera.updateProjectionMatrix();
+}
+new ResizeObserver(resize).observe(stage); resize();
+const clock = new THREE.Clock();
+const ease = k => k<.5 ? 4*k*k*k : 1-Math.pow(-2*k+2,3)/2;
+renderer.setAnimationLoop(() => {
+  const dt = Math.min(clock.getDelta(), .05);
+  fans.forEach(f => f.rotation.x += dt*6);
+  if(fly){
+    fly.t = Math.min(1, fly.t + dt/.9); const k = ease(fly.t);
+    camera.position.lerpVectors(fly.p0, fly.p1, k); controls.target.lerpVectors(fly.t0, fly.t1, k);
+    if(fly.t >= 1) fly = null;
+  }
+  controls.update(); renderer.render(scene, camera);
+});
+</script>
+</body>
+</html>
