@@ -224,7 +224,7 @@ const PAINT = {fuselage:[],nose:[],wing:[],tail:[],engine:[]};
 const reg = (id, mat) => { mat.userData.orig = mat.color.getHex(); PAINT[id].push(mat); };
 
 /* ---------- FUSELAGE + NOSE (smooth profile) ---------- */
-const WHITE = {color:0xf1f3f6, metalness:.25, roughness:.28};
+const WHITE = {color:0xf1f3f6, metalness:.05, roughness:.5};
 const prof = new THREE.SplineCurve([
   [-7.5,.12],[-7,.28],[-6,.55],[-4.5,.85],[-3,1.05],[-1,1.1],[3,1.1],[5,1.06],[5.9,.93],[6.8,.62],[7.3,.3],[7.5,.02]
 ].map(([y,r]) => new THREE.Vector2(y,r)));
@@ -242,11 +242,12 @@ const fus = new THREE.Mesh(new THREE.LatheGeometry(bodyPts,72), M(WHITE.color,WH
 fus.rotation.z = -Math.PI/2; add(plane, fus, 'fuselage'); reg('fuselage', fus.material);
 const apu = new THREE.Mesh(new THREE.CylinderGeometry(.13,.12,.06,24), M(0x2a2d32,{metalness:.7,roughness:.5}));
 apu.rotation.z = Math.PI/2; apu.position.set(-7.5,.5,0); add(plane, apu, 'fuselage');
-const nose = new THREE.Mesh(new THREE.LatheGeometry(nosePts,72), M(0x2d3238,{metalness:.2,roughness:.4}));
+const nose = new THREE.Mesh(new THREE.LatheGeometry(nosePts,72), M(0x1a1c1f,{metalness:.1,roughness:.55}));
 nose.rotation.z = -Math.PI/2; add(plane, nose, 'nose'); reg('nose', nose.material);
 
 /* Windows, door, cockpit glass */
 const glass = () => M(0x0a1220,{metalness:.9,roughness:.06});
+const cockpitGlass = () => M(0x27456b,{metalness:.7,roughness:.08});
 const winGeo = new THREE.SphereGeometry(.12,16,12), winMat = glass();
 for(let x=-2.4; x<=3.75; x+=.7) for(const s of [-1,1]){
   const w = new THREE.Mesh(winGeo, winMat); w.scale.set(1,1.3,.35); w.position.set(x,.3,s*1.03);
@@ -258,25 +259,25 @@ for(const s of [-1,1]){
   const h = new THREE.Mesh(new THREE.BoxGeometry(.1,.04,.03), M(0x777d85)); h.position.set(4.9,.15,s*1.09); add(plane,h,'door');
 }
 for(const s of [-1,1]){
-  const c = new THREE.Mesh(new THREE.SphereGeometry(.25,20,14), glass());
+  const c = new THREE.Mesh(new THREE.SphereGeometry(.25,20,14), cockpitGlass());
   c.scale.set(1.1,.6,.5); c.position.set(6.1,.5,s*.62); c.rotation.y = s*.5; add(plane,c,'cockpit');
 }
-const ws = new THREE.Mesh(new THREE.SphereGeometry(.24,20,14), glass());
+const ws = new THREE.Mesh(new THREE.SphereGeometry(.24,20,14), cockpitGlass());
 ws.scale.set(.5,.5,1.1); ws.position.set(6.45,.6,0); add(plane, ws, 'cockpit');
 
 /* ---------- WINGS, WINGLETS, TAIL ---------- */
-const wingMat = () => M(0xe6e9ee,{metalness:.3,roughness:.3,side:THREE.DoubleSide});
+const wingMat = () => M(0xf1f3f6,{metalness:.1,roughness:.5,side:THREE.DoubleSide});
 for(const s of [-1,1]){
   const w = slab([[1.5,.9*s],[-1.4,6.8*s],[-2.2,6.8*s],[-1.0,.9*s]], .12, wingMat());
   w.rotation.x = Math.PI/2; w.position.y = -.5; add(plane,w,'wing'); reg('wing', w.material);
-  const wl = slab([[-1.5,0],[-2.2,0],[-2.45,.8],[-2.1,.8]], .05, M(0x1c3f7a,{side:THREE.DoubleSide}));
+  const wl = slab([[-1.5,0],[-2.2,0],[-2.45,.8],[-2.1,.8]], .05, wingMat());
   wl.position.set(0,-.45,s*6.78); add(plane,wl,'wing'); reg('wing', wl.material);
 }
-const BLUE = {color:0x1c3f7a, metalness:.3, roughness:.3, side:THREE.DoubleSide};
+const BLUE = {color:0x1c5fd1, metalness:.1, roughness:.4, side:THREE.DoubleSide};
 const fin = slab([[-4.3,.75],[-6.0,3.7],[-7.0,3.7],[-7.15,.55],[-6.0,.62]], .1, M(BLUE.color,BLUE));
 add(plane, fin, 'tail'); reg('tail', fin.material);
 for(const s of [-1,1]){
-  const st = slab([[-5.6,.2*s],[-6.9,3.0*s],[-7.3,3.0*s],[-6.9,.2*s]], .08, wingMat());
+  const st = slab([[-5.6,.2*s],[-6.9,3.0*s],[-7.3,3.0*s],[-6.9,.2*s]], .08, M(BLUE.color,BLUE));
   st.rotation.x = Math.PI/2; st.position.y = .25; add(plane,st,'tail'); reg('tail', st.material);
 }
 
@@ -288,7 +289,7 @@ function lathe(parent, pts, mat, id){
   const m = new THREE.Mesh(new THREE.LatheGeometry(pts.map(V2), 72), mat);
   m.rotation.z = -Math.PI/2; return add(parent, m, id);
 }
-const skinMat  = M(0xe9ecef,{metalness:.3,roughness:.3,side:THREE.DoubleSide});
+const skinMat  = M(0xf1f3f6,{metalness:.1,roughness:.45,side:THREE.DoubleSide});
 reg('engine', skinMat);
 const linerMat = M(0x23272c,{metalness:.4,roughness:.7,side:THREE.DoubleSide});
 const cowlMat  = M(0x6b6f75,{metalness:.85,roughness:.38,side:THREE.DoubleSide});
@@ -492,7 +493,7 @@ const COLORS = [
   ['Orange','#f08a24','#14110a'], ['White','#f1f3f6','#14110a'], ['Black','#1a1c1f','#ffffff'], ['Gray','#8a9098','#14110a']
 ];
 const PAINTABLE = ['fuselage','nose','wing','tail','engine'];
-const START_COLOR = {fuselage:'White', tail:'Blue', wing:'White', nose:'Gray', engine:'White'};
+const START_COLOR = {fuselage:'White', tail:'Blue', wing:'White', nose:'Black', engine:'White'};
 let partColor = {...START_COLOR}, selColor = null;
 const cchips = $('cchips');
 COLORS.forEach(([n, hex, fg]) => {
@@ -542,7 +543,7 @@ function nextCQ(){
   const q = 'What color is the ' + PARTS[id].en.toLowerCase() + '?';
   $('cq').textContent = q; $('cmsg').textContent = '';
   $('cscore').textContent = (cquiz.i + 1) + '/' + cquiz.order.length + ' · ★ ' + cquiz.score;
-  flyTo(id); speak(q);
+  flyTo(id); setHL(id); setTimeout(() => { if(cquiz && cquiz.order[cquiz.i] === id) setHL(null); }, 1500); speak(q);
 }
 function answerColor(n){
   if(!cquiz || cquiz.lock) return;
