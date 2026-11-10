@@ -99,76 +99,98 @@ Academia fundada y registrada ante la Cámara de Comercio (No. 26395). Actualmen
 
 <!-- ===== CARRUSEL MY DAY GAMES (portada de los 7 juegos) ===== -->
 <style>
-.mdc{position:relative;max-width:1100px;margin:26px auto 6px;border-radius:20px;overflow:hidden;border:1.5px solid #D4AF37;background:#11162b;touch-action:pan-y;text-align:left}
+@font-face{font-family:"KB Poppins";font-weight:700;font-display:swap;src:url(fonts/poppins-700.woff) format("woff")}
+@font-face{font-family:"KB Poppins";font-weight:500;font-display:swap;src:url(fonts/poppins-500.woff) format("woff")}
+.mdc{--u:1cqw;container-type:inline-size;position:relative;max-width:1100px;margin:26px 12px 8px;border-radius:26px;overflow:hidden;border:4px solid #fff;background:#fff;
+  box-shadow:0 12px 34px rgba(0,0,0,.45);touch-action:pan-y;font-family:"KB Poppins","Trebuchet MS","Segoe UI",Arial,sans-serif}
+@media(min-width:1124px){.mdc{margin-left:auto;margin-right:auto}}
 .mdc *{box-sizing:border-box}
-.mdc-t{display:flex;transition:transform .6s cubic-bezier(.3,.8,.3,1)}
-.mdc-s{flex:0 0 100%;display:flex;flex-direction:column;text-decoration:none;color:#fff}
-.mdc-st{container-type:inline-size;width:100%;aspect-ratio:16/10;overflow:hidden;color:#3b2a20;font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;font-weight:800;
-  background:radial-gradient(ellipse at 10% 12%,#fde7a6 0,rgba(253,231,166,0) 55%),radial-gradient(ellipse at 100% 0,#d3eaf7 0,rgba(211,234,247,0) 50%),linear-gradient(#f6edc9,#fffaf0)}
-.mdc-sc{width:100cqw;height:62.5cqw;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.6cqw}
-.mdc-hd{font-size:5.6cqw;line-height:1;color:#3b2a20;text-shadow:0 .4cqw 0 #fff}
-.mdc-hd b{color:#f59e0b}
-.mdc-row{display:flex;align-items:center;justify-content:center;gap:2.4cqw}
-.mdc-p{display:block;border:.9cqw solid;border-radius:4cqw;background:#fff;box-shadow:0 1cqw 0 rgba(59,42,32,.14);position:relative;flex:none}
+.mdc-t{display:flex;align-items:stretch;transition:transform .65s cubic-bezier(.3,.8,.3,1)}
+.mdc-s{flex:0 0 100%;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center;text-decoration:none;color:#3b2a20;
+  padding:calc(var(--u)*5.5) calc(var(--u)*4) calc(var(--u)*6);background:linear-gradient(160deg,var(--l) 0%,var(--m) 100%)}
+/* decoración */
+.mdc-s::before{content:"";position:absolute;width:calc(var(--u)*46);aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.35);left:calc(var(--u)*-16);top:calc(var(--u)*-18)}
+.mdc-s::after{content:"";position:absolute;width:calc(var(--u)*34);aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.3);right:calc(var(--u)*-12);bottom:calc(var(--u)*-12)}
+.mdc-st{position:absolute;color:#fff;font-size:calc(var(--u)*6);line-height:1;opacity:.9;animation:mdcTw 2.6s ease-in-out infinite;z-index:1;font-family:Arial,sans-serif}
+.mdc-st.b{animation-delay:.9s;font-size:calc(var(--u)*4)}.mdc-st.c{animation-delay:1.6s;font-size:calc(var(--u)*5)}
+.mdc-tx,.mdc-art{position:relative;z-index:2}
+.mdc-tag{display:inline-block;background:#fff;color:var(--d);border-radius:99px;padding:calc(var(--u)*1.1) calc(var(--u)*3.4);font-size:calc(var(--u)*3.1);font-weight:700;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 calc(var(--u)*.7) 0 rgba(0,0,0,.1)}
+.mdc-h{display:block;margin:calc(var(--u)*2.4) 0 0;font-size:calc(var(--u)*12.5);line-height:1.05;font-weight:700;color:#fff;white-space:nowrap;letter-spacing:.035em;
+  -webkit-text-stroke:calc(var(--u)*1.9) var(--d);paint-order:stroke fill;text-shadow:0 calc(var(--u)*1.1) 0 var(--d),0 calc(var(--u)*2.2) calc(var(--u)*1.5) rgba(0,0,0,.18)}
+.mdc-h.lg{font-size:calc(var(--u)*9.2);-webkit-text-stroke-width:calc(var(--u)*1.6)}
+.mdc-e{display:block;margin-top:calc(var(--u)*1.6);font-style:normal;font-weight:700;font-size:calc(var(--u)*5.6);line-height:1.1;color:var(--d)}
+.mdc-art{width:calc(var(--u)*92);height:calc(var(--u)*60);display:flex;align-items:center;justify-content:center;margin:calc(var(--u)*2) 0 calc(var(--u)*1)}
+.mdc-sun{position:absolute;left:50%;top:50%;width:calc(var(--u)*84);aspect-ratio:1;margin:calc(var(--u)*-42) 0 0 calc(var(--u)*-42);border-radius:50%;
+  background:repeating-conic-gradient(rgba(255,255,255,.55) 0 9deg,rgba(255,255,255,0) 9deg 18deg);-webkit-mask:radial-gradient(circle,#000 30%,transparent 70%);mask:radial-gradient(circle,#000 30%,transparent 70%);animation:mdcSpin 50s linear infinite}
+.mdc-sc{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:calc(var(--u)*2.6)}
+.mdc-d{position:relative;z-index:2;font-weight:500;font-size:calc(var(--u)*4.3);line-height:1.35;color:#3b2a20;max-width:calc(var(--u)*84);min-height:2.7em;margin:0}
+.mdc-go{position:relative;z-index:2;display:inline-block;margin-top:calc(var(--u)*3);background:var(--d);color:#fff;border-radius:99px;padding:calc(var(--u)*2.6) calc(var(--u)*6.5);font-weight:700;font-size:calc(var(--u)*4.4);
+  box-shadow:0 calc(var(--u)*1.1) 0 rgba(0,0,0,.2);border:calc(var(--u)*.7) solid #fff}
+.mdc-s:hover .mdc-go{transform:translateY(-2px)}
+/* fichas (dibujos) */
+.mdc-row{display:flex;align-items:center;justify-content:center;gap:calc(var(--u)*3.4)}
+.mdc-p{display:block;position:relative;flex:none;border:calc(var(--u)*1) solid;border-radius:calc(var(--u)*5);background:#fff;box-shadow:0 0 0 calc(var(--u)*1.1) #fff,0 calc(var(--u)*3) calc(var(--u)*1) rgba(59,42,32,.22)}
 .mdc-p svg{display:block;width:100%;height:auto}
-.mdc-cap{padding:16px 20px 46px;background:#11162b}
-.mdc-k{font:bold 12px Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#e2ba68}
-.mdc-h{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.4rem,5vw,2.1rem);line-height:1.15;margin:4px 0 4px;color:#fff}
-.mdc-h small{display:inline;margin:0;font-size:.6em;color:#a09ac0;font-family:Arial,sans-serif}
-.mdc-d{color:#cfd9ff;font-size:clamp(.9rem,3.2vw,1.05rem);line-height:1.45;min-height:2.9em}
-.mdc-go{display:inline-block;margin-top:10px;background:#e2ba68;color:#080b19;border-radius:99px;padding:9px 20px;font:bold 14px Arial,sans-serif}
-.mdc-s:hover .mdc-go{background:#ffd98a}
-.mdc-n{position:absolute;bottom:5px;width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(226,186,104,.6);background:transparent;color:#e2ba68;font-size:24px;line-height:1;cursor:pointer;z-index:4;padding:0 0 3px}
-.mdc-n:hover{background:#e2ba68;color:#080b19}
-.mdc-a{left:12px}.mdc-b{right:12px}
-.mdc-dots{position:absolute;left:0;right:0;bottom:18px;display:flex;justify-content:center;gap:8px;z-index:3}
-.mdc-dots button{width:11px;height:11px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.4);cursor:pointer}
-.mdc-dots button.on{width:30px;border-radius:6px;background:#e2ba68}
-.mdc-bar{position:absolute;left:0;bottom:0;height:3px;width:0;background:#e2ba68;z-index:3}
-.mdc-bar.run{transition:width linear;width:100%}
-/* escenas */
-.mdc-fan .mdc-p{width:24cqw}.mdc-fan .mdc-p:nth-child(1){transform:rotate(-9deg) translateY(2cqw)}.mdc-fan .mdc-p:nth-child(3){transform:rotate(9deg) translateY(2cqw)}
-.mdc-fan .mdc-p:nth-child(2){width:30cqw;z-index:1;animation:mdcBob 2.4s ease-in-out infinite}
-.mdc-fan{gap:0}.mdc-fan .mdc-p{margin:0 -2cqw}
-.mdc-wh{width:46cqw;position:relative}.mdc-wh .w{animation:mdcSpin 9s linear infinite}.mdc-wh svg{display:block;width:100%}
-.mdc-wh::before{content:"";position:absolute;left:50%;top:-1.6cqw;transform:translateX(-50%);border:2.2cqw solid transparent;border-top:4cqw solid #3b2a20;z-index:2}
-.mdc-mem{display:grid;grid-template-columns:repeat(4,14.5cqw);gap:2cqw}
-.mdc-mem .mdc-p{aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;border-color:#3b2a20;background:#f59e0b;color:#fff;font-size:8cqw}
-.mdc-mem .mdc-p.up{animation:mdcPulse 2.2s ease-in-out infinite}
-.mdc-ord .mdc-p{width:20cqw;animation:mdcIn 4.8s ease-in-out infinite both}
+.mdc-fan{gap:0}.mdc-fan .mdc-p{width:calc(var(--u)*31);margin:0 calc(var(--u)*-3.5)}
+.mdc-fan .mdc-p:nth-child(1){transform:rotate(-11deg) translateY(calc(var(--u)*3))}.mdc-fan .mdc-p:nth-child(3){transform:rotate(11deg) translateY(calc(var(--u)*3))}
+.mdc-fan .mdc-p:nth-child(2){width:calc(var(--u)*40);z-index:1;animation:mdcBob 2.4s ease-in-out infinite}
+.mdc-wh{width:calc(var(--u)*56);position:relative;filter:drop-shadow(0 calc(var(--u)*2.4) calc(var(--u)*1) rgba(59,42,32,.25))}
+.mdc-wh .w{animation:mdcSpin 9s linear infinite;border-radius:50%;background:#fff;padding:calc(var(--u)*1.2)}.mdc-wh svg{display:block;width:100%}
+.mdc-wh::before{content:"";position:absolute;left:50%;top:calc(var(--u)*-2.4);transform:translateX(-50%);border:calc(var(--u)*2.8) solid transparent;border-top:calc(var(--u)*5.4) solid #3b2a20;z-index:2}
+.mdc-mem{display:grid;grid-template-columns:repeat(4,calc(var(--u)*17.5));gap:calc(var(--u)*3.4)}
+.mdc-mem .mdc-p{aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;border-color:#e8590c;background:linear-gradient(#ffb703,#f59e0b);color:#fff;font-size:calc(var(--u)*10);font-weight:700}
+.mdc-mem .mdc-p.up{animation:mdcPulse 2s ease-in-out infinite;z-index:1}
+.mdc-ord{display:grid;grid-template-columns:repeat(2,calc(var(--u)*25));gap:calc(var(--u)*4) calc(var(--u)*6)}
+.mdc-ord .mdc-p{animation:mdcIn 5.2s ease-in-out infinite both}
 .mdc-ord .mdc-p:nth-child(2){animation-delay:.5s}.mdc-ord .mdc-p:nth-child(3){animation-delay:1s}.mdc-ord .mdc-p:nth-child(4){animation-delay:1.5s}
-.mdc-ord .mdc-p i{position:absolute;top:-2.4cqw;left:-2cqw;width:6cqw;height:6cqw;border-radius:50%;background:#3b2a20;color:#ffd98a;font-style:normal;font-size:3.4cqw;display:flex;align-items:center;justify-content:center}
-.mdc-spk{width:15cqw;height:15cqw;border-radius:50%;background:#fff;border:.9cqw solid #3b2a20;display:flex;align-items:center;justify-content:center;font-size:8cqw;flex:none;animation:mdcPulse 1.4s ease-in-out infinite}
-.mdc-lis .mdc-p{width:21cqw}.mdc-lis .mdc-p.ok{box-shadow:0 0 0 1.2cqw #58c27d;animation:mdcBob 1.8s ease-in-out infinite}
-.mdc-bin{display:grid;grid-template-columns:repeat(3,11.4cqw);gap:1.4cqw;background:#fff;border:.9cqw solid #3b2a20;border-radius:4cqw;padding:1.8cqw}
-.mdc-bin .mdc-p{border-width:.6cqw;border-radius:2.6cqw;box-shadow:none;overflow:hidden}
-.mdc-bin .mdc-p.hit::after{content:"";position:absolute;inset:14%;border-radius:50%;background:rgba(88,194,125,.55);border:.7cqw solid #2f9e44;animation:mdcChip 3.6s ease-in-out infinite both}
-.mdc-bin .mdc-p.free{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:7cqw;border-color:#f59e0b;background:#fff3b0}
+.mdc-p i{position:absolute;top:calc(var(--u)*-3.2);left:calc(var(--u)*-3.2);width:calc(var(--u)*8.4);height:calc(var(--u)*8.4);border-radius:50%;background:var(--d);border:calc(var(--u)*.8) solid #fff;color:#fff;font-style:normal;font-weight:700;font-size:calc(var(--u)*4.6);display:flex;align-items:center;justify-content:center;z-index:1}
+.mdc-spk{display:flex;align-items:center;gap:calc(var(--u)*2);background:#fff;border-radius:99px;padding:calc(var(--u)*1.6) calc(var(--u)*5);font-weight:700;font-size:calc(var(--u)*5.2);color:var(--d);box-shadow:0 calc(var(--u)*1.2) 0 rgba(0,0,0,.12);animation:mdcPulse 1.4s ease-in-out infinite}
+.mdc-lis .mdc-p{width:calc(var(--u)*26)}.mdc-lis .mdc-p.ok{box-shadow:0 0 0 calc(var(--u)*1.1) #fff,0 0 0 calc(var(--u)*2.6) #2f9e44,0 calc(var(--u)*3) calc(var(--u)*1) rgba(59,42,32,.22);animation:mdcBob 1.8s ease-in-out infinite;z-index:1}
+.mdc-lis .ok::after{content:"✓";position:absolute;right:calc(var(--u)*-3);top:calc(var(--u)*-3.4);width:calc(var(--u)*8.4);height:calc(var(--u)*8.4);border-radius:50%;background:#2f9e44;border:calc(var(--u)*.8) solid #fff;color:#fff;font-size:calc(var(--u)*5.2);font-weight:700;display:flex;align-items:center;justify-content:center;font-family:Arial,sans-serif}
+.mdc-bin{display:grid;grid-template-columns:repeat(3,calc(var(--u)*15.5));gap:calc(var(--u)*1.8);background:#fff;border-radius:calc(var(--u)*5);padding:calc(var(--u)*2.4);box-shadow:0 calc(var(--u)*3) calc(var(--u)*1) rgba(59,42,32,.22)}
+.mdc-bin .mdc-p{border-width:calc(var(--u)*.7);border-radius:calc(var(--u)*3);box-shadow:none;overflow:hidden}
+.mdc-bin .mdc-p.free{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:calc(var(--u)*8);border-color:#f59e0b;background:#fff3b0}
+.mdc-bin .mdc-p.hit::after{content:"";position:absolute;inset:12%;border-radius:50%;background:rgba(88,194,125,.55);border:calc(var(--u)*.9) solid #2f9e44;animation:mdcChip 3.6s ease-in-out infinite both}
 .mdc-bin .mdc-p.hit:nth-child(5)::after{animation-delay:.4s}.mdc-bin .mdc-p.hit:nth-child(6)::after{animation-delay:.8s}
-.mdc-sing .mdc-p{width:20.5cqw;animation:mdcHop 1.6s ease-in-out infinite}
+.mdc-sing{gap:calc(var(--u)*2.6)}.mdc-sing .mdc-p{width:calc(var(--u)*20.5);animation:mdcHop 1.6s ease-in-out infinite}
 .mdc-sing .mdc-p:nth-child(2){animation-delay:.2s}.mdc-sing .mdc-p:nth-child(3){animation-delay:.4s}.mdc-sing .mdc-p:nth-child(4){animation-delay:.6s}
-.mdc-notes{font-size:7cqw;color:#6a5acd;letter-spacing:5cqw;line-height:1;animation:mdcBob 1.6s ease-in-out infinite}
-@keyframes mdcBob{50%{transform:translateY(-1.6cqw)}}
+.mdc-notes{display:flex;gap:calc(var(--u)*7);font-family:Arial,sans-serif;font-size:calc(var(--u)*11);line-height:1;color:#fff;text-shadow:0 calc(var(--u)*.8) 0 var(--d),0 0 calc(var(--u)*1) var(--d)}
+.mdc-notes span{animation:mdcBob 1.4s ease-in-out infinite}.mdc-notes span:nth-child(2){animation-delay:.3s}.mdc-notes span:nth-child(3){animation-delay:.6s}
+/* controles */
+.mdc-ui{position:relative;display:flex;align-items:center;justify-content:center;gap:14px;background:#fff;padding:9px 12px 10px}
+.mdc-n{width:38px;height:38px;border-radius:50%;border:0;background:#fff3d6;color:#b45309;font:bold 24px/1 Arial,sans-serif;cursor:pointer;padding:0 0 3px;flex:none}
+.mdc-n:hover{background:#f59e0b;color:#fff}
+.mdc-dots{display:flex;justify-content:center;gap:8px}
+.mdc-dots button{width:12px;height:12px;border-radius:50%;border:0;padding:0;background:#e6dcc8;cursor:pointer}
+.mdc-dots button.on{width:32px;border-radius:6px;background:#f59e0b}
+.mdc-bar{position:absolute;left:0;top:0;height:4px;width:0;background:#f59e0b;border-radius:0 4px 4px 0}
+.mdc-bar.run{transition:width linear;width:100%}
+@keyframes mdcBob{50%{transform:translateY(calc(var(--u)*-1.8))}}
 @keyframes mdcSpin{to{transform:rotate(360deg)}}
-@keyframes mdcPulse{50%{transform:scale(1.07)}}
+@keyframes mdcPulse{50%{transform:scale(1.08)}}
+@keyframes mdcTw{50%{transform:scale(.55) rotate(25deg);opacity:.5}}
 @keyframes mdcIn{0%,4%{opacity:0;transform:scale(.6)}12%,92%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.6)}}
 @keyframes mdcChip{0%,10%{opacity:0;transform:scale(.3)}22%,90%{opacity:1;transform:scale(1)}100%{opacity:0}}
-@keyframes mdcHop{30%{transform:translateY(-2.4cqw)}60%{transform:translateY(0)}}
+@keyframes mdcHop{30%{transform:translateY(calc(var(--u)*-2.6))}60%{transform:translateY(0)}}
 @media(min-width:760px){
-  .mdc-s{flex-direction:row;align-items:stretch}
-  .mdc-st{width:56%;flex:none}
-  .mdc-cap{flex:1;display:flex;flex-direction:column;justify-content:center;padding:24px 34px 50px}
-  .mdc-dots{left:56%}.mdc-a{left:calc(56% + 22px)}.mdc-b{right:22px}.mdc-n{bottom:8px}
+  .mdc{--u:.47cqw}
+  .mdc-s{display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto auto;align-content:center;column-gap:calc(var(--u)*4);justify-items:start;text-align:left;padding:calc(var(--u)*9) calc(var(--u)*8) calc(var(--u)*9) calc(var(--u)*12)}
+  .mdc-tx{grid-column:1;grid-row:1}
+  .mdc-d{grid-column:1;grid-row:2;margin-top:calc(var(--u)*3);min-height:0;font-size:calc(var(--u)*4.6)}
+  .mdc-go{grid-column:1;grid-row:3;justify-self:start}
+  .mdc-art{grid-column:2;grid-row:1 / span 3;align-self:center;margin:0}
 }
 @media(prefers-reduced-motion:reduce){.mdc *{animation:none!important}.mdc-t{transition:none}}
 </style>
 
 <section class="mdc" id="mdc" aria-label="My Day Games: siete juegos para aprender inglés" aria-roledescription="carrusel">
   <div class="mdc-t" id="mdcT"></div>
-  <button class="mdc-n mdc-a" type="button" aria-label="Juego anterior">&#8249;</button>
-  <button class="mdc-n mdc-b" type="button" aria-label="Juego siguiente">&#8250;</button>
-  <div class="mdc-dots" id="mdcDots"></div>
-  <div class="mdc-bar" id="mdcBar"></div>
+  <div class="mdc-ui">
+    <div class="mdc-bar" id="mdcBar"></div>
+    <button class="mdc-n mdc-a" type="button" aria-label="Juego anterior">&#8249;</button>
+    <div class="mdc-dots" id="mdcDots"></div>
+    <button class="mdc-n mdc-b" type="button" aria-label="Juego siguiente">&#8250;</button>
+  </div>
 </section>
 
 <script src="my-day-art.js"></script>
@@ -181,34 +203,38 @@ var I = A.ITEMS, T = document.getElementById('mdcT'), D = document.getElementByI
 var TIME = 4500;  /* milisegundos por juego: más alto = más lento */
 function p(i, cls, extra){ var it = I[i]; return '<span class="mdc-p ' + (cls || '') + '" style="border-color:' + it.color + ';background:' + it.bg + '">' + (extra || '') + A.pic(it) + '</span>'; }
 function q(){ return '<span class="mdc-p">?</span>'; }
+/* [título, frase en inglés, descripción, color claro, color medio, color fuerte, escena] */
 var S = [
-  ['Tarjetas', 'Cards', 'Toca un dibujo, escucha la frase en inglés y haz el gesto.',
-    '<div class="mdc-hd">I <b>wake up</b>!</div><div class="mdc-row mdc-fan">' + p(1) + p(0) + p(3) + '</div>'],
-  ['Ruleta', 'Wheel', 'Gira la ruleta y actúa la rutina que salga.',
-    '<div class="mdc-hd"><b>Spin</b> the wheel!</div><div class="mdc-wh"><div class="w">' + A.wheel() + '</div></div>'],
-  ['Memoria', 'Memory', 'Encuentra las parejas. Cada carta dice su frase.',
-    '<div class="mdc-hd">Find the <b>pairs</b>!</div><div class="mdc-mem">' + q() + p(6, 'up') + q() + q() + q() + q() + p(6, 'up') + q() + '</div>'],
-  ['Ordenar el día', 'Order my day', '¿Qué hago primero? Ordena el día del 1 al 4.',
-    '<div class="mdc-hd">What do I do <b>first</b>?</div><div class="mdc-row mdc-ord">' + p(0, '', '<i>1</i>') + p(2, '', '<i>2</i>') + p(4, '', '<i>3</i>') + p(7, '', '<i>4</i>') + '</div>'],
-  ['Escuchar y tocar', 'Listen & tap', 'Escucha la frase y toca el dibujo correcto.',
-    '<div class="mdc-hd"><b>Listen</b> and tap!</div><div class="mdc-row mdc-lis"><span class="mdc-spk">🔊</span>' + p(3) + p(1, 'ok') + p(7) + '</div>'],
-  ['Bingo', 'Bingo', 'Marca lo que oyes. ¡Tres en línea y gana!',
-    '<div class="mdc-hd"><b>BINGO!</b></div><div class="mdc-bin">' + p(5) + p(7) + p(2) + p(1, 'hit') + '<span class="mdc-p free hit">⭐</span>' + p(0, 'hit') + p(6) + p(3) + p(4) + '</div>'],
-  ['Cantar', 'Sing', 'Una canción con gestos, con una melodía que ya conocen.',
-    '<div class="mdc-notes">♪♫♪</div><div class="mdc-row mdc-sing">' + p(0) + p(1) + p(3) + p(7) + '</div><div class="mdc-hd"><b>Sing</b> along!</div>']
+  ['Tarjetas', 'I wake up!', 'Toca un dibujo, escucha la frase en inglés y haz el gesto.', '#FFF6C2', '#FFD43B', '#E8590C',
+    '<div class="mdc-row mdc-fan">' + p(1) + p(0) + p(3) + '</div>'],
+  ['Ruleta', 'Spin the wheel!', 'Gira la ruleta y actúa la rutina que salga.', '#DDF1FF', '#74C0FC', '#1864AB',
+    '<div class="mdc-wh"><div class="w">' + A.wheel() + '</div></div>'],
+  ['Memoria', 'Find the pairs!', 'Encuentra las parejas. Cada carta dice su frase.', '#FFE6EE', '#FF9EBB', '#C2255C',
+    '<div class="mdc-mem">' + q() + p(6, 'up') + q() + q() + q() + q() + p(6, 'up') + q() + '</div>'],
+  ['Ordena tu día', 'What do I do first?', '¿Qué hago primero? Ordena el día del 1 al 4.', '#DDFBE2', '#8CE99A', '#2B8A3E',
+    '<div class="mdc-ord">' + p(0, '', '<i>1</i>') + p(2, '', '<i>2</i>') + p(4, '', '<i>3</i>') + p(7, '', '<i>4</i>') + '</div>'],
+  ['Escucha y toca', 'Listen and tap!', 'Escucha la frase y toca el dibujo correcto.', '#FFEBD3', '#FFA94D', '#D9480F',
+    '<div class="mdc-spk">🔊 I brush my teeth</div><div class="mdc-row mdc-lis">' + p(3) + p(1, 'ok') + p(7) + '</div>'],
+  ['Bingo', 'Three in a row!', 'Marca lo que oyes. ¡Tres en línea y gana!', '#EDE5FF', '#B197FC', '#5F3DC4',
+    '<div class="mdc-bin">' + p(5) + p(7) + p(2) + p(1, 'hit') + '<span class="mdc-p free hit">⭐</span>' + p(0, 'hit') + p(6) + p(3) + p(4) + '</div>'],
+  ['Canta', 'Sing along!', 'Una canción con gestos, con una melodía que ya conocen.', '#D5F8FB', '#66D9E8', '#0B7285',
+    '<div class="mdc-notes"><span>♪</span><span>♫</span><span>♪</span></div><div class="mdc-row mdc-sing">' + p(0) + p(1) + p(3) + p(7) + '</div>']
 ];
 var n = S.length, i = 0, tm = null, hold = false, seen = true, dots = [];
 var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 T.innerHTML = S.map(function(s, k){
-  return '<a class="mdc-s" href="my-day-ninos.html#juegos" aria-label="' + s[0] + ': ' + s[2] + '"><div class="mdc-st" aria-hidden="true"><div class="mdc-sc">' + s[3] + '</div></div>' +
-    '<div class="mdc-cap"><div class="mdc-k">My Day Games · ' + (k + 1) + ' de ' + n + ' · 3 a 5 años</div><div class="mdc-h">' + s[0] + ' <small>· ' + s[1] + '</small></div>' +
-    '<div class="mdc-d">' + s[2] + '</div><div><span class="mdc-go">Conocer My Day &rarr;</span></div></div></a>';
+  return '<a class="mdc-s" href="my-day-ninos.html#juegos" style="--l:' + s[3] + ';--m:' + s[4] + ';--d:' + s[5] + '" aria-label="' + s[0] + ': ' + s[2] + '">' +
+    '<span class="mdc-st" style="left:8%;top:30%">✦</span><span class="mdc-st b" style="right:9%;top:16%">✦</span><span class="mdc-st c" style="right:14%;bottom:26%">✦</span>' +
+    '<div class="mdc-tx"><span class="mdc-tag">My Day Games · 3 a 5 años</span><span class="mdc-h' + (s[0].length > 9 ? ' lg' : '') + '">' + s[0] + '</span><em class="mdc-e">' + s[1] + '</em></div>' +
+    '<div class="mdc-art" aria-hidden="true"><div class="mdc-sun"></div><div class="mdc-sc">' + s[6] + '</div></div>' +
+    '<p class="mdc-d">' + s[2] + '</p><span class="mdc-go">Conocer My Day &rarr;</span></a>';
 }).join('');
 S.forEach(function(s, k){ var b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Juego ' + (k + 1) + ': ' + s[0]); b.onclick = function(){ go(k); }; D.appendChild(b); dots.push(b); });
 function go(x){
   i = (x + n) % n; T.style.transform = 'translateX(-' + (i * 100) + '%)';
   dots.forEach(function(d, j){ d.className = j === i ? 'on' : ''; });
   [].forEach.call(T.children, function(a, j){ a.tabIndex = j === i ? 0 : -1; });
+  BAR.style.background = S[i][5];
   play();
 }
 function play(){

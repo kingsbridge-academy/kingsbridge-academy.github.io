@@ -2,5 +2,6 @@ Tipografías incluidas en esta carpeta (subconjuntos latinos, formato WOFF):
 
 - Lora (Cyreal / The Lora Project Authors). Licencia SIL Open Font License 1.1.
 - Inter (The Inter Project Authors). Licencia SIL Open Font License 1.1.
+- Poppins (The Poppins Project Authors). Licencia SIL Open Font License 1.1.
 
 Texto de la licencia: https://openfontlicense.org
