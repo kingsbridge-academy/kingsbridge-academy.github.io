@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Flight English · Lesson 1 · Parts of the Airplane</title>
+<title>Flight English · Pilot Student</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
@@ -39,6 +39,16 @@ label{font-size:14px;color:var(--mute);display:flex;align-items:center;gap:6px}
 #qmsg{min-height:24px;font-size:18px}
 .ok{color:#7be08f}.no{color:#ff8b7a}
 footer{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--mute);letter-spacing:.08em;margin-top:auto;padding-top:6px;border-top:1px solid var(--line)}
+.tabs{display:flex;gap:6px}
+.tab{flex:1;background:#171b21;color:var(--mute);border:1px solid var(--line);border-radius:4px;padding:9px 4px;font-weight:700;font-size:14px;letter-spacing:.06em}
+.tab.on{border-color:var(--gold);color:var(--gold2);background:#1b1a12}
+.mode{display:flex;flex-direction:column;gap:14px}
+.mode[hidden]{display:none}
+.big{font-size:34px;font-weight:700;line-height:1.1;margin:6px 0;color:#fff}
+.sent{font-size:21px;color:var(--gold2);font-weight:600;min-height:28px}
+.cc,.cc:hover,.cc.on{background:var(--bg);color:var(--fg)}
+.cc{border-color:rgba(255,255,255,.25)}
+.cc.on{outline:3px solid var(--gold2);outline-offset:1px}
 @media(max-width:820px){
  main{grid-template-columns:1fr;grid-template-rows:56vh auto;height:auto}
  aside{border-left:0;border-top:1px solid var(--line)}
@@ -50,7 +60,7 @@ footer{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--mute);
 <body>
 <header>
   <div class="brand">FLIGHT ENGLISH</div>
-  <div class="sub">Cadet training · Lesson 1 · Parts of the airplane</div>
+  <div class="sub" id="lesson">Cadet training · Lesson 1 · Parts of the airplane</div>
 </header>
 <main>
   <section id="stage">
@@ -58,32 +68,84 @@ footer{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--mute);
     <div class="hud">DRAG: ROTATE · SCROLL / PINCH: ZOOM · TAP A PART</div>
   </section>
   <aside>
-    <div class="card" id="info">
-      <div class="tag">Selected part</div>
-      <h1 id="pname" style="font-size:40px">Tap a part</h1>
-      <div id="pes">&nbsp;</div>
-      <div id="psent">Tap the airplane or choose a word below.</div>
-      <div class="row">
-        <button class="btn" id="listen">▶ LISTEN</button>
-        <label><input type="checkbox" id="es" checked> Español</label>
-        <label><input type="checkbox" id="snd" checked> Sound</label>
+    <div class="tabs">
+      <button class="tab on" data-m="parts">1 · PARTS</button>
+      <button class="tab" data-m="colors">2 · COLORS</button>
+      <button class="tab" data-m="numbers">3 · NUMBERS</button>
+    </div>
+
+    <!-- LESSON 1 -->
+    <div class="mode" id="m-parts">
+      <div class="card" id="info">
+        <div class="tag">Selected part</div>
+        <h1 id="pname" style="font-size:40px">Tap a part</h1>
+        <div id="pes">&nbsp;</div>
+        <div id="psent">Tap the airplane or choose a word below.</div>
+        <div class="row">
+          <button class="btn" id="listen">▶ LISTEN</button>
+          <label><input type="checkbox" id="es" checked> Español</label>
+          <label><input type="checkbox" id="snd" checked> Sound</label>
+        </div>
+        <div id="audiomsg" style="margin-top:8px;font-size:14px;color:#ff8b7a"></div>
       </div>
-      <div id="audiomsg" style="margin-top:8px;font-size:14px;color:#ff8b7a"></div>
-    </div>
-    <div>
-      <div class="tag" style="margin-bottom:8px">Vocabulary</div>
-      <div class="chips" id="chips"></div>
-    </div>
-    <div class="card">
-      <div class="tag">Mission · Quiz</div>
-      <div id="qtext">Ready, Captain?</div>
-      <div id="qmsg">Find each part on the airplane.</div>
-      <div class="row" style="margin-top:8px">
-        <button class="btn" id="qstart">START MISSION</button>
-        <button class="btn ghost" id="qstop" style="display:none">STOP</button>
-        <span id="qscore" class="sub"></span>
+      <div>
+        <div class="tag" style="margin-bottom:8px">Vocabulary</div>
+        <div class="chips" id="chips"></div>
+      </div>
+      <div class="card">
+        <div class="tag">Mission · Quiz</div>
+        <div id="qtext">Ready, Captain?</div>
+        <div id="qmsg">Find each part on the airplane.</div>
+        <div class="row" style="margin-top:8px">
+          <button class="btn" id="qstart">START MISSION</button>
+          <button class="btn ghost" id="qstop" style="display:none">STOP</button>
+          <span id="qscore" class="sub"></span>
+        </div>
       </div>
     </div>
+
+    <!-- LESSON 2 -->
+    <div class="mode" id="m-colors" hidden>
+      <div class="card">
+        <div class="tag">Paint the airplane</div>
+        <div id="cname" class="big">Choose a color</div>
+        <div id="csent" class="sent">Then tap a part.</div>
+      </div>
+      <div>
+        <div class="tag" style="margin-bottom:8px">Colors</div>
+        <div class="chips" id="cchips"></div>
+      </div>
+      <div class="row"><button class="btn ghost" id="creset">RESET COLORS</button></div>
+      <div class="card">
+        <div class="tag">Mission · Quiz</div>
+        <div id="cq" style="font-size:26px;font-weight:700;margin:6px 0">Ready, Captain?</div>
+        <div id="cmsg" style="min-height:24px;font-size:18px">Find the right color.</div>
+        <div class="row" style="margin-top:8px">
+          <button class="btn" id="cstart">START MISSION</button>
+          <button class="btn ghost" id="cstop" style="display:none">STOP</button>
+          <span id="cscore" class="sub"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LESSON 3 -->
+    <div class="mode" id="m-numbers" hidden>
+      <div class="card">
+        <div class="tag">Count the parts</div>
+        <div id="nq" class="big">How many wings?</div>
+        <div id="nmsg" style="min-height:24px;font-size:18px">Count them on the airplane.</div>
+        <div class="row" style="margin-top:8px">
+          <button class="btn" id="nlisten">▶ LISTEN</button>
+          <button class="btn ghost" id="nnext">SKIP ▶</button>
+          <span id="nprog" class="sub"></span>
+        </div>
+      </div>
+      <div>
+        <div class="tag" style="margin-bottom:8px">Numbers</div>
+        <div class="chips" id="nchips"></div>
+      </div>
+    </div>
+
     <footer>Design · Graphics Records</footer>
   </aside>
 </main>
@@ -158,20 +220,34 @@ function slab(pts, depth, mat){
   return new THREE.Mesh(g, mat);
 }
 
+const PAINT = {fuselage:[],nose:[],wing:[],tail:[],engine:[]};
+const reg = (id, mat) => { mat.userData.orig = mat.color.getHex(); PAINT[id].push(mat); };
+
 /* ---------- FUSELAGE + NOSE (smooth profile) ---------- */
-const WHITE = {color:0xf1f3f6, metalness:.25, roughness:.28};
+const WHITE = {color:0xf1f3f6, metalness:.05, roughness:.5};
 const prof = new THREE.SplineCurve([
   [-7.5,.12],[-7,.28],[-6,.55],[-4.5,.85],[-3,1.05],[-1,1.1],[3,1.1],[5,1.06],[5.9,.93],[6.8,.62],[7.3,.3],[7.5,.02]
 ].map(([y,r]) => new THREE.Vector2(y,r)));
 const P = prof.getPoints(220).map(p => new THREE.Vector2(Math.max(p.y,.001), p.x));
 const bodyPts = P.filter(p => p.y <= 5.9), nosePts = P.filter(p => p.y >= 5.9);
 const fus = new THREE.Mesh(new THREE.LatheGeometry(bodyPts,72), M(WHITE.color,WHITE));
-fus.rotation.z = -Math.PI/2; add(plane, fus, 'fuselage');
-const nose = new THREE.Mesh(new THREE.LatheGeometry(nosePts,72), M(0x2d3238,{metalness:.2,roughness:.4}));
-nose.rotation.z = -Math.PI/2; add(plane, nose, 'nose');
+{ /* upswept tail cone: lifts the rear fuselage like a real airliner */
+  const pa = fus.geometry.attributes.position;
+  for(let i=0;i<pa.count;i++){
+    const ax = pa.getY(i);
+    if(ax < -3.5){ const t = (-3.5-ax)/4; pa.setX(i, pa.getX(i) - .5*t*t); }
+  }
+  pa.needsUpdate = true; fus.geometry.computeVertexNormals();
+}
+fus.rotation.z = -Math.PI/2; add(plane, fus, 'fuselage'); reg('fuselage', fus.material);
+const apu = new THREE.Mesh(new THREE.CylinderGeometry(.13,.12,.06,24), M(0x2a2d32,{metalness:.7,roughness:.5}));
+apu.rotation.z = Math.PI/2; apu.position.set(-7.5,.5,0); add(plane, apu, 'fuselage');
+const nose = new THREE.Mesh(new THREE.LatheGeometry(nosePts,72), M(0x1a1c1f,{metalness:.1,roughness:.55}));
+nose.rotation.z = -Math.PI/2; add(plane, nose, 'nose'); reg('nose', nose.material);
 
 /* Windows, door, cockpit glass */
 const glass = () => M(0x0a1220,{metalness:.9,roughness:.06});
+const cockpitGlass = () => M(0x27456b,{metalness:.7,roughness:.08});
 const winGeo = new THREE.SphereGeometry(.12,16,12), winMat = glass();
 for(let x=-2.4; x<=3.75; x+=.7) for(const s of [-1,1]){
   const w = new THREE.Mesh(winGeo, winMat); w.scale.set(1,1.3,.35); w.position.set(x,.3,s*1.03);
@@ -183,25 +259,26 @@ for(const s of [-1,1]){
   const h = new THREE.Mesh(new THREE.BoxGeometry(.1,.04,.03), M(0x777d85)); h.position.set(4.9,.15,s*1.09); add(plane,h,'door');
 }
 for(const s of [-1,1]){
-  const c = new THREE.Mesh(new THREE.SphereGeometry(.25,20,14), glass());
+  const c = new THREE.Mesh(new THREE.SphereGeometry(.25,20,14), cockpitGlass());
   c.scale.set(1.1,.6,.5); c.position.set(6.1,.5,s*.62); c.rotation.y = s*.5; add(plane,c,'cockpit');
 }
-const ws = new THREE.Mesh(new THREE.SphereGeometry(.24,20,14), glass());
+const ws = new THREE.Mesh(new THREE.SphereGeometry(.24,20,14), cockpitGlass());
 ws.scale.set(.5,.5,1.1); ws.position.set(6.45,.6,0); add(plane, ws, 'cockpit');
 
 /* ---------- WINGS, WINGLETS, TAIL ---------- */
-const wingMat = () => M(0xe6e9ee,{metalness:.3,roughness:.3,side:THREE.DoubleSide});
+const wingMat = () => M(0xf1f3f6,{metalness:.1,roughness:.5,side:THREE.DoubleSide});
 for(const s of [-1,1]){
   const w = slab([[1.5,.9*s],[-1.4,6.8*s],[-2.2,6.8*s],[-1.0,.9*s]], .12, wingMat());
-  w.rotation.x = Math.PI/2; w.position.y = -.5; add(plane,w,'wing');
-  const wl = slab([[-1.5,0],[-2.2,0],[-2.45,.8],[-2.1,.8]], .05, M(0x1c3f7a,{side:THREE.DoubleSide}));
-  wl.position.set(0,-.45,s*6.78); add(plane,wl,'wing');
+  w.rotation.x = Math.PI/2; w.position.y = -.5; add(plane,w,'wing'); reg('wing', w.material);
+  const wl = slab([[-1.5,0],[-2.2,0],[-2.45,.8],[-2.1,.8]], .05, wingMat());
+  wl.position.set(0,-.45,s*6.78); add(plane,wl,'wing'); reg('wing', wl.material);
 }
-const BLUE = {color:0x1c3f7a, metalness:.3, roughness:.3, side:THREE.DoubleSide};
-add(plane, slab([[-4.5,.85],[-6.1,3.6],[-6.9,3.6],[-6.4,.85]], .1, M(BLUE.color,BLUE)), 'tail');
+const BLUE = {color:0x1c5fd1, metalness:.1, roughness:.4, side:THREE.DoubleSide};
+const fin = slab([[-4.3,.75],[-6.0,3.7],[-7.0,3.7],[-7.15,.55],[-6.0,.62]], .1, M(BLUE.color,BLUE));
+add(plane, fin, 'tail'); reg('tail', fin.material);
 for(const s of [-1,1]){
-  const st = slab([[-5.6,.2*s],[-6.9,3.0*s],[-7.3,3.0*s],[-6.9,.2*s]], .08, wingMat());
-  st.rotation.x = Math.PI/2; st.position.y = .1; add(plane,st,'tail');
+  const st = slab([[-5.6,.2*s],[-6.9,3.0*s],[-7.3,3.0*s],[-6.9,.2*s]], .08, M(BLUE.color,BLUE));
+  st.rotation.x = Math.PI/2; st.position.y = .25; add(plane,st,'tail'); reg('tail', st.material);
 }
 
 /* ---------- ENGINES (turbofan) ---------- */
@@ -212,7 +289,8 @@ function lathe(parent, pts, mat, id){
   const m = new THREE.Mesh(new THREE.LatheGeometry(pts.map(V2), 72), mat);
   m.rotation.z = -Math.PI/2; return add(parent, m, id);
 }
-const skinMat  = M(0xe9ecef,{metalness:.3,roughness:.3,side:THREE.DoubleSide});
+const skinMat  = M(0xf1f3f6,{metalness:.1,roughness:.45,side:THREE.DoubleSide});
+reg('engine', skinMat);
 const linerMat = M(0x23272c,{metalness:.4,roughness:.7,side:THREE.DoubleSide});
 const cowlMat  = M(0x6b6f75,{metalness:.85,roughness:.38,side:THREE.DoubleSide});
 const plugMat  = M(0x3e4249,{metalness:.8,roughness:.4,side:THREE.DoubleSide});
@@ -299,11 +377,11 @@ function setHL(id){
 
 /* ---------- CAMERA FLY ---------- */
 let fly = null;
-function flyTo(id){
-  const [p,t] = PARTS[id].cam;
+function flyToCam([p,t]){
   fly = {t:0,p0:camera.position.clone(),t0:controls.target.clone(),p1:new THREE.Vector3(...p),t1:new THREE.Vector3(...t)};
   controls.autoRotate = false;
 }
+function flyTo(id){ flyToCam(PARTS[id].cam); }
 
 /* ---------- UI ---------- */
 const $ = id => document.getElementById(id);
@@ -372,6 +450,8 @@ $('qstart').onclick = () => {
 $('qstop').onclick = () => endQuiz(false);
 
 function pick(id){
+  if(mode === 'colors') return paintPart(id);
+  if(mode === 'numbers'){ speak(PARTS[id].en); return; }
   if(quiz){
     setHL(id); setTimeout(() => !fly && quiz && setHL(null), 900);
     if(id === quiz.order[quiz.i]){
@@ -386,6 +466,170 @@ function pick(id){
   }
   setHL(id); show(id); flyTo(id); speak(PARTS[id].en);
 }
+
+/* ---------- MODES: 1 Parts · 2 Colors · 3 Numbers ---------- */
+let mode = 'parts';
+const LESSONS = {parts:'Lesson 1 · Parts of the airplane', colors:'Lesson 2 · Colors', numbers:'Lesson 3 · Numbers'};
+let cquiz = null, numState = null;
+const shuffle = a => [...a].sort(() => Math.random() - .5);
+
+function setMode(m){
+  if(quiz) endQuiz(false);
+  cquiz = null; numState = null; audioMsg('');
+  if(SS) SS.cancel();
+  mode = m; setHL(null);
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('on', t.dataset.m === m));
+  ['parts','colors','numbers'].forEach(k => { $('m-' + k).hidden = (k !== m); });
+  $('lesson').textContent = 'Cadet training · ' + LESSONS[m];
+  if(m === 'colors'){ resetCQuizUI(); flyTo('fuselage'); }
+  else if(m === 'numbers'){ startNumbers(); }
+  else { flyTo('fuselage'); }
+}
+document.querySelectorAll('.tab').forEach(t => { t.onclick = () => setMode(t.dataset.m); });
+
+/* ----- Lesson 2: colors ----- */
+const COLORS = [
+  ['Red','#d93a3a','#ffffff'], ['Blue','#1c5fd1','#ffffff'], ['Green','#2e9f5b','#ffffff'], ['Yellow','#f2c230','#14110a'],
+  ['Orange','#f08a24','#14110a'], ['White','#f1f3f6','#14110a'], ['Black','#1a1c1f','#ffffff'], ['Gray','#8a9098','#14110a']
+];
+const PAINTABLE = ['fuselage','nose','wing','tail','engine'];
+const START_COLOR = {fuselage:'White', tail:'Blue', wing:'White', nose:'Black', engine:'White'};
+let partColor = {...START_COLOR}, selColor = null;
+const cchips = $('cchips');
+COLORS.forEach(([n, hex, fg]) => {
+  const b = document.createElement('button');
+  b.className = 'chip cc'; b.textContent = n; b.dataset.c = n;
+  b.style.setProperty('--bg', hex); b.style.setProperty('--fg', fg);
+  b.onclick = () => chooseColor(n);
+  cchips.appendChild(b);
+});
+const hexOf = n => COLORS.find(c => c[0] === n)[1];
+function chooseColor(n){
+  if(cquiz) return answerColor(n);
+  selColor = n;
+  cchips.querySelectorAll('.cc').forEach(c => c.classList.toggle('on', c.dataset.c === n));
+  $('cname').textContent = n; $('csent').textContent = 'Now tap a part of the airplane.';
+  speak(n);
+}
+function paintPart(id){
+  if(cquiz) return;
+  const p = PARTS[id];
+  if(!PAINTABLE.includes(id)){ $('csent').textContent = p.en; speak(p.en); return; }
+  if(!selColor){ $('csent').textContent = 'Choose a color first.'; speak('Choose a color first.'); return; }
+  PAINT[id].forEach(m => m.color.set(hexOf(selColor)));
+  partColor[id] = selColor;
+  const s = 'The ' + p.en.toLowerCase() + ' is ' + selColor.toLowerCase() + '.';
+  $('cname').textContent = selColor; $('csent').textContent = s; speak(s);
+}
+$('creset').onclick = () => {
+  Object.keys(PAINT).forEach(k => PAINT[k].forEach(m => m.color.setHex(m.userData.orig)));
+  partColor = {...START_COLOR}; selColor = null;
+  cchips.querySelectorAll('.cc').forEach(c => c.classList.remove('on'));
+  $('cname').textContent = 'Choose a color'; $('csent').textContent = 'Then tap a part.';
+};
+function resetCQuizUI(){
+  $('cq').textContent = 'Ready, Captain?'; $('cmsg').textContent = 'Find the right color.'; $('cscore').textContent = '';
+  $('cstart').style.display = ''; $('cstop').style.display = 'none';
+}
+function nextCQ(){
+  if(cquiz.i >= cquiz.order.length){
+    $('cq').textContent = 'Mission complete!';
+    $('cmsg').innerHTML = '<span class="ok">Score: ' + cquiz.score + '/' + cquiz.order.length + '. Well done, Captain!</span>';
+    speak('Mission complete. Well done, Captain!');
+    cquiz = null; $('cstart').style.display = ''; $('cstop').style.display = 'none'; return;
+  }
+  const id = cquiz.order[cquiz.i];
+  cquiz.tries = 0; cquiz.lock = false;
+  const q = 'What color is the ' + PARTS[id].en.toLowerCase() + '?';
+  $('cq').textContent = q; $('cmsg').textContent = '';
+  $('cscore').textContent = (cquiz.i + 1) + '/' + cquiz.order.length + ' · ★ ' + cquiz.score;
+  flyTo(id); setHL(id); setTimeout(() => { if(cquiz && cquiz.order[cquiz.i] === id) setHL(null); }, 1500); speak(q);
+}
+function answerColor(n){
+  if(!cquiz || cquiz.lock) return;
+  const id = cquiz.order[cquiz.i];
+  if(n === partColor[id]){
+    cquiz.lock = true; if(cquiz.tries === 0) cquiz.score++;
+    cquiz.i++;
+    const s = 'Yes! The ' + PARTS[id].en.toLowerCase() + ' is ' + n.toLowerCase() + '.';
+    $('cmsg').innerHTML = '<span class="ok">' + s + '</span>'; speak(s);
+    setTimeout(() => { if(cquiz) nextCQ(); }, 1800);
+  } else {
+    cquiz.tries++;
+    $('cmsg').innerHTML = '<span class="no">Not yet. Look again.</span>'; speak('Not yet. Look again.');
+  }
+}
+$('cstart').onclick = () => {
+  cquiz = {order: shuffle(PAINTABLE), i:0, score:0, tries:0, lock:false};
+  $('cstart').style.display = 'none'; $('cstop').style.display = '';
+  nextCQ();
+};
+$('cstop').onclick = () => { cquiz = null; resetCQuizUI(); };
+
+/* ----- Lesson 3: numbers ----- */
+const NUM_WORDS = ['One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten'];
+const COUNTS = [
+  {id:'wing',   one:'wing',   many:'wings',   n:2, cam:[[-2,9,11],[0,-.5,0]]},
+  {id:'engine', one:'engine', many:'engines', n:2, cam:[[11,1.5,0],[0,-1.1,0]]},
+  {id:'tail',   one:'tail',   many:'tails',   n:1, cam:[[-12,5,6],[-6,2.4,0]]},
+  {id:'nose',   one:'nose',   many:'noses',   n:1, cam:[[11,1.8,4.5],[7,0,0]]},
+  {id:'gear',   one:'wheel',  many:'wheels',  n:6, cam:[[10,.2,.1],[0,-1.6,0]]}
+];
+const nchips = $('nchips');
+NUM_WORDS.forEach((w, i) => {
+  const b = document.createElement('button');
+  b.className = 'chip'; b.textContent = (i + 1) + ' · ' + w;
+  b.onclick = () => answerNum(i + 1);
+  nchips.appendChild(b);
+});
+function startNumbers(){
+  numState = {order: shuffle(COUNTS), i:0, score:0, tries:0, lock:false, done:false};
+  nextNQ();
+}
+function nextNQ(){
+  if(numState.i >= numState.order.length){
+    numState.done = true; setHL(null);
+    $('nq').textContent = 'Mission complete!';
+    $('nmsg').innerHTML = '<span class="ok">Score: ' + numState.score + '/' + numState.order.length + '. Well done, Captain!</span>';
+    $('nnext').textContent = 'AGAIN ↻'; $('nprog').textContent = '';
+    speak('Mission complete. Well done, Captain!');
+    return;
+  }
+  const q = numState.order[numState.i];
+  numState.tries = 0; numState.lock = false;
+  $('nnext').textContent = 'SKIP ▶';
+  $('nq').textContent = 'How many ' + q.many + '?';
+  $('nmsg').textContent = 'Count them on the airplane.';
+  $('nprog').textContent = (numState.i + 1) + '/' + numState.order.length + ' · ★ ' + numState.score;
+  setHL(q.id); flyToCam(q.cam); speak('How many ' + q.many + '?');
+}
+function answerNum(n){
+  if(!numState) return;
+  if(numState.done){ speak(NUM_WORDS[n - 1]); return; }
+  if(numState.lock) return;
+  const q = numState.order[numState.i];
+  if(n === q.n){
+    numState.lock = true; if(numState.tries === 0) numState.score++;
+    numState.i++;
+    const s = 'Yes! ' + NUM_WORDS[n - 1] + ' ' + (n === 1 ? q.one : q.many) + '.';
+    $('nmsg').innerHTML = '<span class="ok">' + s + '</span>'; speak(s);
+    setTimeout(() => { if(numState && !numState.done) nextNQ(); }, 1800);
+  } else {
+    numState.tries++;
+    $('nmsg').innerHTML = '<span class="no">Count again.</span>';
+    speak(NUM_WORDS[n - 1] + '. Count again.');
+  }
+}
+$('nlisten').onclick = () => {
+  if(!numState || numState.done) return;
+  speak('How many ' + numState.order[numState.i].many + '?');
+};
+$('nnext').onclick = () => {
+  if(!numState) return;
+  if(numState.done){ startNumbers(); return; }
+  if(numState.lock) return;
+  numState.i++; nextNQ();
+};
 
 /* ---------- PICKING ---------- */
 const ray = new THREE.Raycaster(), ptr = new THREE.Vector2();
