@@ -36,6 +36,10 @@
 
   /* ---------- ubicación del archivo y de la página ---------- */
   var me = document.currentScript, base = "";
+  /* Opciones por página (atributos de la etiqueta <script>):
+       data-brand="off"       oculta el nombre de la academia dentro del menú
+       data-after="#id"       coloca el menú justo debajo de ese elemento (por defecto, arriba de todo) */
+  var OPT = (me && me.dataset) || {};
   if (me && me.src) base = me.src.replace(/[^\/]*([?#].*)?$/, "");
   function url(h) { return /^https?:/i.test(h) ? h : base + h; }
   function norm(p) { return p.replace(/index\.html$/, "").replace(/\/+$/, "") || "/"; }
@@ -51,6 +55,7 @@
     '#kb-menu{position:sticky;top:0;z-index:1000;background:rgba(8,11,25,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:2px solid #e2ba68;border-bottom:1px solid rgba(226,186,104,.35);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;text-align:left;line-height:1.3}' +
     '#kb-menu *{box-sizing:border-box}' +
     '#kb-menu .in{max-width:980px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:0 12px;height:50px}' +
+    '#kb-menu.nobrand .in{justify-content:center}#kb-menu.nobrand nav{margin-left:0}#kb-menu.nobrand button.tg{margin-left:0}' +
     '#kb-menu .brand{font-family:"KB Lora",Georgia,serif;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:#e2ba68;text-decoration:none;white-space:nowrap}' +
     '#kb-menu .brand small{display:block;font-size:8.5px;letter-spacing:.28em;color:#a09ac0;margin:-1px 0 0;padding:0;line-height:1.2}' +
     '#kb-menu nav{margin-left:auto;display:none;align-items:center;gap:6px}' +
@@ -85,6 +90,7 @@
 
     var bar = document.createElement("header");
     bar.id = "kb-menu";
+    if (OPT.brand === "off") bar.className = "nobrand";
     var inline = "", panel = "";
     ITEMS.forEach(function (it) {
       var h = url(it.href), on = false;
@@ -94,11 +100,13 @@
       panel += '<a class="' + (on ? "on " : "") + (it.cta ? "cta" : "") + '" href="' + esc(h) + '"' + ext + (on ? ' aria-current="page"' : "") + '><span class="ic">' + svg(it.icon) + '</span><span><b>' + esc(it.label) + '</b><span class="d">' + esc(it.desc || "") + "</span></span></a>";
     });
     bar.innerHTML =
-      '<div class="in"><a class="brand" href="' + esc(url("index.html")) + '">Kingsbridge<small>English Academy</small></a>' +
+      '<div class="in">' + (OPT.brand === "off" ? "" : '<a class="brand" href="' + esc(url("index.html")) + '">Kingsbridge<small>English Academy</small></a>') +
       '<nav aria-label="Menú principal">' + inline + "</nav>" +
       '<button class="tg" type="button" aria-expanded="false" aria-controls="kb-pn"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menú</span></button></div>' +
       '<div class="pn" id="kb-pn">' + panel + "</div>";
-    document.body.insertBefore(bar, document.body.firstChild);
+    var anchor = OPT.after ? document.querySelector(OPT.after) : null;
+    if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(bar, anchor.nextSibling);
+    else document.body.insertBefore(bar, document.body.firstChild);
 
     var tg = bar.querySelector(".tg"), pn = bar.querySelector(".pn");
     function close() { pn.classList.remove("open"); tg.setAttribute("aria-expanded", "false") }
