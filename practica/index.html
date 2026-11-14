@@ -239,10 +239,9 @@ function home(){
  navR();
  var s=stu(),n=DB.nivel,lv=byLevel(n),due=dueItems(s,n).length;
  var h='<h1>Práctica interactiva</h1>'+((V.expand||!DB.picked)?'<p class="lead">Práctica al estilo de los exámenes Cambridge: Cloze, Word formation y Key word transformation, con audio y repaso inteligente.</p>':"")+'<hr class="gold">';
- h+='<div class="card"><label for="nm">Tu nombre</label><input type="text" id="nm" maxlength="40" autocomplete="off" placeholder="Escribe tu nombre" value="'+esc(DB.last||"")+'"><div class="err" id="er">'+esc(V.msg)+'</div>';
+ if(V.pending){h+='<div class="card" id="nmc"><label for="nm">Tu apodo</label><input type="text" id="nm" maxlength="40" autocomplete="off" placeholder="Escribe tu apodo" value=""><div class="err" id="er">'+esc(V.msg)+'</div><button class="btn gold" data-act="setname" style="margin:12px 0 0">Continuar</button></div>'}
  if(s){var rk=rank(s.xp),pct=rk.next?Math.round((s.xp-rk.r[0])/(rk.next[0]-rk.r[0])*100):100;
-  h+='<div class="rank"><div class="ic">'+rk.r[2]+'</div><div style="flex:1"><b>'+rk.r[1]+'</b><span>'+s.xp+' puntos'+(rk.next?' · próximo rango: '+rk.next[1]+' ('+rk.next[0]+')':' · rango máximo')+(s.streak>1?' · 🔥 '+s.streak+' días seguidos':"")+'</span><div class="xpbar"><i style="width:'+pct+'%"></i></div></div></div>'}
- h+='</div>';
+  h+='<div class="card"><div class="rank"><div class="ic">'+rk.r[2]+'</div><div style="flex:1"><b>'+esc(DB.last)+' · '+rk.r[1]+'</b><span>'+s.xp+' puntos'+(rk.next?' · próximo rango: '+rk.next[1]+' ('+rk.next[0]+')':' · rango máximo')+(s.streak>1?' · 🔥 '+s.streak+' días seguidos':"")+'</span><div class="xpbar"><i style="width:'+pct+'%"></i></div></div></div></div>'}
  if(V.expand||!DB.picked){
  h+='<div class="card"><h2>Elige tu nivel</h2><div class="lvls" role="group" aria-label="Nivel">';
   LEVELS.forEach(function(l,i){var code=l[0],on=code===n,m=mastery(s,code);
@@ -269,9 +268,12 @@ function home(){
 
 /* ---------- sesiones ---------- */
 function needName(){
- var el=document.getElementById("nm"),v=el?el.value.trim():"";
- if(!v){V.msg="Escribe tu nombre para guardar tu progreso.";if(el)el.focus();var er=document.getElementById("er");if(er)er.textContent=V.msg;return false}
- DB.last=v;V.msg="";save();return true;
+ if(DB.last)return true;
+ V.pending=V.act||"practice";V.msg="";home();
+ var el=document.getElementById("nm"),c=document.getElementById("nmc");
+ if(c){var rm=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;var nv=document.getElementById("nav"),hh=parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--kb-menu-h"))||0;window.scrollTo({top:Math.max(0,c.getBoundingClientRect().top+window.scrollY-hh-(nv?nv.offsetHeight:0)-14),behavior:rm?"auto":"smooth"})}
+ if(el)try{el.focus({preventScroll:true})}catch(e){}
+ return false;
 }
 function makeItems(arr){return arr.map(function(q){return{q:q,ord:shuffle(q.o.map(function(_,i){return i})),retry:false}})}
 function startPractice(review){
@@ -417,11 +419,15 @@ function rerender(){var y=window.scrollY;render();window.scrollTo(0,y)}
 function onClick(e){
  var b=e.target.closest("[data-act]");if(!b||b.disabled)return;
  var a=b.getAttribute("data-act"),S=V.s;
- if(a==="nivel"){DB.nivel=b.getAttribute("data-v");DB.picked=true;V.expand=false;save();V.msg="";var nm=document.getElementById("nm");if(nm&&nm.value.trim()){DB.last=nm.value.trim();save()}home();focusActs()}
+ if(a==="nivel"){V.pending=null;DB.nivel=b.getAttribute("data-v");DB.picked=true;V.expand=false;save();V.msg="";var nm=document.getElementById("nm");if(nm&&nm.value.trim()){DB.last=nm.value.trim();save()}home();focusActs()}
  else if(a==="cambiar"){V.expand=true;var nm0=document.getElementById("nm");if(nm0&&nm0.value.trim()){DB.last=nm0.value.trim();save()}home();var lv0=document.querySelector(".lvls");if(lv0)lv0.scrollIntoView({block:"center"})}
- else if(a==="practice")startPractice(false);
- else if(a==="review")startPractice(true);
- else if(a==="exam")startExam();
+ else if(a==="practice"){V.act=a;startPractice(false)}
+ else if(a==="review"){V.act=a;startPractice(true)}
+ else if(a==="exam"){V.act=a;startExam()}
+ else if(a==="setname"){var el0=document.getElementById("nm"),v0=el0?el0.value.trim():"";
+  if(!v0){V.msg="Escribe tu apodo para continuar.";var er0=document.getElementById("er");if(er0)er0.textContent=V.msg;if(el0)el0.focus();return}
+  DB.last=v0;V.msg="";var pa=V.pending||"practice";V.pending=null;save();
+  if(pa==="exam")startExam();else startPractice(pa==="review")}
  else if(a==="navhome"){if(V.screen==="exam"){V.confirm="home";navR()}else leave("home")}
  else if(a==="navlevel"){if(V.screen==="exam"){V.confirm="level";navR()}else leave("level")}
  else if(a==="navyes"){leave(V.confirm||"home")}
@@ -449,7 +455,7 @@ function onClick(e){
   try{navigator.clipboard.writeText(waText()).then(function(){done("Copiado")},function(){done("No se pudo copiar")})}catch(x){done("No se pudo copiar")}
  }
 }
-app.addEventListener("click",onClick);document.getElementById("nav").addEventListener("click",onClick);
+app.addEventListener("click",onClick);app.addEventListener("keydown",function(e){if(e.key==="Enter"&&e.target&&e.target.id==="nm"){e.preventDefault();var bt=document.querySelector("[data-act=setname]");if(bt)bt.click()}});document.getElementById("nav").addEventListener("click",onClick);
 render();
 })();
 </script>
