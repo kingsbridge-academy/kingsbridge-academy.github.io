@@ -55,7 +55,7 @@
     '#kb-menu{position:sticky;top:0;z-index:1000;background:rgba(8,11,25,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:2px solid #e2ba68;border-bottom:1px solid rgba(226,186,104,.35);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;text-align:left;line-height:1.3}' +
     '#kb-menu *{box-sizing:border-box}' +
     '#kb-menu .in{max-width:980px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:0 12px;height:50px}' +
-    '#kb-menu.nobrand .in{justify-content:center}#kb-menu.nobrand nav{margin-left:0}#kb-menu.nobrand button.tg{margin-left:0}' +
+    '#kb-menu.nobrand .in{justify-content:flex-end}' +
     '#kb-menu .brand{font-family:"KB Lora",Georgia,serif;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:#e2ba68;text-decoration:none;white-space:nowrap}' +
     '#kb-menu .brand small{display:block;font-size:8.5px;letter-spacing:.28em;color:#a09ac0;margin:-1px 0 0;padding:0;line-height:1.2}' +
     '#kb-menu nav{margin-left:auto;display:none;align-items:center;gap:6px}' +
