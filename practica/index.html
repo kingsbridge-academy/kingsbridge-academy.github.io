@@ -123,6 +123,7 @@ ul.rv .n{color:#ff8a8a}
 .ac-p{--c:#e2ba68;--c2:#b8893a;--glow:rgba(226,186,104,.5)}
 .ac-r{--c:#2ec4b6;--c2:#14877d;--glow:rgba(46,196,182,.5)}
 .ac-e{--c:#f2703a;--c2:#c2410c;--glow:rgba(242,112,58,.5)}
+#acts{scroll-margin-top:14px}
 .act{position:relative;display:flex;align-items:center;gap:14px;width:100%;margin-bottom:16px;padding:14px 16px 14px 14px;text-align:left;font:inherit;color:#fff;cursor:pointer;border:2px solid var(--c);border-radius:44px 16px 16px 44px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,0) 60%),#0d1226;transition:transform .18s,box-shadow .2s}
 .act::before{content:"";position:absolute;inset:5px;border:1px solid var(--c);opacity:.5;border-radius:40px 11px 11px 40px;pointer-events:none}
 .act:hover,.act:focus-visible{transform:translateY(-3px);box-shadow:0 10px 24px var(--glow);outline:none}
@@ -218,9 +219,11 @@ function home(){
  h+='</div></div>';
  var ICO={p:'<path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 013 3L8 19l-4 1z"/><path d="M14.5 6.5l3 3"/>',r:'<path d="M20 12a8 8 0 11-2.4-5.7"/><path d="M20 4v4h-4"/>',e:'<circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/>'};
  function act(cls,act,ico,k,t,sub,dis,badge,fill){return '<button class="act '+cls+(fill?" fill":"")+'" data-act="'+act+'"'+(dis?" disabled":"")+'>'+(badge?'<span class="act-b">'+badge+'</span>':"")+'<span class="act-med"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ICO[ico]+'</svg></span><span class="act-tx"><span class="act-k">'+k+'</span><span class="act-t">'+t+'</span><span class="act-r"></span><span class="act-s">'+sub+'</span></span><span class="act-go" aria-hidden="true">›</span></button>'}
+ h+='<div id="acts">';
  h+=act("ac-p","practice","p","Ejercicio","Practicar","8 preguntas con respuesta inmediata",false,0,true);
  h+=act("ac-r","review","r","Memoria","Repaso inteligente",due?(due+(due===1?" pregunta lista":" preguntas listas")+" para repasar"):"Aún no hay preguntas para repasar en este nivel",!due,due,false);
  h+=act("ac-e","exam","e","Evaluación","Modo examen",Math.min(10,lv.length)+" preguntas con tiempo y nota de 0.0 a 5.0",false,0,false);
+ h+='</div>';
  var topics=[];lv.forEach(function(q){if(topics.indexOf(q.tema)<0)topics.push(q.tema)});
  h+='<div class="card lv-'+n+'"><h2>Tu progreso en '+n+'</h2>';
  topics.forEach(function(t){var r=(s&&s.t[n+"|"+t])||{a:0,r:0},p=r.a?Math.round(r.r/r.a*100):0;
@@ -350,7 +353,7 @@ function rerender(){var y=window.scrollY;render();window.scrollTo(0,y)}
 app.addEventListener("click",function(e){
  var b=e.target.closest("[data-act]");if(!b||b.disabled)return;
  var a=b.getAttribute("data-act"),S=V.s;
- if(a==="nivel"){DB.nivel=b.getAttribute("data-v");save();V.msg="";var nm=document.getElementById("nm");if(nm&&nm.value.trim()){DB.last=nm.value.trim();save()}home()}
+ if(a==="nivel"){DB.nivel=b.getAttribute("data-v");save();V.msg="";var nm=document.getElementById("nm");if(nm&&nm.value.trim()){DB.last=nm.value.trim();save()}home();var ac=document.getElementById("acts");if(ac){var rm=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;ac.scrollIntoView({behavior:rm?"auto":"smooth",block:"start"})}}
  else if(a==="practice")startPractice(false);
  else if(a==="review")startPractice(true);
  else if(a==="exam")startExam();
