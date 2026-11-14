@@ -17,84 +17,105 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://kingsbridge-academy.github.io/og-kingsbridge.jpg">
 <style>
+@font-face{font-family:"KB Lora";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/lora.woff) format("woff")}
+@font-face{font-family:"KB Lora";font-weight:400;font-style:italic;font-display:swap;src:url(fonts/lora-italic.woff) format("woff")}
+:root{--bg:#080b19;--card:#11162b;--gold:#e2ba68;--line:rgba(226,186,104,.35);--txt:#d8d4ee;--mute:#a09ac0}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#080b19;color:#fff;font-family:system-ui;text-align:center}
-.banner{width:100%;display:block}
-h1{font-family:Georgia,serif;font-size:38px;line-height:1.1;margin:32px 16px 0}
-.info{color:#a09ac0;font-size:14px;max-width:700px;margin:20px auto;line-height:1.6;padding:0 18px}
-.info span{color:#fff}
-a.btn{display:block;width:280px;margin:14px auto;padding:16px;border-radius:99px;font-weight:900;text-decoration:none;font-size:16px}
-.btn-wa{background:#25D366;color:#fff}
-.btn-tally{background:#ffffff;color:#080b19}
-.user{margin-top:28px;font-size:13px;letter-spacing:.6px;color:#8e8ab5}
-.user b{color:#fff}
-small{display:block;margin:8px 0 26px;color:#5a6688;font-size:12px}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:#fff;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;text-align:center}
+.kb-logo{width:100%;max-width:1100px;margin:0 auto;display:block}
+/* portada */
+.kb-hero{position:relative;width:100%;max-width:1100px;margin:0 auto;overflow:hidden}
+.kb-hero img{display:block;width:100%;height:auto;max-height:520px;object-fit:cover;filter:brightness(.8)}
+.kb-hero-t{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 4%;font-family:"KB Lora",Georgia,serif;color:#fff;text-shadow:0 3px 12px rgba(0,0,0,.9)}
+.kb-hero h1{margin:0;font-weight:400;font-size:clamp(2.2rem,11vw,8rem);line-height:1}
+.kb-hero h2{margin:.3em 0 0;font-weight:400;font-size:clamp(1rem,4.5vw,3rem)}
+.kb-hero hr{width:40%;margin:.8em auto;border:0;border-top:2px solid var(--gold)}
+.kb-hero p{margin:0;font-style:italic;font-size:clamp(.8rem,3vw,1.8rem);line-height:1.4}
+/* adorno de títulos */
+.kb-orn{display:flex;align-items:center;justify-content:center;gap:12px;margin:14px auto;color:var(--gold);font-size:12px}
+.kb-orn::before,.kb-orn::after{content:"";width:min(22vw,120px);height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.kb-orn::after{background:linear-gradient(90deg,var(--gold),transparent)}
+/* botones de acción: mismo diseño que los niveles de la práctica */
+.kb-go{max-width:900px;margin:34px auto 0;padding:0 18px}
+.kb-go h2,.kb-sec h2{font-family:"KB Lora",Georgia,serif;font-weight:400;font-size:clamp(1.5rem,5vw,2.2rem);color:var(--gold);line-height:1.2}
+.kb-go .kb-sub{color:var(--mute);font-size:14px;margin-top:8px}
+.kb-acts{display:grid;grid-template-columns:1fr;gap:14px;max-width:340px;margin:20px auto 0}
+@media(min-width:640px){.kb-acts{grid-template-columns:repeat(3,1fr);max-width:none}}
+.kb-act,.kb-card{--c:var(--gold);--c2:#b8893a;--glow:rgba(226,186,104,.5);position:relative;display:block;overflow:hidden;color:#fff;text-decoration:none;text-align:center;border:2px solid var(--c);border-radius:50px 50px 14px 14px;padding:18px 12px 16px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,0) 60%),#0d1226;transition:transform .18s,box-shadow .2s}
+.kb-act::before,.kb-card::before{content:"";position:absolute;inset:5px;border:1px solid var(--c);opacity:.5;border-radius:44px 44px 10px 10px;pointer-events:none}
+.kb-act:hover,.kb-act:focus-visible{transform:translateY(-3px);box-shadow:0 10px 24px var(--glow);outline:none}
+.kb-act:active{transform:scale(.97)}
+.kb-wa{--c:#25D366;--c2:#128c4a;--glow:rgba(37,211,102,.5)}
+.kb-pre{--c:#3b82f6;--c2:#1d4ed8;--glow:rgba(59,130,246,.5)}
+.kb-pra{--c:#e2ba68;--c2:#b8893a;--glow:rgba(226,186,104,.5)}
+.kb-k{display:block;font-family:"KB Lora",Georgia,serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--c)}
+.kb-ic{display:block;width:38px;height:38px;margin:8px auto 2px;color:var(--c);filter:drop-shadow(0 0 10px var(--glow))}
+.kb-ic svg{width:100%;height:100%;display:block}
+.kb-t{display:block;font-family:"KB Lora",Georgia,serif;font-size:1.3rem;line-height:1.15;color:#fff;margin:2px 0}
+.kb-r{display:block;width:46%;height:5px;margin:6px auto;border-top:1px solid var(--c);border-bottom:1px solid var(--c)}
+.kb-d{display:block;font-family:"KB Lora",Georgia,serif;font-style:italic;font-size:14px;color:var(--txt);line-height:1.25}
+.kb-p{display:block;font-size:11px;color:var(--mute);margin-top:4px}
+/* fotos */
+.kbs{position:relative;max-width:1100px;margin:44px 12px 0;border-radius:20px;overflow:hidden;background:#0d1226;border:2px solid var(--gold);aspect-ratio:16/9;touch-action:pan-y}
+@media(min-width:1124px){.kbs{margin-left:auto;margin-right:auto}}
+.kbs *{box-sizing:border-box}
+.kbs-t{display:flex;height:100%;transition:transform .6s ease}
+.kbs-s{flex:0 0 100%;height:100%;display:flex;flex-direction:column;justify-content:flex-end;background:#0d1226}
+.kbs-s img{display:block;flex:1;min-height:0;width:100%;object-fit:cover}
+.kbs-c{flex:none;background:#0d1226;color:#fff;padding:.85rem 1.5rem 2.4rem;border-top:1px solid var(--line)}
+.kbs-h{font-family:"KB Lora",Georgia,serif;font-size:clamp(1.1rem,3vw,1.7rem);line-height:1.15;color:var(--gold)}
+.kbs-p{margin-top:.25rem;font-family:"KB Lora",Georgia,serif;font-style:italic;font-size:clamp(.85rem,1.8vw,1.05rem);color:var(--txt)}
+.kbs-n{position:absolute;top:40%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1.5px solid var(--gold);background:rgba(8,11,25,.85);color:var(--gold);font-size:28px;line-height:1;cursor:pointer;padding:0 0 4px}
+.kbs-n:hover{background:var(--gold);color:var(--bg)}
+.kbs-a{left:10px}.kbs-b{right:10px}
+.kbs-d{position:absolute;left:0;right:0;bottom:.9rem;display:flex;justify-content:center;gap:.5rem}
+.kbs-d button{width:12px;height:12px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.35);cursor:pointer}
+.kbs-d button.on{width:34px;border-radius:6px;background:var(--gold)}
+@media(max-width:600px){.kbs{aspect-ratio:4/3;border-radius:14px}.kbs-n{width:36px;height:36px}}
+/* clases, pasos y preguntas */
+.kb-sec{max-width:900px;margin:44px auto 0;padding:0 18px}
+.kb-sec .kb-sub{margin:10px auto 22px;color:var(--mute);font-size:14px;line-height:1.6;max-width:600px}
+.kb-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(min-width:700px){.kb-grid{grid-template-columns:repeat(4,1fr)}}
+.kb-card{padding:18px 10px 16px}
+.kb-card h3{font-family:"KB Lora",Georgia,serif;font-size:1.3rem;color:var(--c);font-weight:400;margin:4px 0 2px}
+.kb-card p{color:var(--txt);font-size:13px;line-height:1.5;font-family:"KB Lora",Georgia,serif;font-style:italic}
+.kb-steps{counter-reset:kb;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;text-align:left}
+.kb-step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 16px 18px 56px;position:relative;color:var(--txt);font-size:14px;line-height:1.55}
+.kb-step::before{counter-increment:kb;content:counter(kb);position:absolute;left:16px;top:16px;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--bg);font-family:"KB Lora",Georgia,serif;font-weight:400;display:flex;align-items:center;justify-content:center}
+.kb-step a,.kb-faq a{color:var(--gold)}
+.kb-faq{text-align:left;max-width:700px;margin:22px auto 0}
+.kb-faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;padding:14px 16px}
+.kb-faq summary{cursor:pointer;font-family:"KB Lora",Georgia,serif;color:#fff;font-size:16px}
+.kb-faq p{margin-top:10px;color:var(--mute);font-size:14px;line-height:1.6}
+.kb-li{display:block;max-width:640px;margin:44px auto 0;padding:0 18px}
+.kb-li img{max-width:100%;height:auto;border-radius:12px}
+.kb-pie{margin-top:40px;background:#0b1024;color:var(--mute);text-align:center;font-size:14px;line-height:1.8;padding:26px 16px 30px;border-top:2px solid var(--gold)}
+.kb-pie b{color:#fff;font-family:"KB Lora",Georgia,serif;font-weight:400}
+.kb-pie p{margin:0}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.kb-act{transition:none}}
 </style>
 </head>
 <body>
 
-<a href="index.html" style="display:block" aria-label="Ir al inicio"><img class="banner" src="logo.png?v=99" alt="KINGSBRIDGE"></a>
+<a href="index.html" style="display:block" aria-label="Ir al inicio"><img class="kb-logo" src="logo.png?v=99" alt="KINGSBRIDGE English Academy"></a>
 
-<div class="banner">
-  <img src="wisdom_legacywall.jpg" alt="Kingsbridge Academy">
-  <div class="banner-text">
+<div class="kb-hero">
+  <img src="wisdom_legacywall.jpg" alt="Kingsbridge English Academy">
+  <div class="kb-hero-t">
     <h1>Real English</h1>
     <h2>in the heart of the Amazon.</h2>
     <hr>
-    <p>Speak with courage. Learn with purpose.<br>
-       Let every word carry you further.</p>
+    <p>Speak with courage. Learn with purpose.<br>Let every word carry you further.</p>
   </div>
 </div>
-
-<style>
-  .banner { position: relative; width: 100%; }
-  .banner img {
-    display: block;
-    width: 100%;
-    height: auto;
-    filter: brightness(0.8);
-  }
-  .banner-text {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 4%;
-    font-family: "Times New Roman", Georgia, serif;
-    color: #fff;
-    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.9);
-  }
-  .banner h1 {
-    margin: 0;
-    font-size: clamp(2.2rem, 11vw, 8rem);
-    line-height: 1;
-  }
-  .banner h2 {
-    margin: 0.3em 0 0;
-    font-size: clamp(1rem, 4.5vw, 3rem);
-  }
-  .banner hr {
-    width: 40%;
-    margin: 0.8em auto;
-    border: 0;
-    border-top: 2px solid #e2ba68;
-  }
-  .banner p {
-    margin: 0;
-    font-style: italic;
-    font-size: clamp(0.8rem, 3vw, 1.8rem);
-    line-height: 1.4;
-  }
-</style>
 
 <!-- ===== PRESENTACIÓN (debajo del encabezado) ===== -->
 <style>
 .kb-intro{max-width:900px;margin:0 auto;padding:34px 18px 6px}
-.kb-eye{font:bold 12px Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#e2ba68}
-.kb-intro h2{font-family:Georgia,"Times New Roman",serif;font-weight:normal;font-size:clamp(1.6rem,6vw,2.5rem);line-height:1.2;color:#fff;margin:10px 0 0}
+.kb-eye{font:600 12px "KB Lora",Georgia,serif;letter-spacing:.22em;text-transform:uppercase;color:#e2ba68}
+.kb-intro h2{font-family:"KB Lora",Georgia,serif;font-weight:normal;font-size:clamp(1.6rem,6vw,2.5rem);line-height:1.2;color:#fff;margin:10px 0 0}
 .kb-intro h2 em{font-style:italic;color:#e2ba68}
 .kb-orn{display:flex;align-items:center;justify-content:center;gap:12px;margin:16px auto 14px;color:#e2ba68;font-size:12px}
 .kb-orn::before,.kb-orn::after{content:"";width:min(22vw,120px);height:1px;background:linear-gradient(90deg,transparent,#e2ba68)}
@@ -102,18 +123,18 @@ small{display:block;margin:8px 0 26px;color:#5a6688;font-size:12px}
 .kb-intro p{color:#cfcbe6;font-size:16px;line-height:1.65;max-width:620px;margin:0 auto}
 .kb-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0 0}
 .kb-fact{background:linear-gradient(180deg,#141a33,#0d1226);border:1px solid rgba(226,186,104,.4);border-radius:14px;padding:16px 12px}
-.kb-fact b{display:block;font-family:Georgia,"Times New Roman",serif;font-weight:normal;font-size:1.05rem;color:#fff;line-height:1.25}
+.kb-fact b{display:block;font-family:"KB Lora",Georgia,serif;font-weight:normal;font-size:1.05rem;color:#fff;line-height:1.25}
 .kb-fact span{display:block;margin-top:6px;color:#a09ac0;font-size:13px;line-height:1.45}
 .kb-fact i{display:block;width:34px;height:34px;margin:0 auto 10px;color:#e2ba68}
 .kb-fact svg{width:100%;height:100%;display:block}
-.kb-intro .kb-mission{margin:26px auto 0;font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:clamp(1rem,3.6vw,1.2rem);color:#fff}
+.kb-intro .kb-mission{margin:26px auto 0;font-family:"KB Lora",Georgia,serif;font-style:italic;font-size:clamp(1rem,3.6vw,1.2rem);color:#fff}
 .kb-mission::before,.kb-mission::after{color:#e2ba68}
 .kb-mission::before{content:"\201C"}.kb-mission::after{content:"\201D"}
 @media(max-width:640px){.kb-facts{grid-template-columns:1fr;max-width:400px;margin-left:auto;margin-right:auto}.kb-fact{display:grid;grid-template-columns:34px 1fr;column-gap:14px;text-align:left;align-items:center}.kb-fact i{margin:0;grid-row:1 / span 2}.kb-fact span{margin-top:2px}}
 /* título del carrusel */
 .kb-kids{max-width:900px;margin:44px auto 0;padding:0 18px}
-.kb-kids .kb-pill{display:inline-block;background:#ffd43b;color:#3b2a20;border-radius:99px;padding:6px 16px;font:bold 12px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}
-.kb-kids h2{font-family:Georgia,"Times New Roman",serif;font-weight:normal;font-size:clamp(1.7rem,6.4vw,2.6rem);line-height:1.15;color:#fff;margin:14px 0 0}
+.kb-kids .kb-pill{display:inline-block;background:#ffd43b;color:#3b2a20;border-radius:99px;padding:6px 16px;font:600 12px "KB Lora",Georgia,serif;letter-spacing:.12em;text-transform:uppercase}
+.kb-kids h2{font-family:"KB Lora",Georgia,serif;font-weight:normal;font-size:clamp(1.7rem,6.4vw,2.6rem);line-height:1.15;color:#fff;margin:14px 0 0}
 .kb-kids h2 em{font-style:normal;color:#ffd43b}
 .kb-kids p{color:#cfcbe6;font-size:16px;line-height:1.6;max-width:600px;margin:10px auto 0}
 .kb-kids p b{color:#fff}
@@ -129,6 +150,17 @@ small{display:block;margin:8px 0 26px;color:#5a6688;font-size:12px}
     <div class="kb-fact"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 2.500 4.500 6 4.500 9.500L14.500 16h-5L7.500 12.500C7.500 9 9 5.500 12 3z"/><circle cx="12" cy="9.500" r="1.600"/><path d="M9.500 16l-2 4M14.500 16l2 4M12 17.500V21"/></svg></i><b>Etapa de lanzamiento</b><span>Academia fundada en Leticia.</span></div>
   </div>
   <p class="kb-mission">Founded with one mission: make real English accessible.</p>
+</section>
+
+<section class="kb-go" id="empezar" aria-labelledby="kb-go-h">
+  <h2 id="kb-go-h">Empieza hoy</h2>
+  <div class="kb-orn" aria-hidden="true">&#9670;</div>
+  <p class="kb-sub">Elige cómo quieres comenzar.</p>
+  <div class="kb-acts">
+    <a class="kb-act kb-wa" href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener"><span class="kb-k">Información</span><span class="kb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/></svg></span><span class="kb-t">WhatsApp</span><span class="kb-r"></span><span class="kb-d">Pide precios y horarios</span><span class="kb-p">@kingsbridge.academy</span></a>
+    <a class="kb-act kb-pre" href="https://tally.so/r/2EQWlj" target="_blank" rel="noopener"><span class="kb-k">Matrícula</span><span class="kb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 2h6v4H9z"/><path d="M9 12h6M9 16h4"/></svg></span><span class="kb-t">Pre-inscripción</span><span class="kb-r"></span><span class="kb-d">Reserva tu cupo</span><span class="kb-p">Formulario en línea</span></a>
+    <a class="kb-act kb-pra" href="practica/index.html"><span class="kb-k">Nuevo</span><span class="kb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 013 3L8 19l-4 1z"/><path d="M14.5 6.5l3 3"/></svg></span><span class="kb-t">Práctica Cambridge</span><span class="kb-r"></span><span class="kb-d">Ejercicios interactivos</span><span class="kb-p">Niveles A1 a C1</span></a>
+  </div>
 </section>
 
 <!-- ===== TÍTULO DEL CARRUSEL MY DAY ===== -->
@@ -305,68 +337,6 @@ go(0);
 </script>
 <!-- ===== FIN CARRUSEL MY DAY GAMES ===== -->
 
-<div>
-  <div style="padding:20px; max-width:400px; margin:auto;">
-
-<a href="https://wa.me/kingsbridge.academy" target="_blank" style="text-decoration:none; display:block;">
-<div style="background:#25D366; color:white; padding:16px; border-radius:12px; text-align:center; font-weight:bold; font-family:Arial,sans-serif; font-size:16px;">
-Pide información y precios por WhatsApp<br><span style="font-weight:normal; font-size:13px;">@kingsbridge.academy</span>
-</div>
-</a>
-
-<div style="height:14px;"></div>
-
-<a href="https://tally.so/r/2EQWlj" target="_blank" style="text-decoration:none; display:block;">
-<div style="background:#1E3A8A; color:white; padding:16px; border-radius:12px; text-align:center; font-weight:bold; font-family:Arial,sans-serif; font-size:16px; border:1.5px solid #D4AF37;">
-📝 Pre-inscripción
-</div>
-</a>
-
-<div style="height:14px;"></div>
-
-<!-- BOTÓN MY DAY: abre la página de presentación de My Day. -->
-<a href="my-day-ninos.html" style="text-decoration:none; display:block;">
-<div style="background:#11162b; color:#e2ba68; padding:16px; border-radius:12px; text-align:center; font-weight:bold; font-family:Arial,sans-serif; font-size:16px; border:1.5px solid #D4AF37;">
-My Day · Inglés para niños de 3 a 5 años<br><span style="font-weight:normal; font-size:13px; color:#a09ac0;">Juegos, canciones y dibujos</span>
-</div>
-</a>
-
-<div style="height:14px;"></div>
-
-<a class="kb-pilot" aria-disabled="true" style="text-decoration:none; display:block; opacity:.55; cursor:not-allowed; pointer-events:none;">
-<div style="background:#11162b; color:#e2ba68; padding:16px; border-radius:12px; text-align:center; font-weight:bold; font-family:Arial,sans-serif; font-size:16px; border:1.5px solid #D4AF37;">
-✈️ Pilot Student
-</div>
-</a>
-
-<div style="height:14px;"></div>
-
-<a href="sobre-nosotros.html" style="text-decoration:none; display:block;">
-<div style="background:transparent; color:#e2ba68; padding:16px; border-radius:12px; text-align:center; font-weight:bold; font-family:Arial,sans-serif; font-size:16px; border:1.5px solid #D4AF37;">
-Sobre nosotros
-</div>
-</a>
-
-
-</div>
-  <style>
-.kbs{position:relative;max-width:1100px;margin:0 auto;border-radius:20px;overflow:hidden;background:#0a1f8f;aspect-ratio:16/9;touch-action:pan-y;font-family:system-ui,sans-serif}
-.kbs *{box-sizing:border-box}
-.kbs-t{display:flex;height:100%;transition:transform .6s ease}
-.kbs-s{flex:0 0 100%;height:100%;display:flex;flex-direction:column;justify-content:flex-end;background:#1f4bff}
-.kbs-s img{display:block;flex:1;min-height:0;width:100%;object-fit:cover}
-.kbs-c{flex:none;background:#0a1f8f;color:#fff;padding:.85rem 1.5rem 2.4rem}
-.kbs-h{font-size:clamp(1.1rem,3vw,1.7rem);font-weight:800;line-height:1.15}
-.kbs-p{margin-top:.25rem;font-size:clamp(.85rem,1.8vw,1.05rem);color:#bcd0ff}
-.kbs-n{position:absolute;top:40%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:#1f4bff;font-size:28px;line-height:1;cursor:pointer}
-.kbs-n:hover{background:#1f4bff;color:#fff}
-.kbs-a{left:10px}.kbs-b{right:10px}
-.kbs-d{position:absolute;left:0;right:0;bottom:.9rem;display:flex;justify-content:center;gap:.5rem}
-.kbs-d button{width:12px;height:12px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.5);cursor:pointer}
-.kbs-d button.on{width:34px;border-radius:6px;background:#ffd84d}
-@media(max-width:600px){.kbs{aspect-ratio:4/3;border-radius:14px}.kbs-n{width:36px;height:36px}}
-</style>
-
 <section class="kbs" aria-label="Fotografías de la academia">
   <div class="kbs-t">
     <div class="kbs-s"><img src="foto1.jpg" alt="Estudiantes practicando inglés" onerror="this.remove()"><div class="kbs-c"><div class="kbs-h">Habla con confianza</div><div class="kbs-p">Clases en grupos pequeños</div></div></div>
@@ -395,38 +365,19 @@ go(0);st();
 })();
 </script>
 
-<style>
-.kb-sec{max-width:900px;margin:44px auto 0;padding:0 18px}
-.kb-sec h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.5rem,5vw,2.2rem);color:#e2ba68;font-weight:normal;line-height:1.2}
-.kb-sec .kb-sub{margin:10px auto 22px;color:#a09ac0;font-size:14px;line-height:1.6;max-width:600px}
-.kb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
-.kb-card{background:#11162b;border:1px solid rgba(226,186,104,.35);border-radius:14px;padding:20px 16px}
-.kb-card h3{font-family:Georgia,"Times New Roman",serif;font-size:1.15rem;color:#fff;font-weight:normal;margin-bottom:8px}
-.kb-card p{color:#a09ac0;font-size:14px;line-height:1.55}
-.kb-steps{counter-reset:kb;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;text-align:left}
-.kb-step{background:#11162b;border:1px solid rgba(226,186,104,.35);border-radius:14px;padding:18px 16px 18px 56px;position:relative;color:#d8d4ee;font-size:14px;line-height:1.55}
-.kb-step::before{counter-increment:kb;content:counter(kb);position:absolute;left:16px;top:16px;width:28px;height:28px;border-radius:50%;background:#e2ba68;color:#080b19;font-weight:900;display:flex;align-items:center;justify-content:center}
-.kb-step a{color:#e2ba68}
-.kb-faq{text-align:left;max-width:700px;margin:0 auto}
-.kb-faq details{background:#11162b;border:1px solid rgba(226,186,104,.35);border-radius:12px;margin-bottom:10px;padding:14px 16px}
-.kb-faq summary{cursor:pointer;font-weight:700;color:#fff;font-size:15px}
-.kb-faq p{margin-top:10px;color:#a09ac0;font-size:14px;line-height:1.6}
-.kb-faq a{color:#e2ba68}
-</style>
-
 <section class="kb-sec" id="programas" aria-labelledby="kb-prog">
-  <h2 id="kb-prog">Nuestras clases</h2>
+  <h2 id="kb-prog">Nuestras clases</h2><div class="kb-orn" aria-hidden="true">&#9670;</div>
   <p class="kb-sub">Pregúntanos por WhatsApp cuál se ajusta mejor a ti o a tu hijo.</p>
   <div class="kb-grid">
-    <div class="kb-card"><h3>Niños</h3><p>Inglés para niños, con clases pensadas para su edad.</p></div>
-    <div class="kb-card"><h3>Jóvenes</h3><p>Conversación, comprensión y confianza para hablar inglés.</p></div>
-    <div class="kb-card"><h3>Adultos</h3><p>Para quienes quieren hablar con seguridad en el trabajo y en la vida diaria.</p></div>
-    <div class="kb-card"><h3>Refuerzo escolar</h3><p>Apoyo para las clases de inglés del colegio.</p></div>
+    <div class="kb-card" style="--c:#ffd43b;--c2:#c99a00;--glow:rgba(255,212,59,.45)"><span class="kb-k">Aprende jugando</span><h3>Niños</h3><span class="kb-r"></span><p>Inglés para niños, con clases pensadas para su edad.</p></div>
+    <div class="kb-card" style="--c:#22b5c9;--c2:#0e7490;--glow:rgba(34,181,201,.5)"><span class="kb-k">Conversación</span><h3>Jóvenes</h3><span class="kb-r"></span><p>Conversación, comprensión y confianza para hablar inglés.</p></div>
+    <div class="kb-card" style="--c:#e2ba68;--c2:#b8893a;--glow:rgba(226,186,104,.5)"><span class="kb-k">Trabajo y vida diaria</span><h3>Adultos</h3><span class="kb-r"></span><p>Para quienes quieren hablar con seguridad en el trabajo y en la vida diaria.</p></div>
+    <div class="kb-card" style="--c:#2f9e44;--c2:#1f7a33;--glow:rgba(47,158,68,.5)"><span class="kb-k">Apoyo escolar</span><h3>Refuerzo escolar</h3><span class="kb-r"></span><p>Apoyo para las clases de inglés del colegio.</p></div>
   </div>
 </section>
 
 <section class="kb-sec" id="como-empezar" aria-labelledby="kb-start">
-  <h2 id="kb-start">Cómo empezar</h2>
+  <h2 id="kb-start">Cómo empezar</h2><div class="kb-orn" aria-hidden="true">&#9670;</div>
   <p class="kb-sub">Tres pasos sencillos.</p>
   <div class="kb-steps">
     <div class="kb-step">Escríbenos por <a href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener">WhatsApp</a> y pide información.</div>
@@ -436,7 +387,7 @@ go(0);st();
 </section>
 
 <section class="kb-sec" id="preguntas" aria-labelledby="kb-faq">
-  <h2 id="kb-faq">Preguntas frecuentes</h2>
+  <h2 id="kb-faq">Preguntas frecuentes</h2><div class="kb-orn" aria-hidden="true">&#9670;</div>
   <div class="kb-faq" style="margin-top:22px">
     <details><summary>¿Cuánto cuestan las clases?</summary><p>Los valores se informan de forma personalizada. Pídelos por <a href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener">WhatsApp</a>.</p></details>
     <details><summary>¿Para qué edades son las clases?</summary><p>Tenemos opciones para niños, jóvenes y adultos, además de refuerzo escolar.</p></details>
@@ -445,20 +396,8 @@ go(0);st();
   </div>
 </section>
 
-<a href="https://www.linkedin.com/in/eduardo-lopez-kingsbridge" target="_blank" rel="noopener">
-  <img src="linkedin-verified-github-1280x640.png" alt="Perfil verificado en LinkedIn" style="max-width:100%;height:auto;">
-</a>  
+<a class="kb-li" href="https://www.linkedin.com/in/eduardo-lopez-kingsbridge" target="_blank" rel="noopener"><img src="linkedin-verified-github-1280x640.png" alt="Perfil verificado en LinkedIn"></a>
 
-  
-  
-  
-  </div>
-
-<style>
-.kb-pie{margin-top:40px;background:#08142b;color:#a9b7d6;text-align:center;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.8;padding:26px 16px 30px;border-top:6px solid transparent;border-image:linear-gradient(90deg,#a6ce39 0 25%,#ffc20e 25% 50%,#f58220 50% 75%,#6cc3e0 75% 100%) 1}
-.kb-pie b{color:#fff;font-weight:600}
-.kb-pie p{margin:0}
-</style>
 <footer class="kb-pie">
   <p><b>Kingsbridge English Academy</b> · Leticia, Amazonas, Colombia</p>
   <p>Fundada y registrada ante la Cámara de Comercio (No. 26395) · En etapa de lanzamiento</p>
