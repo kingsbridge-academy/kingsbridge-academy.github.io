@@ -44,7 +44,7 @@ input[type=text]:focus{outline:2px solid var(--gold);outline-offset:1px}
 .tp .r em{font-style:normal;color:var(--mute)}
 .tp .b{height:8px;background:#080b19;border-radius:4px;overflow:hidden}
 .tp .b i{display:block;height:100%;background:var(--ok)}
-.top{display:flex;justify-content:space-between;align-items:center;color:var(--mute);font-size:13px;margin:14px 0 6px}
+.top{gap:8px;display:flex;justify-content:space-between;align-items:center;color:var(--mute);font-size:13px;margin:14px 0 6px}
 .bar{height:6px;background:var(--card);border-radius:3px;overflow:hidden;margin-bottom:14px}
 .bar i{display:block;height:100%;background:var(--gold);transition:width .25s}
 .tag{display:inline-block;font-size:12px;color:var(--gold);border:1px solid var(--line);border-radius:99px;padding:1px 10px;margin-bottom:10px}
@@ -167,6 +167,8 @@ ul.rv .n{color:#ff8a8a}
 .cur-t em{display:block;font-family:"KB Lora",Georgia,serif;font-size:12px;color:var(--c)}
 .cur-c{flex:none;font:inherit;font-size:13px;color:var(--gold);background:transparent;border:1.5px solid var(--line);border-radius:99px;padding:8px 14px;cursor:pointer;white-space:nowrap}
 .cur-c:hover{border-color:var(--gold)}
+.exit{font:inherit;font-size:12px;color:var(--gold);background:transparent;border:1.5px solid var(--line);border-radius:99px;padding:4px 12px;cursor:pointer;white-space:nowrap}
+.exit.arm{border-color:var(--bad);color:#ffb3b3;background:var(--badbg)}
 footer{margin:28px 0;color:#8e8ab5;font-size:12px;text-align:center}
 </style>
 </head>
@@ -286,7 +288,7 @@ function why(q,k){
 }
 function pracQ(){
  var S=V.s,it=S.items[S.i],q=it.q,fin=S.done,L="ABCD";
- var h='<div class="top"><span>Pregunta '+(S.i+1)+' de '+S.items.length+'</span><span class="xp">+'+S.xp+' puntos</span></div><div class="bar"><i style="width:'+(S.i/S.items.length*100)+'%"></i></div>';
+ var h='<div class="top"><button class="exit" data-act="home">✕ Salir</button><span>Pregunta '+(S.i+1)+' de '+S.items.length+'</span><span class="xp">+'+S.xp+' puntos</span></div><div class="bar"><i style="width:'+(S.i/S.items.length*100)+'%"></i></div>';
  h+='<div class="card"><span class="tag tg-'+q.nivel+'">'+esc(q.tema)+' · '+q.nivel+(it.retry?" · otra vez":"")+'</span><span class="tag tg-tipo">'+esc(q.tipo||"Cloze")+'</span>'+qHTML(q)+'<p class="hint">Toca una opción: verde si es correcta, roja si no. Puede haber una o más correctas.</p>'+audioBar(q,fin);
  it.ord.forEach(function(k,pos){
   var t=S.tried.indexOf(k)>-1,ok=q.c.indexOf(k)>-1,cls="opt",mk="";
@@ -325,7 +327,7 @@ function tick(){
 }
 function examQ(){
  var S=V.s,it=S.items[S.i],q=it.q,L="ABCD";
- var h='<div class="top"><span>Examen · '+q.nivel+' · pregunta '+(S.i+1)+' de '+S.items.length+'</span><span class="timer" id="tm">'+fmt(S.end-Date.now())+'</span></div><div class="bar"><i style="width:'+(S.i/S.items.length*100)+'%"></i></div>';
+ var h='<div class="top"><button class="exit" data-act="exit">✕ Salir</button><span>Pregunta '+(S.i+1)+' de '+S.items.length+' · '+q.nivel+'</span><span class="timer" id="tm">'+fmt(S.end-Date.now())+'</span></div><div class="bar"><i style="width:'+(S.i/S.items.length*100)+'%"></i></div>';
  h+='<div class="card"><span class="tag tg-'+q.nivel+'">'+esc(q.tema)+'</span><span class="tag tg-tipo">'+esc(q.tipo||"Cloze")+'</span>'+qHTML(q)+'<p class="hint">Marca todas las correctas. En el examen no hay colores ni ayudas.</p>'+(synth?'<div class="aud"><button data-act="say" data-w="gap">🔊 Escuchar</button></div>':"");
  it.ord.forEach(function(k,pos){var on=S.sel.indexOf(k)>-1;
   h+='<button class="opt'+(on?" sel":"")+'" data-act="pick" data-k="'+k+'"><span class="box">'+L[pos]+'</span><span>'+esc(q.o[k])+'</span></button>'});
@@ -372,6 +374,7 @@ app.addEventListener("click",function(e){
  else if(a==="practice")startPractice(false);
  else if(a==="review")startPractice(true);
  else if(a==="exam")startExam();
+ else if(a==="exit"){if(V.arm&&Date.now()-V.arm<4000){V.arm=0;if(timer)clearInterval(timer);V.screen="home";render()}else{V.arm=Date.now();b.textContent="¿Seguro? Pulsa otra vez";b.classList.add("arm");setTimeout(function(){if(V.screen==="exam"&&b.isConnected){b.textContent="✕ Salir";b.classList.remove("arm")}},4000)}}
  else if(a==="home"){if(timer)clearInterval(timer);V.screen="home";render()}
  else if(a==="slow"){V.slow=!V.slow;rerender()}
  else if(a==="say"){var it=S&&S.items&&S.items[S.i];if(it)say(b.getAttribute("data-w")==="full"?sentence(it.q):spokenGap(it.q))}
