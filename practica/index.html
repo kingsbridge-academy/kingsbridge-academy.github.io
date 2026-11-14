@@ -158,6 +158,15 @@ ul.rv .n{color:#ff8a8a}
 .tag.tg-tipo{color:var(--mute);border-color:rgba(255,255,255,.2);margin-left:6px}
 .kw{display:inline-block;margin:2px 0 10px;padding:3px 12px;border:1px solid var(--line);border-radius:99px;font-size:13px;color:var(--mute)}
 .kw b{color:var(--gold);letter-spacing:.06em}
+
+.cur{display:flex;align-items:center;gap:14px;padding:12px 14px;border-color:var(--c)}
+.cur-b{flex:none;width:54px;height:62px;border:2px solid var(--c);border-radius:27px 27px 8px 8px;display:grid;place-items:center;font-family:"KB Lora",Georgia,serif;font-size:1.7rem;color:var(--c);text-shadow:0 0 16px var(--glow);box-shadow:0 0 0 3px #0d1226,0 0 0 4px var(--c)}
+.cur-t{flex:1;min-width:0}
+.cur-t span{display:block;font-family:"KB Lora",Georgia,serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.cur-t b{display:block;font-family:"KB Lora",Georgia,serif;font-weight:400;font-size:1.25rem;line-height:1.15;color:#fff}
+.cur-t em{display:block;font-family:"KB Lora",Georgia,serif;font-size:12px;color:var(--c)}
+.cur-c{flex:none;font:inherit;font-size:13px;color:var(--gold);background:transparent;border:1.5px solid var(--line);border-radius:99px;padding:8px 14px;cursor:pointer;white-space:nowrap}
+.cur-c:hover{border-color:var(--gold)}
 footer{margin:28px 0;color:#8e8ab5;font-size:12px;text-align:center}
 </style>
 </head>
@@ -208,15 +217,20 @@ function audioBar(q,fin){if(!synth)return"";return'<div class="aud"><button data
 /* ---------- inicio ---------- */
 function home(){
  var s=stu(),n=DB.nivel,lv=byLevel(n),due=dueItems(s,n).length;
- var h='<h1>Práctica interactiva</h1><p class="lead">Práctica al estilo de los exámenes Cambridge: Cloze, Word formation y Key word transformation, con audio y repaso inteligente.</p><hr class="gold">';
+ var h='<h1>Práctica interactiva</h1>'+((V.expand||!DB.picked)?'<p class="lead">Práctica al estilo de los exámenes Cambridge: Cloze, Word formation y Key word transformation, con audio y repaso inteligente.</p>':"")+'<hr class="gold">';
  h+='<div class="card"><label for="nm">Tu nombre</label><input type="text" id="nm" maxlength="40" autocomplete="given-name" placeholder="Escribe tu nombre" value="'+esc(DB.last||"")+'"><div class="err" id="er">'+esc(V.msg)+'</div>';
  if(s){var rk=rank(s.xp),pct=rk.next?Math.round((s.xp-rk.r[0])/(rk.next[0]-rk.r[0])*100):100;
   h+='<div class="rank"><div class="ic">'+rk.r[2]+'</div><div style="flex:1"><b>'+rk.r[1]+'</b><span>'+s.xp+' puntos'+(rk.next?' · próximo rango: '+rk.next[1]+' ('+rk.next[0]+')':' · rango máximo')+(s.streak>1?' · 🔥 '+s.streak+' días seguidos':"")+'</span><div class="xpbar"><i style="width:'+pct+'%"></i></div></div></div>'}
  h+='</div>';
+ if(V.expand||!DB.picked){
  h+='<div class="card"><h2>Elige tu nivel</h2><div class="lvls" role="group" aria-label="Nivel">';
- LEVELS.forEach(function(l,i){var code=l[0],on=code===n,m=mastery(s,code);
-  h+='<button class="lv lv-'+code+(on?" on":"")+'" data-act="nivel" data-v="'+code+'" aria-pressed="'+on+'"><span class="lv-n">Nivel '+ROMAN[i]+'</span><span class="lv-c">'+code+'</span><span class="lv-r"></span><span class="lv-d">'+l[1]+'</span><span class="lv-x">'+l[2]+'</span><span class="lv-m"><i style="width:'+m+'%"></i></span><span class="lv-p">'+(m?m+"% dominio":"Sin datos")+'</span>'+(on?'<span class="lv-seal">✓</span>':"")+'</button>'});
- h+='</div></div>';
+  LEVELS.forEach(function(l,i){var code=l[0],on=code===n,m=mastery(s,code);
+   h+='<button class="lv lv-'+code+(on?" on":"")+'" data-act="nivel" data-v="'+code+'" aria-pressed="'+on+'"><span class="lv-n">Nivel '+ROMAN[i]+'</span><span class="lv-c">'+code+'</span><span class="lv-r"></span><span class="lv-d">'+l[1]+'</span><span class="lv-x">'+l[2]+'</span><span class="lv-m"><i style="width:'+m+'%"></i></span><span class="lv-p">'+(m?m+"% dominio":"Sin datos")+'</span>'+(on?'<span class="lv-seal">✓</span>':"")+'</button>'});
+  h+='</div></div>';
+ }else{
+  var cur=LEVELS.filter(function(l){return l[0]===n})[0]||LEVELS[0];
+  h+='<div class="card cur lv-'+n+'"><div class="cur-b">'+n+'</div><div class="cur-t"><span>Nivel seleccionado</span><b>'+cur[1]+'</b><em>Cambridge '+cur[2]+'</em></div><button class="cur-c" data-act="cambiar">Cambiar nivel</button></div>';
+ }
  var ICO={p:'<path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 013 3L8 19l-4 1z"/><path d="M14.5 6.5l3 3"/>',r:'<path d="M20 12a8 8 0 11-2.4-5.7"/><path d="M20 4v4h-4"/>',e:'<circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/>'};
  function act(cls,act,ico,k,t,sub,dis,badge,fill){return '<button class="act '+cls+(fill?" fill":"")+'" data-act="'+act+'"'+(dis?" disabled":"")+'>'+(badge?'<span class="act-b">'+badge+'</span>':"")+'<span class="act-med"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ICO[ico]+'</svg></span><span class="act-tx"><span class="act-k">'+k+'</span><span class="act-t">'+t+'</span><span class="act-r"></span><span class="act-s">'+sub+'</span></span><span class="act-go" aria-hidden="true">›</span></button>'}
  h+='<div id="acts">';
@@ -353,7 +367,8 @@ function rerender(){var y=window.scrollY;render();window.scrollTo(0,y)}
 app.addEventListener("click",function(e){
  var b=e.target.closest("[data-act]");if(!b||b.disabled)return;
  var a=b.getAttribute("data-act"),S=V.s;
- if(a==="nivel"){DB.nivel=b.getAttribute("data-v");save();V.msg="";var nm=document.getElementById("nm");if(nm&&nm.value.trim()){DB.last=nm.value.trim();save()}home();var ac=document.getElementById("acts");if(ac){var rm=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;ac.scrollIntoView({behavior:rm?"auto":"smooth",block:"start"})}}
+ if(a==="nivel"){DB.nivel=b.getAttribute("data-v");DB.picked=true;V.expand=false;save();V.msg="";var nm=document.getElementById("nm");if(nm&&nm.value.trim()){DB.last=nm.value.trim();save()}home();var ac=document.getElementById("acts");if(ac){var rm=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;ac.scrollIntoView({behavior:rm?"auto":"smooth",block:"start"})}}
+ else if(a==="cambiar"){V.expand=true;var nm0=document.getElementById("nm");if(nm0&&nm0.value.trim()){DB.last=nm0.value.trim();save()}home();var lv0=document.querySelector(".lvls");if(lv0)lv0.scrollIntoView({block:"center"})}
  else if(a==="practice")startPractice(false);
  else if(a==="review")startPractice(true);
  else if(a==="exam")startExam();
