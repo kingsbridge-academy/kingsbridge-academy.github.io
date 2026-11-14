@@ -39,6 +39,7 @@
   /* Opciones por página (atributos de la etiqueta <script>):
        data-brand="off"       oculta el nombre de la academia dentro del menú
        data-after="#id"       coloca el menú justo debajo de ese elemento (por defecto, arriba de todo)
+       data-menu="off"        (con data-logo) deja solo el logotipo, sin la barra de botones
        data-logo="on"         agrega arriba el logotipo de la academia (tamaño original) y deja
                               logotipo + menú congelados al hacer scroll (como en el index) */
   var OPT = (me && me.dataset) || {};
@@ -81,7 +82,7 @@
     '#kb-menu .pn b{display:block;font-family:"KB Lora",Georgia,serif;font-weight:400;font-size:17px}' +
     '#kb-menu .pn span.d{display:block;font-size:12.5px;color:#a09ac0}' +
     '@media(min-width:880px){#kb-menu nav{display:flex}#kb-menu button.tg{display:none}#kb-menu .pn{display:none!important}}' +
-    '#kb-head{position:sticky;top:0;z-index:1000;background:#080b19}#kb-head #kb-menu{position:static}#kb-head #kb-menu .in{max-width:1100px}#kb-head .kb-hl{display:block}#kb-head .kb-hl img{display:block;width:100%;max-width:1100px;height:auto;margin:0 auto}' +
+    '#kb-head{position:sticky;top:0;z-index:1000;background:#080b19}#kb-head #kb-menu{position:static}#kb-head #kb-menu .in{max-width:1100px}#kb-head.nomenu{border-bottom:2px solid #e2ba68}#kb-head .kb-hl{display:block}#kb-head .kb-hl img{display:block;width:100%;max-width:1100px;height:auto;margin:0 auto}' +
     '@media print{#kb-menu,#kb-head{display:none}}';
 
   /* ---------- construcción ---------- */
@@ -113,7 +114,7 @@
       head = document.createElement("div");
       head.id = "kb-head";
       head.innerHTML = '<a class="kb-hl" href="' + esc(url("index.html")) + '" aria-label="Ir al inicio"><img src="' + esc(url("logo.png?v=99")) + '" alt="KINGSBRIDGE English Academy"></a>';
-      head.appendChild(bar);
+      if (OPT.menu === "off") head.className = "nomenu"; else head.appendChild(bar);
       top = head;
     }
     var anchor = OPT.after ? document.querySelector(OPT.after) : null;
