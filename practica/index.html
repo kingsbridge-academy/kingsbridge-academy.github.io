@@ -102,7 +102,7 @@ ul.rv .n{color:#ff8a8a}
 .lv-n{display:block;font-family:"KB Lora",Georgia,serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--c)}
 .lv-c{display:block;font-family:"KB Lora",Georgia,serif;font-weight:400;font-size:2.9rem;line-height:1.05;color:var(--c);text-shadow:0 0 22px var(--glow);margin:2px 0}
 .lv-r{display:block;width:46%;height:5px;margin:4px auto 6px;border-top:1px solid var(--c);border-bottom:1px solid var(--c)}
-.lv-d{display:block;font-family:"KB Lora",Georgia,serif;font-style:italic;font-size:14px;color:var(--txt);line-height:1.2;min-height:2.4em}
+.lv-d{display:block;font-family:"KB Lora",Georgia,serif;font-style:italic;font-size:14px;color:var(--txt);line-height:1.2;min-height:1.2em}
 .lv-m{display:block;height:5px;border-radius:3px;background:rgba(255,255,255,.12);margin:8px 6px 4px;overflow:hidden}
 .lv-m i{display:block;height:100%;background:var(--c);border-radius:3px}
 .lv-p{display:block;font-size:11px;color:var(--mute)}
@@ -115,7 +115,7 @@ ul.rv .n{color:#ff8a8a}
 .lv.on .lv-r{border-color:#fff}
 .lv.on .lv-m{background:rgba(0,0,0,.25)}
 .lv.on .lv-m i{background:#fff}
-.lv-seal{position:absolute;top:9px;right:14px;width:22px;height:22px;border-radius:50%;background:#fff;color:var(--c2);font-weight:700;font-size:13px;display:grid;place-items:center;z-index:1}
+.lv-seal{position:absolute;bottom:8px;right:9px;width:20px;height:20px;border-radius:50%;background:#fff;color:var(--c2);font-weight:700;font-size:13px;display:grid;place-items:center;z-index:1}
 .tg-A1{color:#6fdc88;border-color:#2f9e44}.tg-B1{color:#8fb6ff;border-color:#3b82f6}.tg-B2{color:#ff8da1;border-color:#d6455d}.tg-C1{color:#c9acff;border-color:#a678f0}
 .tp .b i{background:var(--c,var(--ok))}
 @media(prefers-reduced-motion:reduce){.lv.on::after{animation:none;display:none}.lv{transition:none}}
@@ -147,6 +147,16 @@ ul.rv .n{color:#ff8a8a}
 .act[disabled]::before{border-color:rgba(255,255,255,.18)}
 .act[disabled] .act-go{display:none}
 @media(prefers-reduced-motion:reduce){.act.fill::after{animation:none;display:none}.act{transition:none}}
+
+.lv-A2{--c:#22b5c9;--c2:#0e7490;--glow:rgba(34,181,201,.5)}
+.lv-x{display:block;font-family:"KB Lora",Georgia,serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--c);margin-top:2px}
+.lv.on .lv-x{color:rgba(255,255,255,.92)}
+.lvls .lv:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 7px)}
+@media(min-width:560px){.lvls{grid-template-columns:repeat(5,1fr);gap:10px}.lvls .lv:last-child:nth-child(odd){grid-column:auto;width:auto}.lv{padding:16px 6px 12px}.lv-c{font-size:2.5rem}}
+.tg-A2{color:#6fd8e8;border-color:#22b5c9}
+.tag.tg-tipo{color:var(--mute);border-color:rgba(255,255,255,.2);margin-left:6px}
+.kw{display:inline-block;margin:2px 0 10px;padding:3px 12px;border:1px solid var(--line);border-radius:99px;font-size:13px;color:var(--mute)}
+.kw b{color:var(--gold);letter-spacing:.06em}
 footer{margin:28px 0;color:#8e8ab5;font-size:12px;text-align:center}
 </style>
 </head>
@@ -155,16 +165,16 @@ footer{margin:28px 0;color:#8e8ab5;font-size:12px;text-align:center}
 <div class="wrap">
 <a class="back" href="../index.html">&larr; Volver a la academia</a>
 <div id="app"></div>
-<footer>KINGSBRIDGE ENGLISH ACADEMY · Leticia, Amazonas</footer>
+<footer>KINGSBRIDGE ENGLISH ACADEMY · Leticia, Amazonas<span style="display:block;margin-top:6px;font-size:11px;opacity:.8">Práctica inspirada en el formato de los exámenes Cambridge English. Esta página no está afiliada a Cambridge University Press &amp; Assessment.</span></footer>
 </div>
 <script src="preguntas.js"></script>
 <script>
 (function(){
 "use strict";
 var Q=window.KB_PREGUNTAS||[],CFG=window.KB_CONFIG||{};
-var LEVELS=[["A1","Principiante"],["B1","Intermedio"],["B2","Intermedio alto"],["C1","Avanzado"]];
-var RANKS=[[0,"Cadete","🧑‍✈️"],[100,"Piloto","✈️"],[300,"Copiloto","🛫"],[600,"Capitán","🎖️"],[1000,"Comandante","🌟"]];
-var GAPS=[0,1,3,7,14],ROMAN=["I","II","III","IV"];
+var LEVELS=[["A1","Principiante","Movers"],["A2","Básico","Key"],["B1","Intermedio","Preliminary"],["B2","Intermedio alto","First"],["C1","Avanzado","Advanced"]];
+var RANKS=[[0,"Freshman","🎒"],[100,"Scholar","📖"],[300,"Graduate","🎓"],[600,"Master","🏛️"],[1000,"Fellow","🏆"]];
+var GAPS=[0,1,3,7,14],ROMAN=["I","II","III","IV","V"];
 var KEY="kb.practica.v1",mem=null;
 function load(){try{var d=JSON.parse(localStorage.getItem(KEY));return d||{}}catch(e){return mem||{}}}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){mem=DB}}
@@ -182,6 +192,7 @@ function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(M
 function byLevel(n){return Q.filter(function(q){return q.nivel===n})}
 function dueItems(s,n){var now=Date.now();return byLevel(n).filter(function(q){var r=s&&s.q[q.id];return r&&r.due<=now})}
 function mastery(s,code){var a=0,r=0;if(s)for(var k in s.t){if(k.indexOf(code+"|")===0){a+=s.t[k].a;r+=s.t[k].r}}return a?Math.round(r/a*100):0}
+function qHTML(q){return '<p class="q">'+esc(q.q).replace(/\n/g,"<br>")+'</p>'+(q.k?'<div class="kw">Palabra clave: <b>'+esc(q.k)+'</b></div>':"")}
 function same(a,b){return a.length===b.length&&a.every(function(x){return b.indexOf(x)>-1})}
 
 /* ---------- audio ---------- */
@@ -189,21 +200,21 @@ var synth=window.speechSynthesis||null,voice=null;
 function pickVoice(){if(!synth)return;var vs=synth.getVoices()||[];voice=null;for(var i=0;i<vs.length;i++){if(/^en[-_]US/i.test(vs[i].lang)){voice=vs[i];break}}if(!voice)for(var j=0;j<vs.length;j++){if(/^en/i.test(vs[j].lang)){voice=vs[j];break}}}
 if(synth){pickVoice();if(synth.addEventListener)synth.addEventListener("voiceschanged",pickVoice)}
 function say(t){if(!synth)return;try{synth.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-US";if(voice)u.voice=voice;u.rate=V.slow?0.65:0.95;synth.speak(u)}catch(e){}}
-function sentence(q){return q.q.replace("____",q.o[q.c[0]])}
-function spokenGap(q){return q.q.replace("____",", blank, ")}
+function sentence(q){return (q.s||q.q).replace("____",q.o[q.c[0]])}
+function spokenGap(q){return (q.s||q.q).replace("____",", blank, ")}
 function audioBar(q,fin){if(!synth)return"";return'<div class="aud"><button data-act="say" data-w="gap">🔊 Escuchar</button>'+(fin?'<button data-act="say" data-w="full">🔊 Frase completa</button>':"")+'<button data-act="slow" class="'+(V.slow?"on":"")+'">🐢 Lento</button></div>'}
 
 /* ---------- inicio ---------- */
 function home(){
  var s=stu(),n=DB.nivel,lv=byLevel(n),due=dueItems(s,n).length;
- var h='<h1>Práctica interactiva</h1><p class="lead">Aprende, practica y evalúa tu inglés con audio y repaso inteligente.</p><hr class="gold">';
+ var h='<h1>Práctica interactiva</h1><p class="lead">Práctica al estilo de los exámenes Cambridge: Cloze, Word formation y Key word transformation, con audio y repaso inteligente.</p><hr class="gold">';
  h+='<div class="card"><label for="nm">Tu nombre</label><input type="text" id="nm" maxlength="40" autocomplete="given-name" placeholder="Escribe tu nombre" value="'+esc(DB.last||"")+'"><div class="err" id="er">'+esc(V.msg)+'</div>';
  if(s){var rk=rank(s.xp),pct=rk.next?Math.round((s.xp-rk.r[0])/(rk.next[0]-rk.r[0])*100):100;
   h+='<div class="rank"><div class="ic">'+rk.r[2]+'</div><div style="flex:1"><b>'+rk.r[1]+'</b><span>'+s.xp+' puntos'+(rk.next?' · próximo rango: '+rk.next[1]+' ('+rk.next[0]+')':' · rango máximo')+(s.streak>1?' · 🔥 '+s.streak+' días seguidos':"")+'</span><div class="xpbar"><i style="width:'+pct+'%"></i></div></div></div>'}
  h+='</div>';
  h+='<div class="card"><h2>Elige tu nivel</h2><div class="lvls" role="group" aria-label="Nivel">';
  LEVELS.forEach(function(l,i){var code=l[0],on=code===n,m=mastery(s,code);
-  h+='<button class="lv lv-'+code+(on?" on":"")+'" data-act="nivel" data-v="'+code+'" aria-pressed="'+on+'"><span class="lv-n">Nivel '+ROMAN[i]+'</span><span class="lv-c">'+code+'</span><span class="lv-r"></span><span class="lv-d">'+l[1]+'</span><span class="lv-m"><i style="width:'+m+'%"></i></span><span class="lv-p">'+(m?m+"% dominio":"Sin datos")+'</span>'+(on?'<span class="lv-seal">✓</span>':"")+'</button>'});
+  h+='<button class="lv lv-'+code+(on?" on":"")+'" data-act="nivel" data-v="'+code+'" aria-pressed="'+on+'"><span class="lv-n">Nivel '+ROMAN[i]+'</span><span class="lv-c">'+code+'</span><span class="lv-r"></span><span class="lv-d">'+l[1]+'</span><span class="lv-x">'+l[2]+'</span><span class="lv-m"><i style="width:'+m+'%"></i></span><span class="lv-p">'+(m?m+"% dominio":"Sin datos")+'</span>'+(on?'<span class="lv-seal">✓</span>':"")+'</button>'});
  h+='</div></div>';
  var ICO={p:'<path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 013 3L8 19l-4 1z"/><path d="M14.5 6.5l3 3"/>',r:'<path d="M20 12a8 8 0 11-2.4-5.7"/><path d="M20 4v4h-4"/>',e:'<circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/>'};
  function act(cls,act,ico,k,t,sub,dis,badge,fill){return '<button class="act '+cls+(fill?" fill":"")+'" data-act="'+act+'"'+(dis?" disabled":"")+'>'+(badge?'<span class="act-b">'+badge+'</span>':"")+'<span class="act-med"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ICO[ico]+'</svg></span><span class="act-tx"><span class="act-k">'+k+'</span><span class="act-t">'+t+'</span><span class="act-r"></span><span class="act-s">'+sub+'</span></span><span class="act-go" aria-hidden="true">›</span></button>'}
@@ -259,7 +270,7 @@ function why(q,k){
 function pracQ(){
  var S=V.s,it=S.items[S.i],q=it.q,fin=S.done,L="ABCD";
  var h='<div class="top"><span>Pregunta '+(S.i+1)+' de '+S.items.length+'</span><span class="xp">+'+S.xp+' puntos</span></div><div class="bar"><i style="width:'+(S.i/S.items.length*100)+'%"></i></div>';
- h+='<div class="card"><span class="tag tg-'+q.nivel+'">'+esc(q.tema)+' · '+q.nivel+(it.retry?" · otra vez":"")+'</span><p class="q">'+esc(q.q)+'</p><p class="hint">Toca una opción: verde si es correcta, roja si no. Puede haber una o más correctas.</p>'+audioBar(q,fin);
+ h+='<div class="card"><span class="tag tg-'+q.nivel+'">'+esc(q.tema)+' · '+q.nivel+(it.retry?" · otra vez":"")+'</span><span class="tag tg-tipo">'+esc(q.tipo||"Cloze")+'</span>'+qHTML(q)+'<p class="hint">Toca una opción: verde si es correcta, roja si no. Puede haber una o más correctas.</p>'+audioBar(q,fin);
  it.ord.forEach(function(k,pos){
   var t=S.tried.indexOf(k)>-1,ok=q.c.indexOf(k)>-1,cls="opt",mk="";
   if(t&&ok){cls+=" ok";mk="Correcta"}else if(t){cls+=" bad";mk="Incorrecta"}
@@ -298,7 +309,7 @@ function tick(){
 function examQ(){
  var S=V.s,it=S.items[S.i],q=it.q,L="ABCD";
  var h='<div class="top"><span>Examen · '+q.nivel+' · pregunta '+(S.i+1)+' de '+S.items.length+'</span><span class="timer" id="tm">'+fmt(S.end-Date.now())+'</span></div><div class="bar"><i style="width:'+(S.i/S.items.length*100)+'%"></i></div>';
- h+='<div class="card"><span class="tag tg-'+q.nivel+'">'+esc(q.tema)+'</span><p class="q">'+esc(q.q)+'</p><p class="hint">Marca todas las correctas. En el examen no hay colores ni ayudas.</p>'+(synth?'<div class="aud"><button data-act="say" data-w="gap">🔊 Escuchar</button></div>':"");
+ h+='<div class="card"><span class="tag tg-'+q.nivel+'">'+esc(q.tema)+'</span><span class="tag tg-tipo">'+esc(q.tipo||"Cloze")+'</span>'+qHTML(q)+'<p class="hint">Marca todas las correctas. En el examen no hay colores ni ayudas.</p>'+(synth?'<div class="aud"><button data-act="say" data-w="gap">🔊 Escuchar</button></div>':"");
  it.ord.forEach(function(k,pos){var on=S.sel.indexOf(k)>-1;
   h+='<button class="opt'+(on?" sel":"")+'" data-act="pick" data-k="'+k+'"><span class="box">'+L[pos]+'</span><span>'+esc(q.o[k])+'</span></button>'});
  h+='<button class="btn gold" data-act="enext"'+(S.sel.length?"":" disabled")+'>'+(S.i===S.items.length-1?"Terminar examen":"Siguiente")+'</button></div>';
@@ -322,7 +333,7 @@ function exRes(){
  h+='<div class="card"><h2>Revisión</h2><ul class="rv">';
  r.res.forEach(function(x,i){
   var ca=x.q.c.map(function(k){return x.q.o[k]}).join(" / "),ua=x.a.map(function(k){return x.q.o[k]}).join(" / ")||"sin respuesta";
-  h+='<li><b class="'+(x.ok?"y":"n")+'">'+(x.ok?"✓ ":"✕ ")+(i+1)+'. '+esc(x.q.tema)+'</b><br>'+esc(x.q.q)+'<br>'+(x.ok?'':'Tu respuesta: '+esc(ua)+'<br>')+'Correcta: '+esc(ca)+'<br><span class="mute">'+esc(x.q.e)+'</span></li>'});
+  h+='<li><b class="'+(x.ok?"y":"n")+'">'+(x.ok?"✓ ":"✕ ")+(i+1)+'. '+esc(x.q.tema)+'</b><br>'+esc(x.q.q).replace(/\n/g,'<br>')+'<br>'+(x.ok?'':'Tu respuesta: '+esc(ua)+'<br>')+'Correcta: '+esc(ca)+'<br><span class="mute">'+esc(x.q.e)+'</span></li>'});
  h+='</ul></div><button class="btn gold" data-act="exam">Repetir examen</button><button class="btn ghost" data-act="home">Inicio</button>';
  return h;
 }
