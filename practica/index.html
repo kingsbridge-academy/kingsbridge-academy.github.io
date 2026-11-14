@@ -86,6 +86,39 @@ ul.rv .y{color:#7ddf94}
 ul.rv .n{color:#ff8a8a}
 .timer{font-variant-numeric:tabular-nums;color:var(--gold);font-weight:700}
 .timer.low{color:#ff8a8a}
+
+@font-face{font-family:"KB Lora";font-weight:400;font-style:normal;font-display:swap;src:url(../fonts/lora.woff) format("woff")}
+@font-face{font-family:"KB Lora";font-weight:400;font-style:italic;font-display:swap;src:url(../fonts/lora-italic.woff) format("woff")}
+.lv-A1{--c:#2f9e44;--c2:#1f7a33;--glow:rgba(47,158,68,.5)}
+.lv-B1{--c:#3b82f6;--c2:#1d4ed8;--glow:rgba(59,130,246,.5)}
+.lv-B2{--c:#d6455d;--c2:#8f1d33;--glow:rgba(214,69,93,.5)}
+.lv-C1{--c:#a678f0;--c2:#6d3fb5;--glow:rgba(166,120,240,.5)}
+.lvls{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(min-width:560px){.lvls{grid-template-columns:repeat(4,1fr)}}
+.lv{position:relative;font:inherit;color:#fff;text-align:center;cursor:pointer;overflow:hidden;border:2px solid var(--c);border-radius:50px 50px 14px 14px;padding:16px 10px 12px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,0) 60%),#0d1226;transition:transform .18s,box-shadow .2s}
+.lv::before{content:"";position:absolute;inset:5px;border:1px solid var(--c);opacity:.5;border-radius:44px 44px 10px 10px;pointer-events:none}
+.lv:hover,.lv:focus-visible{transform:translateY(-3px);box-shadow:0 10px 24px var(--glow);outline:none}
+.lv:active{transform:scale(.97)}
+.lv-n{display:block;font-family:"KB Lora",Georgia,serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--c)}
+.lv-c{display:block;font-family:"KB Lora",Georgia,serif;font-weight:400;font-size:2.9rem;line-height:1.05;color:var(--c);text-shadow:0 0 22px var(--glow);margin:2px 0}
+.lv-r{display:block;width:46%;height:5px;margin:4px auto 6px;border-top:1px solid var(--c);border-bottom:1px solid var(--c)}
+.lv-d{display:block;font-family:"KB Lora",Georgia,serif;font-style:italic;font-size:14px;color:var(--txt);line-height:1.2;min-height:2.4em}
+.lv-m{display:block;height:5px;border-radius:3px;background:rgba(255,255,255,.12);margin:8px 6px 4px;overflow:hidden}
+.lv-m i{display:block;height:100%;background:var(--c);border-radius:3px}
+.lv-p{display:block;font-size:11px;color:var(--mute)}
+.lv.on{background:linear-gradient(160deg,var(--c),var(--c2));box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--c),0 12px 28px var(--glow)}
+.lv.on::before{border-color:#fff;opacity:.55}
+.lv.on::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);transform:skewX(-18deg);animation:sheen 3.2s ease-in-out infinite;pointer-events:none}
+@keyframes sheen{0%,55%{left:-60%}100%{left:130%}}
+.lv.on .lv-n,.lv.on .lv-d,.lv.on .lv-p{color:rgba(255,255,255,.92)}
+.lv.on .lv-c{color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.28)}
+.lv.on .lv-r{border-color:#fff}
+.lv.on .lv-m{background:rgba(0,0,0,.25)}
+.lv.on .lv-m i{background:#fff}
+.lv-seal{position:absolute;top:9px;right:14px;width:22px;height:22px;border-radius:50%;background:#fff;color:var(--c2);font-weight:700;font-size:13px;display:grid;place-items:center;z-index:1}
+.tg-A1{color:#6fdc88;border-color:#2f9e44}.tg-B1{color:#8fb6ff;border-color:#3b82f6}.tg-B2{color:#ff8da1;border-color:#d6455d}.tg-C1{color:#c9acff;border-color:#a678f0}
+.tp .b i{background:var(--c,var(--ok))}
+@media(prefers-reduced-motion:reduce){.lv.on::after{animation:none;display:none}.lv{transition:none}}
 footer{margin:28px 0;color:#8e8ab5;font-size:12px;text-align:center}
 </style>
 </head>
@@ -103,7 +136,7 @@ footer{margin:28px 0;color:#8e8ab5;font-size:12px;text-align:center}
 var Q=window.KB_PREGUNTAS||[],CFG=window.KB_CONFIG||{};
 var LEVELS=[["A1","Principiante"],["B1","Intermedio"],["B2","Intermedio alto"],["C1","Avanzado"]];
 var RANKS=[[0,"Cadete","🧑‍✈️"],[100,"Piloto","✈️"],[300,"Copiloto","🛫"],[600,"Capitán","🎖️"],[1000,"Comandante","🌟"]];
-var GAPS=[0,1,3,7,14];
+var GAPS=[0,1,3,7,14],ROMAN=["I","II","III","IV"];
 var KEY="kb.practica.v1",mem=null;
 function load(){try{var d=JSON.parse(localStorage.getItem(KEY));return d||{}}catch(e){return mem||{}}}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){mem=DB}}
@@ -120,6 +153,7 @@ function rank(xp){var r=RANKS[0],nx=null;for(var i=0;i<RANKS.length;i++){if(xp>=
 function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
 function byLevel(n){return Q.filter(function(q){return q.nivel===n})}
 function dueItems(s,n){var now=Date.now();return byLevel(n).filter(function(q){var r=s&&s.q[q.id];return r&&r.due<=now})}
+function mastery(s,code){var a=0,r=0;if(s)for(var k in s.t){if(k.indexOf(code+"|")===0){a+=s.t[k].a;r+=s.t[k].r}}return a?Math.round(r/a*100):0}
 function same(a,b){return a.length===b.length&&a.every(function(x){return b.indexOf(x)>-1})}
 
 /* ---------- audio ---------- */
@@ -139,14 +173,15 @@ function home(){
  if(s){var rk=rank(s.xp),pct=rk.next?Math.round((s.xp-rk.r[0])/(rk.next[0]-rk.r[0])*100):100;
   h+='<div class="rank"><div class="ic">'+rk.r[2]+'</div><div style="flex:1"><b>'+rk.r[1]+'</b><span>'+s.xp+' puntos'+(rk.next?' · próximo rango: '+rk.next[1]+' ('+rk.next[0]+')':' · rango máximo')+(s.streak>1?' · 🔥 '+s.streak+' días seguidos':"")+'</span><div class="xpbar"><i style="width:'+pct+'%"></i></div></div></div>'}
  h+='</div>';
- h+='<div class="card"><h2>Nivel</h2><div class="chips">';
- LEVELS.forEach(function(l){h+='<button class="chip'+(l[0]===n?" on":"")+'" data-act="nivel" data-v="'+l[0]+'">'+l[0]+'<small>'+l[1]+'</small></button>'});
+ h+='<div class="card"><h2>Elige tu nivel</h2><div class="lvls" role="group" aria-label="Nivel">';
+ LEVELS.forEach(function(l,i){var code=l[0],on=code===n,m=mastery(s,code);
+  h+='<button class="lv lv-'+code+(on?" on":"")+'" data-act="nivel" data-v="'+code+'" aria-pressed="'+on+'"><span class="lv-n">Nivel '+ROMAN[i]+'</span><span class="lv-c">'+code+'</span><span class="lv-r"></span><span class="lv-d">'+l[1]+'</span><span class="lv-m"><i style="width:'+m+'%"></i></span><span class="lv-p">'+(m?m+"% dominio":"Sin datos")+'</span>'+(on?'<span class="lv-seal">✓</span>':"")+'</button>'});
  h+='</div></div>';
  h+='<button class="btn gold" data-act="practice">Practicar<small>8 preguntas con respuesta inmediata</small></button>';
  h+='<button class="btn" data-act="review"'+(due?"":" disabled")+'>Repaso inteligente<small>'+(due?due+(due===1?" pregunta lista":" preguntas listas")+" para repasar":"Aún no hay preguntas para repasar en este nivel")+'</small></button>';
  h+='<button class="btn ghost" style="border:1.5px solid var(--line)" data-act="exam">Modo examen<small>'+Math.min(10,lv.length)+' preguntas con tiempo y nota al final</small></button>';
  var topics=[];lv.forEach(function(q){if(topics.indexOf(q.tema)<0)topics.push(q.tema)});
- h+='<div class="card"><h2>Tu progreso en '+n+'</h2>';
+ h+='<div class="card lv-'+n+'"><h2>Tu progreso en '+n+'</h2>';
  topics.forEach(function(t){var r=(s&&s.t[n+"|"+t])||{a:0,r:0},p=r.a?Math.round(r.r/r.a*100):0;
   h+='<div class="tp"><div class="r"><span>'+esc(t)+'</span><em>'+(r.a?p+"% a la primera · "+r.a+" intentos":"sin datos")+'</em></div><div class="b"><i style="width:'+p+'%"></i></div></div>'});
  h+='</div>';
@@ -194,7 +229,7 @@ function why(q,k){
 function pracQ(){
  var S=V.s,it=S.items[S.i],q=it.q,fin=S.done,L="ABCD";
  var h='<div class="top"><span>Pregunta '+(S.i+1)+' de '+S.items.length+'</span><span class="xp">+'+S.xp+' puntos</span></div><div class="bar"><i style="width:'+(S.i/S.items.length*100)+'%"></i></div>';
- h+='<div class="card"><span class="tag">'+esc(q.tema)+' · '+q.nivel+(it.retry?" · otra vez":"")+'</span><p class="q">'+esc(q.q)+'</p><p class="hint">Toca una opción: verde si es correcta, roja si no. Puede haber una o más correctas.</p>'+audioBar(q,fin);
+ h+='<div class="card"><span class="tag tg-'+q.nivel+'">'+esc(q.tema)+' · '+q.nivel+(it.retry?" · otra vez":"")+'</span><p class="q">'+esc(q.q)+'</p><p class="hint">Toca una opción: verde si es correcta, roja si no. Puede haber una o más correctas.</p>'+audioBar(q,fin);
  it.ord.forEach(function(k,pos){
   var t=S.tried.indexOf(k)>-1,ok=q.c.indexOf(k)>-1,cls="opt",mk="";
   if(t&&ok){cls+=" ok";mk="Correcta"}else if(t){cls+=" bad";mk="Incorrecta"}
@@ -233,7 +268,7 @@ function tick(){
 function examQ(){
  var S=V.s,it=S.items[S.i],q=it.q,L="ABCD";
  var h='<div class="top"><span>Examen · '+q.nivel+' · pregunta '+(S.i+1)+' de '+S.items.length+'</span><span class="timer" id="tm">'+fmt(S.end-Date.now())+'</span></div><div class="bar"><i style="width:'+(S.i/S.items.length*100)+'%"></i></div>';
- h+='<div class="card"><span class="tag">'+esc(q.tema)+'</span><p class="q">'+esc(q.q)+'</p><p class="hint">Marca todas las correctas. En el examen no hay colores ni ayudas.</p>'+(synth?'<div class="aud"><button data-act="say" data-w="gap">🔊 Escuchar</button></div>':"");
+ h+='<div class="card"><span class="tag tg-'+q.nivel+'">'+esc(q.tema)+'</span><p class="q">'+esc(q.q)+'</p><p class="hint">Marca todas las correctas. En el examen no hay colores ni ayudas.</p>'+(synth?'<div class="aud"><button data-act="say" data-w="gap">🔊 Escuchar</button></div>':"");
  it.ord.forEach(function(k,pos){var on=S.sel.indexOf(k)>-1;
   h+='<button class="opt'+(on?" sel":"")+'" data-act="pick" data-k="'+k+'"><span class="box">'+L[pos]+'</span><span>'+esc(q.o[k])+'</span></button>'});
  h+='<button class="btn gold" data-act="enext"'+(S.sel.length?"":" disabled")+'>'+(S.i===S.items.length-1?"Terminar examen":"Siguiente")+'</button></div>';
