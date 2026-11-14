@@ -208,7 +208,7 @@ var GAPS=[0,1,3,7,14],ROMAN=["I","II","III","IV","V"];
 var KEY="kb.practica.v1",mem=null;
 function load(){try{var d=JSON.parse(localStorage.getItem(KEY));return d||{}}catch(e){return mem||{}}}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){mem=DB}}
-var DB=load();DB.students=DB.students||{};DB.nivel=DB.nivel||"A1";
+var DB=load();DB.students=DB.students||{};DB.nivel=DB.nivel||"A1";DB.last="";
 var app=document.getElementById("app");
 var V={screen:"home",slow:false,msg:""};
 var timer=null;
@@ -239,7 +239,7 @@ function home(){
  navR();
  var s=stu(),n=DB.nivel,lv=byLevel(n),due=dueItems(s,n).length;
  var h='<h1>Práctica interactiva</h1>'+((V.expand||!DB.picked)?'<p class="lead">Práctica al estilo de los exámenes Cambridge: Cloze, Word formation y Key word transformation, con audio y repaso inteligente.</p>':"")+'<hr class="gold">';
- h+='<div class="card"><label for="nm">Tu nombre</label><input type="text" id="nm" maxlength="40" autocomplete="given-name" placeholder="Escribe tu nombre" value="'+esc(DB.last||"")+'"><div class="err" id="er">'+esc(V.msg)+'</div>';
+ h+='<div class="card"><label for="nm">Tu nombre</label><input type="text" id="nm" maxlength="40" autocomplete="off" placeholder="Escribe tu nombre" value="'+esc(DB.last||"")+'"><div class="err" id="er">'+esc(V.msg)+'</div>';
  if(s){var rk=rank(s.xp),pct=rk.next?Math.round((s.xp-rk.r[0])/(rk.next[0]-rk.r[0])*100):100;
   h+='<div class="rank"><div class="ic">'+rk.r[2]+'</div><div style="flex:1"><b>'+rk.r[1]+'</b><span>'+s.xp+' puntos'+(rk.next?' · próximo rango: '+rk.next[1]+' ('+rk.next[0]+')':' · rango máximo')+(s.streak>1?' · 🔥 '+s.streak+' días seguidos':"")+'</span><div class="xpbar"><i style="width:'+pct+'%"></i></div></div></div>'}
  h+='</div>';
