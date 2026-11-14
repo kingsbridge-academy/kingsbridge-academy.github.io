@@ -119,6 +119,34 @@ ul.rv .n{color:#ff8a8a}
 .tg-A1{color:#6fdc88;border-color:#2f9e44}.tg-B1{color:#8fb6ff;border-color:#3b82f6}.tg-B2{color:#ff8da1;border-color:#d6455d}.tg-C1{color:#c9acff;border-color:#a678f0}
 .tp .b i{background:var(--c,var(--ok))}
 @media(prefers-reduced-motion:reduce){.lv.on::after{animation:none;display:none}.lv{transition:none}}
+
+.ac-p{--c:#e2ba68;--c2:#b8893a;--glow:rgba(226,186,104,.5)}
+.ac-r{--c:#2ec4b6;--c2:#14877d;--glow:rgba(46,196,182,.5)}
+.ac-e{--c:#f2703a;--c2:#c2410c;--glow:rgba(242,112,58,.5)}
+.act{position:relative;display:flex;align-items:center;gap:14px;width:100%;margin-bottom:16px;padding:14px 16px 14px 14px;text-align:left;font:inherit;color:#fff;cursor:pointer;border:2px solid var(--c);border-radius:44px 16px 16px 44px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,0) 60%),#0d1226;transition:transform .18s,box-shadow .2s}
+.act::before{content:"";position:absolute;inset:5px;border:1px solid var(--c);opacity:.5;border-radius:40px 11px 11px 40px;pointer-events:none}
+.act:hover,.act:focus-visible{transform:translateY(-3px);box-shadow:0 10px 24px var(--glow);outline:none}
+.act:active{transform:scale(.98)}
+.act-med{flex:none;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;color:var(--c);border:2px solid var(--c);box-shadow:0 0 0 4px #0d1226,0 0 0 5px var(--c);background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.12),rgba(255,255,255,0) 60%);margin-left:4px}
+.act-tx{flex:1;min-width:0}
+.act-k{display:block;font-family:"KB Lora",Georgia,serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--c)}
+.act-t{display:block;font-family:"KB Lora",Georgia,serif;font-size:1.65rem;line-height:1.1;color:#fff;margin:1px 0 3px;text-shadow:0 0 18px var(--glow)}
+.act-r{display:block;width:44px;height:5px;border-top:1px solid var(--c);border-bottom:1px solid var(--c);margin:3px 0 5px}
+.act-s{display:block;font-family:"KB Lora",Georgia,serif;font-style:italic;font-size:14px;color:var(--txt);line-height:1.3}
+.act-go{flex:none;font-family:"KB Lora",Georgia,serif;font-size:2rem;line-height:1;color:var(--c);transition:transform .18s}
+.act:hover .act-go{transform:translateX(4px)}
+.act-b{position:absolute;top:-9px;right:18px;min-width:26px;height:26px;padding:0 7px;border-radius:13px;background:var(--c);color:#06121a;font-weight:700;font-size:13px;display:grid;place-items:center;box-shadow:0 0 0 3px var(--bg);z-index:1}
+.act.fill{background:linear-gradient(160deg,var(--c),var(--c2));box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--c),0 12px 28px var(--glow)}
+.act.fill::before{border-color:#fff;opacity:.55}
+.act.fill .act-k,.act.fill .act-s,.act.fill .act-go{color:#2a1d04}
+.act.fill .act-t{color:#1a1405;text-shadow:none}
+.act.fill .act-r{border-color:#2a1d04}
+.act.fill .act-med{color:#2a1d04;border-color:#2a1d04;box-shadow:0 0 0 4px var(--c),0 0 0 5px #2a1d04;background:rgba(255,255,255,.28)}
+.act.fill::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.3),transparent);transform:skewX(-18deg);animation:sheen 3.6s ease-in-out infinite;pointer-events:none;border-radius:inherit}
+.act[disabled]{cursor:default;border-color:rgba(255,255,255,.18);filter:grayscale(1);opacity:.55;transform:none;box-shadow:none}
+.act[disabled]::before{border-color:rgba(255,255,255,.18)}
+.act[disabled] .act-go{display:none}
+@media(prefers-reduced-motion:reduce){.act.fill::after{animation:none;display:none}.act{transition:none}}
 footer{margin:28px 0;color:#8e8ab5;font-size:12px;text-align:center}
 </style>
 </head>
@@ -177,13 +205,15 @@ function home(){
  LEVELS.forEach(function(l,i){var code=l[0],on=code===n,m=mastery(s,code);
   h+='<button class="lv lv-'+code+(on?" on":"")+'" data-act="nivel" data-v="'+code+'" aria-pressed="'+on+'"><span class="lv-n">Nivel '+ROMAN[i]+'</span><span class="lv-c">'+code+'</span><span class="lv-r"></span><span class="lv-d">'+l[1]+'</span><span class="lv-m"><i style="width:'+m+'%"></i></span><span class="lv-p">'+(m?m+"% dominio":"Sin datos")+'</span>'+(on?'<span class="lv-seal">✓</span>':"")+'</button>'});
  h+='</div></div>';
- h+='<button class="btn gold" data-act="practice">Practicar<small>8 preguntas con respuesta inmediata</small></button>';
- h+='<button class="btn" data-act="review"'+(due?"":" disabled")+'>Repaso inteligente<small>'+(due?due+(due===1?" pregunta lista":" preguntas listas")+" para repasar":"Aún no hay preguntas para repasar en este nivel")+'</small></button>';
- h+='<button class="btn ghost" style="border:1.5px solid var(--line)" data-act="exam">Modo examen<small>'+Math.min(10,lv.length)+' preguntas con tiempo y nota al final</small></button>';
+ var ICO={p:'<path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 013 3L8 19l-4 1z"/><path d="M14.5 6.5l3 3"/>',r:'<path d="M20 12a8 8 0 11-2.4-5.7"/><path d="M20 4v4h-4"/>',e:'<circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/>'};
+ function act(cls,act,ico,k,t,sub,dis,badge,fill){return '<button class="act '+cls+(fill?" fill":"")+'" data-act="'+act+'"'+(dis?" disabled":"")+'>'+(badge?'<span class="act-b">'+badge+'</span>':"")+'<span class="act-med"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ICO[ico]+'</svg></span><span class="act-tx"><span class="act-k">'+k+'</span><span class="act-t">'+t+'</span><span class="act-r"></span><span class="act-s">'+sub+'</span></span><span class="act-go" aria-hidden="true">›</span></button>'}
+ h+=act("ac-p","practice","p","Ejercicio","Practicar","8 preguntas con respuesta inmediata",false,0,true);
+ h+=act("ac-r","review","r","Memoria","Repaso inteligente",due?(due+(due===1?" pregunta lista":" preguntas listas")+" para repasar"):"Aún no hay preguntas para repasar en este nivel",!due,due,false);
+ h+=act("ac-e","exam","e","Evaluación","Modo examen",Math.min(10,lv.length)+" preguntas con tiempo y nota de 0.0 a 5.0",false,0,false);
  var topics=[];lv.forEach(function(q){if(topics.indexOf(q.tema)<0)topics.push(q.tema)});
  h+='<div class="card lv-'+n+'"><h2>Tu progreso en '+n+'</h2>';
  topics.forEach(function(t){var r=(s&&s.t[n+"|"+t])||{a:0,r:0},p=r.a?Math.round(r.r/r.a*100):0;
-  h+='<div class="tp"><div class="r"><span>'+esc(t)+'</span><em>'+(r.a?p+"% a la primera · "+r.a+" intentos":"sin datos")+'</em></div><div class="b"><i style="width:'+p+'%"></i></div></div>'});
+  h+='<div class="tp"><div class="r"><span>'+esc(t)+'</span><em>'+(r.a?p+"% a la primera · "+r.a+(r.a===1?" intento":" intentos"):"sin datos")+'</em></div><div class="b"><i style="width:'+p+'%"></i></div></div>'});
  h+='</div>';
  app.innerHTML=h;
 }
