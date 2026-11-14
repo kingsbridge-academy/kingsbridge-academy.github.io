@@ -169,11 +169,31 @@ ul.rv .n{color:#ff8a8a}
 .cur-c:hover{border-color:var(--gold)}
 .exit{font:inherit;font-size:12px;color:var(--gold);background:transparent;border:1.5px solid var(--line);border-radius:99px;padding:4px 12px;cursor:pointer;white-space:nowrap}
 .exit.arm{border-color:var(--bad);color:#ffb3b3;background:var(--badbg)}
+.nav{position:sticky;top:0;z-index:30;background:rgba(8,11,25,.95);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:2px solid var(--gold);border-bottom:1px solid var(--line)}
+.nav-in{max-width:640px;margin:0 auto;display:flex;align-items:center;gap:8px;padding:8px 12px}
+.nv{font:inherit;display:flex;align-items:center;gap:8px;color:#fff;background:transparent;border:1.5px solid var(--line);border-radius:12px;padding:6px 11px;cursor:pointer;white-space:nowrap;min-height:44px}
+.nv:hover{border-color:var(--gold)}
+.nv.on{border-color:var(--gold);background:rgba(226,186,104,.14)}
+.nv svg{color:var(--gold)}
+.nv span{font-size:14px}
+.nv-b{flex:none;width:28px;height:32px;border:2px solid var(--c);border-radius:14px 14px 5px 5px;display:grid;place-items:center;font-family:"KB Lora",Georgia,serif;font-size:13px!important;color:var(--c);line-height:1}
+.nv-t{display:flex;flex-direction:column;text-align:left;line-height:1.15}
+.nv-t b{font-weight:600;font-size:13px}
+.nv-t small{font-family:"KB Lora",Georgia,serif;font-size:11px;color:var(--c)}
+.nv-s{margin-left:auto;font-size:13px;color:var(--gold);text-align:right;line-height:1.2}
+.nv-s .timer{font-size:15px}
+.nav-c{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;max-width:640px;margin:0 auto;padding:8px 12px 10px;background:var(--badbg);border-top:1px solid var(--bad);font-size:13px;color:#ffd0d0}
+.nav-cb{display:flex;gap:8px}
+.cf{font:inherit;font-size:13px;color:#fff;background:transparent;border:1.5px solid var(--line);border-radius:99px;padding:6px 14px;cursor:pointer}
+.cf.y{background:var(--bad);border-color:var(--bad)}
+.lvls{scroll-margin-top:70px}
+@media(max-width:380px){.nv-t small{display:none}.nv{padding:6px 9px}}
 footer{margin:28px 0;color:#8e8ab5;font-size:12px;text-align:center}
 </style>
 </head>
 <body>
 <img class="logo" src="../logo.png" alt="Kingsbridge English Academy">
+<nav id="nav" class="nav" aria-label="Menú de la práctica"></nav>
 <div class="wrap">
 <a class="back" href="../index.html">&larr; Volver a la academia</a>
 <div id="app"></div>
@@ -218,6 +238,7 @@ function audioBar(q,fin){if(!synth)return"";return'<div class="aud"><button data
 
 /* ---------- inicio ---------- */
 function home(){
+ navR();
  var s=stu(),n=DB.nivel,lv=byLevel(n),due=dueItems(s,n).length;
  var h='<h1>Práctica interactiva</h1>'+((V.expand||!DB.picked)?'<p class="lead">Práctica al estilo de los exámenes Cambridge: Cloze, Word formation y Key word transformation, con audio y repaso inteligente.</p>':"")+'<hr class="gold">';
  h+='<div class="card"><label for="nm">Tu nombre</label><input type="text" id="nm" maxlength="40" autocomplete="given-name" placeholder="Escribe tu nombre" value="'+esc(DB.last||"")+'"><div class="err" id="er">'+esc(V.msg)+'</div>';
@@ -288,7 +309,7 @@ function why(q,k){
 }
 function pracQ(){
  var S=V.s,it=S.items[S.i],q=it.q,fin=S.done,L="ABCD";
- var h='<div class="top"><button class="exit" data-act="home">✕ Salir</button><span>Pregunta '+(S.i+1)+' de '+S.items.length+'</span><span class="xp">+'+S.xp+' puntos</span></div><div class="bar"><i style="width:'+(S.i/S.items.length*100)+'%"></i></div>';
+ var h='<div class="top"><span>Pregunta '+(S.i+1)+' de '+S.items.length+'</span><span class="xp">+'+S.xp+' puntos</span></div><div class="bar"><i style="width:'+(S.i/S.items.length*100)+'%"></i></div>';
  h+='<div class="card"><span class="tag tg-'+q.nivel+'">'+esc(q.tema)+' · '+q.nivel+(it.retry?" · otra vez":"")+'</span><span class="tag tg-tipo">'+esc(q.tipo||"Cloze")+'</span>'+qHTML(q)+'<p class="hint">Toca una opción: verde si es correcta, roja si no. Puede haber una o más correctas.</p>'+audioBar(q,fin);
  it.ord.forEach(function(k,pos){
   var t=S.tried.indexOf(k)>-1,ok=q.c.indexOf(k)>-1,cls="opt",mk="";
@@ -327,7 +348,7 @@ function tick(){
 }
 function examQ(){
  var S=V.s,it=S.items[S.i],q=it.q,L="ABCD";
- var h='<div class="top"><button class="exit" data-act="exit">✕ Salir</button><span>Pregunta '+(S.i+1)+' de '+S.items.length+' · '+q.nivel+'</span><span class="timer" id="tm">'+fmt(S.end-Date.now())+'</span></div><div class="bar"><i style="width:'+(S.i/S.items.length*100)+'%"></i></div>';
+ var h='<div class="top"><span>Pregunta '+(S.i+1)+' de '+S.items.length+'</span><span>Nivel '+q.nivel+'</span></div><div class="bar"><i style="width:'+(S.i/S.items.length*100)+'%"></i></div>';
  h+='<div class="card"><span class="tag tg-'+q.nivel+'">'+esc(q.tema)+'</span><span class="tag tg-tipo">'+esc(q.tipo||"Cloze")+'</span>'+qHTML(q)+'<p class="hint">Marca todas las correctas. En el examen no hay colores ni ayudas.</p>'+(synth?'<div class="aud"><button data-act="say" data-w="gap">🔊 Escuchar</button></div>':"");
  it.ord.forEach(function(k,pos){var on=S.sel.indexOf(k)>-1;
   h+='<button class="opt'+(on?" sel":"")+'" data-act="pick" data-k="'+k+'"><span class="box">'+L[pos]+'</span><span>'+esc(q.o[k])+'</span></button>'});
@@ -358,7 +379,26 @@ function exRes(){
 }
 
 /* ---------- render y eventos ---------- */
+function navR(){
+ var nv=document.getElementById("nav"),sc=V.screen,n=DB.nivel,cur=LEVELS.filter(function(l){return l[0]===n})[0]||LEVELS[0];
+ var h='<div class="nav-in"><button class="nv'+(sc==="home"&&!V.expand?" on":"")+'" data-act="navhome"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span>Inicio</span></button>';
+ if(DB.picked)h+='<button class="nv lv-'+n+(sc==="home"&&V.expand?" on":"")+'" data-act="navlevel" title="Cambiar nivel"><span class="nv-b">'+n+'</span><span class="nv-t"><b>Cambiar nivel</b><small>Cambridge '+cur[2]+'</small></span></button>';
+ var chip="";
+ if(sc==="practice"){var S=V.s;chip=S.i>=S.items.length?"Resumen":"Practicar · "+(S.i+1)+"/"+S.items.length}
+ else if(sc==="exam"){chip='Examen · '+(V.s.i+1)+"/"+V.s.items.length+' · <span class="timer" id="tm">'+fmt(V.s.end-Date.now())+'</span>'}
+ else if(sc==="exres")chip="Resultado";
+ if(chip)h+='<span class="nv-s">'+chip+'</span>';
+ h+='</div>';
+ if(V.confirm)h+='<div class="nav-c"><span>¿Salir del examen? Se perderán tus respuestas.</span><span class="nav-cb"><button class="cf y" data-act="navyes">Sí, salir</button><button class="cf" data-act="navno">Seguir</button></span></div>';
+ nv.innerHTML=h;
+}
+function leave(target){
+ if(timer)clearInterval(timer);
+ V.screen="home";V.expand=(target==="level");V.confirm=null;render();
+ if(target==="level"){var l=document.querySelector(".lvls");if(l)l.scrollIntoView({block:"center"})}
+}
 function render(){
+ navR();
  if(V.screen==="home")home();
  else if(V.screen==="practice")app.innerHTML=V.s.i>=V.s.items.length?pracEnd():pracQ();
  else if(V.screen==="exam")app.innerHTML=examQ();
@@ -366,7 +406,7 @@ function render(){
  window.scrollTo(0,0);
 }
 function rerender(){var y=window.scrollY;render();window.scrollTo(0,y)}
-app.addEventListener("click",function(e){
+function onClick(e){
  var b=e.target.closest("[data-act]");if(!b||b.disabled)return;
  var a=b.getAttribute("data-act"),S=V.s;
  if(a==="nivel"){DB.nivel=b.getAttribute("data-v");DB.picked=true;V.expand=false;save();V.msg="";var nm=document.getElementById("nm");if(nm&&nm.value.trim()){DB.last=nm.value.trim();save()}home();var ac=document.getElementById("acts");if(ac){var rm=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;ac.scrollIntoView({behavior:rm?"auto":"smooth",block:"start"})}}
@@ -374,6 +414,10 @@ app.addEventListener("click",function(e){
  else if(a==="practice")startPractice(false);
  else if(a==="review")startPractice(true);
  else if(a==="exam")startExam();
+ else if(a==="navhome"){if(V.screen==="exam"){V.confirm="home";navR()}else leave("home")}
+ else if(a==="navlevel"){if(V.screen==="exam"){V.confirm="level";navR()}else leave("level")}
+ else if(a==="navyes"){leave(V.confirm||"home")}
+ else if(a==="navno"){V.confirm=null;navR()}
  else if(a==="exit"){if(V.arm&&Date.now()-V.arm<4000){V.arm=0;if(timer)clearInterval(timer);V.screen="home";render()}else{V.arm=Date.now();b.textContent="¿Seguro? Pulsa otra vez";b.classList.add("arm");setTimeout(function(){if(V.screen==="exam"&&b.isConnected){b.textContent="✕ Salir";b.classList.remove("arm")}},4000)}}
  else if(a==="home"){if(timer)clearInterval(timer);V.screen="home";render()}
  else if(a==="slow"){V.slow=!V.slow;rerender()}
@@ -396,7 +440,8 @@ app.addEventListener("click",function(e){
   var done=function(t){b.textContent=t};
   try{navigator.clipboard.writeText(waText()).then(function(){done("Copiado")},function(){done("No se pudo copiar")})}catch(x){done("No se pudo copiar")}
  }
-});
+}
+app.addEventListener("click",onClick);document.getElementById("nav").addEventListener("click",onClick);
 render();
 })();
 </script>
