@@ -54,7 +54,7 @@ input[type=text]:focus{outline:2px solid var(--gold);outline-offset:1px}
 .aud button{font:inherit;font-size:13px;color:var(--gold);background:transparent;border:1.5px solid var(--line);border-radius:99px;padding:7px 14px;cursor:pointer;white-space:nowrap}
 .aud button.on{background:var(--gold);color:#1a1405}
 .opt{display:flex;gap:12px;align-items:center;width:100%;text-align:left;background:transparent;color:#fff;font:inherit;border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;margin-bottom:10px;cursor:pointer}
-.opt .box{flex:none;width:24px;height:24px;border:2px solid var(--mute);border-radius:7px;display:grid;place-items:center;font-size:14px;font-weight:700}
+.opt .box{flex:none;width:30px;height:30px;border:2px solid var(--mute);border-radius:8px;display:grid;place-items:center;font-size:14px;font-weight:700;color:var(--txt)}
 .opt.sel{border-color:var(--gold)}
 .opt.sel .box{background:var(--gold);border-color:var(--gold);color:#1a1405}
 .opt.ok{border-color:var(--ok);background:var(--okbg)}
@@ -188,7 +188,7 @@ function pracQ(){
  it.ord.forEach(function(k,pos){
   var t=S.tried.indexOf(k)>-1,ok=q.c.indexOf(k)>-1,cls="opt",mk="";
   if(t&&ok){cls+=" ok";mk="Correcta"}else if(t){cls+=" bad";mk="Incorrecta"}
-  h+='<button class="'+cls+'" data-act="opt" data-k="'+k+'"'+(t||fin?" disabled":"")+'><span class="box">'+(t?(ok?"✓":"✕"):"")+'</span><span>'+L[pos]+'. '+esc(q.o[k])+'</span><span class="mk">'+mk+'</span></button>'});
+  h+='<button class="'+cls+'" data-act="opt" data-k="'+k+'"'+(t||fin?" disabled":"")+'><span class="box">'+(t?(ok?"✓":"✕"):L[pos])+'</span><span>'+esc(q.o[k])+'</span><span class="mk">'+mk+'</span></button>'});
  if(fin){
   var errs=S.tried.filter(function(k){return q.c.indexOf(k)<0}).length;
   h+='<div class="fb '+(errs?"bad":"ok")+'"><b>'+(errs?"Encontraste todas, con "+errs+(errs>1?" intentos fallidos":" intento fallido"):"¡Perfecto, a la primera!")+'</b>'+esc(q.e)+'<div class="ex">'+esc(q.x)+'</div><div class="tp2">'+esc(q.tip)+'</div></div>';
@@ -225,7 +225,7 @@ function examQ(){
  var h='<div class="top"><span>Examen · '+q.nivel+' · pregunta '+(S.i+1)+' de '+S.items.length+'</span><span class="timer" id="tm">'+fmt(S.end-Date.now())+'</span></div><div class="bar"><i style="width:'+(S.i/S.items.length*100)+'%"></i></div>';
  h+='<div class="card"><span class="tag">'+esc(q.tema)+'</span><p class="q">'+esc(q.q)+'</p><p class="hint">Marca todas las correctas. En el examen no hay colores ni ayudas.</p>'+(synth?'<div class="aud"><button data-act="say" data-w="gap">🔊 Escuchar</button></div>':"");
  it.ord.forEach(function(k,pos){var on=S.sel.indexOf(k)>-1;
-  h+='<button class="opt'+(on?" sel":"")+'" data-act="pick" data-k="'+k+'"><span class="box">'+(on?"✓":"")+'</span><span>'+L[pos]+'. '+esc(q.o[k])+'</span></button>'});
+  h+='<button class="opt'+(on?" sel":"")+'" data-act="pick" data-k="'+k+'"><span class="box">'+L[pos]+'</span><span>'+esc(q.o[k])+'</span></button>'});
  h+='<button class="btn gold" data-act="enext"'+(S.sel.length?"":" disabled")+'>'+(S.i===S.items.length-1?"Terminar examen":"Siguiente")+'</button></div>';
  return h;
 }
