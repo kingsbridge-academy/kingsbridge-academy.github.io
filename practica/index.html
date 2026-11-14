@@ -11,7 +11,7 @@
 :root{--bg:#080b19;--card:#11162b;--gold:#e2ba68;--line:rgba(226,186,104,.35);--txt:#d8d4ee;--mute:#a09ac0;--ok:#2f9e44;--okbg:rgba(47,158,68,.18);--bad:#e03131;--badbg:rgba(224,49,49,.18);--blue:#1E3A8A}
 body{background:var(--bg);color:#fff;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55;font-size:16px;-webkit-tap-highlight-color:transparent}
 .logo{display:block;width:100%;height:auto}
-.wrap{max-width:640px;margin:0 auto;padding:0 16px 56px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
 .back{display:inline-block;margin:16px 0 0;color:var(--gold);text-decoration:none;font-size:14px}
 h1{font-family:Georgia,"Times New Roman",serif;font-weight:normal;font-size:clamp(1.8rem,7vw,2.6rem);line-height:1.15;margin:18px 0 6px;text-align:center}
 .lead{color:var(--mute);text-align:center;font-size:15px;margin-bottom:18px}
@@ -123,7 +123,7 @@ ul.rv .n{color:#ff8a8a}
 .ac-p{--c:#e2ba68;--c2:#b8893a;--glow:rgba(226,186,104,.5)}
 .ac-r{--c:#2ec4b6;--c2:#14877d;--glow:rgba(46,196,182,.5)}
 .ac-e{--c:#f2703a;--c2:#c2410c;--glow:rgba(242,112,58,.5)}
-#acts{scroll-margin-top:14px}
+#acts{scroll-margin-top:calc(var(--kb-menu-h,0px) + 70px)}
 .act{position:relative;display:flex;align-items:center;gap:14px;width:100%;margin-bottom:16px;padding:14px 16px 14px 14px;text-align:left;font:inherit;color:#fff;cursor:pointer;border:2px solid var(--c);border-radius:44px 16px 16px 44px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,0) 60%),#0d1226;transition:transform .18s,box-shadow .2s}
 .act::before{content:"";position:absolute;inset:5px;border:1px solid var(--c);opacity:.5;border-radius:40px 11px 11px 40px;pointer-events:none}
 .act:hover,.act:focus-visible{transform:translateY(-3px);box-shadow:0 10px 24px var(--glow);outline:none}
@@ -169,7 +169,7 @@ ul.rv .n{color:#ff8a8a}
 .cur-c:hover{border-color:var(--gold)}
 .exit{font:inherit;font-size:12px;color:var(--gold);background:transparent;border:1.5px solid var(--line);border-radius:99px;padding:4px 12px;cursor:pointer;white-space:nowrap}
 .exit.arm{border-color:var(--bad);color:#ffb3b3;background:var(--badbg)}
-.nav{position:sticky;top:0;z-index:30;background:rgba(8,11,25,.95);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:2px solid var(--gold);border-bottom:1px solid var(--line)}
+.nav{position:sticky;top:var(--kb-menu-h,0px);z-index:30;background:rgba(8,11,25,.95);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:2px solid var(--gold);border-bottom:1px solid var(--line)}
 .nav-in{max-width:640px;margin:0 auto;display:flex;align-items:center;gap:8px;padding:8px 12px}
 .nv{font:inherit;display:flex;align-items:center;gap:8px;color:#fff;background:transparent;border:1.5px solid var(--line);border-radius:12px;padding:6px 11px;cursor:pointer;white-space:nowrap;min-height:44px}
 .nv:hover{border-color:var(--gold)}
@@ -186,7 +186,7 @@ ul.rv .n{color:#ff8a8a}
 .nav-cb{display:flex;gap:8px}
 .cf{font:inherit;font-size:13px;color:#fff;background:transparent;border:1.5px solid var(--line);border-radius:99px;padding:6px 14px;cursor:pointer}
 .cf.y{background:var(--bad);border-color:var(--bad)}
-.lvls{scroll-margin-top:70px}
+.lvls{scroll-margin-top:calc(var(--kb-menu-h,0px) + 70px)}
 @media(max-width:380px){.nv-t small{display:none}.nv{padding:6px 9px}}
 footer{margin:28px 0;color:#8e8ab5;font-size:12px;text-align:center}
 </style>
@@ -195,7 +195,6 @@ footer{margin:28px 0;color:#8e8ab5;font-size:12px;text-align:center}
 <img class="logo" src="../logo.png" alt="Kingsbridge English Academy">
 <nav id="nav" class="nav" aria-label="Menú de la práctica"></nav>
 <div class="wrap">
-<a class="back" href="../index.html">&larr; Volver a la academia</a>
 <div id="app"></div>
 <footer>KINGSBRIDGE ENGLISH ACADEMY · Leticia, Amazonas<span style="display:block;margin-top:6px;font-size:11px;opacity:.8">Práctica inspirada en el formato de los exámenes Cambridge English. Esta página no está afiliada a Cambridge University Press &amp; Assessment.</span></footer>
 </div>
@@ -445,5 +444,6 @@ app.addEventListener("click",onClick);document.getElementById("nav").addEventLis
 render();
 })();
 </script>
+<script src="../menu.js" defer></script>
 </body>
 </html>

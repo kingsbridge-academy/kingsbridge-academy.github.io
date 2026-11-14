@@ -1,0 +1,121 @@
+/* ==========================================================
+   MENÚ PRINCIPAL · KINGSBRIDGE ENGLISH ACADEMY
+   Un solo archivo para todo el sitio.
+
+   Para usarlo en una página, agrega antes de </body>:
+     <script src="menu.js" defer></script>          (páginas en la raíz)
+     <script src="../menu.js" defer></script>       (páginas dentro de una carpeta)
+
+   Para agregar, quitar o reordenar botones, edita la lista ITEMS.
+     label  texto del botón
+     desc   descripción corta (se ve en el menú del celular)
+     href   ruta desde la raíz del sitio, o un enlace completo
+     icon   nombre del ícono (ver ICONS)
+     cta    true = botón destacado (verde, como WhatsApp)
+   ========================================================== */
+(function () {
+  "use strict";
+
+  var ITEMS = [
+    { label: "Inicio",               desc: "Página principal de la academia",         href: "index.html",           icon: "home" },
+    { label: "Sobre nosotros",       desc: "Quiénes somos y cómo enseñamos",           href: "sobre-nosotros.html",  icon: "info" },
+    { label: "Práctica interactiva", desc: "Ejercicios al estilo Cambridge",           href: "practica/index.html",  icon: "pen"  },
+    { label: "My Day",               desc: "Aprender inglés jugando",                  href: "my-day-ninos.html",    icon: "star" },
+    { label: "Pre-inscripción",      desc: "Reserva tu cupo",                          href: "https://tally.so/r/2EQWlj", icon: "form", external: true },
+    { label: "WhatsApp",             desc: "Pide información y precios",               href: "https://wa.me/kingsbridge.academy", icon: "chat", external: true, cta: true }
+  ];
+
+  var ICONS = {
+    home: '<path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/>',
+    info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/>',
+    pen:  '<path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 013 3L8 19l-4 1z"/><path d="M14.5 6.5l3 3"/>',
+    star: '<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>',
+    form: '<rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 2h6v4H9z"/><path d="M9 12h6M9 16h4"/>',
+    chat: '<path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/>'
+  };
+
+  /* ---------- ubicación del archivo y de la página ---------- */
+  var me = document.currentScript, base = "";
+  if (me && me.src) base = me.src.replace(/[^\/]*([?#].*)?$/, "");
+  function url(h) { return /^https?:/i.test(h) ? h : base + h; }
+  function norm(p) { return p.replace(/index\.html$/, "").replace(/\/+$/, "") || "/"; }
+  var here = norm(location.pathname);
+
+  function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;"); }
+  function svg(n) { return '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICONS[n] || "") + "</svg>"; }
+
+  /* ---------- estilos ---------- */
+  var css =
+    '@font-face{font-family:"KB Lora";font-weight:400;font-style:normal;font-display:swap;src:url(' + base + 'fonts/lora.woff) format("woff")}' +
+    ':root{--kb-menu-h:52px}' +
+    '#kb-menu{position:sticky;top:0;z-index:1000;background:rgba(8,11,25,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:2px solid #e2ba68;border-bottom:1px solid rgba(226,186,104,.35);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;text-align:left;line-height:1.3}' +
+    '#kb-menu *{box-sizing:border-box}' +
+    '#kb-menu .in{max-width:980px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:0 12px;height:50px}' +
+    '#kb-menu .brand{font-family:"KB Lora",Georgia,serif;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:#e2ba68;text-decoration:none;white-space:nowrap}' +
+    '#kb-menu .brand small{display:block;font-size:8.5px;letter-spacing:.28em;color:#a09ac0;margin:-1px 0 0;padding:0;line-height:1.2}' +
+    '#kb-menu nav{margin-left:auto;display:none;align-items:center;gap:6px}' +
+    '#kb-menu a.it{display:flex;align-items:center;gap:7px;color:#fff;text-decoration:none;font-size:14px;padding:8px 12px;border:1.5px solid transparent;border-radius:10px;white-space:nowrap}' +
+    '#kb-menu a.it svg{color:#e2ba68;flex:none}' +
+    '#kb-menu a.it:hover,#kb-menu a.it:focus-visible{border-color:rgba(226,186,104,.6);outline:none}' +
+    '#kb-menu a.it.on{border-color:#e2ba68;background:rgba(226,186,104,.14)}' +
+    '#kb-menu a.it.cta{background:#25D366;color:#fff;border-color:#25D366;font-weight:600}' +
+    '#kb-menu a.it.cta svg{color:#fff}' +
+    '#kb-menu button.tg{margin-left:auto;display:flex;align-items:center;gap:8px;font:inherit;font-size:14px;color:#fff;background:transparent;border:1.5px solid rgba(226,186,104,.5);border-radius:10px;padding:0 12px;height:38px;cursor:pointer}' +
+    '#kb-menu button.tg svg{color:#e2ba68}' +
+    '#kb-menu button.tg[aria-expanded=true]{background:rgba(226,186,104,.14);border-color:#e2ba68}' +
+    '#kb-menu .pn{display:none;position:absolute;left:0;right:0;top:100%;background:#0b1024;border-bottom:2px solid #e2ba68;box-shadow:0 18px 30px rgba(0,0,0,.5);max-height:calc(100vh - 60px);overflow:auto}' +
+    '#kb-menu .pn.open{display:block}' +
+    '#kb-menu .pn a{display:flex;align-items:center;gap:14px;padding:13px 18px;color:#fff;text-decoration:none;border-top:1px solid rgba(226,186,104,.18)}' +
+    '#kb-menu .pn a:first-child{border-top:0}' +
+    '#kb-menu .pn a:hover,#kb-menu .pn a:focus-visible{background:rgba(226,186,104,.1);outline:none}' +
+    '#kb-menu .pn a.on{background:rgba(226,186,104,.16)}' +
+    '#kb-menu .pn .ic{flex:none;width:38px;height:38px;border:1.5px solid #e2ba68;border-radius:50%;display:grid;place-items:center;color:#e2ba68}' +
+    '#kb-menu .pn a.cta .ic{background:#25D366;border-color:#25D366;color:#fff}' +
+    '#kb-menu .pn b{display:block;font-family:"KB Lora",Georgia,serif;font-weight:400;font-size:17px}' +
+    '#kb-menu .pn span.d{display:block;font-size:12.5px;color:#a09ac0}' +
+    '@media(min-width:880px){#kb-menu nav{display:flex}#kb-menu button.tg{display:none}#kb-menu .pn{display:none!important}}' +
+    '@media print{#kb-menu{display:none}}';
+
+  /* ---------- construcción ---------- */
+  function build() {
+    var st = document.createElement("style");
+    st.id = "kb-menu-css";
+    st.textContent = css;
+    document.head.appendChild(st);
+
+    var bar = document.createElement("header");
+    bar.id = "kb-menu";
+    var inline = "", panel = "";
+    ITEMS.forEach(function (it) {
+      var h = url(it.href), on = false;
+      if (!/^https?:/i.test(it.href)) { try { on = norm(new URL(h, location.href).pathname) === here } catch (e) {} }
+      var ext = it.external ? ' target="_blank" rel="noopener"' : "";
+      inline += '<a class="it' + (on ? " on" : "") + (it.cta ? " cta" : "") + '" href="' + esc(h) + '"' + ext + (on ? ' aria-current="page"' : "") + ">" + svg(it.icon) + "<span>" + esc(it.label) + "</span></a>";
+      panel += '<a class="' + (on ? "on " : "") + (it.cta ? "cta" : "") + '" href="' + esc(h) + '"' + ext + (on ? ' aria-current="page"' : "") + '><span class="ic">' + svg(it.icon) + '</span><span><b>' + esc(it.label) + '</b><span class="d">' + esc(it.desc || "") + "</span></span></a>";
+    });
+    bar.innerHTML =
+      '<div class="in"><a class="brand" href="' + esc(url("index.html")) + '">Kingsbridge<small>English Academy</small></a>' +
+      '<nav aria-label="Menú principal">' + inline + "</nav>" +
+      '<button class="tg" type="button" aria-expanded="false" aria-controls="kb-pn"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menú</span></button></div>' +
+      '<div class="pn" id="kb-pn">' + panel + "</div>";
+    document.body.insertBefore(bar, document.body.firstChild);
+
+    var tg = bar.querySelector(".tg"), pn = bar.querySelector(".pn");
+    function close() { pn.classList.remove("open"); tg.setAttribute("aria-expanded", "false") }
+    tg.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var o = pn.classList.toggle("open");
+      tg.setAttribute("aria-expanded", o ? "true" : "false");
+    });
+    document.addEventListener("click", function (e) { if (!bar.contains(e.target)) close() });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") close() });
+    window.addEventListener("resize", close);
+
+    function setH() { document.documentElement.style.setProperty("--kb-menu-h", bar.offsetHeight + "px") }
+    setH(); window.addEventListener("resize", setH);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(setH);
+  }
+
+  if (document.body) build();
+  else document.addEventListener("DOMContentLoaded", build);
+})();
