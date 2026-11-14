@@ -99,7 +99,7 @@ ul.rv .n{color:#ff8a8a}
 .lv::before{content:"";position:absolute;inset:5px;border:1px solid var(--c);opacity:.5;border-radius:44px 44px 10px 10px;pointer-events:none}
 .lv:hover,.lv:focus-visible{transform:translateY(-3px);box-shadow:0 10px 24px var(--glow);outline:none}
 .lv:active{transform:scale(.97)}
-.lv-n{display:block;font-family:"KB Lora",Georgia,serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--c)}
+
 .lv-c{display:block;font-family:"KB Lora",Georgia,serif;font-weight:400;font-size:2.9rem;line-height:1.05;color:var(--c);text-shadow:0 0 22px var(--glow);margin:2px 0}
 .lv-r{display:block;width:46%;height:5px;margin:4px auto 6px;border-top:1px solid var(--c);border-bottom:1px solid var(--c)}
 .lv-d{display:block;font-family:"KB Lora",Georgia,serif;font-style:italic;font-size:14px;color:var(--txt);line-height:1.2;min-height:1.2em}
@@ -110,7 +110,7 @@ ul.rv .n{color:#ff8a8a}
 .lv.on::before{border-color:#fff;opacity:.55}
 .lv.on::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);transform:skewX(-18deg);animation:sheen 3.2s ease-in-out infinite;pointer-events:none}
 @keyframes sheen{0%,55%{left:-60%}100%{left:130%}}
-.lv.on .lv-n,.lv.on .lv-d,.lv.on .lv-p{color:rgba(255,255,255,.92)}
+.lv.on .lv-d,.lv.on .lv-p{color:rgba(255,255,255,.92)}
 .lv.on .lv-c{color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.28)}
 .lv.on .lv-r{border-color:#fff}
 .lv.on .lv-m{background:rgba(0,0,0,.25)}
@@ -246,7 +246,7 @@ function home(){
  if(V.expand||!DB.picked){
  h+='<div class="card"><h2>Elige tu nivel</h2><div class="lvls" role="group" aria-label="Nivel">';
   LEVELS.forEach(function(l,i){var code=l[0],on=code===n,m=mastery(s,code);
-   h+='<button class="lv lv-'+code+(on?" on":"")+'" data-act="nivel" data-v="'+code+'" aria-pressed="'+on+'"><span class="lv-n">Nivel '+ROMAN[i]+'</span><span class="lv-c">'+code+'</span><span class="lv-r"></span><span class="lv-d">'+l[1]+'</span><span class="lv-x">'+l[2]+'</span><span class="lv-m"><i style="width:'+m+'%"></i></span><span class="lv-p">'+(m?m+"% dominio":"Sin datos")+'</span>'+(on?'<span class="lv-seal">✓</span>':"")+'</button>'});
+   h+='<button class="lv lv-'+code+(on?" on":"")+'" data-act="nivel" data-v="'+code+'" aria-pressed="'+on+'"><span class="lv-c">'+code+'</span><span class="lv-r"></span><span class="lv-d">'+l[1]+'</span><span class="lv-x">'+l[2]+'</span><span class="lv-m"><i style="width:'+m+'%"></i></span><span class="lv-p">'+(m?m+"% dominio":"Sin datos")+'</span>'+(on?'<span class="lv-seal">✓</span>':"")+'</button>'});
   h+='</div></div>';
  }else{
   var cur=LEVELS.filter(function(l){return l[0]===n})[0]||LEVELS[0];
