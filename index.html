@@ -54,19 +54,31 @@ a{color:inherit}
 .kb-paper .kb-rule::before{background:linear-gradient(90deg,transparent,var(--goldink))}
 .kb-paper .kb-rule::after{background:linear-gradient(90deg,var(--goldink),transparent)}
 .kb-paper .kb-lead{color:#3a4170}
-/* ---------- portada dividida: texto + arco ---------- */
-.kb-top{background:radial-gradient(ellipse at 78% 30%,rgba(35,48,120,.55),rgba(8,11,25,0) 62%),var(--bg);border-bottom:1px solid var(--line)}
-.kb-hero{max-width:1100px;margin:0 auto;padding:56px 22px 60px;display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center;text-align:left}
-.kb-hero .kb-eye{display:flex;align-items:center;gap:12px}
-.kb-hero .kb-eye::before{content:"";width:34px;height:1px;background:var(--gold)}
-.kb-hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.5rem,7.4vw,4.6rem);line-height:1.04;margin-top:16px;color:#fff}
-.kb-hero h1 em{display:block;font-style:italic;color:var(--gold)}
-.kb-hero .kb-sub{margin-top:18px;font-family:var(--serif);font-size:clamp(1rem,2.6vw,1.25rem);line-height:1.6;color:var(--txt);max-width:520px}
-.kb-hero .kb-cta{justify-content:flex-start;margin-top:28px}
-.kb-arch{position:relative;width:min(100%,340px);aspect-ratio:3/4;margin:0 auto;border:1.5px solid var(--gold);border-radius:170px 170px 8px 8px;overflow:hidden;background:#0d1226;box-shadow:0 24px 60px rgba(0,0,0,.55)}
-.kb-arch img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 42%;filter:brightness(.9)}
-.kb-arch::after{content:"";position:absolute;inset:8px;border:1px solid rgba(226,186,104,.55);border-radius:162px 162px 4px 4px;pointer-events:none}
-@media(max-width:820px){.kb-hero{grid-template-columns:1fr;gap:34px;padding:38px 22px 44px}.kb-arch{width:min(70%,260px);order:2}}
+/* ---------- portada: carrusel ---------- */
+.kb-top{background:radial-gradient(ellipse at 50% 0%,rgba(35,48,120,.5),rgba(8,11,25,0) 65%),var(--bg);border-bottom:1px solid var(--line)}
+.kb-sl{position:relative;max-width:1100px;margin:0 auto;overflow:hidden;touch-action:pan-y}
+.kb-sl-t{display:flex;transition:transform .7s cubic-bezier(.3,.8,.3,1)}
+.kb-sl-s{flex:0 0 100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:470px;padding:58px 72px 72px;position:relative}
+.kb-sl-s::before{content:attr(data-n);position:absolute;right:5%;bottom:-4%;font-family:var(--serif);font-size:clamp(9rem,28vw,17rem);line-height:1;color:rgba(226,186,104,.06);pointer-events:none}
+.kb-sl-s>*{position:relative}
+.kb-sl .kb-eye{display:flex;align-items:center;gap:12px;justify-content:center}
+.kb-sl .kb-eye::before,.kb-sl .kb-eye::after{content:"";width:30px;height:1px;background:var(--gold)}
+.kb-sl h1,.kb-sl h2.kb-t{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,6.6vw,4.3rem);line-height:1.06;margin-top:16px;color:#fff;max-width:880px}
+.kb-sl h1 em,.kb-sl h2.kb-t em{display:block;font-style:italic;color:var(--gold)}
+.kb-sl .kb-sub{margin-top:18px;font-family:var(--serif);font-size:clamp(1rem,2.5vw,1.25rem);line-height:1.6;color:var(--txt);max-width:600px}
+.kb-sl .kb-cta{margin-top:28px}
+.kb-sl-lv{display:flex;gap:8px;margin-top:20px}
+.kb-sl-lv i{font-style:normal;font-family:var(--serif);font-size:1.05rem;color:var(--c);border:1.5px solid var(--c);border-radius:18px 18px 4px 4px;padding:6px 10px 4px;background:rgba(255,255,255,.04)}
+.kb-sl-n{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1.5px solid var(--gold);background:rgba(8,11,25,.7);color:var(--gold);font-size:28px;line-height:1;cursor:pointer;padding:0 0 4px;z-index:3}
+.kb-sl-n:hover{background:var(--gold);color:var(--bg)}
+.kb-sl-a{left:14px}.kb-sl-b{right:14px}
+.kb-sl-d{position:absolute;left:0;right:0;bottom:22px;display:flex;justify-content:center;gap:9px;z-index:3}
+.kb-sl-d button{width:11px;height:11px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.3);cursor:pointer}
+.kb-sl-d button.on{width:32px;border-radius:6px;background:var(--gold)}
+.kb-sl-bar{position:absolute;left:0;top:0;height:3px;width:0;background:var(--gold);z-index:3}
+.kb-sl-bar.run{transition:width linear;width:100%}
+@media(max-width:700px){.kb-sl .kb-eye::before,.kb-sl .kb-eye::after{display:none}.kb-sl-s{min-height:500px;padding:46px 22px 70px}.kb-sl-n{display:none}.kb-sl .btn{padding:13px 18px;font-size:11px}.kb-sl-lv i{font-size:.95rem;padding:5px 8px 3px}}
+@media(prefers-reduced-motion:reduce){.kb-sl-t{transition:none}}
 /* accesos rápidos bajo la portada */
 .kb-quick{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid var(--line);border-right:1px solid var(--line)}
 .kb-q{display:block;text-align:left;text-decoration:none;color:#fff;padding:22px 20px;border-left:1px solid var(--line);transition:background .2s}
@@ -169,19 +181,42 @@ a{color:inherit}
 </head>
 <body>
 
+<a href="index.html" style="display:block" aria-label="Ir al inicio"><img class="kb-logo" src="logo.png?v=99" alt="KINGSBRIDGE English Academy"></a>
+
 <div class="kb-top">
-<header class="kb-hero">
-  <div>
-    <div class="kb-eye">Leticia · Amazonas · Colombia</div>
-    <h1>Real English <em>in the heart of the Amazon.</em></h1>
-    <p class="kb-sub">Speak with courage. Learn with purpose.<br>Clases particulares y de refuerzo de inglés para niños, jóvenes y adultos.</p>
-    <div class="kb-cta">
-      <a class="btn btn-p" href="https://tally.so/r/2EQWlj" target="_blank" rel="noopener">Pre-inscripción</a>
-      <a class="btn btn-s" href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener">WhatsApp</a>
+<section class="kb-sl" id="kbsl" aria-roledescription="carrusel" aria-label="Presentación de la academia">
+  <div class="kb-sl-bar" id="kbslBar"></div>
+  <div class="kb-sl-t" id="kbslT">
+    <div class="kb-sl-s" data-n="I">
+      <div class="kb-eye">Leticia · Amazonas · Colombia</div>
+      <h1>Real English <em>in the heart of the Amazon.</em></h1>
+      <p class="kb-sub">Speak with courage. Learn with purpose.<br>Let every word carry you further.</p>
+      <div class="kb-cta"><a class="btn btn-p" href="https://tally.so/r/2EQWlj" target="_blank" rel="noopener">Pre-inscripción</a><a class="btn btn-s" href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener">WhatsApp</a></div>
+    </div>
+    <div class="kb-sl-s" data-n="II">
+      <div class="kb-eye">Nuestra academia</div>
+      <h2 class="kb-t">Clases particulares y de refuerzo <em>de inglés</em></h2>
+      <p class="kb-sub">Para niños, jóvenes y adultos, en la triple frontera entre Colombia, Brasil y Perú.</p>
+      <div class="kb-cta"><a class="btn btn-p" href="#programas">Ver las clases</a><a class="btn btn-s" href="sobre-nosotros.html">Sobre nosotros</a></div>
+    </div>
+    <div class="kb-sl-s" data-n="III">
+      <div class="kb-eye">Nuevo · Práctica interactiva</div>
+      <h2 class="kb-t">Practica al estilo <em>Cambridge</em></h2>
+      <p class="kb-sub">Ejercicios con explicación de cada respuesta, audio y modo examen.</p>
+      <div class="kb-sl-lv" aria-label="Niveles A1 a C1"><i style="--c:#2f9e44">A1</i><i style="--c:#22b5c9">A2</i><i style="--c:#3b82f6">B1</i><i style="--c:#d6455d">B2</i><i style="--c:#a678f0">C1</i></div>
+      <div class="kb-cta"><a class="btn btn-p" href="practica/index.html">Empezar a practicar</a></div>
+    </div>
+    <div class="kb-sl-s" data-n="IV">
+      <div class="kb-eye">Nuevo · Niños de 3 a 5 años</div>
+      <h2 class="kb-t">Tu hijo aprende inglés <em>jugando</em></h2>
+      <p class="kb-sub">My Day Games: siete juegos con dibujos, voz en inglés y una canción.</p>
+      <div class="kb-cta"><a class="btn btn-p" href="my-day-ninos.html">Conocer My Day</a></div>
     </div>
   </div>
-  <div class="kb-arch" aria-hidden="true"><img src="wisdom_legacywall.jpg" alt=""></div>
-</header>
+  <button class="kb-sl-n kb-sl-a" type="button" aria-label="Anterior">&#8249;</button>
+  <button class="kb-sl-n kb-sl-b" type="button" aria-label="Siguiente">&#8250;</button>
+  <div class="kb-sl-d" id="kbslD"></div>
+</section>
 <nav class="kb-quick" aria-label="Accesos rápidos">
   <a class="kb-q" href="https://tally.so/r/2EQWlj" target="_blank" rel="noopener"><small>Admisiones</small><b>Pre-inscripción</b></a>
   <a class="kb-q" href="#programas"><small>Programas</small><b>Nuestras clases</b></a>
@@ -490,13 +525,43 @@ go(0);st();
 <a class="kb-li rv" href="https://www.linkedin.com/in/eduardo-lopez-kingsbridge" target="_blank" rel="noopener"><img src="linkedin-verified-github-1280x640.png" alt="Perfil verificado en LinkedIn"></a>
 
 <footer class="kb-pie">
-  <a href="index.html" aria-label="Ir al inicio"><img class="kb-flogo" src="logo.png?v=99" alt="KINGSBRIDGE English Academy"></a>
   <span class="kb-seal">Kingsbridge</span>
   <p><b>English Academy</b> · Leticia, Amazonas, Colombia</p>
   <p>Fundada y registrada ante la Cámara de Comercio (No. 26395) · En etapa de lanzamiento</p>
   <p>&copy;2026 Kingsbridge English Academy</p>
 </footer>
 
+<script>
+(function(){
+var root=document.getElementById('kbsl'),T=document.getElementById('kbslT'),D=document.getElementById('kbslD'),BAR=document.getElementById('kbslBar');
+if(!root)return;
+var n=T.children.length,i=0,tm=null,hold=false,seen=true,dots=[],TIME=7000;
+var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+for(var k=0;k<n;k++){(function(k){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Diapositiva '+(k+1));b.onclick=function(){go(k)};D.appendChild(b);dots.push(b)})(k)}
+function go(x){i=(x+n)%n;T.style.transform='translateX(-'+i*100+'%)';
+ dots.forEach(function(d,j){d.className=j===i?'on':''});
+ [].forEach.call(T.children,function(s,j){s.setAttribute('aria-hidden',j===i?'false':'true');[].forEach.call(s.querySelectorAll('a'),function(a){a.tabIndex=j===i?0:-1})});
+ play()}
+function play(){clearTimeout(tm);BAR.className='kb-sl-bar';BAR.style.transitionDuration='0ms';void BAR.offsetWidth;
+ if(hold||!seen||reduce||document.hidden)return;
+ BAR.style.transitionDuration=TIME+'ms';BAR.className='kb-sl-bar run';tm=setTimeout(function(){go(i+1)},TIME)}
+root.querySelector('.kb-sl-a').onclick=function(){go(i-1)};
+root.querySelector('.kb-sl-b').onclick=function(){go(i+1)};
+root.addEventListener('mouseenter',function(){hold=true;play()});
+root.addEventListener('mouseleave',function(){hold=false;play()});
+root.addEventListener('focusin',function(e){if(e.target.matches&&e.target.matches(':focus-visible')){hold=true;play()}});
+root.addEventListener('focusout',function(){hold=false;play()});
+root.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')go(i-1);else if(e.key==='ArrowRight')go(i+1)});
+var sx=null,moved=false;
+root.addEventListener('pointerdown',function(e){sx=e.clientX;moved=false});
+root.addEventListener('pointerup',function(e){if(sx===null)return;var d=e.clientX-sx;sx=null;if(Math.abs(d)>50){moved=true;go(d<0?i+1:i-1)}});
+root.addEventListener('pointercancel',function(){sx=null});
+root.addEventListener('click',function(e){if(moved){e.preventDefault();moved=false}},true);
+document.addEventListener('visibilitychange',play);
+if('IntersectionObserver' in window){new IntersectionObserver(function(en){seen=en[0].isIntersecting;play()},{threshold:.3}).observe(root)}
+go(0);
+})();
+</script>
 <script>
 (function(){var els=[].slice.call(document.querySelectorAll('.rv'));
 if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
