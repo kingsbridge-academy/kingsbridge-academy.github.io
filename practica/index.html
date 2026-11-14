@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Práctica interactiva | KINGSBRIDGE ENGLISH ACADEMY</title>
+<meta name="description" content="Práctica interactiva de inglés de Kingsbridge English Academy: ejercicios con audio, repaso inteligente y modo examen.">
+<meta name="theme-color" content="#080b19">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#080b19;--card:#11162b;--gold:#e2ba68;--line:rgba(226,186,104,.35);--txt:#d8d4ee;--mute:#a09ac0;--ok:#2f9e44;--okbg:rgba(47,158,68,.18);--bad:#e03131;--badbg:rgba(224,49,49,.18);--blue:#1E3A8A}
+body{background:var(--bg);color:#fff;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55;font-size:16px;-webkit-tap-highlight-color:transparent}
+.logo{display:block;width:100%;height:auto}
+.wrap{max-width:640px;margin:0 auto;padding:0 16px 56px}
+.back{display:inline-block;margin:16px 0 0;color:var(--gold);text-decoration:none;font-size:14px}
+h1{font-family:Georgia,"Times New Roman",serif;font-weight:normal;font-size:clamp(1.8rem,7vw,2.6rem);line-height:1.15;margin:18px 0 6px;text-align:center}
+.lead{color:var(--mute);text-align:center;font-size:15px;margin-bottom:18px}
+hr.gold{width:40%;margin:16px auto;border:0;border-top:2px solid var(--gold)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px}
+h2{font-family:Georgia,"Times New Roman",serif;font-weight:normal;font-size:1.2rem;color:var(--gold);margin-bottom:10px}
+label{display:block;color:var(--mute);font-size:13px;margin-bottom:6px}
+input[type=text]{width:100%;font:inherit;color:#fff;background:#080b19;border:1.5px solid var(--line);border-radius:10px;padding:12px 14px}
+input[type=text]:focus{outline:2px solid var(--gold);outline-offset:1px}
+.err{color:#ff8a8a;font-size:13px;margin-top:6px;min-height:1px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{flex:1;min-width:64px;font:inherit;font-weight:700;color:#fff;background:transparent;border:1.5px solid var(--line);border-radius:10px;padding:11px 8px;cursor:pointer}
+.chip small{display:block;font-weight:400;font-size:11px;color:var(--mute)}
+.chip.on{background:var(--gold);border-color:var(--gold);color:#1a1405}
+.chip.on small{color:#4a3b10}
+.btn{display:block;width:100%;font:inherit;font-weight:700;border:0;border-radius:12px;padding:15px;cursor:pointer;margin-bottom:10px;color:#fff;background:var(--blue);border:1.5px solid #D4AF37}
+.btn.gold{background:var(--gold);color:#1a1405;border-color:var(--gold)}
+.btn.wa{background:#25D366;color:#fff;border:0;text-decoration:none;text-align:center}
+.btn.ghost{background:transparent;color:var(--gold)}
+.btn small{display:block;font-weight:400;font-size:12px;opacity:.85}
+.btn[disabled]{opacity:.5;cursor:default}
+.rank{display:flex;align-items:center;gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.rank .ic{font-size:30px}
+.rank b{font-family:Georgia,serif;font-weight:normal;font-size:1.1rem;display:block}
+.rank span{color:var(--mute);font-size:13px}
+.xpbar{height:6px;background:#080b19;border-radius:3px;overflow:hidden;margin-top:4px}
+.xpbar i{display:block;height:100%;background:var(--gold)}
+.tp{margin-bottom:10px}
+.tp .r{display:flex;justify-content:space-between;font-size:13px;color:var(--txt);margin-bottom:3px}
+.tp .r em{font-style:normal;color:var(--mute)}
+.tp .b{height:8px;background:#080b19;border-radius:4px;overflow:hidden}
+.tp .b i{display:block;height:100%;background:var(--ok)}
+.top{display:flex;justify-content:space-between;align-items:center;color:var(--mute);font-size:13px;margin:14px 0 6px}
+.bar{height:6px;background:var(--card);border-radius:3px;overflow:hidden;margin-bottom:14px}
+.bar i{display:block;height:100%;background:var(--gold);transition:width .25s}
+.tag{display:inline-block;font-size:12px;color:var(--gold);border:1px solid var(--line);border-radius:99px;padding:1px 10px;margin-bottom:10px}
+.q{font-size:1.15rem;margin-bottom:6px}
+.hint{color:var(--mute);font-size:13px;margin-bottom:14px}
+.aud{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.aud button{font:inherit;font-size:13px;color:var(--gold);background:transparent;border:1.5px solid var(--line);border-radius:99px;padding:7px 14px;cursor:pointer;white-space:nowrap}
+.aud button.on{background:var(--gold);color:#1a1405}
+.opt{display:flex;gap:12px;align-items:center;width:100%;text-align:left;background:transparent;color:#fff;font:inherit;border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;margin-bottom:10px;cursor:pointer}
+.opt .box{flex:none;width:24px;height:24px;border:2px solid var(--mute);border-radius:7px;display:grid;place-items:center;font-size:14px;font-weight:700}
+.opt.sel{border-color:var(--gold)}
+.opt.sel .box{background:var(--gold);border-color:var(--gold);color:#1a1405}
+.opt.ok{border-color:var(--ok);background:var(--okbg)}
+.opt.ok .box{background:var(--ok);border-color:var(--ok);color:#fff}
+.opt.bad{border-color:var(--bad);background:var(--badbg);animation:sh .3s}
+.opt.bad .box{background:var(--bad);border-color:var(--bad);color:#fff}
+.opt .mk{margin-left:auto;font-size:12px;white-space:nowrap;color:var(--mute)}
+.opt[disabled]{cursor:default}
+@keyframes sh{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+@media(prefers-reduced-motion:reduce){.opt.bad{animation:none}}
+.fb{margin:6px 0 14px;padding:14px;border-radius:12px;font-size:15px}
+.fb.ok{background:var(--okbg);border:1px solid var(--ok)}
+.fb.bad{background:var(--badbg);border:1px solid var(--bad)}
+.fb b{display:block;margin-bottom:4px}
+.fb .ex{margin-top:8px;font-family:Georgia,serif;font-style:italic;color:#fff}
+.fb .tp2{margin-top:8px;color:var(--mute);font-size:13px}
+.xp{color:var(--gold);font-weight:700}
+.score{font-family:Georgia,serif;font-size:3rem;text-align:center;color:var(--gold);line-height:1.1;margin:6px 0}
+.center{text-align:center}
+.mute{color:var(--mute);font-size:14px}
+ul.rv{list-style:none;margin-top:10px}
+ul.rv li{padding:10px 0;border-top:1px solid var(--line);font-size:14px}
+ul.rv .y{color:#7ddf94}
+ul.rv .n{color:#ff8a8a}
+.timer{font-variant-numeric:tabular-nums;color:var(--gold);font-weight:700}
+.timer.low{color:#ff8a8a}
+footer{margin:28px 0;color:#8e8ab5;font-size:12px;text-align:center}
+</style>
+</head>
+<body>
+<img class="logo" src="../logo.png" alt="Kingsbridge English Academy">
+<div class="wrap">
+<a class="back" href="../index.html">&larr; Volver a la academia</a>
+<div id="app"></div>
+<footer>KINGSBRIDGE ENGLISH ACADEMY · Leticia, Amazonas</footer>
+</div>
+<script src="preguntas.js"></script>
+<script>
+(function(){
+"use strict";
+var Q=window.KB_PREGUNTAS||[],CFG=window.KB_CONFIG||{};
+var LEVELS=[["A1","Principiante"],["B1","Intermedio"],["B2","Intermedio alto"],["C1","Avanzado"]];
+var RANKS=[[0,"Cadete","🧑‍✈️"],[100,"Piloto","✈️"],[300,"Copiloto","🛫"],[600,"Capitán","🎖️"],[1000,"Comandante","🌟"]];
+var GAPS=[0,1,3,7,14];
+var KEY="kb.practica.v1",mem=null;
+function load(){try{var d=JSON.parse(localStorage.getItem(KEY));return d||{}}catch(e){return mem||{}}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){mem=DB}}
+var DB=load();DB.students=DB.students||{};DB.nivel=DB.nivel||"A1";
+var app=document.getElementById("app");
+var V={screen:"home",slow:false,msg:""};
+var timer=null;
+
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;")}
+function pad(n){return n<10?"0"+n:""+n}
+function dayStr(d){return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate())}
+function stu(){var n=DB.last;if(!n)return null;return DB.students[n]=DB.students[n]||{xp:0,streak:0,last:"",q:{},t:{}}}
+function rank(xp){var r=RANKS[0],nx=null;for(var i=0;i<RANKS.length;i++){if(xp>=RANKS[i][0]){r=RANKS[i];nx=RANKS[i+1]||null}}return{r:r,next:nx}}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function byLevel(n){return Q.filter(function(q){return q.nivel===n})}
+function dueItems(s,n){var now=Date.now();return byLevel(n).filter(function(q){var r=s&&s.q[q.id];return r&&r.due<=now})}
+function same(a,b){return a.length===b.length&&a.every(function(x){return b.indexOf(x)>-1})}
+
+/* ---------- audio ---------- */
+var synth=window.speechSynthesis||null,voice=null;
+function pickVoice(){if(!synth)return;var vs=synth.getVoices()||[];voice=null;for(var i=0;i<vs.length;i++){if(/^en[-_]US/i.test(vs[i].lang)){voice=vs[i];break}}if(!voice)for(var j=0;j<vs.length;j++){if(/^en/i.test(vs[j].lang)){voice=vs[j];break}}}
+if(synth){pickVoice();if(synth.addEventListener)synth.addEventListener("voiceschanged",pickVoice)}
+function say(t){if(!synth)return;try{synth.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-US";if(voice)u.voice=voice;u.rate=V.slow?0.65:0.95;synth.speak(u)}catch(e){}}
+function sentence(q){return q.q.replace("____",q.o[q.c[0]])}
+function spokenGap(q){return q.q.replace("____",", blank, ")}
+function audioBar(q,fin){if(!synth)return"";return'<div class="aud"><button data-act="say" data-w="gap">🔊 Escuchar</button>'+(fin?'<button data-act="say" data-w="full">🔊 Frase completa</button>':"")+'<button data-act="slow" class="'+(V.slow?"on":"")+'">🐢 Lento</button></div>'}
+
+/* ---------- inicio ---------- */
+function home(){
+ var s=stu(),n=DB.nivel,lv=byLevel(n),due=dueItems(s,n).length;
+ var h='<h1>Práctica interactiva</h1><p class="lead">Aprende, practica y evalúa tu inglés con audio y repaso inteligente.</p><hr class="gold">';
+ h+='<div class="card"><label for="nm">Tu nombre</label><input type="text" id="nm" maxlength="40" autocomplete="given-name" placeholder="Escribe tu nombre" value="'+esc(DB.last||"")+'"><div class="err" id="er">'+esc(V.msg)+'</div>';
+ if(s){var rk=rank(s.xp),pct=rk.next?Math.round((s.xp-rk.r[0])/(rk.next[0]-rk.r[0])*100):100;
+  h+='<div class="rank"><div class="ic">'+rk.r[2]+'</div><div style="flex:1"><b>'+rk.r[1]+'</b><span>'+s.xp+' puntos'+(rk.next?' · próximo rango: '+rk.next[1]+' ('+rk.next[0]+')':' · rango máximo')+(s.streak>1?' · 🔥 '+s.streak+' días seguidos':"")+'</span><div class="xpbar"><i style="width:'+pct+'%"></i></div></div></div>'}
+ h+='</div>';
+ h+='<div class="card"><h2>Nivel</h2><div class="chips">';
+ LEVELS.forEach(function(l){h+='<button class="chip'+(l[0]===n?" on":"")+'" data-act="nivel" data-v="'+l[0]+'">'+l[0]+'<small>'+l[1]+'</small></button>'});
+ h+='</div></div>';
+ h+='<button class="btn gold" data-act="practice">Practicar<small>8 preguntas con respuesta inmediata</small></button>';
+ h+='<button class="btn" data-act="review"'+(due?"":" disabled")+'>Repaso inteligente<small>'+(due?due+(due===1?" pregunta lista":" preguntas listas")+" para repasar":"Aún no hay preguntas para repasar en este nivel")+'</small></button>';
+ h+='<button class="btn ghost" style="border:1.5px solid var(--line)" data-act="exam">Modo examen<small>'+Math.min(10,lv.length)+' preguntas con tiempo y nota al final</small></button>';
+ var topics=[];lv.forEach(function(q){if(topics.indexOf(q.tema)<0)topics.push(q.tema)});
+ h+='<div class="card"><h2>Tu progreso en '+n+'</h2>';
+ topics.forEach(function(t){var r=(s&&s.t[n+"|"+t])||{a:0,r:0},p=r.a?Math.round(r.r/r.a*100):0;
+  h+='<div class="tp"><div class="r"><span>'+esc(t)+'</span><em>'+(r.a?p+"% a la primera · "+r.a+" intentos":"sin datos")+'</em></div><div class="b"><i style="width:'+p+'%"></i></div></div>'});
+ h+='</div>';
+ app.innerHTML=h;
+}
+
+/* ---------- sesiones ---------- */
+function needName(){
+ var el=document.getElementById("nm"),v=el?el.value.trim():"";
+ if(!v){V.msg="Escribe tu nombre para guardar tu progreso.";if(el)el.focus();var er=document.getElementById("er");if(er)er.textContent=V.msg;return false}
+ DB.last=v;V.msg="";save();return true;
+}
+function makeItems(arr){return arr.map(function(q){return{q:q,ord:shuffle(q.o.map(function(_,i){return i})),retry:false}})}
+function startPractice(review){
+ if(!needName())return;
+ var s=stu(),n=DB.nivel,pool,now=Date.now(),items;
+ if(review){pool=dueItems(s,n)}
+ else{
+  var all=byLevel(n),due=dueItems(s,n),fresh=all.filter(function(q){return !s.q[q.id]}),rest=all.filter(function(q){return s.q[q.id]&&s.q[q.id].due>now}).sort(function(a,b){return s.q[a.id].box-s.q[b.id].box});
+  pool=shuffle(due).concat(shuffle(fresh),rest);
+ }
+ items=makeItems(pool.slice(0,8));
+ if(!items.length){V.msg="No hay preguntas en este nivel todavía.";home();return}
+ V.screen="practice";V.s={items:items,i:0,tried:[],done:false,first:0,total:0,xp:0,rev:[]};
+ render();
+}
+function finished(it,tried){return it.q.c.every(function(k){return tried.indexOf(k)>-1})}
+function touchStreak(s){
+ var t=dayStr(new Date());if(s.last===t)return;
+ var y=dayStr(new Date(Date.now()-864e5));s.streak=(s.last===y)?s.streak+1:1;s.last=t;
+}
+function score(it,first){
+ var s=stu(),q=it.q;if(it.retry)return 0;
+ var r=s.q[q.id]||{box:0,due:0,seen:0,right:0};
+ r.seen++;if(first){r.right++;r.box=Math.min(r.box+1,4)}else r.box=0;
+ r.due=Date.now()+GAPS[r.box]*864e5;s.q[q.id]=r;
+ var k=q.nivel+"|"+q.tema,t=s.t[k]||{a:0,r:0};t.a++;if(first)t.r++;s.t[k]=t;
+ var gain=first?10:3;s.xp+=gain;touchStreak(s);save();return gain;
+}
+function pracQ(){
+ var S=V.s,it=S.items[S.i],q=it.q,fin=S.done,L="ABCD";
+ var h='<div class="top"><span>Pregunta '+(S.i+1)+' de '+S.items.length+'</span><span class="xp">+'+S.xp+' puntos</span></div><div class="bar"><i style="width:'+(S.i/S.items.length*100)+'%"></i></div>';
+ h+='<div class="card"><span class="tag">'+esc(q.tema)+' · '+q.nivel+(it.retry?" · otra vez":"")+'</span><p class="q">'+esc(q.q)+'</p><p class="hint">Toca una opción: verde si es correcta, roja si no. Puede haber una o más correctas.</p>'+audioBar(q,fin);
+ it.ord.forEach(function(k,pos){
+  var t=S.tried.indexOf(k)>-1,ok=q.c.indexOf(k)>-1,cls="opt",mk="";
+  if(t&&ok){cls+=" ok";mk="Correcta"}else if(t){cls+=" bad";mk="Incorrecta"}
+  h+='<button class="'+cls+'" data-act="opt" data-k="'+k+'"'+(t||fin?" disabled":"")+'><span class="box">'+(t?(ok?"✓":"✕"):"")+'</span><span>'+L[pos]+'. '+esc(q.o[k])+'</span><span class="mk">'+mk+'</span></button>'});
+ if(fin){
+  var errs=S.tried.filter(function(k){return q.c.indexOf(k)<0}).length;
+  h+='<div class="fb '+(errs?"bad":"ok")+'"><b>'+(errs?"Encontraste todas, con "+errs+(errs>1?" intentos fallidos":" intento fallido"):"¡Perfecto, a la primera!")+'</b>'+esc(q.e)+'<div class="ex">'+esc(q.x)+'</div><div class="tp2">'+esc(q.tip)+'</div></div>';
+  h+='<button class="btn gold" data-act="next">'+(S.i===S.items.length-1?"Ver resultado":"Siguiente")+'</button>'}
+ h+='</div>';return h;
+}
+function pracEnd(){
+ var S=V.s,s=stu(),rk=rank(s.xp);
+ var h='<h1>Sesión terminada</h1><div class="card"><div class="score">'+S.first+' / '+S.total+'</div><p class="center mute">respuestas correctas a la primera</p><hr class="gold"><p class="center"><span class="xp">+'+S.xp+' puntos</span> · '+rk.r[2]+' '+rk.r[1]+' ('+s.xp+' puntos)'+(s.streak>1?' · 🔥 '+s.streak+' días seguidos':"")+'</p>';
+ if(S.rev.length){h+='<h2 style="margin-top:16px">Para repasar</h2><ul class="rv">';S.rev.forEach(function(q){h+='<li><b>'+esc(q.tema)+'</b><br>'+esc(sentence(q))+'<br><span class="mute">'+esc(q.tip)+'</span></li>'});h+='</ul>'}
+ else h+='<p class="center" style="margin-top:12px">Sin errores. Excelente trabajo.</p>';
+ h+='</div><button class="btn gold" data-act="practice">Seguir practicando</button><button class="btn ghost" data-act="home">Inicio</button>';
+ return h;
+}
+
+/* ---------- examen ---------- */
+function startExam(){
+ if(!needName())return;
+ var items=makeItems(shuffle(byLevel(DB.nivel)).slice(0,10));
+ if(!items.length){V.msg="No hay preguntas en este nivel todavía.";home();return}
+ var ms=items.length*60000;
+ V.screen="exam";V.s={items:items,i:0,sel:[],ans:[],t0:Date.now(),end:Date.now()+ms};
+ if(timer)clearInterval(timer);timer=setInterval(tick,1000);render();
+}
+function fmt(ms){var t=Math.max(0,Math.round(ms/1000));return pad(Math.floor(t/60))+":"+pad(t%60)}
+function tick(){
+ if(V.screen!=="exam"){clearInterval(timer);return}
+ var left=V.s.end-Date.now(),el=document.getElementById("tm");
+ if(el){el.textContent=fmt(left);el.className="timer"+(left<60000?" low":"")}
+ if(left<=0)finishExam();
+}
+function examQ(){
+ var S=V.s,it=S.items[S.i],q=it.q,L="ABCD";
+ var h='<div class="top"><span>Examen · '+q.nivel+' · pregunta '+(S.i+1)+' de '+S.items.length+'</span><span class="timer" id="tm">'+fmt(S.end-Date.now())+'</span></div><div class="bar"><i style="width:'+(S.i/S.items.length*100)+'%"></i></div>';
+ h+='<div class="card"><span class="tag">'+esc(q.tema)+'</span><p class="q">'+esc(q.q)+'</p><p class="hint">Marca todas las correctas. En el examen no hay colores ni ayudas.</p>'+(synth?'<div class="aud"><button data-act="say" data-w="gap">🔊 Escuchar</button></div>':"");
+ it.ord.forEach(function(k,pos){var on=S.sel.indexOf(k)>-1;
+  h+='<button class="opt'+(on?" sel":"")+'" data-act="pick" data-k="'+k+'"><span class="box">'+(on?"✓":"")+'</span><span>'+L[pos]+'. '+esc(q.o[k])+'</span></button>'});
+ h+='<button class="btn gold" data-act="enext"'+(S.sel.length?"":" disabled")+'>'+(S.i===S.items.length-1?"Terminar examen":"Siguiente")+'</button></div>';
+ return h;
+}
+function finishExam(){
+ if(V.screen!=="exam")return;
+ clearInterval(timer);
+ var S=V.s,right=0,res=[];
+ S.items.forEach(function(it,i){var a=S.ans[i]||[],ok=same(a,it.q.c);if(ok)right++;res.push({q:it.q,a:a,ok:ok})});
+ var total=S.items.length,nota=Math.round(right/total*50)/10,secs=Math.min(S.end,Date.now())-S.t0;
+ var s=stu();s.xp+=right*5;touchStreak(s);save();
+ V.screen="exres";V.r={res:res,right:right,total:total,nota:nota,time:fmt(secs),nivel:DB.nivel,name:DB.last};render();
+}
+function waText(){var r=V.r;return"Resultado de examen – Kingsbridge English Academy\nEstudiante: "+r.name+"\nNivel: "+r.nivel+"\nNota: "+r.nota.toFixed(1)+" / 5.0 ("+r.right+" de "+r.total+" correctas)\nTiempo: "+r.time}
+function exRes(){
+ var r=V.r,L="ABCD";
+ var h='<h1>Resultado del examen</h1><div class="card"><div class="score">'+r.nota.toFixed(1)+' / 5.0</div><p class="center mute">'+r.right+' de '+r.total+' correctas · nivel '+r.nivel+' · tiempo '+r.time+'</p><hr class="gold"><p class="center mute">Envía tu resultado a tu profesor.</p></div>';
+ h+='<a class="btn wa" href="'+esc((CFG.whatsapp||"https://wa.me/")+"?text="+encodeURIComponent(waText()))+'" target="_blank" rel="noopener">Enviar resultado por WhatsApp</a>';
+ h+='<button class="btn ghost" style="border:1.5px solid var(--line)" data-act="copy" id="cp">Copiar resultado</button>';
+ h+='<div class="card"><h2>Revisión</h2><ul class="rv">';
+ r.res.forEach(function(x,i){
+  var ca=x.q.c.map(function(k){return x.q.o[k]}).join(" / "),ua=x.a.map(function(k){return x.q.o[k]}).join(" / ")||"sin respuesta";
+  h+='<li><b class="'+(x.ok?"y":"n")+'">'+(x.ok?"✓ ":"✕ ")+(i+1)+'. '+esc(x.q.tema)+'</b><br>'+esc(x.q.q)+'<br>'+(x.ok?'':'Tu respuesta: '+esc(ua)+'<br>')+'Correcta: '+esc(ca)+'<br><span class="mute">'+esc(x.q.e)+'</span></li>'});
+ h+='</ul></div><button class="btn gold" data-act="exam">Repetir examen</button><button class="btn ghost" data-act="home">Inicio</button>';
+ return h;
+}
+
+/* ---------- render y eventos ---------- */
+function render(){
+ if(V.screen==="home")home();
+ else if(V.screen==="practice")app.innerHTML=V.s.i>=V.s.items.length?pracEnd():pracQ();
+ else if(V.screen==="exam")app.innerHTML=examQ();
+ else app.innerHTML=exRes();
+ window.scrollTo(0,0);
+}
+function rerender(){var y=window.scrollY;render();window.scrollTo(0,y)}
+app.addEventListener("click",function(e){
+ var b=e.target.closest("[data-act]");if(!b||b.disabled)return;
+ var a=b.getAttribute("data-act"),S=V.s;
+ if(a==="nivel"){DB.nivel=b.getAttribute("data-v");save();V.msg="";var nm=document.getElementById("nm");if(nm&&nm.value.trim()){DB.last=nm.value.trim();save()}home()}
+ else if(a==="practice")startPractice(false);
+ else if(a==="review")startPractice(true);
+ else if(a==="exam")startExam();
+ else if(a==="home"){if(timer)clearInterval(timer);V.screen="home";render()}
+ else if(a==="slow"){V.slow=!V.slow;rerender()}
+ else if(a==="say"){var it=S&&S.items&&S.items[S.i];if(it)say(b.getAttribute("data-w")==="full"?sentence(it.q):spokenGap(it.q))}
+ else if(a==="opt"){
+  var it2=S.items[S.i],k=+b.getAttribute("data-k");if(S.tried.indexOf(k)>-1||S.done)return;
+  S.tried.push(k);
+  if(finished(it2,S.tried)){
+   S.done=true;var first=S.tried.every(function(x){return it2.q.c.indexOf(x)>-1}),g=score(it2,first);
+   if(!it2.retry){S.total++;if(first)S.first++;else{S.rev.push(it2.q);S.items.push({q:it2.q,ord:shuffle(it2.q.o.map(function(_,i){return i})),retry:true})}}
+   S.xp+=g;if(first&&synth)say(sentence(it2.q));
+  }
+  rerender();
+ }
+ else if(a==="next"){S.i++;S.tried=[];S.done=false;render()}
+ else if(a==="pick"){var k2=+b.getAttribute("data-k"),p=S.sel.indexOf(k2);if(p>-1)S.sel.splice(p,1);else S.sel.push(k2);rerender()}
+ else if(a==="enext"){S.ans[S.i]=S.sel.slice();S.sel=[];S.i++;if(S.i>=S.items.length)finishExam();else render()}
+ else if(a==="copy"){
+  var done=function(t){b.textContent=t};
+  try{navigator.clipboard.writeText(waText()).then(function(){done("Copiado")},function(){done("No se pudo copiar")})}catch(x){done("No se pudo copiar")}
+ }
+});
+render();
+})();
+</script>
+</body>
+</html>
