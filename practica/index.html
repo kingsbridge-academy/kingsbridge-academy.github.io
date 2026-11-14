@@ -63,8 +63,13 @@ input[type=text]:focus{outline:2px solid var(--gold);outline-offset:1px}
 .opt.bad .box{background:var(--bad);border-color:var(--bad);color:#fff}
 .opt .mk{margin-left:auto;font-size:12px;white-space:nowrap;color:var(--mute)}
 .opt[disabled]{cursor:default}
+.why{margin:-4px 0 12px;padding:12px 14px;border-left:3px solid var(--bad);background:var(--badbg);border-radius:0 10px 10px 0;font-size:14px}
+.why b{display:block;margin-bottom:3px;color:#ffb3b3}
+.why .ex{margin-top:6px;font-family:Georgia,serif;font-style:italic;color:#fff;font-size:15px}
+.why button{margin-top:8px;font:inherit;font-size:12px;color:var(--gold);background:transparent;border:1.5px solid var(--line);border-radius:99px;padding:4px 12px;cursor:pointer;white-space:nowrap}
+@keyframes fd{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
 @keyframes sh{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
-@media(prefers-reduced-motion:reduce){.opt.bad{animation:none}}
+@media(prefers-reduced-motion:reduce){.opt.bad,.why{animation:none}}
 .fb{margin:6px 0 14px;padding:14px;border-radius:12px;font-size:15px}
 .fb.ok{background:var(--okbg);border:1px solid var(--ok)}
 .fb.bad{background:var(--badbg);border:1px solid var(--bad)}
@@ -181,6 +186,11 @@ function score(it,first){
  var k=q.nivel+"|"+q.tema,t=s.t[k]||{a:0,r:0};t.a++;if(first)t.r++;s.t[k]=t;
  var gain=first?10:3;s.xp+=gain;touchStreak(s);save();return gain;
 }
+function why(q,k){
+ var w=q.w&&q.w[k];
+ var t=w?w[0]:"Esta opción no es correcta. "+q.e,x=w?w[1]:q.x;
+ return'<div class="why"><b>Por qué no es '+esc(q.o[k])+'</b>'+esc(t)+(x?'<div class="ex">'+esc(x)+'</div>'+(synth?'<button data-act="sayx" data-k="'+k+'">🔊 Escuchar ejemplo</button>':""):"")+'</div>';
+}
 function pracQ(){
  var S=V.s,it=S.items[S.i],q=it.q,fin=S.done,L="ABCD";
  var h='<div class="top"><span>Pregunta '+(S.i+1)+' de '+S.items.length+'</span><span class="xp">+'+S.xp+' puntos</span></div><div class="bar"><i style="width:'+(S.i/S.items.length*100)+'%"></i></div>';
@@ -188,7 +198,7 @@ function pracQ(){
  it.ord.forEach(function(k,pos){
   var t=S.tried.indexOf(k)>-1,ok=q.c.indexOf(k)>-1,cls="opt",mk="";
   if(t&&ok){cls+=" ok";mk="Correcta"}else if(t){cls+=" bad";mk="Incorrecta"}
-  h+='<button class="'+cls+'" data-act="opt" data-k="'+k+'"'+(t||fin?" disabled":"")+'><span class="box">'+(t?(ok?"✓":"✕"):L[pos])+'</span><span>'+esc(q.o[k])+'</span><span class="mk">'+mk+'</span></button>'});
+  h+='<button class="'+cls+'" data-act="opt" data-k="'+k+'"'+(t||fin?" disabled":"")+'><span class="box">'+(t?(ok?"✓":"✕"):L[pos])+'</span><span>'+esc(q.o[k])+'</span><span class="mk">'+mk+'</span></button>'+(t&&!ok?why(q,k):"")});
  if(fin){
   var errs=S.tried.filter(function(k){return q.c.indexOf(k)<0}).length;
   h+='<div class="fb '+(errs?"bad":"ok")+'"><b>'+(errs?"Encontraste todas, con "+errs+(errs>1?" intentos fallidos":" intento fallido"):"¡Perfecto, a la primera!")+'</b>'+esc(q.e)+'<div class="ex">'+esc(q.x)+'</div><div class="tp2">'+esc(q.tip)+'</div></div>';
@@ -271,6 +281,7 @@ app.addEventListener("click",function(e){
  else if(a==="home"){if(timer)clearInterval(timer);V.screen="home";render()}
  else if(a==="slow"){V.slow=!V.slow;rerender()}
  else if(a==="say"){var it=S&&S.items&&S.items[S.i];if(it)say(b.getAttribute("data-w")==="full"?sentence(it.q):spokenGap(it.q))}
+ else if(a==="sayx"){var it3=S.items[S.i],w3=it3.q.w&&it3.q.w[+b.getAttribute("data-k")];say(w3?w3[1]:it3.q.x)}
  else if(a==="opt"){
   var it2=S.items[S.i],k=+b.getAttribute("data-k");if(S.tried.indexOf(k)>-1||S.done)return;
   S.tried.push(k);
