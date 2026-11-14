@@ -38,7 +38,9 @@
   var me = document.currentScript, base = "";
   /* Opciones por página (atributos de la etiqueta <script>):
        data-brand="off"       oculta el nombre de la academia dentro del menú
-       data-after="#id"       coloca el menú justo debajo de ese elemento (por defecto, arriba de todo) */
+       data-after="#id"       coloca el menú justo debajo de ese elemento (por defecto, arriba de todo)
+       data-logo="on"         agrega arriba el logotipo de la academia (tamaño original) y deja
+                              logotipo + menú congelados al hacer scroll (como en el index) */
   var OPT = (me && me.dataset) || {};
   if (me && me.src) base = me.src.replace(/[^\/]*([?#].*)?$/, "");
   function url(h) { return /^https?:/i.test(h) ? h : base + h; }
@@ -79,7 +81,8 @@
     '#kb-menu .pn b{display:block;font-family:"KB Lora",Georgia,serif;font-weight:400;font-size:17px}' +
     '#kb-menu .pn span.d{display:block;font-size:12.5px;color:#a09ac0}' +
     '@media(min-width:880px){#kb-menu nav{display:flex}#kb-menu button.tg{display:none}#kb-menu .pn{display:none!important}}' +
-    '@media print{#kb-menu{display:none}}';
+    '#kb-head{position:sticky;top:0;z-index:1000;background:#080b19}#kb-head #kb-menu{position:static}#kb-head #kb-menu .in{max-width:1100px}#kb-head .kb-hl{display:block}#kb-head .kb-hl img{display:block;width:100%;max-width:1100px;height:auto;margin:0 auto}' +
+    '@media print{#kb-menu,#kb-head{display:none}}';
 
   /* ---------- construcción ---------- */
   function build() {
@@ -90,7 +93,8 @@
 
     var bar = document.createElement("header");
     bar.id = "kb-menu";
-    if (OPT.brand === "off") bar.className = "nobrand";
+    var LOGO = OPT.logo === "on";
+    if (OPT.brand === "off" || LOGO) bar.className = "nobrand";
     var inline = "", panel = "";
     ITEMS.forEach(function (it) {
       var h = url(it.href), on = false;
@@ -100,13 +104,21 @@
       panel += '<a class="' + (on ? "on " : "") + (it.cta ? "cta" : "") + '" href="' + esc(h) + '"' + ext + (on ? ' aria-current="page"' : "") + '><span class="ic">' + svg(it.icon) + '</span><span><b>' + esc(it.label) + '</b><span class="d">' + esc(it.desc || "") + "</span></span></a>";
     });
     bar.innerHTML =
-      '<div class="in">' + (OPT.brand === "off" ? "" : '<a class="brand" href="' + esc(url("index.html")) + '">Kingsbridge<small>English Academy</small></a>') +
+      '<div class="in">' + (OPT.brand === "off" || LOGO ? "" : '<a class="brand" href="' + esc(url("index.html")) + '">Kingsbridge<small>English Academy</small></a>') +
       '<nav aria-label="Menú principal">' + inline + "</nav>" +
       '<button class="tg" type="button" aria-expanded="false" aria-controls="kb-pn"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menú</span></button></div>' +
       '<div class="pn" id="kb-pn">' + panel + "</div>";
+    var top = bar, head = null;
+    if (LOGO) {
+      head = document.createElement("div");
+      head.id = "kb-head";
+      head.innerHTML = '<a class="kb-hl" href="' + esc(url("index.html")) + '" aria-label="Ir al inicio"><img src="' + esc(url("logo.png?v=99")) + '" alt="KINGSBRIDGE English Academy"></a>';
+      head.appendChild(bar);
+      top = head;
+    }
     var anchor = OPT.after ? document.querySelector(OPT.after) : null;
-    if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(bar, anchor.nextSibling);
-    else document.body.insertBefore(bar, document.body.firstChild);
+    if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(top, anchor.nextSibling);
+    else document.body.insertBefore(top, document.body.firstChild);
 
     var tg = bar.querySelector(".tg"), pn = bar.querySelector(".pn");
     function close() { pn.classList.remove("open"); tg.setAttribute("aria-expanded", "false") }
@@ -119,8 +131,9 @@
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") close() });
     window.addEventListener("resize", close);
 
-    function setH() { document.documentElement.style.setProperty("--kb-menu-h", bar.offsetHeight + "px") }
+    function setH() { document.documentElement.style.setProperty("--kb-menu-h", (head || bar).offsetHeight + "px") }
     setH(); window.addEventListener("resize", setH);
+    if (head) { var li = head.querySelector("img"); if (li && !li.complete) li.addEventListener("load", setH); window.addEventListener("load", setH); }
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(setH);
   }
 
