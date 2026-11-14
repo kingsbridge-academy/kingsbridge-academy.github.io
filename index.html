@@ -34,7 +34,7 @@ a{color:inherit}
 .kb-rule::before,.kb-rule::after{content:"";width:min(24vw,130px);height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
 .kb-rule::after{background:linear-gradient(90deg,var(--gold),transparent)}
 .kb-lead{color:var(--txt);font-size:16px;line-height:1.7;max-width:620px;margin:0 auto}
-.kb-sec{padding:64px 0 0}
+.kb-sec{padding-top:64px;padding-bottom:0}
 .btn{display:inline-block;font:600 12px var(--serif);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;padding:15px 26px;border:1.5px solid var(--gold);border-radius:3px;transition:transform .18s,box-shadow .2s,background .2s,color .2s}
 .btn:hover,.btn:focus-visible{transform:translateY(-2px);box-shadow:0 10px 26px rgba(226,186,104,.3);outline:none}
 .btn-p{background:var(--gold);color:#12172f}
@@ -54,17 +54,29 @@ a{color:inherit}
 .kb-paper .kb-rule::before{background:linear-gradient(90deg,transparent,var(--goldink))}
 .kb-paper .kb-rule::after{background:linear-gradient(90deg,var(--goldink),transparent)}
 .kb-paper .kb-lead{color:#3a4170}
-/* ---------- portada ---------- */
-.kb-hero{position:relative;width:100%;max-width:1100px;margin:0 auto;overflow:hidden}
-.kb-hero img{display:block;width:100%;height:auto;min-height:420px;max-height:600px;object-fit:cover;filter:brightness(.72)}
-.kb-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,11,25,.15) 0%,rgba(8,11,25,.2) 50%,rgba(8,11,25,.92) 100%)}
-.kb-hero-t{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;padding:0 5% 28px;color:#fff;text-shadow:0 3px 14px rgba(0,0,0,.9)}
-.kb-hero .kb-eye{text-shadow:none}
-.kb-hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.3rem,9vw,5rem);line-height:1.02;margin-top:12px}
-.kb-hero h2{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1rem,3.6vw,1.8rem);margin-top:.35em;color:#f3e7c6}
-.kb-hero .kb-motto{margin-top:12px;font-family:var(--serif);font-size:clamp(.8rem,2.6vw,1.05rem);color:var(--txt);letter-spacing:.04em}
-.kb-hero .kb-cta{margin-top:20px;text-shadow:none}
-@media(max-width:560px){.kb-hero img{min-height:520px}.kb-hero .btn{padding:13px 18px;font-size:11px}}
+/* ---------- portada dividida: texto + arco ---------- */
+.kb-top{background:radial-gradient(ellipse at 78% 30%,rgba(35,48,120,.55),rgba(8,11,25,0) 62%),var(--bg);border-bottom:1px solid var(--line)}
+.kb-hero{max-width:1100px;margin:0 auto;padding:56px 22px 60px;display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center;text-align:left}
+.kb-hero .kb-eye{display:flex;align-items:center;gap:12px}
+.kb-hero .kb-eye::before{content:"";width:34px;height:1px;background:var(--gold)}
+.kb-hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.5rem,7.4vw,4.6rem);line-height:1.04;margin-top:16px;color:#fff}
+.kb-hero h1 em{display:block;font-style:italic;color:var(--gold)}
+.kb-hero .kb-sub{margin-top:18px;font-family:var(--serif);font-size:clamp(1rem,2.6vw,1.25rem);line-height:1.6;color:var(--txt);max-width:520px}
+.kb-hero .kb-cta{justify-content:flex-start;margin-top:28px}
+.kb-arch{position:relative;width:min(100%,340px);aspect-ratio:3/4;margin:0 auto;border:1.5px solid var(--gold);border-radius:170px 170px 8px 8px;overflow:hidden;background:#0d1226;box-shadow:0 24px 60px rgba(0,0,0,.55)}
+.kb-arch img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 42%;filter:brightness(.9)}
+.kb-arch::after{content:"";position:absolute;inset:8px;border:1px solid rgba(226,186,104,.55);border-radius:162px 162px 4px 4px;pointer-events:none}
+@media(max-width:820px){.kb-hero{grid-template-columns:1fr;gap:34px;padding:38px 22px 44px}.kb-arch{width:min(70%,260px);order:2}}
+/* accesos rápidos bajo la portada */
+.kb-quick{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.kb-q{display:block;text-align:left;text-decoration:none;color:#fff;padding:22px 20px;border-left:1px solid var(--line);transition:background .2s}
+.kb-q:first-child{border-left:0}
+.kb-q:hover,.kb-q:focus-visible{background:rgba(226,186,104,.08);outline:none}
+.kb-q small{display:block;font:600 10px var(--serif);letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.kb-q b{display:flex;justify-content:space-between;gap:10px;margin-top:8px;font-family:var(--serif);font-weight:400;font-size:1.15rem;line-height:1.2}
+.kb-q b::after{content:"\2192";color:var(--gold);transition:transform .2s}
+.kb-q:hover b::after{transform:translateX(4px)}
+@media(max-width:700px){.kb-quick{grid-template-columns:1fr 1fr;border-left:0;border-right:0}.kb-q{border-top:1px solid var(--line);padding:18px 16px}.kb-q:nth-child(odd){border-left:0}.kb-q:nth-child(-n+2){border-top:0}.kb-q b{font-size:1.02rem}}
 /* ---------- presentación ---------- */
 .kb-facts{display:grid;grid-template-columns:repeat(3,1fr);margin:34px 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .kb-fact{padding:22px 14px}
@@ -74,12 +86,29 @@ a{color:inherit}
 .kb-fact b{display:block;font-family:var(--serif);font-weight:400;font-size:1.1rem;color:#fff;line-height:1.25}
 .kb-fact span{display:block;margin-top:6px;color:var(--mute);font-size:13px;line-height:1.5}
 @media(max-width:640px){.kb-facts{grid-template-columns:1fr}.kb-fact+.kb-fact{border-left:0;border-top:1px solid var(--line)}.kb-fact{display:grid;grid-template-columns:34px 1fr;column-gap:14px;text-align:left;align-items:center}.kb-fact i{grid-row:1/3;margin:0}}
+.kb-about{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start;text-align:left}
+.kb-about .kb-h{font-size:clamp(1.8rem,4.6vw,2.7rem)}
+.kb-about .kb-lead{margin:0;max-width:none}
+.kb-about .kb-facts{display:block;margin:26px 0 0}
+.kb-about .kb-fact{display:grid;grid-template-columns:34px 1fr;column-gap:16px;align-items:center;text-align:left;padding:18px 4px}
+.kb-about .kb-fact+.kb-fact{border-left:0;border-top:1px solid var(--line)}
+.kb-about .kb-fact i{grid-row:1/3;margin:0}
+@media(max-width:820px){.kb-about{grid-template-columns:1fr;gap:20px}}
 /* lema */
 .kb-quote{font-family:var(--serif);font-style:italic;font-size:clamp(1.35rem,4.8vw,2.1rem);line-height:1.35;max-width:760px;margin:0 auto}
 .kb-quote::before{content:"\201C";display:block;font-style:normal;font-size:3.2rem;line-height:.6;color:var(--goldink);margin-bottom:10px}
 .kb-by{margin-top:18px;font:600 11px var(--serif);letter-spacing:.28em;text-transform:uppercase;color:var(--goldink)}
+.kb-cam{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;text-align:left}
+.kb-cam .kb-lead{margin:0}
+.kb-cam .kb-cta{justify-content:flex-start}
+.kb-lvs{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.kb-lv{text-align:center;border:1.5px solid var(--c);border-radius:30px 30px 6px 6px;padding:12px 2px 9px;background:rgba(255,255,255,.55)}
+.kb-lv b{display:block;font-family:var(--serif);font-weight:400;font-size:1.5rem;line-height:1;color:var(--c)}
+.kb-lv span{display:block;margin-top:5px;font:600 8px var(--serif);letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+@media(max-width:820px){.kb-cam{grid-template-columns:1fr;gap:26px}}
 /* programas: índice con numeración romana */
-.kb-idx{max-width:760px;margin:30px auto 0;text-align:left;border-top:1px solid var(--line)}
+.kb-idx{max-width:900px;margin:30px auto 0;text-align:left;display:grid;grid-template-columns:1fr 1fr;column-gap:48px;border-top:1px solid var(--line)}
+@media(max-width:760px){.kb-idx{grid-template-columns:1fr}}
 .kb-row{display:grid;grid-template-columns:64px 1fr;gap:6px 14px;align-items:baseline;padding:22px 4px;border-bottom:1px solid var(--line)}
 .kb-no{font-family:var(--serif);font-size:1.7rem;color:var(--gold);text-align:center}
 .kb-row h3{font-family:var(--serif);font-weight:400;font-size:1.4rem;color:#fff}
@@ -123,6 +152,7 @@ a{color:inherit}
 .kb-pie .kb-seal{display:block;font-family:var(--serif);font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
 .kb-pie b{color:#fff;font-family:var(--serif);font-weight:400}
 .kb-pie p{margin:0}
+.kb-flogo{display:block;width:min(86%,420px);margin:0 auto 22px;border:1px solid var(--line);border-radius:4px}
 /* aparición suave al hacer scroll */
 .js .rv{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
 .js .rv.in{opacity:1;transform:none}
@@ -139,31 +169,42 @@ a{color:inherit}
 </head>
 <body>
 
-<a href="index.html" style="display:block" aria-label="Ir al inicio"><img class="kb-logo" src="logo.png?v=99" alt="KINGSBRIDGE English Academy"></a>
-
+<div class="kb-top">
 <header class="kb-hero">
-  <img src="wisdom_legacywall.jpg" alt="Kingsbridge English Academy">
-  <div class="kb-hero-t">
+  <div>
     <div class="kb-eye">Leticia · Amazonas · Colombia</div>
-    <h1>Real English</h1>
-    <h2>in the heart of the Amazon.</h2>
-    <p class="kb-motto">Speak with courage. Learn with purpose.</p>
+    <h1>Real English <em>in the heart of the Amazon.</em></h1>
+    <p class="kb-sub">Speak with courage. Learn with purpose.<br>Clases particulares y de refuerzo de inglés para niños, jóvenes y adultos.</p>
     <div class="kb-cta">
       <a class="btn btn-p" href="https://tally.so/r/2EQWlj" target="_blank" rel="noopener">Pre-inscripción</a>
-      <a class="btn btn-s" href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+      <a class="btn btn-s" href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </div>
+  <div class="kb-arch" aria-hidden="true"><img src="wisdom_legacywall.jpg" alt=""></div>
 </header>
+<nav class="kb-quick" aria-label="Accesos rápidos">
+  <a class="kb-q" href="https://tally.so/r/2EQWlj" target="_blank" rel="noopener"><small>Admisiones</small><b>Pre-inscripción</b></a>
+  <a class="kb-q" href="#programas"><small>Programas</small><b>Nuestras clases</b></a>
+  <a class="kb-q" href="practica/index.html"><small>Práctica</small><b>Estilo Cambridge</b></a>
+  <a class="kb-q" href="my-day-ninos.html"><small>Niños de 3 a 5</small><b>My Day Games</b></a>
+</nav>
+</div>
 
 <section class="kb-sec kb-w rv" aria-labelledby="kb-i">
-  <div class="kb-eye">Nuestra academia</div>
-  <h2 class="kb-h" id="kb-i">Clases particulares y de refuerzo <em>de inglés</em></h2>
-  <div class="kb-rule" aria-hidden="true">&#9670;</div>
-  <p class="kb-lead">En Leticia, Amazonas, en la triple frontera entre Colombia, Brasil y Perú.</p>
-  <div class="kb-facts">
+  <div class="kb-about">
+    <div>
+      <div class="kb-eye">Nuestra academia</div>
+      <h2 class="kb-h" id="kb-i">Clases particulares y de refuerzo <em>de inglés</em></h2>
+      <div class="kb-rule" style="justify-content:flex-start" aria-hidden="true">&#9670;</div>
+    </div>
+    <div>
+      <p class="kb-lead">En Leticia, Amazonas, en la triple frontera entre Colombia, Brasil y Perú.</p>
+      <div class="kb-facts">
     <div class="kb-fact"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9.5" r="2.3"/><path d="M2.5 20c0-3.3 2.5-5.5 5.5-5.5s5.500 2.200 5.500 5.500M14.500 20c0-2.600 1.300-4.300 3.300-4.300 1.900 0 3.700 1.500 3.700 4.300"/></svg></i><b>Niños, jóvenes y adultos</b><span>Y refuerzo para el colegio.</span></div>
     <div class="kb-fact"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.500-3 8-7 10-4-2-7-5.500-7-10V6z"/><path d="M9 12l2.200 2.200L15.200 10"/></svg></i><b>Academia registrada</b><span>Cámara de Comercio, No. 26395.</span></div>
     <div class="kb-fact"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 2.500 4.500 6 4.500 9.500L14.500 16h-5L7.500 12.500C7.500 9 9 5.500 12 3z"/><circle cx="12" cy="9.500" r="1.600"/><path d="M9.500 16l-2 4M14.500 16l2 4M12 17.500V21"/></svg></i><b>Etapa de lanzamiento</b><span>Academia fundada en Leticia.</span></div>
+  </div>
+    </div>
   </div>
 </section>
 
@@ -188,12 +229,21 @@ a{color:inherit}
 </section>
 
 <section class="kb-paper rv" id="practica" aria-labelledby="kb-c">
-  <div class="kb-w">
-    <div class="kb-eye">Nuevo · Práctica interactiva</div>
-    <h2 class="kb-h" id="kb-c">Practica al estilo <em>Cambridge</em></h2>
-    <div class="kb-rule" aria-hidden="true">&#9670;</div>
-    <p class="kb-lead">Ejercicios de Use of English con explicación de cada respuesta, audio, repaso inteligente y modo examen. De A1 a C1.</p>
-    <div class="kb-cta"><a class="btn btn-d" href="practica/index.html">Empezar a practicar</a></div>
+  <div class="kb-w kb-cam">
+    <div>
+      <div class="kb-eye">Nuevo · Práctica interactiva</div>
+      <h2 class="kb-h" id="kb-c">Practica al estilo <em>Cambridge</em></h2>
+      <div class="kb-rule" style="justify-content:flex-start" aria-hidden="true">&#9670;</div>
+      <p class="kb-lead">Ejercicios de Use of English con explicación de cada respuesta, audio, repaso inteligente y modo examen.</p>
+      <div class="kb-cta"><a class="btn btn-d" href="practica/index.html">Empezar a practicar</a></div>
+    </div>
+    <div class="kb-lvs" aria-label="Niveles disponibles">
+      <div class="kb-lv" style="--c:#2f9e44"><b>A1</b><span>Movers</span></div>
+      <div class="kb-lv" style="--c:#0e8fa3"><b>A2</b><span>Key</span></div>
+      <div class="kb-lv" style="--c:#2f6bdc"><b>B1</b><span>Preliminary</span></div>
+      <div class="kb-lv" style="--c:#c2334d"><b>B2</b><span>First</span></div>
+      <div class="kb-lv" style="--c:#7c4ddb"><b>C1</b><span>Advanced</span></div>
+    </div>
   </div>
 </section>
 
@@ -440,6 +490,7 @@ go(0);st();
 <a class="kb-li rv" href="https://www.linkedin.com/in/eduardo-lopez-kingsbridge" target="_blank" rel="noopener"><img src="linkedin-verified-github-1280x640.png" alt="Perfil verificado en LinkedIn"></a>
 
 <footer class="kb-pie">
+  <a href="index.html" aria-label="Ir al inicio"><img class="kb-flogo" src="logo.png?v=99" alt="KINGSBRIDGE English Academy"></a>
   <span class="kb-seal">Kingsbridge</span>
   <p><b>English Academy</b> · Leticia, Amazonas, Colombia</p>
   <p>Fundada y registrada ante la Cámara de Comercio (No. 26395) · En etapa de lanzamiento</p>
