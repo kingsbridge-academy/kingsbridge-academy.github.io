@@ -435,7 +435,7 @@ function exRes(){
 /* ---------- render y eventos ---------- */
 function navR(){
  var nv=document.getElementById("nav"),sc=V.screen,n=DB.nivel,cur=LEVELS.filter(function(l){return l[0]===n})[0]||LEVELS[0];
- var h='<div class="nav-in"><button class="nv'+(sc==="home"&&!V.expand?" on":"")+'" data-act="navhome"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span>Home</span></button>';
+ var h='<div class="nav-in">';
  if(DB.picked)h+='<button class="nv lv-'+n+(sc==="home"&&V.expand?" on":"")+'" data-act="navlevel" title="Change level"><span class="nv-b">'+n+'</span><span class="nv-t"><b>Change level</b><small>'+cur[2]+'</small></span></button>';
  var chip="";
  if(sc==="practice"){var S=V.s;chip=S.i>=S.items.length?"Summary":"Practice · "+(S.i+1)+"/"+S.items.length}
@@ -444,7 +444,7 @@ function navR(){
  if(chip)h+='<span class="nv-s">'+chip+'</span>';
  h+='</div>';
  if(V.confirm)h+='<div class="nav-c"><span>Leave the exam? Your answers will be lost.</span><span class="nav-cb"><button class="cf y" data-act="navyes">Yes, leave</button><button class="cf" data-act="navno">Stay</button></span></div>';
- nv.innerHTML=h;
+ nv.style.display=(h.indexOf("data-act")<0&&!chip)?"none":"";nv.innerHTML=h;
 }
 function leave(target){
  if(timer)clearInterval(timer);
@@ -510,7 +510,7 @@ function onClick(e){
   try{navigator.clipboard.writeText(waText()).then(function(){done("Copied")},function(){done("Could not copy")})}catch(x){done("Could not copy")}
  }
 }
-app.addEventListener("click",onClick);app.addEventListener("keydown",function(e){if(e.key==="Enter"&&e.target&&e.target.id==="nm"){e.preventDefault();var bt=document.querySelector("[data-act=setname]");if(bt)bt.click()}});document.getElementById("nav").addEventListener("click",onClick);
+window.addEventListener("beforeunload",function(e){if(V.screen==="exam"){e.preventDefault();e.returnValue=""}});app.addEventListener("click",onClick);app.addEventListener("keydown",function(e){if(e.key==="Enter"&&e.target&&e.target.id==="nm"){e.preventDefault();var bt=document.querySelector("[data-act=setname]");if(bt)bt.click()}});document.getElementById("nav").addEventListener("click",onClick);
 render();
 })();
 </script>
