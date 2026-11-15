@@ -316,7 +316,7 @@ function pickVoice(){if(!synth)return;var vs=synth.getVoices()||[];voice=null;fo
 if(synth){pickVoice();if(synth.addEventListener)synth.addEventListener("voiceschanged",pickVoice)}
 function say(t){if(!synth)return;try{synth.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="es-MX";if(voice){u.voice=voice;u.lang=voice.lang}u.rate=V.slow?0.65:0.95;synth.speak(u)}catch(e){}}
 function sentence(q){return (q.s||q.q).replace("____",q.o[q.c[0]])}
-function spokenGap(q){return (q.s||q.q).replace("____",", en blanco, ")}
+function spokenGap(q){return (q.s||q.q).replace("____",", , , ")}
 function audioBar(q,fin){if(!synth)return"";return'<div class="aud"><button data-act="say" data-w="gap">🔊 Listen</button>'+(fin?'<button data-act="say" data-w="full">🔊 Full sentence</button>':"")+'<button data-act="slow" class="'+(V.slow?"on":"")+'">🐢 Slow</button></div>'}
 
 /* ---------- inicio ---------- */
