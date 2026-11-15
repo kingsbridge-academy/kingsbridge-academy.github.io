@@ -30,6 +30,8 @@
   var ITEMS_EN = [
     { label: "Home",                 desc: "Spanish for English speakers",             href: "spanish/index.html",          icon: "home" },
     { label: "Spanish Practice",     desc: "Interactive exercises, A1 to C1",           href: "spanish/practice/index.html", icon: "pen"  },
+    { label: "Travel Spanish",       desc: "60 phrases for your trip",                  href: "spanish/travel.html", icon: "star" },
+    { label: "Get Access",           desc: "Full access, paid securely with PayPal",    href: "spanish/payment.html",        icon: "form" },
     { label: "Kingsbridge Academy",  desc: "English classes",                href: "index.html",                  icon: "star" },
     { label: "WhatsApp",             desc: "Ask us anything",                          href: "https://wa.me/kingsbridge.academy", icon: "chat", external: true, cta: true }
   ];

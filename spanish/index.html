@@ -196,6 +196,27 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
 .kb-ph small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
 .kb-ph b{display:block;margin-top:6px;font-family:var(--serif);font-weight:400;font-style:italic;font-size:1.5rem;color:var(--gold)}
 .kb-dis{margin-top:10px;font-size:11px;opacity:.75;line-height:1.5}
+
+.kb-price{max-width:420px;margin:26px auto 0;border:1px solid var(--line);background:linear-gradient(180deg,#11162b,#0c1020);padding:30px 24px 26px;border-radius:4px;box-shadow:0 0 0 4px rgba(226,186,104,.06)}
+.kb-amt{font-family:var(--serif);font-size:4rem;line-height:1;color:var(--gold)}
+.kb-amt small{font-size:1.2rem;vertical-align:top;margin-right:6px;letter-spacing:.1em}
+.kb-price ul{list-style:none;margin:18px 0 22px;text-align:left;display:inline-block}
+.kb-price li{color:var(--txt);font-size:15px;line-height:1.5;padding:7px 0 7px 26px;position:relative}
+.kb-price li::before{content:"\25C6";position:absolute;left:0;color:var(--gold);font-size:10px;top:11px}
+.kb-pp{display:block;text-align:center}
+.kb-note{margin-top:14px;color:var(--mute);font-size:12.5px;line-height:1.6}
+.kb-note a{color:var(--gold)}
+
+.kb-shop{display:grid;gap:14px;max-width:560px;margin:26px auto 0;text-align:left}
+.kb-item{display:grid;grid-template-columns:1fr auto;gap:6px 14px;align-items:center;border:1px solid var(--line);background:linear-gradient(180deg,#11162b,#0c1020);padding:18px;border-radius:4px}
+.kb-item h3{font-family:var(--serif);font-weight:400;font-size:1.2rem;color:#fff;line-height:1.25}
+.kb-item p{grid-column:1;color:var(--mute);font-size:13.5px;line-height:1.5}
+.kb-item .kb-pr{grid-row:1/3;grid-column:2;font-family:var(--serif);font-size:2rem;color:var(--gold);text-align:right;line-height:1}
+.kb-item .kb-pr small{font-size:.9rem;margin-right:3px}
+.kb-item .btn{grid-column:1/3;margin-top:10px;text-align:center;padding:13px 18px}
+.kb-item.hot{border-color:var(--gold);box-shadow:0 0 0 4px rgba(226,186,104,.08)}
+.kb-tag{display:inline-block;font:600 10px var(--serif);letter-spacing:.2em;text-transform:uppercase;color:#12172f;background:var(--gold);padding:3px 8px;border-radius:2px;margin-bottom:6px}
+.kb-ph2{max-width:560px;margin:0 auto;display:grid;gap:10px}
 </style>
 <script>document.documentElement.className="js"</script>
 <style id="kb-lvfont">.lv-c,.cur-b,.kb-sl-lv b,.kb-lv b{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;font-weight:600!important;letter-spacing:.03em;font-variant-numeric:lining-nums}</style>
@@ -226,7 +247,7 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
       <h1>Level by level, <em>from A1 to C1</em></h1>
       <p class="kb-sub">Choose your level and practise with exercises designed for English speakers.</p>
       <div class="kb-sl-lv" aria-label="Levels A1 to C1"><i style="--c:#2f9e44">A1</i><i style="--c:#22b5c9">A2</i><i style="--c:#3b82f6">B1</i><i style="--c:#d6455d">B2</i><i style="--c:#a678f0">C1</i></div>
-      <div class="kb-cta"><a class="btn btn-p" href="practice/index.html">Start practising</a></div>
+      <div class="kb-cta"><a class="btn btn-p" href="payment.html">Get full access</a></div>
     </div>
     <div class="kb-sl-s" data-n="II">
       <span class="kb-sl-flag" aria-hidden="true"></span>
@@ -239,7 +260,7 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
       <span class="kb-sl-flag" aria-hidden="true"></span>
       <h2 class="kb-t">Speak Spanish <em>with confidence.</em></h2>
       <p class="kb-sub">Everyday phrases, clear grammar and real practice, explained in English from your very first step.</p>
-      <div class="kb-cta"><a class="btn btn-p" href="practice/index.html">Start practising</a><a class="btn btn-s" href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener">WhatsApp</a></div>
+      <div class="kb-cta"><a class="btn btn-p" href="payment.html">Get full access</a><a class="btn btn-s" href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener">WhatsApp</a></div>
     </div>
   </div>
   <button class="kb-sl-n kb-sl-a" type="button" aria-label="Previous">&#8249;</button>
@@ -247,7 +268,7 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
   <div class="kb-sl-d" id="kbslD"></div>
 </section>
 <nav class="kb-quick" aria-label="Quick links">
-  <a class="kb-q" href="practice/index.html"><small>Practice</small><b>Start now</b></a>
+  <a class="kb-q" href="payment.html"><small>Full access</small><b>Get started</b></a>
   <a class="kb-q" href="#levels"><small>Levels</small><b>A1 to C1</b></a>
   <a class="kb-q" href="#how"><small>How it works</small><b>3 simple steps</b></a>
   <a class="kb-q" href="#phrases"><small>First words</small><b>Useful phrases</b></a>
@@ -287,7 +308,7 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
   <div class="kb-idx">
     <div class="kb-row"><span class="kb-no">I</span><h3>A1 · Beginner</h3><p>Ser and estar, articles, gender, the present tense, numbers and everyday questions.</p></div><div class="kb-row"><span class="kb-no">II</span><h3>A2 · Elementary</h3><p>Preterite and imperfect, reflexive verbs, por and para, comparisons and object pronouns.</p></div><div class="kb-row"><span class="kb-no">III</span><h3>B1 · Intermediate</h3><p>First steps with the subjunctive, commands, the future, the conditional and double pronouns.</p></div><div class="kb-row"><span class="kb-no">IV</span><h3>B2 · Upper intermediate</h3><p>Hypothetical sentences, the passive se, time clauses, connectors and collocations.</p></div><div class="kb-row"><span class="kb-no">V</span><h3>C1 · Advanced</h3><p>Subjunctive nuances, concessive clauses, the passive voice, idioms and word formation.</p></div>
   </div>
-  <div class="kb-cta" style="margin-top:28px"><a class="btn btn-p" href="practice/index.html">Start practising</a></div>
+  <div class="kb-cta" style="margin-top:28px"><a class="btn btn-p" href="payment.html">Get full access</a></div>
 </section>
 
 <section class="kb-paper rv" id="how" aria-labelledby="kb-h3">
@@ -300,7 +321,7 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
       <div class="kb-row"><span class="kb-no">II</span><h3>Smart review</h3><p>Questions you missed come back at spaced intervals, so what you learn stays with you.</p></div>
       <div class="kb-row"><span class="kb-no">III</span><h3>Exam mode</h3><p>Ten timed questions with a score out of 100. Send your result to your teacher by WhatsApp.</p></div>
     </div>
-    <div class="kb-cta" style="margin-top:28px"><a class="btn btn-d" href="practice/index.html">Start practising</a></div>
+    <div class="kb-cta" style="margin-top:28px"><a class="btn btn-d" href="payment.html">Get full access</a></div>
   </div>
 </section>
 
@@ -311,12 +332,26 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
   <div class="kb-phs"><div class="kb-ph"><small>Hello</small><b lang="es">Hola</b></div><div class="kb-ph"><small>Good morning</small><b lang="es">Buenos días</b></div><div class="kb-ph"><small>Thank you very much</small><b lang="es">Muchas gracias</b></div><div class="kb-ph"><small>How are you?</small><b lang="es">¿Cómo estás?</b></div><div class="kb-ph"><small>Nice to meet you</small><b lang="es">Mucho gusto</b></div><div class="kb-ph"><small>Where is the bathroom?</small><b lang="es">¿Dónde está el baño?</b></div></div>
 </section>
 
+<section class="kb-sec kb-w rv" id="access" aria-labelledby="kb-a">
+  <div class="kb-eye">Full access</div>
+  <h2 class="kb-h" id="kb-a">Learn one level, or <em>all five</em></h2>
+  <div class="kb-rule" aria-hidden="true">&#9670;</div>
+  <div class="kb-shop">
+    <div class="kb-item"><h3>One level</h3><div class="kb-pr"><small>US$</small>49</div><p>A1, A2, B1, B2 or C1. Audio, explanations in English, smart review and exam mode.</p><a class="btn btn-s" href="payment.html#buy">Choose your level</a></div>
+    <div class="kb-item hot"><h3><span class="kb-tag">Best value</span><br>All five levels</h3><div class="kb-pr"><small>US$</small>199</div><p>The complete path from A1 to C1. Save US$ 46.</p><a class="btn btn-p" href="payment.html#buy">Get the full package</a></div>
+  </div>
+  <p class="kb-note" style="text-align:center;margin-top:16px">Secure payment with PayPal &middot; <a href="payment.html">How payment works</a></p>
+  <div class="kb-eye" style="margin-top:38px">Travelling soon?</div>
+  <p class="kb-lead" style="margin-top:10px">Pick up the essentials in a weekend. <a href="travel.html" style="color:var(--gold)">Travel Spanish</a>: 60 phrases for Colombia and the Amazon, US$ 19.</p>
+</section>
+
 <section class="kb-sec kb-w rv" id="faq" aria-labelledby="kb-f">
   <div class="kb-eye">Questions</div>
   <h2 class="kb-h" id="kb-f">Frequently asked questions</h2>
   <div class="kb-rule" aria-hidden="true">&#9670;</div>
   <div class="kb-faq" style="margin-top:22px">
-    <details><summary>Do I need an account?</summary><p>No. Choose your level, pick an exercise and type a nickname. Your progress is saved on your own device.</p></details>
+    <details><summary>How do I get access?</summary><p>Pay securely with PayPal and we send you a personal access code within 24 hours. Enter it on the practice page and the level you bought, or all five, opens. <a href="payment.html">See how payment works</a>.</p></details>
+    <details><summary>Do I need an account?</summary><p>No. Enter your access code, choose your level and type a nickname. Your progress is saved on your own device.</p></details>
     <details><summary>Which level should I choose?</summary><p>Start with the level that feels comfortable. If the questions are too easy or too hard, tap “Change level” at any time.</p></details>
     <details><summary>Can I use it on my phone?</summary><p>Yes. The page is designed to work on phones, tablets and computers.</p></details>
     <details><summary>Are the levels official?</summary><p>The levels follow the CEFR scale (A1 to C1), used worldwide to describe language ability. This is independent practice material by Kingsbridge English Academy.</p></details>
@@ -330,8 +365,8 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
     <h2 class="kb-h" id="kb-z">Take the first step toward <em>real Spanish</em></h2>
     <div class="kb-rule" aria-hidden="true">&#9670;</div>
     <div class="kb-cta">
-      <a class="btn btn-d" href="practice/index.html">Start practising</a>
-      <a class="btn btn-o" href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn-d" href="payment.html">Get full access</a>
+      <a class="btn btn-o" href="practice/index.html">I have a code</a>
     </div>
   </div>
 </section>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Spanish for Latin America Travelers | KINGSBRIDGE ENGLISH ACADEMY</title>
+<meta name="description" content="Essential Spanish for travelers in Colombia and the Amazon: 60 real phrases with audio, pronunciation in English and quick quizzes.">
+<meta name="theme-color" content="#080b19">
+<style>
+@font-face{font-family:"KB Lora";font-weight:400;font-style:normal;font-display:swap;src:url(../../fonts/lora.woff) format("woff")}
+@font-face{font-family:"KB Lora";font-weight:400;font-style:italic;font-display:swap;src:url(../../fonts/lora-italic.woff) format("woff")}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#080b19;--card:#11162b;--gold:#e2ba68;--line:rgba(226,186,104,.35);--txt:#d8d4ee;--mute:#a09ac0;--ok:#2f9e44;--okbg:rgba(47,158,68,.18);--bad:#e03131;--badbg:rgba(224,49,49,.18);--serif:"KB Lora",Georgia,"Times New Roman",serif}
+body{background:var(--bg);color:#fff;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55;font-size:16px;-webkit-tap-highlight-color:transparent}
+#app{max-width:620px;margin:0 auto;padding:26px 16px 50px}
+.eye{font:600 11px var(--serif);letter-spacing:.3em;text-transform:uppercase;color:var(--gold);text-align:center}
+h1,h2{font-family:var(--serif);font-weight:400;text-align:center;line-height:1.2}
+h1{font-size:clamp(1.8rem,6.2vw,2.6rem);margin:10px 0 0}
+h1 em,h2 em{color:var(--gold)}
+h2{font-size:1.6rem;margin:8px 0 0}
+.rule{text-align:center;color:var(--gold);font-size:11px;margin:16px 0}
+.lead{color:var(--txt);text-align:center;font-size:15.5px;max-width:480px;margin:0 auto 22px}
+.ch{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px;margin-bottom:12px;color:#fff;font:inherit;cursor:pointer}
+.ch:hover,.ch:focus-visible{border-color:var(--gold);outline:none}
+.ch .no{font-family:var(--serif);font-size:1.5rem;color:var(--gold);text-align:center}
+.ch b{display:block;font-family:var(--serif);font-weight:400;font-size:1.15rem}
+.ch small{color:var(--mute);font-size:13px}
+.ch .st{font-size:12px;color:var(--gold);white-space:nowrap}
+.back{background:none;border:0;color:var(--gold);font:600 12px var(--serif);letter-spacing:.18em;text-transform:uppercase;cursor:pointer;padding:6px 0;margin-bottom:6px}
+.ph{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px;margin-top:12px}
+.ph .en{color:var(--mute);font-size:13px}
+.ph .es{font-family:var(--serif);font-size:1.3rem;margin:4px 0 2px;line-height:1.3}
+.ph .pr{color:var(--gold);font-size:14px;font-style:italic}
+.ph .row{display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
+.say{flex:none;background:transparent;border:1.5px solid var(--gold);color:var(--gold);border-radius:50%;width:42px;height:42px;font-size:18px;cursor:pointer}
+.say:hover{background:rgba(226,186,104,.14)}
+.btn{display:block;width:100%;font:600 13px var(--serif);letter-spacing:.2em;text-transform:uppercase;text-align:center;padding:16px;border:1.5px solid var(--gold);border-radius:3px;background:var(--gold);color:#12172f;cursor:pointer;margin-top:22px;text-decoration:none}
+.btn.o{background:transparent;color:var(--gold)}
+.q{font-family:var(--serif);font-size:1.4rem;text-align:center;margin:10px 0 18px;line-height:1.3}
+.opt{display:block;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:6px;padding:14px 16px;margin-bottom:10px;color:#fff;font:inherit;font-size:16px;cursor:pointer}
+.opt:hover{border-color:var(--gold)}
+.opt.ok{background:var(--okbg);border-color:var(--ok)}
+.opt.bad{background:var(--badbg);border-color:var(--bad)}
+.bar{height:4px;background:rgba(226,186,104,.2);border-radius:2px;margin:6px 0 16px}
+.bar i{display:block;height:100%;background:var(--gold);border-radius:2px}
+.score{font-family:var(--serif);font-size:4rem;color:var(--gold);text-align:center;line-height:1;margin:18px 0 6px}
+.gate{max-width:440px;margin:0 auto;padding:30px 4px 40px;text-align:center}
+.gate-k{display:block;font:600 11px var(--serif);letter-spacing:.3em;text-transform:uppercase;color:#e2ba68}
+.gate h1{margin:12px 0 14px}
+.gate p{color:#c9c4e2;line-height:1.7;font-size:15px}
+.gate form{margin:26px 0 8px;display:flex;flex-direction:column;gap:12px}
+.gate input{font:600 20px var(--serif);letter-spacing:.18em;text-align:center;text-transform:uppercase;padding:15px;background:#0c1020;color:#fff;border:1.5px solid rgba(226,186,104,.5);border-radius:3px}
+.gate input:focus{outline:2px solid #e2ba68;outline-offset:2px}
+.gate-b{font:600 13px var(--serif);letter-spacing:.2em;text-transform:uppercase;padding:16px;background:#e2ba68;color:#12172f;border:0;border-radius:3px;cursor:pointer}
+.gate-e{min-height:22px;color:#ff9b9b!important;font-size:14px!important}
+.gate-l{margin-top:18px;font-size:13.5px!important}
+.gate-l a{color:#e2ba68}
+footer.kb-pie{margin:0;background:#0b1024;color:#a09ac0;text-align:center;font-size:14px;line-height:1.8;padding:34px 16px 36px;border-top:2px solid #e2ba68}
+.kb-pie .kb-seal{display:block;font-family:var(--serif);font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:#e2ba68;margin-bottom:4px}
+.kb-pie b{color:#fff;font-family:var(--serif);font-weight:400}
+.kb-pie p{margin:0}
+.kb-pie .kb-dis{margin-top:10px;font-size:11px;opacity:.75;line-height:1.5}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<style id="kb-pie2">
+.kb-pie{padding:36px 20px 36px;line-height:1.6}
+.kb-pie .kb-seal{display:block;font-family:var(--serif,Georgia,serif);font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:#e2ba68;margin:0}
+.kb-pie .kb-nm{font-family:var(--serif,Georgia,serif);color:#fff;font-size:19px;margin:6px 0 4px}
+.kb-pie .kb-loc{font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.kb-pie .kb-dv{color:#e2ba68;font-size:11px;margin:16px 0 14px;display:flex;align-items:center;gap:12px;justify-content:center}
+.kb-pie .kb-dv:before,.kb-pie .kb-dv:after{content:"";height:1px;width:56px;background:linear-gradient(90deg,transparent,rgba(226,186,104,.6))}
+.kb-pie .kb-dv:after{transform:scaleX(-1)}
+.kb-pie .kb-reg{font-size:12.5px;line-height:1.7}
+.kb-pie .kb-reg b{display:block;color:#d9dbf2;font-family:inherit;font-weight:500;letter-spacing:.04em}
+.kb-pie .kb-cp{margin-top:16px;font-size:11px;opacity:.75}
+</style>
+<footer class="kb-pie">
+  <span class="kb-seal">Kingsbridge</span>
+  <div class="kb-nm">English Academy</div>
+  <div class="kb-loc">Leticia · Amazonas · Colombia</div>
+  <div class="kb-dv" aria-hidden="true">&#9670;</div>
+  <div class="kb-reg"><b>Registered business · No. 26385</b>Chamber of Commerce of Colombia<br><span style="opacity:.75">Newly launched</span></div>
+  <div class="kb-cp">&copy; 2026 Kingsbridge English Academy</div>
+  <p class="kb-dis">Travel Spanish with pronunciation in English. Phrases follow Colombian usage.</p>
+  <p class="kb-dis" style="max-width:330px;margin:12px auto 0">Levels follow the Common European Framework of Reference for Languages (CEFR), A1 to C1. Independent practice material by Kingsbridge English Academy; not an official exam.</p>
+</footer>
+<script type="text/plain" id="kbmain">
+(function(){
+"use strict";
+var CH=[
+{t:"Arriving",s:"Airport, taxi and hotel",p:[
+["Good afternoon","Buenas tardes","BWEH-nahs TAHR-dehs"],
+["I have a reservation","Tengo una reserva","TEHN-goh OO-nah reh-SEHR-vah"],
+["Where is the taxi stand?","¿Dónde está la parada de taxis?","DOHN-deh ehs-TAH lah pah-RAH-dah deh TAHK-sees"],
+["To the hotel, please","Al hotel, por favor","ahl oh-TEHL pohr fah-VOHR"],
+["How much is the ride?","¿Cuánto cuesta la carrera?","KWAHN-toh KWEHS-tah lah kah-RREH-rah"],
+["Can you turn on the meter?","¿Puede encender el taxímetro?","PWEH-deh ehn-sehn-DEHR ehl tahk-SEE-meh-troh"],
+["What time can I check in?","¿A qué hora puedo registrarme?","ah keh OH-rah PWEH-doh reh-hees-TRAHR-meh"],
+["Is breakfast included?","¿El desayuno está incluido?","ehl deh-sah-YOO-noh ehs-TAH een-kloo-EE-doh"],
+["What is the Wi-Fi password?","¿Cuál es la clave del wifi?","kwahl ehs lah KLAH-veh dehl WEE-fee"],
+["My suitcase did not arrive","Mi maleta no llegó","mee mah-LEH-tah noh yeh-GOH"]]},
+{t:"Eating & drinking",s:"Restaurants and markets",p:[
+["A table for two, please","Una mesa para dos, por favor","OO-nah MEH-sah PAH-rah dohs pohr fah-VOHR"],
+["The menu, please","La carta, por favor","lah KAHR-tah pohr fah-VOHR"],
+["What do you recommend?","¿Qué me recomienda?","keh meh reh-koh-mee-EHN-dah"],
+["I would like fish","Quisiera pescado","kee-see-EH-rah pehs-KAH-doh"],
+["I am vegetarian","Soy vegetariano","soy veh-heh-tah-ree-AH-noh"],
+["I am allergic to nuts","Soy alérgico a las nueces","soy ah-LEHR-hee-koh ah lahs NWEH-sehs"],
+["A natural fruit juice","Un jugo natural","oon HOO-goh nah-too-RAHL"],
+["Water without ice","Agua sin hielo","AH-gwah seen YEH-loh"],
+["Is it spicy?","¿Es picante?","ehs pee-KAHN-teh"],
+["The check, please","La cuenta, por favor","lah KWEHN-tah pohr fah-VOHR"]]},
+{t:"Getting around",s:"Buses, boats and directions",p:[
+["Where is the bus station?","¿Dónde está la terminal de buses?","DOHN-deh ehs-TAH lah tehr-mee-NAHL deh BOO-sehs"],
+["A ticket to Bogotá","Un tiquete a Bogotá","oon tee-KEH-teh ah boh-goh-TAH"],
+["What time does it leave?","¿A qué hora sale?","ah keh OH-rah SAH-leh"],
+["Is this seat taken?","¿Este puesto está ocupado?","EHS-teh PWEHS-toh ehs-TAH oh-koo-PAH-doh"],
+["Please stop here","Pare aquí, por favor","PAH-reh ah-KEE pohr fah-VOHR"],
+["How do I get to the port?","¿Cómo llego al puerto?","KOH-moh YEH-goh ahl PWEHR-toh"],
+["Is it far from here?","¿Queda lejos de aquí?","KEH-dah LEH-hohs deh ah-KEE"],
+["Keep going straight","Siga derecho","SEE-gah deh-REH-choh"],
+["Turn left","Gire a la izquierda","HEE-reh ah lah ees-kee-EHR-dah"],
+["A boat to the island","Una lancha a la isla","OO-nah LAHN-chah ah lah EES-lah"]]},
+{t:"Money & shopping",s:"Prices, bargaining and paying",p:[
+["How much is it?","¿Cuánto cuesta?","KWAHN-toh KWEHS-tah"],
+["It is too expensive","Es muy caro","ehs mwee KAH-roh"],
+["Can you give me a discount?","¿Me puede hacer un descuento?","meh PWEH-deh ah-SEHR oon dehs-KWEHN-toh"],
+["I am just looking","Solo estoy mirando","SOH-loh ehs-TOY mee-RAHN-doh"],
+["Do you accept cards?","¿Aceptan tarjeta?","ah-SEHP-tahn tahr-HEH-tah"],
+["I only have cash","Solo tengo efectivo","SOH-loh TEHN-goh eh-fehk-TEE-voh"],
+["Where is an ATM?","¿Dónde hay un cajero automático?","DOHN-deh eye oon kah-HEH-roh ow-toh-MAH-tee-koh"],
+["Do you have a smaller size?","¿Tiene una talla más pequeña?","tee-EH-neh OO-nah TAH-yah mahs peh-KEH-nyah"],
+["I will take it","Me lo llevo","meh loh YEH-voh"],
+["Can I have a receipt?","¿Me da un recibo?","meh dah oon reh-SEE-boh"]]},
+{t:"Amazon & nature",s:"Jungle tours and river trips",p:[
+["I would like to book a jungle tour","Quisiera reservar un tour por la selva","kee-see-EH-rah reh-sehr-VAHR oon toor pohr lah SEHL-vah"],
+["Is it safe?","¿Es seguro?","ehs seh-GOO-roh"],
+["Do I need a guide?","¿Necesito un guía?","neh-seh-SEE-toh oon GEE-ah"],
+["What animals can we see?","¿Qué animales podemos ver?","keh ah-nee-MAH-lehs poh-DEH-mohs vehr"],
+["Where can I see pink dolphins?","¿Dónde puedo ver delfines rosados?","DOHN-deh PWEH-doh vehr dehl-FEE-nehs roh-SAH-dohs"],
+["I need insect repellent","Necesito repelente","neh-seh-SEE-toh reh-peh-LEHN-teh"],
+["Is the water safe to drink?","¿El agua es potable?","ehl AH-gwah ehs poh-TAH-bleh"],
+["How long is the trip?","¿Cuánto dura el viaje?","KWAHN-toh DOO-rah ehl vee-AH-heh"],
+["Can we swim here?","¿Se puede nadar aquí?","seh PWEH-deh nah-DAHR ah-KEE"],
+["It is beautiful","Es hermoso","ehs ehr-MOH-soh"]]},
+{t:"Health & emergencies",s:"Getting help when you need it",p:[
+["Help!","¡Ayuda!","ah-YOO-dah"],
+["I need a doctor","Necesito un médico","neh-seh-SEE-toh oon MEH-dee-koh"],
+["Where is the pharmacy?","¿Dónde hay una farmacia?","DOHN-deh eye OO-nah fahr-MAH-see-ah"],
+["I feel sick","Me siento mal","meh see-EHN-toh mahl"],
+["I have a headache","Me duele la cabeza","meh DWEH-leh lah kah-BEH-sah"],
+["I have a stomachache","Me duele el estómago","meh DWEH-leh ehl ehs-TOH-mah-goh"],
+["I am allergic to penicillin","Soy alérgico a la penicilina","soy ah-LEHR-hee-koh ah lah peh-nee-see-LEE-nah"],
+["Please call the police","Llame a la policía, por favor","YAH-meh ah lah poh-lee-SEE-ah pohr fah-VOHR"],
+["I lost my passport","Perdí mi pasaporte","pehr-DEE mee pah-sah-POHR-teh"],
+["Where is the hospital?","¿Dónde está el hospital?","DOHN-deh ehs-TAH ehl ohs-pee-TAHL"]]}
+];
+var ROMAN=["I","II","III","IV","V","VI"],KEY="kb.travelers.v1",mem=null;
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return mem||{}}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){mem=DB}}
+var DB=load();DB.best=DB.best||{};
+var app=document.getElementById("app"),S={screen:"home"};
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;")}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function say(t){try{var u=new SpeechSynthesisUtterance(t),v=speechSynthesis.getVoices(),f=v.filter(function(x){return /^es[-_]CO/i.test(x.lang)})[0]||v.filter(function(x){return /^es/i.test(x.lang)})[0];u.lang=f?f.lang:"es-CO";if(f)u.voice=f;u.rate=.85;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
+function home(){
+ var h='<div class="eye">Kingsbridge English Academy</div><h1>Spanish for <em>Latin America</em> travelers</h1><div class="rule">&#9670;</div><p class="lead">60 real phrases for your trip, with audio and pronunciation in English. Start with Colombia and the Amazon.</p>';
+ CH.forEach(function(c,i){var b=DB.best[i];h+='<button class="ch" data-act="open" data-i="'+i+'"><span class="no">'+ROMAN[i]+'</span><span><b>'+esc(c.t)+'</b><small>'+esc(c.s)+' · '+c.p.length+' phrases</small></span><span class="st">'+(b!=null?b+'/6 ✓':'')+'</span></button>'});
+ app.innerHTML=h;S.screen="home"}
+function chapter(i){
+ var c=CH[i],h='<button class="back" data-act="home">&larr; All chapters</button><div class="eye">Chapter '+ROMAN[i]+'</div><h2>'+esc(c.t)+'</h2><div class="rule">&#9670;</div>';
+ c.p.forEach(function(p,k){h+='<div class="ph"><div class="en">'+esc(p[0])+'</div><div class="row"><div><div class="es" lang="es">'+esc(p[1])+'</div><div class="pr">'+esc(p[2])+'</div></div><button class="say" data-act="say" data-i="'+i+'" data-k="'+k+'" aria-label="Listen">&#9835;</button></div></div>'});
+ h+='<button class="btn" data-act="quiz" data-i="'+i+'">Take the quiz</button>';
+ app.innerHTML=h;S.screen="chapter";S.i=i;window.scrollTo(0,0)}
+function quiz(i){
+ var c=CH[i],qs=shuffle(c.p).slice(0,6);S.qz={i:i,qs:qs,n:0,score:0,done:false};ask()}
+function ask(){
+ var z=S.qz,c=CH[z.i],q=z.qs[z.n];
+ var opts=shuffle([q].concat(shuffle(c.p.filter(function(p){return p!==q})).slice(0,3)));z.opts=opts;z.q=q;
+ var h='<button class="back" data-act="open" data-i="'+z.i+'">&larr; Back to phrases</button><div class="eye">Question '+(z.n+1)+' of 6</div><div class="bar"><i style="width:'+(z.n/6*100)+'%"></i></div><div class="q">How do you say:<br><em style="color:#e2ba68;font-style:italic">'+esc(q[0])+'</em></div>';
+ opts.forEach(function(o,k){h+='<button class="opt" lang="es" data-act="pick" data-k="'+k+'">'+esc(o[1])+'</button>'});
+ app.innerHTML=h;window.scrollTo(0,0)}
+function pick(k){
+ var z=S.qz;if(z.done)return;z.done=true;var bs=app.querySelectorAll(".opt");
+ bs.forEach(function(b,j){if(z.opts[j]===z.q)b.classList.add("ok")});
+ if(z.opts[k]===z.q){z.score++}else bs[k].classList.add("bad");
+ say(z.q[1]);
+ var last=z.n===5;
+ app.insertAdjacentHTML("beforeend",'<button class="btn" data-act="next">'+(last?"See my score":"Next")+'</button>')}
+function next(){
+ var z=S.qz;z.n++;z.done=false;if(z.n<6){ask();return}
+ if(DB.best[z.i]==null||z.score>DB.best[z.i]){DB.best[z.i]=z.score;save()}
+ var msg=z.score===6?"Perfect. You are ready.":z.score>=4?"Great job. Almost there.":"Good start. Practise the phrases again.";
+ app.innerHTML='<div class="eye">Chapter '+ROMAN[z.i]+' · '+esc(CH[z.i].t)+'</div><div class="score">'+z.score+'/6</div><p class="lead">'+msg+'</p><button class="btn" data-act="quiz" data-i="'+z.i+'">Try again</button><button class="btn o" data-act="open" data-i="'+z.i+'">Review phrases</button><button class="btn o" data-act="home">All chapters</button>';window.scrollTo(0,0)}
+document.addEventListener("click",function(e){
+ var b=e.target.closest("[data-act]");if(!b||!app.contains(b))return;
+ var a=b.getAttribute("data-act"),i=+b.getAttribute("data-i"),k=+b.getAttribute("data-k");
+ if(a==="home")home();else if(a==="open")chapter(i);else if(a==="quiz")quiz(i);
+ else if(a==="pick")pick(k);else if(a==="next")next();else if(a==="say")say(CH[i].p[k][1])});
+home();
+})();
+</script>
+<script src="access.js"></script>
+<script src="../../menu.js" data-logo="on" data-lang="en" data-home="spanish/index.html" defer></script>
+</body>
+</html>
