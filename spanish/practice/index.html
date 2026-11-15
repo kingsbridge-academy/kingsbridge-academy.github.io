@@ -292,7 +292,7 @@ function audioBar(q,fin){if(!synth)return"";return'<div class="aud"><button data
 function home(){
  navR();
  var s=stu(),n=DB.nivel,lv=byLevel(n),due=dueItems(s,n).length;
- var h='<h1>Spanish Practice</h1>'+((V.expand||!DB.picked)?'<p class="lead">Practise your Spanish by level, from A1 to C1: fill-in-the-blank, vocabulary and word formation, with audio and smart review.</p>':"")+'<hr class="gold">';
+ var h='<h1>Spanish Practice</h1>'+((V.expand||!DB.picked)?'<p class="lead"><b style="color:var(--gold);font-weight:600">¡Hola!</b> Ready to speak Spanish with confidence? Choose your level, practise a few minutes a day, and every answer comes with a clear explanation in English. You will be surprised how quickly it starts to click.</p>':"")+'<hr class="gold">';
  if(V.pending){h+='<div class="card" id="nmc"><label for="nm">Your nickname</label><input type="text" id="nm" maxlength="40" autocomplete="off" placeholder="Type your nickname" value=""><div class="err" id="er">'+esc(V.msg)+'</div><button class="btn gold" data-act="setname" style="margin:12px 0 0">Continue</button></div>'}
  if(s){var rk=rank(s.xp),pct=rk.next?Math.round((s.xp-rk.r[0])/(rk.next[0]-rk.r[0])*100):100;
   h+='<div class="card"><div class="rank"><div class="ic">'+rk.r[2]+'</div><div style="flex:1"><b>'+esc(DB.last)+' · '+rk.r[1]+'</b><span>'+s.xp+' points'+(rk.next?' · next rank: '+rk.next[1]+' ('+rk.next[0]+')':' · top rank')+(s.streak>1?' · 🔥 '+s.streak+' day streak':"")+'</span><div class="xpbar"><i style="width:'+pct+'%"></i></div></div></div></div>'}
