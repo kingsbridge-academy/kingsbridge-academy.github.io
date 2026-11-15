@@ -14,7 +14,7 @@ function levels(){var out=[];get().forEach(function(c){var g=groupOf(c);if(!g)re
 window.KB_ADDCODE=function(v){var g=groupOf(v);if(!g)return false;var a=get(),n=norm(v);if(a.indexOf(n)<0){a.push(n);put(a)}return true};
 function start(force){
  window.KB_UNLOCKED=force||levels();
- var s=document.createElement("script");s.src="preguntas.js";
+ var s=document.createElement("script");s.src="preguntas.js?v=40";
  s.onload=function(){var m=document.createElement("script");m.textContent=document.getElementById("kbmain").textContent;document.body.appendChild(m)};
  document.body.appendChild(s)}
 var TK="kb.en.trial",MAX=10;
