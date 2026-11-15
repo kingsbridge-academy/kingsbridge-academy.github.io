@@ -20,9 +20,9 @@
     { label: "Inicio",               desc: "Página principal de la academia",         href: "index.html",           icon: "home" },
     { label: "Sobre nosotros",       desc: "Quiénes somos y cómo enseñamos",           href: "sobre-nosotros.html",  icon: "info" },
     { label: "Práctica interactiva", desc: "Ejercicios tipo examen",           href: "practica/index.html",  icon: "pen"  },
-    { label: "Spanish",              desc: "Spanish for English speakers",             href: "spanish/index.html",   icon: "pen"  },
     { label: "My Day",               desc: "Aprender inglés jugando",                  href: "my-day-ninos.html",    icon: "star" },
     { label: "Pre-inscripción",      desc: "Reserva tu cupo",                          href: "https://tally.so/r/2EQWlj", icon: "form", external: true },
+    { label: "For English speakers", desc: "Spanish for English speakers",             href: "spanish/index.html",   icon: "pen", flags: true },
     { label: "WhatsApp",             desc: "Pide información y precios",               href: "https://wa.me/kingsbridge.academy", icon: "chat", external: true, cta: true }
   ];
 
@@ -30,7 +30,7 @@
   var ITEMS_EN = [
     { label: "Home",                 desc: "Spanish for English speakers",             href: "spanish/index.html",          icon: "home" },
     { label: "Spanish Practice",     desc: "Interactive exercises, A1 to C1",           href: "spanish/practice/index.html", icon: "pen"  },
-    { label: "Kingsbridge Academy",  desc: "English classes in Leticia",                href: "index.html",                  icon: "star" },
+    { label: "Kingsbridge Academy",  desc: "English classes",                href: "index.html",                  icon: "star" },
     { label: "WhatsApp",             desc: "Ask us anything",                          href: "https://wa.me/kingsbridge.academy", icon: "chat", external: true, cta: true }
   ];
 
@@ -60,6 +60,8 @@
   var here = norm(location.pathname);
 
   function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;"); }
+  function ico(it) { return svg(it.icon); }
+  function fl(it) { return it.flags ? '<span class="kbfl" aria-hidden="true"><i class="uk"></i><i class="es"></i></span>' : ""; }
   function svg(n) { return '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICONS[n] || "") + "</svg>"; }
 
   /* ---------- estilos ---------- */
@@ -75,6 +77,10 @@
     '#kb-menu nav{margin-left:auto;display:none;align-items:center;gap:6px}' +
     '#kb-menu a.it{display:flex;align-items:center;gap:7px;color:#fff;text-decoration:none;font-size:14px;padding:8px 12px;border:1.5px solid transparent;border-radius:10px;white-space:nowrap}' +
     '#kb-menu a.it svg{color:#e2ba68;flex:none}' +
+    '#kb-menu .kbfl{display:inline-flex;gap:4px;flex:none;margin-left:9px;vertical-align:middle}' +
+    '#kb-menu .kbfl i{display:block;width:34px;height:23px;border-radius:3px;box-shadow:0 0 0 1px rgba(226,186,104,.55)}' +
+    '#kb-menu .kbfl .uk{background:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 60 40%22 preserveAspectRatio=%22none%22%3E%3Crect width=%2260%22 height=%2240%22 fill=%22%23012169%22/%3E%3Cpath d=%22M0 0L60 40M60 0L0 40%22 stroke=%22%23fff%22 stroke-width=%228%22/%3E%3Cpath d=%22M0 0L60 40M60 0L0 40%22 stroke=%22%23C8102E%22 stroke-width=%223%22/%3E%3Cpath d=%22M30 0V40M0 20H60%22 stroke=%22%23fff%22 stroke-width=%2213%22/%3E%3Cpath d=%22M30 0V40M0 20H60%22 stroke=%22%23C8102E%22 stroke-width=%227%22/%3E%3C/svg%3E") center/100% 100%}' +
+    '#kb-menu .kbfl .es{background:linear-gradient(180deg,#AA151B 0,#AA151B 25%,#F1BF00 25%,#F1BF00 75%,#AA151B 75%)}' +
     '#kb-menu a.it:hover,#kb-menu a.it:focus-visible{border-color:rgba(226,186,104,.6);outline:none}' +
     '#kb-menu a.it.on{border-color:#e2ba68;background:rgba(226,186,104,.14)}' +
     '#kb-menu a.it.cta{background:#25D366;color:#fff;border-color:#25D366;font-weight:600}' +
@@ -112,8 +118,8 @@
       var h = url(it.href), on = false;
       if (!/^https?:/i.test(it.href)) { try { on = norm(new URL(h, location.href).pathname) === here } catch (e) {} }
       var ext = it.external ? ' target="_blank" rel="noopener"' : "";
-      inline += '<a class="it' + (on ? " on" : "") + (it.cta ? " cta" : "") + '" href="' + esc(h) + '"' + ext + (on ? ' aria-current="page"' : "") + ">" + svg(it.icon) + "<span>" + esc(it.label) + "</span></a>";
-      panel += '<a class="' + (on ? "on " : "") + (it.cta ? "cta" : "") + '" href="' + esc(h) + '"' + ext + (on ? ' aria-current="page"' : "") + '><span class="ic">' + svg(it.icon) + '</span><span><b>' + esc(it.label) + '</b><span class="d">' + esc(it.desc || "") + "</span></span></a>";
+      inline += '<a class="it' + (on ? " on" : "") + (it.cta ? " cta" : "") + '" href="' + esc(h) + '"' + ext + (on ? ' aria-current="page"' : "") + ">" + ico(it) + "<span>" + esc(it.label) + fl(it) + "</span></a>";
+      panel += '<a class="' + (on ? "on " : "") + (it.cta ? "cta" : "") + '" href="' + esc(h) + '"' + ext + (on ? ' aria-current="page"' : "") + '><span class="ic">' + ico(it) + '</span><span><b>' + esc(it.label) + fl(it) + '</b><span class="d">' + esc(it.desc || "") + "</span></span></a>";
     });
     bar.innerHTML =
       '<div class="in">' + (OPT.brand === "off" || LOGO ? "" : '<a class="brand" href="' + esc(url(HOME)) + '">Kingsbridge<small>English Academy</small></a>') +
