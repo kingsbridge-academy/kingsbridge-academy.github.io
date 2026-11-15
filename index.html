@@ -66,7 +66,7 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
 .kb-sl-t{display:flex;transition:transform .7s cubic-bezier(.3,.8,.3,1)}
 .kb-sl-s{flex:0 0 100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:470px;padding:58px 72px 72px;position:relative}
 .kb-sl-s::before{content:attr(data-n);position:absolute;right:5%;bottom:-4%;font-family:var(--serif);font-size:clamp(9rem,28vw,17rem);line-height:1;color:rgba(226,186,104,.06);pointer-events:none}
-.kb-sl-s>*{position:relative}
+.kb-sl-s>*{position:relative}.kb-sl-s{min-width:0}
 .kb-sl .kb-eye{display:flex;align-items:center;gap:12px;justify-content:center}
 .kb-sl .kb-eye::before,.kb-sl .kb-eye::after{content:"";width:30px;height:1px;background:var(--gold)}
 .kb-sl h1,.kb-sl h2.kb-t{text-wrap:balance;font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,6.6vw,4.3rem);line-height:1.06;margin-top:16px;color:#fff;max-width:880px}
@@ -91,7 +91,19 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
 .kb-sl-d button.on{width:32px;border-radius:6px;background:var(--gold)}
 .kb-sl-bar{position:absolute;left:0;top:0;height:3px;width:0;background:var(--gold);z-index:3}
 .kb-sl-bar.run{transition:width linear;width:100%}
-@media(max-width:700px){.kb-sl .kb-eye::before,.kb-sl .kb-eye::after{display:none}.kb-sl-s{min-height:500px;padding:46px 22px 70px}.kb-sl-n{display:none}.kb-sl .btn{padding:13px 18px;font-size:11px}.kb-sl-lv i{font-size:.95rem;padding:5px 8px 3px}}
+.kb-cards{position:relative;width:calc(3*78px + 2*14px);max-width:100%;margin:0 auto 26px;overflow:hidden;padding:8px 0 10px}
+.kb-cards-t{display:flex;width:max-content;animation:kbCards 16s ease-in-out infinite}
+@keyframes kbCards{0%,18%{transform:translateX(0)}25%,43%{transform:translateX(-92px)}50%,68%{transform:translateX(-184px)}75%,93%{transform:translateX(-276px)}100%{transform:translateX(-368px)}}
+.kb-card{flex:none;width:78px;margin-right:14px;text-align:center;background:#fff;border:2.5px solid var(--c);border-radius:16px;padding:6px 5px 6px;box-shadow:0 8px 16px -8px rgba(0,0,0,.6)}
+.kb-card i{display:block;border-radius:11px;background:var(--b);padding:2px}
+.kb-card svg{display:block;width:100%;height:auto}
+.kb-card small{display:block;margin-top:5px;font:700 9px/1.1 Arial,Helvetica,sans-serif;color:#3b2a20;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media(prefers-reduced-motion:reduce){.kb-cards-t{animation:none}}
+@media(max-width:700px){.kb-sl .kb-eye::before,.kb-sl .kb-eye::after{display:none}.kb-sl-s{min-height:500px;padding:46px 22px 70px}.kb-sl-n{display:none}.kb-sl .btn{padding:13px 18px;font-size:11px}.kb-sl-s{min-height:540px;padding:40px 20px 62px;justify-content:center}.kb-sl h1,.kb-sl h2.kb-t{font-size:clamp(1.9rem,8.4vw,2.5rem);margin-top:12px}.kb-sl .kb-sub{margin-top:12px;font-size:1rem;line-height:1.5}.kb-sl .kb-cta{margin-top:20px}.kb-sl-lv{margin-top:16px;gap:8px}.kb-sl-lv i{flex:0 0 calc(33.333% - 6px);padding:8px 2px 7px;border-radius:28px 28px 6px 6px}.kb-sl-lv b{font-size:1.45rem}.kb-sl-lv b::after{margin:5px auto 4px}.kb-sl-lv span{font-size:8.5px;letter-spacing:.08em}.kb-sl-flags{margin-bottom:10px}.kb-sl-flags i{width:46px;height:31px}}
+/* kb-align: contenido centrado, misma altura */
+.kb-sl-s{justify-content:flex-start;padding-top:72px;padding-bottom:72px;min-height:600px}
+.kb-sl-s>.kb-cards{position:relative;left:auto;top:auto;transform:none;margin:0 auto 20px}
+@media(max-width:700px){.kb-sl-flags{margin-bottom:10px!important}.kb-sl-flags i{width:46px!important;height:31px!important}.kb-sl-s{padding-top:64px;padding-bottom:64px;min-height:540px}}
 @media(prefers-reduced-motion:reduce){.kb-sl-t{transition:none}}
 /* accesos rápidos bajo la portada */
 .kb-quick{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid var(--line);border-right:1px solid var(--line)}
@@ -229,6 +241,7 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
       <div class="kb-cta"><a class="btn btn-p" href="practica/index.html">Empezar a practicar</a></div>
     </div>
     <div class="kb-sl-s" data-n="III">
+      <div class="kb-cards" id="kbCards" aria-hidden="true"><div class="kb-cards-t" id="kbCardsT"></div></div>
       <div class="kb-eye">Nuevo · Niños de 3 a 5 años</div>
       <h2 class="kb-t">Tu hijo aprende inglés <em>jugando</em></h2>
       <p class="kb-sub">My Day Games: siete juegos con dibujos, voz en inglés y una canción.</p>
@@ -238,8 +251,8 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
       <span class="kb-sl-flags" aria-hidden="true"><i class="uk"></i><i class="es"></i></span>
       <div class="kb-eye">New · Spanish Practice</div>
       <h2 class="kb-t">Learn Spanish <em>the Kingsbridge way.</em></h2>
-      <p class="kb-sub">Interactive Spanish practice for English speakers: exercises with audio, instant explanations and exam mode.</p>
-      <div class="kb-sl-lv" aria-label="Levels A1 to C1"><i style="--c:#2f9e44"><b>A1</b><span>Beginner</span></i><i style="--c:#22b5c9"><b>A2</b><span>Elementary</span></i><i style="--c:#3b82f6"><b>B1</b><span>Intermediate</span></i><i style="--c:#d6455d"><b>B2</b><span>Upper intermediate</span></i><i style="--c:#a678f0"><b>C1</b><span>Advanced</span></i></div>
+      <p class="kb-sub">Interactive Spanish practice for English speakers, with audio and exam mode.</p>
+      <div class="kb-sl-lv" aria-label="Levels A1 to C1"><i style="--c:#2f9e44"><b>A1</b><span>Beginner</span></i><i style="--c:#22b5c9"><b>A2</b><span>Elementary</span></i><i style="--c:#3b82f6"><b>B1</b><span>Intermediate</span></i><i style="--c:#d6455d"><b>B2</b><span>Upper int.</span></i><i style="--c:#a678f0"><b>C1</b><span>Advanced</span></i></div>
       <div class="kb-cta"><a class="btn btn-p" href="spanish/index.html">Start practising Spanish</a></div>
     </div>
   </div>
@@ -419,6 +432,16 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
 </section>
 
 <script src="my-day-art.js"></script>
+<script>
+(function(){
+var A=window.MyDayArt,t=document.getElementById('kbCardsT');
+if(!A||!t)return;
+var h='',k,n;
+function card(it){return '<span class="kb-card" style="--c:'+it.color+';--b:'+it.bg+'"><i>'+A.pic(it)+'</i><small>'+it.text+'</small></span>'}
+var pick=[0,2,4,7];for(n=0;n<2;n++)for(k=0;k<pick.length;k++)h+=card(A.ITEMS[pick[k]]);
+t.innerHTML=h;
+})();
+</script>
 <script>
 (function(){
 "use strict";
