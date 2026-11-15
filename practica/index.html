@@ -195,14 +195,14 @@ footer{margin:28px 0;color:#8e8ab5;font-size:12px;text-align:center}
 <nav id="nav" class="nav" aria-label="Menú de la práctica"></nav>
 <div class="wrap">
 <div id="app"></div>
-<footer>KINGSBRIDGE ENGLISH ACADEMY · Leticia, Amazonas<span style="display:block;margin-top:6px;font-size:11px;opacity:.8">Práctica inspirada en el formato de los exámenes Cambridge English. Esta página no está afiliada a Cambridge University Press &amp; Assessment.</span></footer>
+<footer>KINGSBRIDGE ENGLISH ACADEMY · Leticia, Amazonas<span style="display:block;margin-top:6px;font-size:11px;opacity:.8">Material de práctica independiente de Kingsbridge English Academy.</span></footer>
 </div>
 <script src="preguntas.js"></script>
 <script>
 (function(){
 "use strict";
 var Q=window.KB_PREGUNTAS||[],CFG=window.KB_CONFIG||{};
-var LEVELS=[["A1","Principiante","Movers"],["A2","Básico","Key"],["B1","Intermedio","Preliminary"],["B2","Intermedio alto","First"],["C1","Avanzado","Advanced"]];
+var LEVELS=[["A1","Principiante","MCER A1"],["A2","Básico","MCER A2"],["B1","Intermedio","MCER B1"],["B2","Intermedio alto","MCER B2"],["C1","Avanzado","MCER C1"]];
 var RANKS=[[0,"Freshman","🎒"],[100,"Scholar","📖"],[300,"Graduate","🎓"],[600,"Master","🏛️"],[1000,"Fellow","🏆"]];
 var GAPS=[0,1,3,7,14],ROMAN=["I","II","III","IV","V"];
 var KEY="kb.practica.v1",mem=null;
@@ -238,7 +238,7 @@ function audioBar(q,fin){if(!synth)return"";return'<div class="aud"><button data
 function home(){
  navR();
  var s=stu(),n=DB.nivel,lv=byLevel(n),due=dueItems(s,n).length;
- var h='<h1>Práctica interactiva</h1>'+((V.expand||!DB.picked)?'<p class="lead">Práctica al estilo de los exámenes Cambridge: Cloze, Word formation y Key word transformation, con audio y repaso inteligente.</p>':"")+'<hr class="gold">';
+ var h='<h1>Práctica interactiva</h1>'+((V.expand||!DB.picked)?'<p class="lead">Práctica con formato de examen: Cloze, Word formation y Key word transformation, con audio y repaso inteligente.</p>':"")+'<hr class="gold">';
  if(V.pending){h+='<div class="card" id="nmc"><label for="nm">Tu apodo</label><input type="text" id="nm" maxlength="40" autocomplete="off" placeholder="Escribe tu apodo" value=""><div class="err" id="er">'+esc(V.msg)+'</div><button class="btn gold" data-act="setname" style="margin:12px 0 0">Continuar</button></div>'}
  if(s){var rk=rank(s.xp),pct=rk.next?Math.round((s.xp-rk.r[0])/(rk.next[0]-rk.r[0])*100):100;
   h+='<div class="card"><div class="rank"><div class="ic">'+rk.r[2]+'</div><div style="flex:1"><b>'+esc(DB.last)+' · '+rk.r[1]+'</b><span>'+s.xp+' puntos'+(rk.next?' · próximo rango: '+rk.next[1]+' ('+rk.next[0]+')':' · rango máximo')+(s.streak>1?' · 🔥 '+s.streak+' días seguidos':"")+'</span><div class="xpbar"><i style="width:'+pct+'%"></i></div></div></div></div>'}
@@ -249,7 +249,7 @@ function home(){
   h+='</div></div>';
  }else{
   var cur=LEVELS.filter(function(l){return l[0]===n})[0]||LEVELS[0];
-  h+='<div class="card cur lv-'+n+'"><div class="cur-b">'+n+'</div><div class="cur-t"><span>Nivel seleccionado</span><b>'+cur[1]+'</b><em>Cambridge '+cur[2]+'</em></div><button class="cur-c" data-act="cambiar">Cambiar nivel</button></div>';
+  h+='<div class="card cur lv-'+n+'"><div class="cur-b">'+n+'</div><div class="cur-t"><span>Nivel seleccionado</span><b>'+cur[1]+'</b><em>'+cur[2]+'</em></div><button class="cur-c" data-act="cambiar">Cambiar nivel</button></div>';
  }
  var ICO={p:'<path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 013 3L8 19l-4 1z"/><path d="M14.5 6.5l3 3"/>',r:'<path d="M20 12a8 8 0 11-2.4-5.7"/><path d="M20 4v4h-4"/>',e:'<circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/>'};
  function act(cls,act,ico,k,t,sub,dis,badge,fill){return '<button class="act '+cls+(fill?" fill":"")+'" data-act="'+act+'"'+(dis?" disabled":"")+'>'+(badge?'<span class="act-b">'+badge+'</span>':"")+'<span class="act-med"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ICO[ico]+'</svg></span><span class="act-tx"><span class="act-k">'+k+'</span><span class="act-t">'+t+'</span><span class="act-r"></span><span class="act-s">'+sub+'</span></span><span class="act-go" aria-hidden="true">›</span></button>'}
@@ -382,7 +382,7 @@ function exRes(){
 function navR(){
  var nv=document.getElementById("nav"),sc=V.screen,n=DB.nivel,cur=LEVELS.filter(function(l){return l[0]===n})[0]||LEVELS[0];
  var h='<div class="nav-in"><button class="nv'+(sc==="home"&&!V.expand?" on":"")+'" data-act="navhome"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span>Inicio</span></button>';
- if(DB.picked)h+='<button class="nv lv-'+n+(sc==="home"&&V.expand?" on":"")+'" data-act="navlevel" title="Cambiar nivel"><span class="nv-b">'+n+'</span><span class="nv-t"><b>Cambiar nivel</b><small>Cambridge '+cur[2]+'</small></span></button>';
+ if(DB.picked)h+='<button class="nv lv-'+n+(sc==="home"&&V.expand?" on":"")+'" data-act="navlevel" title="Cambiar nivel"><span class="nv-b">'+n+'</span><span class="nv-t"><b>Cambiar nivel</b><small>'+cur[2]+'</small></span></button>';
  var chip="";
  if(sc==="practice"){var S=V.s;chip=S.i>=S.items.length?"Resumen":"Practicar · "+(S.i+1)+"/"+S.items.length}
  else if(sc==="exam"){chip='Examen · '+(V.s.i+1)+"/"+V.s.items.length+' · <span class="timer" id="tm">'+fmt(V.s.end-Date.now())+'</span>'}
