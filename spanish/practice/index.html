@@ -254,7 +254,7 @@ footer.kb-pie{margin:0;background:#0b1024;color:#a09ac0;text-align:center;font-s
 .kb-hero-k{display:inline-block;font:700 11px/1 system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#1a1405;background:linear-gradient(135deg,#f3d58a,#d9a93f);border-radius:999px;padding:6px 12px}
 .kb-hero h2{font-family:"KB Lora",Georgia,serif;font-weight:400;color:#fff;font-size:clamp(2rem,9vw,2.7rem);line-height:1.08;margin:14px 0 0}
 .kb-hero h2 em{display:block;color:#f3d58a;font-style:italic}
-.kb-hero p{color:#d9dbf2;font-size:15px;line-height:1.55;margin:12px auto 0;max-width:320px}
+.kb-hero p{color:#d9dbf2;font-size:15px;line-height:1.55;margin:12px auto 0;max-width:340px}
 </style>
 <style id="kb-lvfont">.lv-c,.cur-b,.kb-sl-lv b,.kb-lv b{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;font-weight:600!important;letter-spacing:.03em;font-variant-numeric:lining-nums}</style>
 <style id="kb-nojump">html,body{overflow-x:clip}.sp-sl{contain:paint}.sp-t,.sp-s{max-width:100%}</style>
@@ -293,7 +293,7 @@ footer.kb-pie{margin:0;background:#0b1024;color:#a09ac0;text-align:center;font-s
   <div class="kb-cp">&copy; 2026 Kingsbridge English Academy</div>
   <p class="kb-dis" style="max-width:330px;margin:12px auto 0">Levels follow the Common European Framework of Reference for Languages (CEFR), A1 to C1. Independent practice material by Kingsbridge English Academy; not an official exam.</p>
 </footer>
-<script src="access.js?v=20261115f"></script>
+<script src="access.js?v=20261115g"></script>
 <script>
 (function(){
 var root=document.getElementById("spsl");if(!root)return;
@@ -364,7 +364,7 @@ function home(){
  if(V.pending){h+='<div class="card" id="nmc"><label for="nm">Your nickname</label><input type="text" id="nm" maxlength="40" autocomplete="off" placeholder="Type your nickname" value=""><div class="err" id="er">'+esc(V.msg)+'</div><button class="btn gold" data-act="setname" style="margin:12px 0 0">Continue</button></div>'}
  if(s){var rk=rank(s.xp),pct=rk.next?Math.round((s.xp-rk.r[0])/(rk.next[0]-rk.r[0])*100):100;
   h+='<div class="card"><div class="rank"><div class="ic">'+rk.r[2]+'</div><div style="flex:1"><b>'+esc(DB.last)+' · '+rk.r[1]+'</b><span>'+s.xp+' points'+(rk.next?' · next rank: '+rk.next[1]+' ('+rk.next[0]+')':' · top rank')+(s.streak>1?' · 🔥 '+s.streak+' day streak':"")+'</span><div class="xpbar"><i style="width:'+pct+'%"></i></div></div></div></div>'}
-if(window.KB_TRIAL){var TLf=window.KB_TRIAL.left(),TM=window.KB_TRIAL.max;h='<div class="kb-hero"><span class="kb-hero-k">Free trial</span><h2>'+(TLf>=TM?'Try your first <em>'+TM+' questions free</em>':TLf>0?'<em>'+TLf+' free '+(TLf===1?'question':'questions')+'</em> left':'Your free trial is <em>complete</em>')+'</h2><p>'+(TLf>=TM?'Level A1, on us. No sign-up needed. Choose <b>Practise</b> below to begin.':TLf>0?'Keep going! Every answer comes with a clear explanation.':'Enter your access code to keep practising.')+'</p></div>'+h.replace(/^<h1>[\s\S]*?<hr class="gold">/,'<hr class="gold">')}
+if(window.KB_TRIAL){var TLf=window.KB_TRIAL.left(),TM=window.KB_TRIAL.max;h='<div class="kb-hero"><span class="kb-hero-k">Free trial'+(TLf>=TM?' · '+TM+' questions':'')+'</span><h2>'+(TLf>=TM?'Spanish Practice':TLf>0?'<em>'+TLf+' free '+(TLf===1?'question':'questions')+'</em> left':'Your free trial is <em>complete</em>')+'</h2><p>'+(TLf>=TM?'<b style="color:#f3d58a;font-weight:600">¡Hola!</b> Ready to speak Spanish with confidence? Choose your level, practise a few minutes a day, and every answer comes with a clear explanation in English. You will be surprised how quickly it starts to click.':TLf>0?'Keep going! Every answer comes with a clear explanation.':'Enter your access code to keep practising.')+'</p></div>'+h.replace(/^<h1>[\s\S]*?<hr class="gold">/,'<hr class="gold">')}
  if(V.expand||!DB.picked){
  h+='<div class="card"><h2>Choose your level</h2><div class="lvls" role="group" aria-label="Nivel">';
   LEVELS.forEach(function(l,i){var code=l[0],on=code===n,m=mastery(s,code);
