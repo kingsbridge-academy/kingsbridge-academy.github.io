@@ -654,7 +654,7 @@ els.forEach(function(e){io.observe(e)});})();
 <script src="menu.js" data-brand="off" data-after="#kbtop" defer></script>
 <script>
 (function(){
-function mk(c){var a=document.createElement('a');a.className='kb-new '+c;a.href='spanish/index.html';a.setAttribute('lang','en');a.innerHTML='<b>New</b><i class="kb-new-es"></i><span>Learn Spanish</span>';return a}
+function mk(c){var a=document.createElement('a');a.className='kb-new '+c;a.href='spanish/practice/index.html';a.setAttribute('lang','en');a.innerHTML='<b>New</b><i class="kb-new-es"></i><span>Learn Spanish</span>';return a}
 var strip=document.createElement('div');strip.className='kb-new-strip';strip.appendChild(mk(''));
 var sl=document.querySelector('.kb-sl');if(sl)sl.parentNode.insertBefore(strip,sl);
 function bar(){var i=document.querySelector('#kb-menu .in');if(!i||i.querySelector('.kb-new-bar'))return !!i;i.insertBefore(mk('kb-new-bar'),i.firstChild);return true}
