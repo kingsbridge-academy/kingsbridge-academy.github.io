@@ -134,6 +134,7 @@
       if (OPT.menu === "off") head.className = "nomenu"; else head.appendChild(bar);
       top = head;
     }
+    if (!window.__kbLogoFit) { var lf = document.createElement("script"); lf.src = url("logo-fit.js?v=1"); lf.defer = true; document.head.appendChild(lf); }
     var anchor = OPT.after ? document.querySelector(OPT.after) : null;
     if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(top, anchor.nextSibling);
     else document.body.insertBefore(top, document.body.firstChild);
