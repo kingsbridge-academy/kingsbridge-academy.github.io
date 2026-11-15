@@ -169,22 +169,6 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
 .kb-faq details[open] summary::after{content:"\2212"}
 .kb-faq p{margin-top:10px;color:var(--mute);font-size:14.5px;line-height:1.65}
 /* fotos */
-.kbs{position:relative;max-width:1100px;margin:64px 12px 0;border-radius:6px;overflow:hidden;background:#0d1226;border:1.5px solid var(--gold);aspect-ratio:16/9;touch-action:pan-y}
-@media(min-width:1124px){.kbs{margin-left:auto;margin-right:auto}}
-.kbs *{box-sizing:border-box}
-.kbs-t{display:flex;height:100%;transition:transform .6s ease}
-.kbs-s{flex:0 0 100%;height:100%;display:flex;flex-direction:column;justify-content:flex-end;background:#0d1226}
-.kbs-s img{display:block;flex:1;min-height:0;width:100%;object-fit:cover}
-.kbs-c{flex:none;background:#0d1226;color:#fff;padding:.85rem 1.5rem 2.4rem;border-top:1px solid var(--line)}
-.kbs-h{font-family:var(--serif);font-size:clamp(1.1rem,3vw,1.7rem);line-height:1.15;color:var(--gold)}
-.kbs-p{margin-top:.25rem;font-family:var(--serif);font-style:italic;font-size:clamp(.85rem,1.8vw,1.05rem);color:var(--txt)}
-.kbs-n{position:absolute;top:40%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1.5px solid var(--gold);background:rgba(8,11,25,.85);color:var(--gold);font-size:28px;line-height:1;cursor:pointer;padding:0 0 4px}
-.kbs-n:hover{background:var(--gold);color:var(--bg)}
-.kbs-a{left:10px}.kbs-b{right:10px}
-.kbs-d{position:absolute;left:0;right:0;bottom:.9rem;display:flex;justify-content:center;gap:.5rem}
-.kbs-d button{width:12px;height:12px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.35);cursor:pointer}
-.kbs-d button.on{width:34px;border-radius:6px;background:var(--gold)}
-@media(max-width:600px){.kbs{aspect-ratio:4/3}.kbs-n{width:36px;height:36px}}
 /* cierre */
 .kb-li{width:calc(100% - 32px);max-width:640px;margin:56px auto 0;padding:26px 22px;border:1px solid rgba(255,255,255,.16);border-radius:18px;background:linear-gradient(135deg,#0a1230,#0e2250);display:grid;grid-template-columns:1fr;gap:22px;align-items:center;text-align:center;font-family:Arial,Helvetica,sans-serif;box-shadow:0 18px 34px -22px rgba(0,0,0,.9)}
 .kb-li-l{display:flex;align-items:center;justify-content:center;gap:22px}
@@ -523,34 +507,6 @@ go(0);
 <!-- ===== FIN CARRUSEL MY DAY GAMES ===== -->
 </div>
 
-<div class="rv">
-<section class="kbs" aria-label="Fotografías de la academia">
-  <div class="kbs-t">
-    <div class="kbs-s"><img src="foto1.jpg" alt="Estudiantes practicando inglés" onerror="this.remove()"><div class="kbs-c"><div class="kbs-h">Habla con confianza</div><div class="kbs-p">Clases en grupos pequeños</div></div></div>
-    <div class="kbs-s"><img src="foto2.jpg" alt="Profesor en clase" onerror="this.remove()"><div class="kbs-c"><div class="kbs-h">Un profesor que te escucha</div><div class="kbs-p">Atención personalizada en cada clase</div></div></div>
-    <div class="kbs-s"><img src="foto3.jpg" alt="Actividad de conversación" onerror="this.remove()"><div class="kbs-c"><div class="kbs-h">Practica de verdad</div><div class="kbs-p">Conversación desde el primer día</div></div></div>
-    <div class="kbs-s"><img src="foto4.jpg" alt="Grupo de estudiantes" onerror="this.remove()"><div class="kbs-c"><div class="kbs-h">Una comunidad que te impulsa</div><div class="kbs-p">Kingsbridge English Academy</div></div></div>
-  </div>
-  <button class="kbs-n kbs-a" aria-label="Anterior">&#8249;</button>
-  <button class="kbs-n kbs-b" aria-label="Siguiente">&#8250;</button>
-  <div class="kbs-d"></div>
-</section>
-</div>
-<script>
-(function(){
-var r=document.querySelector('.kbs'),t=r.querySelector('.kbs-t'),n=t.children.length,i=0,tm,db=r.querySelector('.kbs-d'),ds=[];
-for(var k=0;k<n;k++){(function(k){var b=document.createElement('button');b.setAttribute('aria-label','Foto '+(k+1));b.onclick=function(){go(k);rs()};db.appendChild(b);ds.push(b)})(k)}
-function go(x){i=(x+n)%n;t.style.transform='translateX(-'+i*100+'%)';ds.forEach(function(d,j){d.className=j===i?'on':''})}
-function st(){tm=setInterval(function(){go(i+1)},5000)}
-function rs(){clearInterval(tm);st()}
-r.querySelector('.kbs-a').onclick=function(){go(i-1);rs()};
-r.querySelector('.kbs-b').onclick=function(){go(i+1);rs()};
-var sx=null;
-r.addEventListener('pointerdown',function(e){sx=e.clientX});
-r.addEventListener('pointerup',function(e){if(sx===null)return;var d=e.clientX-sx;if(Math.abs(d)>50){go(d<0?i+1:i-1);rs()}sx=null});
-go(0);st();
-})();
-</script>
 
 <section class="kb-sec kb-w rv" id="preguntas" aria-labelledby="kb-f">
   <div class="kb-eye">Resolvemos tus dudas</div>
