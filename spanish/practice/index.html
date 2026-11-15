@@ -380,7 +380,7 @@ function pracEnd(){
  var h='<h1>Session complete</h1><div class="card"><div class="score">'+S.first+' / '+S.total+'</div><p class="center mute">correct on the first try</p><hr class="gold"><p class="center"><span class="xp">+'+S.xp+' points</span> · '+rk.r[2]+' '+rk.r[1]+' ('+s.xp+' points)'+(s.streak>1?' · 🔥 '+s.streak+' day streak':"")+'</p>';
  if(S.rev.length){h+='<h2 style="margin-top:16px">To review</h2><ul class="rv">';S.rev.forEach(function(q){h+='<li><b>'+esc(q.tema)+'</b><br>'+esc(sentence(q))+'<br><span class="mute">'+esc(q.tip)+'</span></li>'});h+='</ul>'}
  else h+='<p class="center" style="margin-top:12px">No mistakes. Excellent work.</p>';
- h+='</div><button class="btn gold" data-act="practice">Keep practising</button><button class="btn ghost" data-act="home">Home</button>';
+ h+='</div><button class="btn gold" data-act="practice">Keep practising</button><button class="btn ghost" data-act="home">Back to levels</button>';
  return h;
 }
 
@@ -428,7 +428,7 @@ function exRes(){
  r.res.forEach(function(x,i){
   var ca=x.q.c.map(function(k){return x.q.o[k]}).join(" / "),ua=x.a.map(function(k){return x.q.o[k]}).join(" / ")||"no answer";
   h+='<li><b class="'+(x.ok?"y":"n")+'">'+(x.ok?"✓ ":"✕ ")+(i+1)+'. '+esc(x.q.tema)+'</b><br>'+esc(x.q.q).replace(/\n/g,'<br>')+'<br>'+(x.ok?'':'Your answer: '+esc(ua)+'<br>')+'Correct: '+esc(ca)+'<br><span class="mute">'+esc(x.q.e)+'</span></li>'});
- h+='</ul></div><button class="btn gold" data-act="exam">Retake exam</button><button class="btn ghost" data-act="home">Home</button>';
+ h+='</ul></div><button class="btn gold" data-act="exam">Retake exam</button><button class="btn ghost" data-act="home">Back to levels</button>';
  return h;
 }
 
@@ -448,6 +448,7 @@ function navR(){
 }
 function leave(target){
  if(timer)clearInterval(timer);
+ if(target==="home"){window.location.href="../index.html";return}
  V.screen="home";V.expand=(target==="level");V.confirm=null;render();
  if(target==="level"){var l=document.querySelector(".lvls");if(l)l.scrollIntoView({block:"center"})}
 }
