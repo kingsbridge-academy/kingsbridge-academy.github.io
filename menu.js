@@ -20,6 +20,7 @@
     { label: "Inicio",               desc: "Página principal de la academia",         href: "index.html",           icon: "home" },
     { label: "Sobre nosotros",       desc: "Quiénes somos y cómo enseñamos",           href: "sobre-nosotros.html",  icon: "info" },
     { label: "Práctica interactiva", desc: "Ejercicios al estilo Cambridge",           href: "practica/index.html",  icon: "pen"  },
+    { label: "Spanish Practice",     desc: "Spanish for English speakers",             href: "spanish/index.html",   icon: "pen"  },
     { label: "My Day",               desc: "Aprender inglés jugando",                  href: "my-day-ninos.html",    icon: "star" },
     { label: "Pre-inscripción",      desc: "Reserva tu cupo",                          href: "https://tally.so/r/2EQWlj", icon: "form", external: true },
     { label: "WhatsApp",             desc: "Pide información y precios",               href: "https://wa.me/kingsbridge.academy", icon: "chat", external: true, cta: true }
