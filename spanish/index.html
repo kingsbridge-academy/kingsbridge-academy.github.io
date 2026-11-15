@@ -188,6 +188,22 @@ ul.rv .n{color:#ff8a8a}
 .cf.y{background:var(--bad);border-color:var(--bad)}
 .lvls{scroll-margin-top:calc(var(--kb-menu-h,0px) + 70px)}
 @media(max-width:380px){.nv-t small{display:none}.nv{padding:6px 9px}}
+.sp-sl{position:relative;overflow:hidden;touch-action:pan-y;background:#AA151B}
+.sp-t{display:flex;transition:transform .7s cubic-bezier(.3,.8,.3,1)}
+.sp-s{flex:0 0 100%;min-height:232px;display:flex;align-items:center;justify-content:center;padding:24px 16px 40px;background:linear-gradient(180deg,#AA151B 0,#AA151B 25%,#F1BF00 25%,#F1BF00 75%,#AA151B 75%,#AA151B 100%)}
+.sp-card{width:min(88%,560px);text-align:center;padding:18px 18px 16px;background:#0b1024;border:1px solid rgba(226,186,104,.7);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.sp-en{display:block;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#a09ac0}
+.sp-es{display:block;font-family:"KB Lora",Georgia,serif;font-weight:400;font-style:italic;font-size:clamp(1.7rem,6.4vw,2.7rem);line-height:1.15;color:#e2ba68;margin:6px 0 4px}
+.sp-pr{display:block;font-size:13px;color:#d8d4ee}
+.sp-n{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:1.5px solid #e2ba68;background:rgba(8,11,25,.78);color:#e2ba68;font-size:26px;line-height:1;cursor:pointer;padding:0 0 3px;z-index:3}
+.sp-a{left:10px}.sp-b{right:10px}
+.sp-d{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:8px;z-index:3}
+.sp-d button{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.55);cursor:pointer}
+.sp-d button.on{width:26px;border-radius:5px;background:#080b19}
+.sp-bar{position:absolute;left:0;top:0;height:3px;width:0;background:#080b19;z-index:3}
+.sp-bar.run{transition:width linear;width:100%}
+@media(max-width:520px){.sp-n{display:none}}
+@media(prefers-reduced-motion:reduce){.sp-t{transition:none}}
 footer{margin:28px 0;color:#8e8ab5;font-size:12px;text-align:center}
 footer.kb-pie{margin:0;background:#0b1024;color:#a09ac0;text-align:center;font-size:14px;line-height:1.8;padding:34px 16px 36px;border-top:2px solid #e2ba68}
 .kb-pie .kb-seal{display:block;font-family:"KB Lora",Georgia,serif;font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:#e2ba68;margin-bottom:4px}
@@ -198,6 +214,13 @@ footer.kb-pie{margin:0;background:#0b1024;color:#a09ac0;text-align:center;font-s
 </head>
 <body>
 <nav id="nav" class="nav" aria-label="Practice menu"></nav>
+<section class="sp-sl" id="spsl" aria-roledescription="carousel" aria-label="Useful Spanish phrases">
+<div class="sp-bar" id="spBar"></div>
+<div class="sp-t" id="spT"><div class="sp-s" aria-hidden="false"><div class="sp-card"><span class="sp-en">Hello</span><b class="sp-es" lang="es">Hola</b><span class="sp-pr">OH-lah</span></div></div><div class="sp-s" aria-hidden="true"><div class="sp-card"><span class="sp-en">Good morning</span><b class="sp-es" lang="es">Buenos días</b><span class="sp-pr">BWEH-nohs DEE-ahs</span></div></div><div class="sp-s" aria-hidden="true"><div class="sp-card"><span class="sp-en">Thank you very much</span><b class="sp-es" lang="es">Muchas gracias</b><span class="sp-pr">MOO-chahs GRAH-see-ahs</span></div></div><div class="sp-s" aria-hidden="true"><div class="sp-card"><span class="sp-en">How are you?</span><b class="sp-es" lang="es">¿Cómo estás?</b><span class="sp-pr">KOH-moh ehs-TAHS</span></div></div><div class="sp-s" aria-hidden="true"><div class="sp-card"><span class="sp-en">Nice to meet you</span><b class="sp-es" lang="es">Mucho gusto</b><span class="sp-pr">MOO-choh GOOS-toh</span></div></div><div class="sp-s" aria-hidden="true"><div class="sp-card"><span class="sp-en">Where is the bathroom?</span><b class="sp-es" lang="es">¿Dónde está el baño?</b><span class="sp-pr">DOHN-deh ehs-TAH ehl BAH-nyoh</span></div></div></div>
+<button class="sp-n sp-a" type="button" aria-label="Previous">&#8249;</button>
+<button class="sp-n sp-b" type="button" aria-label="Next">&#8250;</button>
+<div class="sp-d" id="spD"></div>
+</section>
 <div class="wrap">
 <div id="app"></div>
 
@@ -210,6 +233,25 @@ footer.kb-pie{margin:0;background:#0b1024;color:#a09ac0;text-align:center;font-s
   <p class="kb-dis">Spanish practice organised by CEFR levels (A1–C1). This page is not affiliated with Instituto Cervantes.</p>
 </footer>
 <script src="preguntas.js"></script>
+<script>
+(function(){
+var root=document.getElementById("spsl");if(!root)return;
+var T=document.getElementById("spT"),D=document.getElementById("spD"),BAR=document.getElementById("spBar"),n=T.children.length,i=0,tm=null,hold=false,seen=true,dots=[],TIME=5000;
+var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+for(var k=0;k<n;k++){(function(k){var b=document.createElement("button");b.type="button";b.setAttribute("aria-label","Phrase "+(k+1));b.onclick=function(){go(k)};D.appendChild(b);dots.push(b)})(k)}
+function go(x){i=(x+n)%n;T.style.transform="translateX(-"+i*100+"%)";dots.forEach(function(d,j){d.className=j===i?"on":""});[].forEach.call(T.children,function(s,j){s.setAttribute("aria-hidden",j===i?"false":"true")});play()}
+function play(){clearTimeout(tm);BAR.className="sp-bar";BAR.style.transitionDuration="0ms";void BAR.offsetWidth;if(hold||!seen||reduce||document.hidden)return;BAR.style.transitionDuration=TIME+"ms";BAR.className="sp-bar run";tm=setTimeout(function(){go(i+1)},TIME)}
+root.querySelector(".sp-a").onclick=function(){go(i-1)};root.querySelector(".sp-b").onclick=function(){go(i+1)};
+root.addEventListener("mouseenter",function(){hold=true;play()});root.addEventListener("mouseleave",function(){hold=false;play()});
+var sx=null;root.addEventListener("pointerdown",function(e){sx=e.clientX});
+root.addEventListener("pointerup",function(e){if(sx===null)return;var d=e.clientX-sx;sx=null;if(Math.abs(d)>50)go(d<0?i+1:i-1)});
+root.addEventListener("pointercancel",function(){sx=null});
+document.addEventListener("visibilitychange",play);
+if("IntersectionObserver" in window){new IntersectionObserver(function(en){seen=en[0].isIntersecting;play()},{threshold:.3}).observe(root)}
+window.kbSl=function(on){root.style.display=on?"":"none"};
+go(0);
+})();
+</script>
 <script>
 (function(){
 "use strict";
@@ -410,7 +452,7 @@ function leave(target){
  if(target==="level"){var l=document.querySelector(".lvls");if(l)l.scrollIntoView({block:"center"})}
 }
 function render(){
- navR();
+ navR();if(window.kbSl)window.kbSl(V.screen==="home");
  if(V.screen==="home")home();
  else if(V.screen==="practice")app.innerHTML=V.s.i>=V.s.items.length?pracEnd():pracQ();
  else if(V.screen==="exam")app.innerHTML=examQ();
