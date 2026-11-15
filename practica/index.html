@@ -190,8 +190,40 @@ ul.rv .n{color:#ff8a8a}
 @media(max-width:380px){.nv-t small{display:none}.nv{padding:6px 9px}}
 footer{margin:28px 0;color:#8e8ab5;font-size:12px;text-align:center}
 </style>
-<style id="kb-nojump">html,body{overflow-x:clip}.sp-sl{contain:paint}.sp-t,.sp-s{max-width:100%}</style>
 <style id="kb-lvfont">.lv-c,.cur-b,.kb-sl-lv b,.kb-lv b{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;font-weight:600!important;letter-spacing:.03em;font-variant-numeric:lining-nums}</style>
+<style id="kb-trial">
+.lv.lock{opacity:1;filter:none}
+.lv.lock .lv-c,.lv.lock .lv-r,.lv.lock .lv-d,.lv.lock .lv-x{opacity:.8}
+.lv.lock .lv-p{display:inline-flex;align-items:center;justify-content:center;gap:5px;color:#f3d58a;font-weight:700;letter-spacing:.06em}
+.lv.lock .pad{filter:drop-shadow(0 0 4px rgba(226,186,104,.6))}
+.kb-tri{border:1.5px solid #e2ba68!important;background:linear-gradient(180deg,rgba(226,186,104,.18),rgba(226,186,104,.05))!important;box-shadow:0 0 18px rgba(226,186,104,.25)}
+.kb-tri h2{display:flex;align-items:center;gap:8px;color:#f3d58a!important}
+.kb-tri h2:before{content:"\2605";color:#e2ba68}
+.kb-tri p{color:#fff!important;font-size:15.5px!important}
+</style>
+<style id="kb-hero">
+.kb-hero{text-align:center;margin:6px 0 20px;padding:26px 18px 24px;border:1.5px solid #e2ba68;border-radius:18px;background:radial-gradient(ellipse at 50% 0,rgba(226,186,104,.28),rgba(226,186,104,.04) 70%);box-shadow:0 0 26px rgba(226,186,104,.28)}
+.kb-hero-k{display:inline-block;font:700 11px/1 system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#1a1405;background:linear-gradient(135deg,#f3d58a,#d9a93f);border-radius:999px;padding:6px 12px}
+.kb-hero h2{font-family:"KB Lora",Georgia,serif;font-weight:400;color:#fff;font-size:clamp(2rem,9vw,2.7rem);line-height:1.08;margin:14px 0 0}
+.kb-hero h2 em{display:block;color:#f3d58a;font-style:italic}
+.kb-hero p{color:#d9dbf2;font-size:15px;line-height:1.55;margin:12px auto 0;max-width:320px}
+</style>
+<style id="kb-gate">
+.gate{max-width:440px;margin:0 auto;padding:56px 20px 70px;text-align:center}
+.gate-k{display:block;font:600 11px "KB Lora",Georgia,serif;letter-spacing:.3em;text-transform:uppercase;color:#e2ba68}
+.gate h1{font-family:"KB Lora",Georgia,serif;font-weight:400;font-size:clamp(1.8rem,6vw,2.4rem);color:#fff;margin:12px 0 14px;line-height:1.2}
+.gate h1 em{color:#e2ba68}
+.gate p{color:#c9c4e2;line-height:1.7;font-size:15px}
+.gate form{margin:26px 0 8px;display:flex;flex-direction:column;gap:12px}
+.gate input{font:600 20px "KB Lora",Georgia,serif;letter-spacing:.18em;text-align:center;text-transform:uppercase;padding:15px;background:#0c1020;color:#fff;border:1.5px solid rgba(226,186,104,.5);border-radius:3px}
+.gate input:focus{outline:2px solid #e2ba68;outline-offset:2px}
+.gate-b{font:600 13px "KB Lora",Georgia,serif;letter-spacing:.2em;text-transform:uppercase;padding:16px;background:#e2ba68;color:#12172f;border:0;border-radius:3px;cursor:pointer}
+.gate-e{min-height:22px;color:#ff9b9b!important;font-size:14px!important}
+.gate-l{margin-top:18px;font-size:13.5px!important}
+.gate-l a{color:#e2ba68}
+.lv.lock{opacity:1;filter:none}
+</style>
+<style id="kb-nojump">html,body{overflow-x:clip}.sp-sl{contain:paint}.sp-t,.sp-s{max-width:100%}</style>
 </head>
 <body>
 <nav id="nav" class="nav" aria-label="Menú de la práctica"></nav>
@@ -220,8 +252,8 @@ footer{margin:28px 0;color:#8e8ab5;font-size:12px;text-align:center}
   <div class="kb-cp">&copy; 2026 Kingsbridge English Academy</div>
   <p style="max-width:330px;margin:12px auto 0;font-size:11px;line-height:1.6;opacity:.75">Práctica organizada por niveles del Marco Común Europeo de Referencia para las lenguas (MCER), de A1 a C1. Material independiente de Kingsbridge English Academy; no es un examen oficial.</p>
 </footer>
-<script src="preguntas.js"></script>
-<script>
+<script src="access.js"></script>
+<script type="text/plain" id="kbmain">
 (function(){
 "use strict";
 var Q=window.KB_PREGUNTAS||[],CFG=window.KB_CONFIG||{};
@@ -232,6 +264,9 @@ var KEY="kb.practica.v1",mem=null;
 function load(){try{var d=JSON.parse(localStorage.getItem(KEY));return d||{}}catch(e){return mem||{}}}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){mem=DB}}
 var DB=load();DB.students=DB.students||{};DB.nivel=DB.nivel||"A1";DB.last="";
+var UNL=window.KB_UNLOCKED||["A1","A2","B1","B2","C1"];
+function isOpen(c){return UNL.indexOf(c)>-1}
+if(!isOpen(DB.nivel))DB.nivel=UNL[0]||"A1";
 var app=document.getElementById("app");
 var V={screen:"home",slow:false,msg:""};
 var timer=null;
@@ -265,11 +300,13 @@ function home(){
  if(V.pending){h+='<div class="card" id="nmc"><label for="nm">Tu apodo</label><input type="text" id="nm" maxlength="40" autocomplete="off" placeholder="Escribe tu apodo" value=""><div class="err" id="er">'+esc(V.msg)+'</div><button class="btn gold" data-act="setname" style="margin:12px 0 0">Continuar</button></div>'}
  if(s){var rk=rank(s.xp),pct=rk.next?Math.round((s.xp-rk.r[0])/(rk.next[0]-rk.r[0])*100):100;
   h+='<div class="card"><div class="rank"><div class="ic">'+rk.r[2]+'</div><div style="flex:1"><b>'+esc(DB.last)+' · '+rk.r[1]+'</b><span>'+s.xp+' puntos'+(rk.next?' · próximo rango: '+rk.next[1]+' ('+rk.next[0]+')':' · rango máximo')+(s.streak>1?' · 🔥 '+s.streak+' días seguidos':"")+'</span><div class="xpbar"><i style="width:'+pct+'%"></i></div></div></div></div>'}
+if(window.KB_TRIAL){var TLf=window.KB_TRIAL.left(),TM=window.KB_TRIAL.max;h='<div class="kb-hero"><span class="kb-hero-k">Prueba gratis</span><h2>'+(TLf>=TM?'Prueba tus primeras <em>'+TM+' preguntas gratis</em>':TLf>0?(TLf===1?'Te queda <em>1 pregunta gratis</em>':'Te quedan <em>'+TLf+' preguntas gratis</em>'):'Tu prueba gratis <em>terminó</em>')+'</h2><p>'+(TLf>=TM?'Nivel A1, de regalo. Sin registro. Elige <b>Practicar</b> abajo para empezar.':TLf>0?'¡Sigue así! Cada respuesta trae una explicación clara.':'Ingresa tu código de acceso para seguir practicando.')+'</p></div>'+h}
  if(V.expand||!DB.picked){
  h+='<div class="card"><h2>Elige tu nivel</h2><div class="lvls" role="group" aria-label="Nivel">';
   LEVELS.forEach(function(l,i){var code=l[0],on=code===n,m=mastery(s,code);
-   h+='<button class="lv lv-'+code+(on?" on":"")+'" data-act="nivel" data-v="'+code+'" aria-pressed="'+on+'"><span class="lv-c">'+code+'</span><span class="lv-r"></span><span class="lv-d">'+l[1]+'</span><span class="lv-x">'+l[2]+'</span><span class="lv-m"><i style="width:'+m+'%"></i></span><span class="lv-p">'+(m?m+"% dominio":"Sin datos")+'</span>'+(on?'<span class="lv-seal">✓</span>':"")+'</button>'});
+   h+='<button class="lv lv-'+code+(on?" on":"")+(isOpen(code)?"":" lock")+'" data-act="nivel" data-v="'+code+'" aria-pressed="'+on+'"><span class="lv-c">'+code+'</span><span class="lv-r"></span><span class="lv-d">'+l[1]+'</span><span class="lv-x">'+l[2]+'</span><span class="lv-m"><i style="width:'+m+'%"></i></span><span class="lv-p">'+(!isOpen(code)?'<svg class="pad" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2" fill="#e2ba68"/><path d="M8 11V8a4 4 0 018 0v3" fill="none" stroke="#e2ba68" stroke-width="2.4" stroke-linecap="round"/><circle cx="12" cy="16" r="1.6" fill="#1a1405"/></svg> Bloqueado':(m?m+"% dominio":"Sin datos"))+'</span>'+(on?'<span class="lv-seal">✓</span>':"")+'</button>'});
   h+='</div></div>';
+  if(UNL.length<LEVELS.length){h+='<div class="card" id="unl"><h2>Desbloquea más niveles</h2><p style="color:var(--txt);font-size:14.5px;line-height:1.6;margin:6px 0 12px">'+(V.lock?'El nivel '+V.lock+' está bloqueado. ':'')+'Cada nivel tiene su propio código de acceso. <a href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener" style="color:var(--gold)">Escríbenos por WhatsApp</a>.</p><form id="ucf" autocomplete="off" style="display:flex;gap:8px"><input id="ucc" type="text" autocapitalize="characters" spellcheck="false" placeholder="Código de acceso" aria-label="Código de acceso" style="flex:1;min-width:0;font:600 16px system-ui;letter-spacing:.12em;text-transform:uppercase;text-align:center;padding:12px;background:#0c1020;color:#fff;border:1.5px solid rgba(226,186,104,.5);border-radius:3px"><button class="btn gold" type="submit" style="margin:0;width:auto;padding:12px 18px">Desbloquear</button></form><div class="err" id="uce"></div></div>'}
  }else{
   var cur=LEVELS.filter(function(l){return l[0]===n})[0]||LEVELS[0];
   h+='<div class="card cur lv-'+n+'"><div class="cur-b">'+n+'</div><div class="cur-t"><span>Nivel seleccionado</span><b>'+cur[1]+'</b><em>'+cur[2]+'</em></div><button class="cur-c" data-act="cambiar">Cambiar nivel</button></div>';
@@ -307,7 +344,8 @@ function startPractice(review){
   var all=byLevel(n),due=dueItems(s,n),fresh=all.filter(function(q){return !s.q[q.id]}),rest=all.filter(function(q){return s.q[q.id]&&s.q[q.id].due>now}).sort(function(a,b){return s.q[a.id].box-s.q[b.id].box});
   pool=shuffle(due).concat(shuffle(fresh),rest);
  }
- items=makeItems(pool.slice(0,8));
+ var lim=8;if(window.KB_TRIAL){var TL=window.KB_TRIAL.left();if(TL<=0){window.KB_TRIAL_GATE();return}lim=Math.min(8,TL)}
+ items=makeItems(pool.slice(0,lim));
  if(!items.length){V.msg="No hay preguntas en este nivel todavía.";home();return}
  V.screen="practice";V.s={items:items,i:0,tried:[],done:false,first:0,total:0,xp:0,rev:[]};
  render();
@@ -355,6 +393,7 @@ function pracEnd(){
 
 /* ---------- examen ---------- */
 function startExam(){
+ if(window.KB_TRIAL){V.msg="El modo examen es parte del nivel completo. Ingresa tu código de acceso para desbloquearlo.";home();return}
  if(!needName())return;
  var items=makeItems(shuffle(byLevel(DB.nivel)).slice(0,10));
  if(!items.length){V.msg="No hay preguntas en este nivel todavía.";home();return}
@@ -442,7 +481,8 @@ function rerender(){var y=window.scrollY;render();window.scrollTo(0,y)}
 function onClick(e){
  var b=e.target.closest("[data-act]");if(!b||b.disabled)return;
  var a=b.getAttribute("data-act"),S=V.s;
- if(a==="nivel"){V.pending=null;DB.nivel=b.getAttribute("data-v");DB.picked=true;V.expand=false;save();V.msg="";var nm=document.getElementById("nm");if(nm&&nm.value.trim()){DB.last=nm.value.trim();save()}home();focusActs()}
+ if(a==="nivel"&&!isOpen(b.getAttribute("data-v"))){V.lock=b.getAttribute("data-v");V.expand=true;home();var un=document.getElementById("unl");if(un)un.scrollIntoView({block:"center"});return}
+ if(a==="nivel"){V.lock=null;V.pending=null;DB.nivel=b.getAttribute("data-v");DB.picked=true;V.expand=false;save();V.msg="";var nm=document.getElementById("nm");if(nm&&nm.value.trim()){DB.last=nm.value.trim();save()}home();focusActs()}
  else if(a==="cambiar"){V.expand=true;var nm0=document.getElementById("nm");if(nm0&&nm0.value.trim()){DB.last=nm0.value.trim();save()}home();var lv0=document.querySelector(".lvls");if(lv0)lv0.scrollIntoView({block:"center"})}
  else if(a==="practice"){V.act=a;startPractice(false)}
  else if(a==="review"){V.act=a;startPractice(true)}
@@ -465,7 +505,7 @@ function onClick(e){
   S.tried.push(k);
   if(finished(it2,S.tried)){
    S.done=true;var first=S.tried.every(function(x){return it2.q.c.indexOf(x)>-1}),g=score(it2,first);
-   if(!it2.retry){S.total++;if(first)S.first++;else{S.rev.push(it2.q);S.items.push({q:it2.q,ord:shuffle(it2.q.o.map(function(_,i){return i})),retry:true})}}
+   if(!it2.retry&&window.KB_TRIAL_TICK&&window.KB_TRIAL)window.KB_TRIAL_TICK();if(!it2.retry){S.total++;if(first)S.first++;else{S.rev.push(it2.q);S.items.push({q:it2.q,ord:shuffle(it2.q.o.map(function(_,i){return i})),retry:true})}}
    S.xp+=g;if(first&&synth)say(sentence(it2.q));
   }
   rerender();
@@ -478,7 +518,7 @@ function onClick(e){
   try{navigator.clipboard.writeText(waText()).then(function(){done("Copiado")},function(){done("No se pudo copiar")})}catch(x){done("No se pudo copiar")}
  }
 }
-app.addEventListener("click",onClick);app.addEventListener("keydown",function(e){if(e.key==="Enter"&&e.target&&e.target.id==="nm"){e.preventDefault();var bt=document.querySelector("[data-act=setname]");if(bt)bt.click()}});document.getElementById("nav").addEventListener("click",onClick);
+app.addEventListener("click",onClick);app.addEventListener("keydown",function(e){if(e.key==="Enter"&&e.target&&e.target.id==="nm"){e.preventDefault();var bt=document.querySelector("[data-act=setname]");if(bt)bt.click()}});document.getElementById("nav").addEventListener("click",onClick);document.addEventListener("submit",function(e){if(e.target.id!=="ucf")return;e.preventDefault();var v=document.getElementById("ucc").value;if(window.KB_ADDCODE&&window.KB_ADDCODE(v)){location.reload()}else{document.getElementById("uce").textContent="Ese código no es válido. Revísalo e inténtalo de nuevo."}});
 render();
 })();
 </script>
