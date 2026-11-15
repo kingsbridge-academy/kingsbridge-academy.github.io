@@ -214,6 +214,17 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
 .kb-kids h2 em{font-style:normal;color:#ffd43b}
 .kb-kids p{color:#cfcbe6;font-size:16px;line-height:1.6;max-width:600px;margin:10px auto 0}
 .kb-kids p b{color:#fff}
+/* kb-new: aviso NEW para English speakers */
+.kb-new{display:inline-flex;align-items:center;gap:8px;position:relative;overflow:hidden;text-decoration:none;font:600 10.5px/1 var(--sans,Arial,sans-serif);letter-spacing:.12em;text-transform:uppercase;color:var(--gold,#e2ba68);border:1px solid rgba(226,186,104,.55);border-radius:999px;padding:6px 12px 6px 6px;background:linear-gradient(180deg,rgba(226,186,104,.14),rgba(226,186,104,.04));box-shadow:0 0 0 0 rgba(226,186,104,.35);animation:kbNewGlow 3.2s ease-in-out infinite;white-space:nowrap}
+.kb-new b{font-weight:700;letter-spacing:.14em;color:#1a1405;background:linear-gradient(135deg,#f3d58a,#d9a93f);border-radius:999px;padding:4px 8px}
+.kb-new::after{content:"";position:absolute;top:0;bottom:0;width:36%;left:-50%;background:linear-gradient(100deg,transparent,rgba(255,236,170,.45),transparent);transform:skewX(-18deg);animation:kbNewSheen 4.2s ease-in-out infinite}
+@keyframes kbNewGlow{0%,100%{box-shadow:0 0 0 0 rgba(226,186,104,.0)}50%{box-shadow:0 0 14px 1px rgba(226,186,104,.38)}}
+@keyframes kbNewSheen{0%,55%{left:-50%}100%{left:130%}}
+.kb-new-es{display:block;width:17px;height:12px;border-radius:2px;box-shadow:0 0 0 1px rgba(226,186,104,.5);background:linear-gradient(180deg,#AA151B 0,#AA151B 25%,#F1BF00 25%,#F1BF00 75%,#AA151B 75%,#AA151B 100%);margin-left:-2px}
+.kb-new-bar{display:none}
+.kb-new-strip{display:flex;justify-content:center;padding:14px 12px 0}
+@media(max-width:700px){#kb-menu .in .kb-new-bar{display:inline-flex;margin-right:auto}.kb-new-strip{display:none}}
+@media(prefers-reduced-motion:reduce){.kb-new,.kb-new::after{animation:none}}
 </style>
 <script>document.documentElement.className="js"</script>
 </head>
@@ -640,5 +651,14 @@ var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isInter
 els.forEach(function(e){io.observe(e)});})();
 </script>
 <script src="menu.js" data-brand="off" data-after="#kbtop" defer></script>
+<script>
+(function(){
+function mk(c){var a=document.createElement('a');a.className='kb-new '+c;a.href='spanish/index.html';a.setAttribute('lang','en');a.innerHTML='<b>New</b><i class="kb-new-es"></i><span>Learn Spanish</span>';return a}
+var strip=document.createElement('div');strip.className='kb-new-strip';strip.appendChild(mk(''));
+var sl=document.querySelector('.kb-sl');if(sl)sl.parentNode.insertBefore(strip,sl);
+function bar(){var i=document.querySelector('#kb-menu .in');if(!i||i.querySelector('.kb-new-bar'))return !!i;i.insertBefore(mk('kb-new-bar'),i.firstChild);return true}
+if(!bar()){var n=0,t=setInterval(function(){if(bar()||++n>40)clearInterval(t)},100)}
+})();
+</script>
 </body>
 </html>
