@@ -20,10 +20,18 @@
     { label: "Inicio",               desc: "Página principal de la academia",         href: "index.html",           icon: "home" },
     { label: "Sobre nosotros",       desc: "Quiénes somos y cómo enseñamos",           href: "sobre-nosotros.html",  icon: "info" },
     { label: "Práctica interactiva", desc: "Ejercicios al estilo Cambridge",           href: "practica/index.html",  icon: "pen"  },
-    { label: "Spanish Practice",     desc: "Spanish for English speakers",             href: "spanish/index.html",   icon: "pen"  },
+    { label: "Spanish",              desc: "Spanish for English speakers",             href: "spanish/index.html",   icon: "pen"  },
     { label: "My Day",               desc: "Aprender inglés jugando",                  href: "my-day-ninos.html",    icon: "star" },
     { label: "Pre-inscripción",      desc: "Reserva tu cupo",                          href: "https://tally.so/r/2EQWlj", icon: "form", external: true },
     { label: "WhatsApp",             desc: "Pide información y precios",               href: "https://wa.me/kingsbridge.academy", icon: "chat", external: true, cta: true }
+  ];
+
+  /* Menú en inglés para las páginas de Spanish (data-lang="en") */
+  var ITEMS_EN = [
+    { label: "Home",                 desc: "Spanish for English speakers",             href: "spanish/index.html",          icon: "home" },
+    { label: "Spanish Practice",     desc: "Interactive exercises, A1 to C1",           href: "spanish/practice/index.html", icon: "pen"  },
+    { label: "Kingsbridge Academy",  desc: "English classes in Leticia",                href: "index.html",                  icon: "star" },
+    { label: "WhatsApp",             desc: "Ask us anything",                          href: "https://wa.me/kingsbridge.academy", icon: "chat", external: true, cta: true }
   ];
 
   var ICONS = {
@@ -44,6 +52,8 @@
        data-logo="on"         agrega arriba el logotipo de la academia (tamaño original) y deja
                               logotipo + menú congelados al hacer scroll (como en el index) */
   var OPT = (me && me.dataset) || {};
+  var EN = OPT.lang === "en", HOME = OPT.home || "index.html";
+  if (EN) ITEMS = ITEMS_EN;
   if (me && me.src) base = me.src.replace(/[^\/]*([?#].*)?$/, "");
   function url(h) { return /^https?:/i.test(h) ? h : base + h; }
   function norm(p) { return p.replace(/index\.html$/, "").replace(/\/+$/, "") || "/"; }
@@ -106,15 +116,15 @@
       panel += '<a class="' + (on ? "on " : "") + (it.cta ? "cta" : "") + '" href="' + esc(h) + '"' + ext + (on ? ' aria-current="page"' : "") + '><span class="ic">' + svg(it.icon) + '</span><span><b>' + esc(it.label) + '</b><span class="d">' + esc(it.desc || "") + "</span></span></a>";
     });
     bar.innerHTML =
-      '<div class="in">' + (OPT.brand === "off" || LOGO ? "" : '<a class="brand" href="' + esc(url("index.html")) + '">Kingsbridge<small>English Academy</small></a>') +
-      '<nav aria-label="Menú principal">' + inline + "</nav>" +
-      '<button class="tg" type="button" aria-expanded="false" aria-controls="kb-pn"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menú</span></button></div>' +
+      '<div class="in">' + (OPT.brand === "off" || LOGO ? "" : '<a class="brand" href="' + esc(url(HOME)) + '">Kingsbridge<small>English Academy</small></a>') +
+      '<nav aria-label="' + (EN ? "Main menu" : "Menú principal") + '">' + inline + "</nav>" +
+      '<button class="tg" type="button" aria-expanded="false" aria-controls="kb-pn"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>' + (EN ? "Menu" : "Menú") + '</span></button></div>' +
       '<div class="pn" id="kb-pn">' + panel + "</div>";
     var top = bar, head = null;
     if (LOGO) {
       head = document.createElement("div");
       head.id = "kb-head";
-      head.innerHTML = '<a class="kb-hl" href="' + esc(url("index.html")) + '" aria-label="Ir al inicio"><img src="' + esc(url("logo.png?v=99")) + '" alt="KINGSBRIDGE English Academy"></a>';
+      head.innerHTML = '<a class="kb-hl" href="' + esc(url(HOME)) + '" aria-label="' + (EN ? "Go to home" : "Ir al inicio") + '"><img src="' + esc(url("logo.png?v=99")) + '" alt="KINGSBRIDGE English Academy"></a>';
       if (OPT.menu === "off") head.className = "nomenu"; else head.appendChild(bar);
       top = head;
     }

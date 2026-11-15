@@ -3,228 +3,327 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Spanish Practice | KINGSBRIDGE ENGLISH ACADEMY</title>
-<meta name="description" content="Interactive Spanish practice from Kingsbridge English Academy for English speakers: exercises with audio, smart review and exam mode.">
+<title>Spanish for English Speakers | KINGSBRIDGE ENGLISH ACADEMY</title>
+<meta name="description" content="Interactive Spanish practice for English speakers from Kingsbridge English Academy in Leticia, Colombia: levels A1 to C1, audio, explanations in English and exam mode.">
 <meta name="theme-color" content="#080b19">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Spanish for English Speakers | Kingsbridge English Academy">
+<meta property="og:description" content="Real Spanish in the heart of the Amazon. Interactive Spanish practice, levels A1 to C1.">
+<meta property="og:url" content="https://kingsbridge-academy.github.io/spanish/">
+<meta property="og:image" content="https://kingsbridge-academy.github.io/og-kingsbridge.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://kingsbridge-academy.github.io/og-kingsbridge.jpg">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#080b19;--card:#11162b;--gold:#e2ba68;--line:rgba(226,186,104,.35);--txt:#d8d4ee;--mute:#a09ac0;--ok:#2f9e44;--okbg:rgba(47,158,68,.18);--bad:#e03131;--badbg:rgba(224,49,49,.18);--blue:#1E3A8A}
-body{background:var(--bg);color:#fff;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55;font-size:16px;-webkit-tap-highlight-color:transparent}
-.logo{display:block;width:100%;height:auto}
-.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
-.back{display:inline-block;margin:16px 0 0;color:var(--gold);text-decoration:none;font-size:14px}
-h1{font-family:Georgia,"Times New Roman",serif;font-weight:normal;font-size:clamp(1.8rem,7vw,2.6rem);line-height:1.15;margin:18px 0 6px;text-align:center}
-.lead{color:var(--mute);text-align:center;font-size:15px;margin-bottom:18px}
-hr.gold{width:40%;margin:16px auto;border:0;border-top:2px solid var(--gold)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px}
-h2{font-family:Georgia,"Times New Roman",serif;font-weight:normal;font-size:1.2rem;color:var(--gold);margin-bottom:10px}
-label{display:block;color:var(--mute);font-size:13px;margin-bottom:6px}
-input[type=text]{width:100%;font:inherit;color:#fff;background:#080b19;border:1.5px solid var(--line);border-radius:10px;padding:12px 14px}
-input[type=text]:focus{outline:2px solid var(--gold);outline-offset:1px}
-.err{color:#ff8a8a;font-size:13px;margin-top:6px;min-height:1px}
-.chips{display:flex;gap:8px;flex-wrap:wrap}
-.chip{flex:1;min-width:64px;font:inherit;font-weight:700;color:#fff;background:transparent;border:1.5px solid var(--line);border-radius:10px;padding:11px 8px;cursor:pointer}
-.chip small{display:block;font-weight:400;font-size:11px;color:var(--mute)}
-.chip.on{background:var(--gold);border-color:var(--gold);color:#1a1405}
-.chip.on small{color:#4a3b10}
-.btn{display:block;width:100%;font:inherit;font-weight:700;border:0;border-radius:12px;padding:15px;cursor:pointer;margin-bottom:10px;color:#fff;background:var(--blue);border:1.5px solid #D4AF37}
-.btn.gold{background:var(--gold);color:#1a1405;border-color:var(--gold)}
-.btn.wa{background:#25D366;color:#fff;border:0;text-decoration:none;text-align:center}
-.btn.ghost{background:transparent;color:var(--gold)}
-.btn small{display:block;font-weight:400;font-size:12px;opacity:.85}
-.btn[disabled]{opacity:.5;cursor:default}
-.rank{display:flex;align-items:center;gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
-.rank .ic{font-size:30px}
-.rank b{font-family:Georgia,serif;font-weight:normal;font-size:1.1rem;display:block}
-.rank span{color:var(--mute);font-size:13px}
-.xpbar{height:6px;background:#080b19;border-radius:3px;overflow:hidden;margin-top:4px}
-.xpbar i{display:block;height:100%;background:var(--gold)}
-.tp{margin-bottom:10px}
-.tp .r{display:flex;justify-content:space-between;font-size:13px;color:var(--txt);margin-bottom:3px}
-.tp .r em{font-style:normal;color:var(--mute)}
-.tp .b{height:8px;background:#080b19;border-radius:4px;overflow:hidden}
-.tp .b i{display:block;height:100%;background:var(--ok)}
-.top{gap:8px;display:flex;justify-content:space-between;align-items:center;color:var(--mute);font-size:13px;margin:14px 0 6px}
-.bar{height:6px;background:var(--card);border-radius:3px;overflow:hidden;margin-bottom:14px}
-.bar i{display:block;height:100%;background:var(--gold);transition:width .25s}
-.tag{display:inline-block;font-size:12px;color:var(--gold);border:1px solid var(--line);border-radius:99px;padding:1px 10px;margin-bottom:10px}
-.q{font-size:1.15rem;margin-bottom:6px}
-.hint{color:var(--mute);font-size:13px;margin-bottom:14px}
-.aud{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
-.aud button{font:inherit;font-size:13px;color:var(--gold);background:transparent;border:1.5px solid var(--line);border-radius:99px;padding:7px 14px;cursor:pointer;white-space:nowrap}
-.aud button.on{background:var(--gold);color:#1a1405}
-.opt{display:flex;gap:12px;align-items:center;width:100%;text-align:left;background:transparent;color:#fff;font:inherit;border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;margin-bottom:10px;cursor:pointer}
-.opt .box{flex:none;width:30px;height:30px;border:2px solid var(--mute);border-radius:8px;display:grid;place-items:center;font-size:14px;font-weight:700;color:var(--txt)}
-.opt.sel{border-color:var(--gold)}
-.opt.sel .box{background:var(--gold);border-color:var(--gold);color:#1a1405}
-.opt.ok{border-color:var(--ok);background:var(--okbg)}
-.opt.ok .box{background:var(--ok);border-color:var(--ok);color:#fff}
-.opt.bad{border-color:var(--bad);background:var(--badbg);animation:sh .3s}
-.opt.bad .box{background:var(--bad);border-color:var(--bad);color:#fff}
-.opt .mk{margin-left:auto;font-size:12px;white-space:nowrap;color:var(--mute)}
-.opt[disabled]{cursor:default}
-.why{margin:-4px 0 12px;padding:12px 14px;border-left:3px solid var(--bad);background:var(--badbg);border-radius:0 10px 10px 0;font-size:14px}
-.why b{display:block;margin-bottom:3px;color:#ffb3b3}
-.why .ex{margin-top:6px;font-family:Georgia,serif;font-style:italic;color:#fff;font-size:15px}
-.why button{margin-top:8px;font:inherit;font-size:12px;color:var(--gold);background:transparent;border:1.5px solid var(--line);border-radius:99px;padding:4px 12px;cursor:pointer;white-space:nowrap}
-@keyframes fd{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
-@keyframes sh{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
-@media(prefers-reduced-motion:reduce){.opt.bad,.why{animation:none}}
-.fb{margin:6px 0 14px;padding:14px;border-radius:12px;font-size:15px}
-.fb.ok{background:var(--okbg);border:1px solid var(--ok)}
-.fb.bad{background:var(--badbg);border:1px solid var(--bad)}
-.fb b{display:block;margin-bottom:4px}
-.fb .ex{margin-top:8px;font-family:Georgia,serif;font-style:italic;color:#fff}
-.fb .tp2{margin-top:8px;color:var(--mute);font-size:13px}
-.xp{color:var(--gold);font-weight:700}
-.score{font-family:Georgia,serif;font-size:3rem;text-align:center;color:var(--gold);line-height:1.1;margin:6px 0}
-.center{text-align:center}
-.mute{color:var(--mute);font-size:14px}
-ul.rv{list-style:none;margin-top:10px}
-ul.rv li{padding:10px 0;border-top:1px solid var(--line);font-size:14px}
-ul.rv .y{color:#7ddf94}
-ul.rv .n{color:#ff8a8a}
-.timer{font-variant-numeric:tabular-nums;color:var(--gold);font-weight:700}
-.timer.low{color:#ff8a8a}
-
 @font-face{font-family:"KB Lora";font-weight:400;font-style:normal;font-display:swap;src:url(../fonts/lora.woff) format("woff")}
 @font-face{font-family:"KB Lora";font-weight:400;font-style:italic;font-display:swap;src:url(../fonts/lora-italic.woff) format("woff")}
-.lv-A1{--c:#2f9e44;--c2:#1f7a33;--glow:rgba(47,158,68,.5)}
-.lv-B1{--c:#3b82f6;--c2:#1d4ed8;--glow:rgba(59,130,246,.5)}
-.lv-B2{--c:#d6455d;--c2:#8f1d33;--glow:rgba(214,69,93,.5)}
-.lv-C1{--c:#a678f0;--c2:#6d3fb5;--glow:rgba(166,120,240,.5)}
-.lvls{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(min-width:560px){.lvls{grid-template-columns:repeat(4,1fr)}}
-.lv{position:relative;font:inherit;color:#fff;text-align:center;cursor:pointer;overflow:hidden;border:2px solid var(--c);border-radius:50px 50px 14px 14px;padding:16px 10px 12px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,0) 60%),#0d1226;transition:transform .18s,box-shadow .2s}
-.lv::before{content:"";position:absolute;inset:5px;border:1px solid var(--c);opacity:.5;border-radius:44px 44px 10px 10px;pointer-events:none}
-.lv:hover,.lv:focus-visible{transform:translateY(-3px);box-shadow:0 10px 24px var(--glow);outline:none}
-.lv:active{transform:scale(.97)}
-
-.lv-c{display:block;font-family:"KB Lora",Georgia,serif;font-weight:400;font-size:2.9rem;line-height:1.05;color:var(--c);text-shadow:0 0 22px var(--glow);margin:2px 0}
-.lv-r{display:block;width:46%;height:5px;margin:4px auto 6px;border-top:1px solid var(--c);border-bottom:1px solid var(--c)}
-.lv-d{display:block;font-family:"KB Lora",Georgia,serif;font-style:italic;font-size:14px;color:var(--txt);line-height:1.2;min-height:1.2em}
-.lv-m{display:block;height:5px;border-radius:3px;background:rgba(255,255,255,.12);margin:8px 6px 4px;overflow:hidden}
-.lv-m i{display:block;height:100%;background:var(--c);border-radius:3px}
-.lv-p{display:block;font-size:11px;color:var(--mute)}
-.lv.on{background:linear-gradient(160deg,var(--c),var(--c2));box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--c),0 12px 28px var(--glow)}
-.lv.on::before{border-color:#fff;opacity:.55}
-.lv.on::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);transform:skewX(-18deg);animation:sheen 3.2s ease-in-out infinite;pointer-events:none}
-@keyframes sheen{0%,55%{left:-60%}100%{left:130%}}
-.lv.on .lv-d,.lv.on .lv-p{color:rgba(255,255,255,.92)}
-.lv.on .lv-c{color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.28)}
-.lv.on .lv-r{border-color:#fff}
-.lv.on .lv-m{background:rgba(0,0,0,.25)}
-.lv.on .lv-m i{background:#fff}
-.lv-seal{position:absolute;bottom:8px;right:9px;width:20px;height:20px;border-radius:50%;background:#fff;color:var(--c2);font-weight:700;font-size:13px;display:grid;place-items:center;z-index:1}
-.tg-A1{color:#6fdc88;border-color:#2f9e44}.tg-B1{color:#8fb6ff;border-color:#3b82f6}.tg-B2{color:#ff8da1;border-color:#d6455d}.tg-C1{color:#c9acff;border-color:#a678f0}
-.tp .b i{background:var(--c,var(--ok))}
-@media(prefers-reduced-motion:reduce){.lv.on::after{animation:none;display:none}.lv{transition:none}}
-
-.ac-p{--c:#e2ba68;--c2:#b8893a;--glow:rgba(226,186,104,.5)}
-.ac-r{--c:#2ec4b6;--c2:#14877d;--glow:rgba(46,196,182,.5)}
-.ac-e{--c:#f2703a;--c2:#c2410c;--glow:rgba(242,112,58,.5)}
-#acts{scroll-margin-top:calc(var(--kb-menu-h,0px) + 70px)}
-.act{position:relative;display:flex;align-items:center;gap:14px;width:100%;margin-bottom:16px;padding:14px 16px 14px 14px;text-align:left;font:inherit;color:#fff;cursor:pointer;border:2px solid var(--c);border-radius:44px 16px 16px 44px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,0) 60%),#0d1226;transition:transform .18s,box-shadow .2s}
-.act::before{content:"";position:absolute;inset:5px;border:1px solid var(--c);opacity:.5;border-radius:40px 11px 11px 40px;pointer-events:none}
-.act:hover,.act:focus-visible{transform:translateY(-3px);box-shadow:0 10px 24px var(--glow);outline:none}
-.act:active{transform:scale(.98)}
-.act-med{flex:none;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;color:var(--c);border:2px solid var(--c);box-shadow:0 0 0 4px #0d1226,0 0 0 5px var(--c);background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.12),rgba(255,255,255,0) 60%);margin-left:4px}
-.act-tx{flex:1;min-width:0}
-.act-k{display:block;font-family:"KB Lora",Georgia,serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--c)}
-.act-t{display:block;font-family:"KB Lora",Georgia,serif;font-size:1.65rem;line-height:1.1;color:#fff;margin:1px 0 3px;text-shadow:0 0 18px var(--glow)}
-.act-r{display:block;width:44px;height:5px;border-top:1px solid var(--c);border-bottom:1px solid var(--c);margin:3px 0 5px}
-.act-s{display:block;font-family:"KB Lora",Georgia,serif;font-style:italic;font-size:14px;color:var(--txt);line-height:1.3}
-.act-go{flex:none;font-family:"KB Lora",Georgia,serif;font-size:2rem;line-height:1;color:var(--c);transition:transform .18s}
-.act:hover .act-go{transform:translateX(4px)}
-.act-b{position:absolute;top:-9px;right:18px;min-width:26px;height:26px;padding:0 7px;border-radius:13px;background:var(--c);color:#06121a;font-weight:700;font-size:13px;display:grid;place-items:center;box-shadow:0 0 0 3px var(--bg);z-index:1}
-.act.fill{background:linear-gradient(160deg,var(--c),var(--c2));box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--c),0 12px 28px var(--glow)}
-.act.fill::before{border-color:#fff;opacity:.55}
-.act.fill .act-k,.act.fill .act-s,.act.fill .act-go{color:#2a1d04}
-.act.fill .act-t{color:#1a1405;text-shadow:none}
-.act.fill .act-r{border-color:#2a1d04}
-.act.fill .act-med{color:#2a1d04;border-color:#2a1d04;box-shadow:0 0 0 4px var(--c),0 0 0 5px #2a1d04;background:rgba(255,255,255,.28)}
-.act.fill::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.3),transparent);transform:skewX(-18deg);animation:sheen 3.6s ease-in-out infinite;pointer-events:none;border-radius:inherit}
-.act[disabled]{cursor:default;border-color:rgba(255,255,255,.18);filter:grayscale(1);opacity:.55;transform:none;box-shadow:none}
-.act[disabled]::before{border-color:rgba(255,255,255,.18)}
-.act[disabled] .act-go{display:none}
-@media(prefers-reduced-motion:reduce){.act.fill::after{animation:none;display:none}.act{transition:none}}
-
-.lv-A2{--c:#22b5c9;--c2:#0e7490;--glow:rgba(34,181,201,.5)}
-.lv-x{display:block;font-family:"KB Lora",Georgia,serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--c);margin-top:2px}
-.lv.on .lv-x{color:rgba(255,255,255,.92)}
-.lvls .lv:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 7px)}
-@media(min-width:560px){.lvls{grid-template-columns:repeat(5,1fr);gap:10px}.lvls .lv:last-child:nth-child(odd){grid-column:auto;width:auto}.lv{padding:16px 6px 12px}.lv-c{font-size:2.5rem}}
-.tg-A2{color:#6fd8e8;border-color:#22b5c9}
-.tag.tg-tipo{color:var(--mute);border-color:rgba(255,255,255,.2);margin-left:6px}
-.kw{display:inline-block;margin:2px 0 10px;padding:3px 12px;border:1px solid var(--line);border-radius:99px;font-size:13px;color:var(--mute)}
-.kw b{color:var(--gold);letter-spacing:.06em}
-
-.cur{display:flex;align-items:center;gap:14px;padding:12px 14px;border-color:var(--c)}
-.cur-b{flex:none;width:54px;height:62px;border:2px solid var(--c);border-radius:27px 27px 8px 8px;display:grid;place-items:center;font-family:"KB Lora",Georgia,serif;font-size:1.7rem;color:var(--c);text-shadow:0 0 16px var(--glow);box-shadow:0 0 0 3px #0d1226,0 0 0 4px var(--c)}
-.cur-t{flex:1;min-width:0}
-.cur-t span{display:block;font-family:"KB Lora",Georgia,serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
-.cur-t b{display:block;font-family:"KB Lora",Georgia,serif;font-weight:400;font-size:1.25rem;line-height:1.15;color:#fff}
-.cur-t em{display:block;font-family:"KB Lora",Georgia,serif;font-size:12px;color:var(--c)}
-.cur-c{flex:none;font:inherit;font-size:13px;color:var(--gold);background:transparent;border:1.5px solid var(--line);border-radius:99px;padding:8px 14px;cursor:pointer;white-space:nowrap}
-.cur-c:hover{border-color:var(--gold)}
-.exit{font:inherit;font-size:12px;color:var(--gold);background:transparent;border:1.5px solid var(--line);border-radius:99px;padding:4px 12px;cursor:pointer;white-space:nowrap}
-.exit.arm{border-color:var(--bad);color:#ffb3b3;background:var(--badbg)}
-.nav{position:sticky;top:var(--kb-menu-h,0px);z-index:30;background:rgba(8,11,25,.95);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:2px solid var(--gold);border-bottom:1px solid var(--line)}
-.nav-in{max-width:640px;margin:0 auto;display:flex;align-items:center;gap:8px;padding:8px 12px}
-.nv{font:inherit;display:flex;align-items:center;gap:8px;color:#fff;background:transparent;border:1.5px solid var(--line);border-radius:12px;padding:6px 11px;cursor:pointer;white-space:nowrap;min-height:44px}
-.nv:hover{border-color:var(--gold)}
-.nv.on{border-color:var(--gold);background:rgba(226,186,104,.14)}
-.nv svg{color:var(--gold)}
-.nv span{font-size:14px}
-.nv-b{flex:none;width:28px;height:32px;border:2px solid var(--c);border-radius:14px 14px 5px 5px;display:grid;place-items:center;font-family:"KB Lora",Georgia,serif;font-size:13px!important;color:var(--c);line-height:1}
-.nv-t{display:flex;flex-direction:column;text-align:left;line-height:1.15}
-.nv-t b{font-weight:600;font-size:13px}
-.nv-t small{font-family:"KB Lora",Georgia,serif;font-size:11px;color:var(--c)}
-.nv-s{margin-left:auto;font-size:13px;color:var(--gold);text-align:right;line-height:1.2}
-.nv-s .timer{font-size:15px}
-.nav-c{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;max-width:640px;margin:0 auto;padding:8px 12px 10px;background:var(--badbg);border-top:1px solid var(--bad);font-size:13px;color:#ffd0d0}
-.nav-cb{display:flex;gap:8px}
-.cf{font:inherit;font-size:13px;color:#fff;background:transparent;border:1.5px solid var(--line);border-radius:99px;padding:6px 14px;cursor:pointer}
-.cf.y{background:var(--bad);border-color:var(--bad)}
-.lvls{scroll-margin-top:calc(var(--kb-menu-h,0px) + 70px)}
-@media(max-width:380px){.nv-t small{display:none}.nv{padding:6px 9px}}
-.sp-sl{position:relative;overflow:hidden;touch-action:pan-y;background:#AA151B}
-.sp-t{display:flex;transition:transform .7s cubic-bezier(.3,.8,.3,1)}
-.sp-s{flex:0 0 100%;min-height:232px;display:flex;align-items:center;justify-content:center;padding:24px 16px 40px;background:linear-gradient(180deg,#AA151B 0,#AA151B 25%,#F1BF00 25%,#F1BF00 75%,#AA151B 75%,#AA151B 100%)}
-.sp-card{width:min(88%,560px);text-align:center;padding:18px 18px 16px;background:#0b1024;border:1px solid rgba(226,186,104,.7);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
-.sp-en{display:block;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#a09ac0}
-.sp-es{display:block;font-family:"KB Lora",Georgia,serif;font-weight:400;font-style:italic;font-size:clamp(1.7rem,6.4vw,2.7rem);line-height:1.15;color:#e2ba68;margin:6px 0 4px}
-.sp-pr{display:block;font-size:13px;color:#d8d4ee}
-.sp-n{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:1.5px solid #e2ba68;background:rgba(8,11,25,.78);color:#e2ba68;font-size:26px;line-height:1;cursor:pointer;padding:0 0 3px;z-index:3}
-.sp-a{left:10px}.sp-b{right:10px}
-.sp-d{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:8px;z-index:3}
-.sp-d button{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.55);cursor:pointer}
-.sp-d button.on{width:26px;border-radius:5px;background:#080b19}
-.sp-bar{position:absolute;left:0;top:0;height:3px;width:0;background:#080b19;z-index:3}
-.sp-bar.run{transition:width linear;width:100%}
-@media(max-width:520px){.sp-n{display:none}}
-@media(prefers-reduced-motion:reduce){.sp-t{transition:none}}
-footer{margin:28px 0;color:#8e8ab5;font-size:12px;text-align:center}
-footer.kb-pie{margin:0;background:#0b1024;color:#a09ac0;text-align:center;font-size:14px;line-height:1.8;padding:34px 16px 36px;border-top:2px solid #e2ba68}
-.kb-pie .kb-seal{display:block;font-family:"KB Lora",Georgia,serif;font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:#e2ba68;margin-bottom:4px}
-.kb-pie b{color:#fff;font-family:"KB Lora",Georgia,serif;font-weight:400}
+:root{--bg:#080b19;--card:#11162b;--gold:#e2ba68;--gold2:#b8893a;--line:rgba(226,186,104,.35);--txt:#d8d4ee;--mute:#a09ac0;--navy:#161d4a;--paper:#f4ecd8;--ink:#1a2147;--goldink:#8a6a22;--serif:"KB Lora",Georgia,"Times New Roman",serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:#fff;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;text-align:center;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.kb-logo{width:100%;max-width:1100px;margin:0 auto;display:block}
+/* encabezado congelado con el logotipo en su tamaño original + menú a la derecha */
+html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
+#kbhead{position:sticky;top:0;z-index:1000;background:#080b19}
+#kbhead #kb-menu{position:static}
+#kbhead #kb-menu .in{max-width:1100px}
+#kbhead .kb-logo{max-width:100%}
+/* ---------- piezas comunes ---------- */
+.kb-w{max-width:980px;margin:0 auto;padding:0 20px}
+.kb-eye{font:600 11px var(--serif);letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.kb-h{font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,5.6vw,2.8rem);line-height:1.15;color:#fff;margin-top:10px}
+.kb-h em{font-style:italic;color:var(--gold)}
+.kb-rule{display:flex;align-items:center;justify-content:center;gap:12px;margin:18px auto;color:var(--gold);font-size:11px}
+.kb-rule::before,.kb-rule::after{content:"";width:min(24vw,130px);height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.kb-rule::after{background:linear-gradient(90deg,var(--gold),transparent)}
+.kb-lead{color:var(--txt);font-size:16px;line-height:1.7;max-width:620px;margin:0 auto}
+.kb-sec{padding-top:64px;padding-bottom:0}
+.btn{display:inline-block;font:600 12px var(--serif);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;padding:15px 26px;border:1.5px solid var(--gold);border-radius:3px;transition:transform .18s,box-shadow .2s,background .2s,color .2s}
+.btn:hover,.btn:focus-visible{transform:translateY(-2px);box-shadow:0 10px 26px rgba(226,186,104,.3);outline:none}
+.btn-p{background:var(--gold);color:#12172f}
+.btn-s{background:transparent;color:var(--gold)}
+.btn-s:hover{background:rgba(226,186,104,.12)}
+.btn-d{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn-o{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-o:hover{background:rgba(26,33,71,.08)}
+.kb-cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:26px}
+/* franjas color pergamino */
+.kb-paper{background:var(--paper);color:var(--ink);margin-top:64px;padding:60px 0;border-top:3px solid var(--gold);border-bottom:3px solid var(--gold);position:relative}
+.kb-paper::before{content:"";position:absolute;inset:8px 0;border-top:1px solid rgba(138,106,34,.45);border-bottom:1px solid rgba(138,106,34,.45);pointer-events:none}
+.kb-paper .kb-eye{color:var(--goldink)}
+.kb-paper .kb-h{color:var(--ink)}
+.kb-paper .kb-h em{color:var(--goldink)}
+.kb-paper .kb-rule{color:var(--goldink)}
+.kb-paper .kb-rule::before{background:linear-gradient(90deg,transparent,var(--goldink))}
+.kb-paper .kb-rule::after{background:linear-gradient(90deg,var(--goldink),transparent)}
+.kb-paper .kb-lead{color:#3a4170}
+/* ---------- portada: carrusel ---------- */
+.kb-top{background:radial-gradient(ellipse at 50% 0%,rgba(35,48,120,.5),rgba(8,11,25,0) 65%),var(--bg);border-bottom:1px solid var(--line)}
+.kb-sl{position:relative;max-width:1100px;margin:0 auto;overflow:hidden;touch-action:pan-y}
+.kb-sl-t{display:flex;transition:transform .7s cubic-bezier(.3,.8,.3,1)}
+.kb-sl-s{flex:0 0 100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:470px;padding:58px 72px 72px;position:relative}
+.kb-sl-s::before{content:attr(data-n);position:absolute;right:5%;bottom:-4%;font-family:var(--serif);font-size:clamp(9rem,28vw,17rem);line-height:1;color:rgba(226,186,104,.06);pointer-events:none}
+.kb-sl-s>*{position:relative}
+.kb-sl .kb-eye{display:flex;align-items:center;gap:12px;justify-content:center}
+.kb-sl .kb-eye::before,.kb-sl .kb-eye::after{content:"";width:30px;height:1px;background:var(--gold)}
+.kb-sl h1,.kb-sl h2.kb-t{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,6.6vw,4.3rem);line-height:1.06;margin-top:16px;color:#fff;max-width:880px}
+.kb-sl h1 em,.kb-sl h2.kb-t em{display:block;font-style:italic;color:var(--gold)}
+.kb-sl .kb-sub{margin-top:18px;font-family:var(--serif);font-size:clamp(1rem,2.5vw,1.25rem);line-height:1.6;color:var(--txt);max-width:600px}
+.kb-sl .kb-cta{margin-top:28px}
+.kb-sl-lv{display:flex;gap:8px;margin-top:20px}
+.kb-sl-lv i{font-style:normal;font-family:var(--serif);font-size:1.05rem;color:var(--c);border:1.5px solid var(--c);border-radius:18px 18px 4px 4px;padding:6px 10px 4px;background:rgba(255,255,255,.04)}
+.kb-sl-flag{display:block;width:54px;height:36px;border-radius:3px;margin-bottom:14px;background:linear-gradient(180deg,#AA151B 0,#AA151B 25%,#F1BF00 25%,#F1BF00 75%,#AA151B 75%,#AA151B 100%);box-shadow:0 0 0 1px rgba(226,186,104,.5)}
+.kb-sl-n{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1.5px solid var(--gold);background:rgba(8,11,25,.7);color:var(--gold);font-size:28px;line-height:1;cursor:pointer;padding:0 0 4px;z-index:3}
+.kb-sl-n:hover{background:var(--gold);color:var(--bg)}
+.kb-sl-a{left:14px}.kb-sl-b{right:14px}
+.kb-sl-d{position:absolute;left:0;right:0;bottom:22px;display:flex;justify-content:center;gap:9px;z-index:3}
+.kb-sl-d button{width:11px;height:11px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.3);cursor:pointer}
+.kb-sl-d button.on{width:32px;border-radius:6px;background:var(--gold)}
+.kb-sl-bar{position:absolute;left:0;top:0;height:3px;width:0;background:var(--gold);z-index:3}
+.kb-sl-bar.run{transition:width linear;width:100%}
+@media(max-width:700px){.kb-sl .kb-eye::before,.kb-sl .kb-eye::after{display:none}.kb-sl-s{min-height:500px;padding:46px 22px 70px}.kb-sl-n{display:none}.kb-sl .btn{padding:13px 18px;font-size:11px}.kb-sl-lv i{font-size:.95rem;padding:5px 8px 3px}}
+@media(prefers-reduced-motion:reduce){.kb-sl-t{transition:none}}
+/* accesos rápidos bajo la portada */
+.kb-quick{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.kb-q{display:block;text-align:left;text-decoration:none;color:#fff;padding:22px 20px;border-left:1px solid var(--line);transition:background .2s}
+.kb-q:first-child{border-left:0}
+.kb-q:hover,.kb-q:focus-visible{background:rgba(226,186,104,.08);outline:none}
+.kb-q small{display:block;font:600 10px var(--serif);letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.kb-q b{display:flex;justify-content:space-between;gap:10px;margin-top:8px;font-family:var(--serif);font-weight:400;font-size:1.15rem;line-height:1.2}
+.kb-q b::after{content:"\2192";color:var(--gold);transition:transform .2s}
+.kb-q:hover b::after{transform:translateX(4px)}
+@media(max-width:700px){.kb-quick{grid-template-columns:1fr 1fr;border-left:0;border-right:0}.kb-q{border-top:1px solid var(--line);padding:18px 16px}.kb-q:nth-child(odd){border-left:0}.kb-q:nth-child(-n+2){border-top:0}.kb-q b{font-size:1.02rem}}
+/* ---------- presentación ---------- */
+.kb-facts{display:grid;grid-template-columns:repeat(3,1fr);margin:34px 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kb-fact{padding:22px 14px}
+.kb-fact+.kb-fact{border-left:1px solid var(--line)}
+.kb-fact i{display:block;width:30px;height:30px;margin:0 auto 10px;color:var(--gold)}
+.kb-fact svg{width:100%;height:100%;display:block}
+.kb-fact b{display:block;font-family:var(--serif);font-weight:400;font-size:1.1rem;color:#fff;line-height:1.25}
+.kb-fact span{display:block;margin-top:6px;color:var(--mute);font-size:13px;line-height:1.5}
+@media(max-width:640px){.kb-facts{grid-template-columns:1fr}.kb-fact+.kb-fact{border-left:0;border-top:1px solid var(--line)}.kb-fact{display:grid;grid-template-columns:34px 1fr;column-gap:14px;text-align:left;align-items:center}.kb-fact i{grid-row:1/3;margin:0}}
+.kb-about{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start;text-align:left}
+.kb-about .kb-h{font-size:clamp(1.8rem,4.6vw,2.7rem)}
+.kb-about .kb-lead{margin:0;max-width:none}
+.kb-about .kb-facts{display:block;margin:26px 0 0}
+.kb-about .kb-fact{display:grid;grid-template-columns:34px 1fr;column-gap:16px;align-items:center;text-align:left;padding:18px 4px}
+.kb-about .kb-fact+.kb-fact{border-left:0;border-top:1px solid var(--line)}
+.kb-about .kb-fact i{grid-row:1/3;margin:0}
+@media(max-width:820px){.kb-about{grid-template-columns:1fr;gap:20px}}
+/* lema */
+.kb-quote{font-family:var(--serif);font-style:italic;font-size:clamp(1.35rem,4.8vw,2.1rem);line-height:1.35;max-width:760px;margin:0 auto}
+.kb-quote::before{content:"\201C";display:block;font-style:normal;font-size:3.2rem;line-height:.6;color:var(--goldink);margin-bottom:10px}
+.kb-by{margin-top:18px;font:600 11px var(--serif);letter-spacing:.28em;text-transform:uppercase;color:var(--goldink)}
+.kb-cam{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;text-align:left}
+.kb-cam .kb-lead{margin:0}
+.kb-cam .kb-cta{justify-content:flex-start}
+.kb-lvs{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.kb-lv{text-align:center;border:1.5px solid var(--c);border-radius:30px 30px 6px 6px;padding:12px 2px 9px;background:rgba(255,255,255,.55)}
+.kb-lv b{display:block;font-family:var(--serif);font-weight:400;font-size:1.5rem;line-height:1;color:var(--c)}
+.kb-lv span{display:block;margin-top:5px;font:600 8px var(--serif);letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+@media(max-width:820px){.kb-cam{grid-template-columns:1fr;gap:26px}}
+/* programas: índice con numeración romana */
+.kb-idx{max-width:900px;margin:30px auto 0;text-align:left;display:grid;grid-template-columns:1fr 1fr;column-gap:48px;border-top:1px solid var(--line)}
+@media(max-width:760px){.kb-idx{grid-template-columns:1fr}}
+.kb-row{display:grid;grid-template-columns:64px 1fr;gap:6px 14px;align-items:baseline;padding:22px 4px;border-bottom:1px solid var(--line)}
+.kb-no{font-family:var(--serif);font-size:1.7rem;color:var(--gold);text-align:center}
+.kb-row h3{font-family:var(--serif);font-weight:400;font-size:1.4rem;color:#fff}
+.kb-row p{grid-column:2;color:var(--mute);font-size:14.5px;line-height:1.6}
+.kb-row .kb-tag{font:600 10px var(--serif);letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-left:10px}
+/* pasos y preguntas */
+.kb-steps{counter-reset:kb;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0;max-width:900px;margin:28px auto 0;text-align:left;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kb-step{position:relative;padding:22px 18px 22px 60px;color:var(--txt);font-size:14.5px;line-height:1.6}
+.kb-step+.kb-step{border-left:1px solid var(--line)}
+@media(max-width:700px){.kb-step+.kb-step{border-left:0;border-top:1px solid var(--line)}}
+.kb-step::before{counter-increment:kb;content:counter(kb,upper-roman);position:absolute;left:14px;top:18px;width:36px;text-align:center;font-family:var(--serif);font-size:1.5rem;color:var(--gold)}
+.kb-step a,.kb-faq a{color:var(--gold)}
+.kb-faq{text-align:left;max-width:720px;margin:26px auto 0;border-top:1px solid var(--line)}
+.kb-faq details{border-bottom:1px solid var(--line);padding:16px 4px}
+.kb-faq summary{cursor:pointer;font-family:var(--serif);color:#fff;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:center}
+.kb-faq summary::-webkit-details-marker{display:none}
+.kb-faq summary::after{content:"+";color:var(--gold);font-size:22px;line-height:1}
+.kb-faq details[open] summary::after{content:"\2212"}
+.kb-faq p{margin-top:10px;color:var(--mute);font-size:14.5px;line-height:1.65}
+/* fotos */
+.kbs{position:relative;max-width:1100px;margin:64px 12px 0;border-radius:6px;overflow:hidden;background:#0d1226;border:1.5px solid var(--gold);aspect-ratio:16/9;touch-action:pan-y}
+@media(min-width:1124px){.kbs{margin-left:auto;margin-right:auto}}
+.kbs *{box-sizing:border-box}
+.kbs-t{display:flex;height:100%;transition:transform .6s ease}
+.kbs-s{flex:0 0 100%;height:100%;display:flex;flex-direction:column;justify-content:flex-end;background:#0d1226}
+.kbs-s img{display:block;flex:1;min-height:0;width:100%;object-fit:cover}
+.kbs-c{flex:none;background:#0d1226;color:#fff;padding:.85rem 1.5rem 2.4rem;border-top:1px solid var(--line)}
+.kbs-h{font-family:var(--serif);font-size:clamp(1.1rem,3vw,1.7rem);line-height:1.15;color:var(--gold)}
+.kbs-p{margin-top:.25rem;font-family:var(--serif);font-style:italic;font-size:clamp(.85rem,1.8vw,1.05rem);color:var(--txt)}
+.kbs-n{position:absolute;top:40%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1.5px solid var(--gold);background:rgba(8,11,25,.85);color:var(--gold);font-size:28px;line-height:1;cursor:pointer;padding:0 0 4px}
+.kbs-n:hover{background:var(--gold);color:var(--bg)}
+.kbs-a{left:10px}.kbs-b{right:10px}
+.kbs-d{position:absolute;left:0;right:0;bottom:.9rem;display:flex;justify-content:center;gap:.5rem}
+.kbs-d button{width:12px;height:12px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.35);cursor:pointer}
+.kbs-d button.on{width:34px;border-radius:6px;background:var(--gold)}
+@media(max-width:600px){.kbs{aspect-ratio:4/3}.kbs-n{width:36px;height:36px}}
+/* cierre */
+.kb-li{display:block;max-width:640px;margin:56px auto 0;padding:0 20px}
+.kb-li img{max-width:100%;height:auto;border-radius:6px;border:1px solid var(--line)}
+.kb-pie{margin-top:56px;background:#0b1024;color:var(--mute);text-align:center;font-size:14px;line-height:1.8;padding:34px 16px 36px;border-top:2px solid var(--gold)}
+.kb-pie .kb-seal{display:block;font-family:var(--serif);font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.kb-pie b{color:#fff;font-family:var(--serif);font-weight:400}
 .kb-pie p{margin:0}
-.kb-pie .kb-dis{margin-top:10px;font-size:11px;opacity:.75;line-height:1.5}
+.kb-flogo{display:block;width:min(86%,420px);margin:0 auto 22px;border:1px solid var(--line);border-radius:4px}
+/* aparición suave al hacer scroll */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}.js .rv{opacity:1;transform:none;transition:none}}
+/* título del carrusel */
+.kb-kids{max-width:900px;margin:44px auto 0;padding:0 18px}
+.kb-kids .kb-pill{display:inline-block;background:#ffd43b;color:#3b2a20;border-radius:99px;padding:6px 16px;font:600 12px "KB Lora",Georgia,serif;letter-spacing:.12em;text-transform:uppercase}
+.kb-kids h2{font-family:"KB Lora",Georgia,serif;font-weight:normal;font-size:clamp(1.7rem,6.4vw,2.6rem);line-height:1.15;color:#fff;margin:14px 0 0}
+.kb-kids h2 em{font-style:normal;color:#ffd43b}
+.kb-kids p{color:#cfcbe6;font-size:16px;line-height:1.6;max-width:600px;margin:10px auto 0}
+.kb-kids p b{color:#fff}
+
+/* ---------- Spanish landing ---------- */
+.kb-paper .kb-idx{border-top-color:rgba(138,106,34,.5);grid-template-columns:1fr}
+.kb-paper .kb-row{border-bottom-color:rgba(138,106,34,.4)}
+.kb-paper .kb-no{color:var(--goldink)}
+.kb-paper .kb-row h3{color:var(--ink)}
+.kb-paper .kb-row p{color:#3a4170}
+.kb-sl-flag{display:block;width:54px;height:36px;border-radius:3px;margin-bottom:14px;background:linear-gradient(180deg,#AA151B 0,#AA151B 25%,#F1BF00 25%,#F1BF00 75%,#AA151B 75%,#AA151B 100%);box-shadow:0 0 0 1px rgba(226,186,104,.5)}
+.kb-phs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;max-width:900px;margin:26px auto 0}
+.kb-ph{padding:18px 12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.03)}
+.kb-ph small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.kb-ph b{display:block;margin-top:6px;font-family:var(--serif);font-weight:400;font-style:italic;font-size:1.5rem;color:var(--gold)}
+.kb-dis{margin-top:10px;font-size:11px;opacity:.75;line-height:1.5}
 </style>
+<script>document.documentElement.className="js"</script>
 </head>
 <body>
-<nav id="nav" class="nav" aria-label="Practice menu"></nav>
-<section class="sp-sl" id="spsl" aria-roledescription="carousel" aria-label="Useful Spanish phrases">
-<div class="sp-bar" id="spBar"></div>
-<div class="sp-t" id="spT"><div class="sp-s" aria-hidden="false"><div class="sp-card"><span class="sp-en">Hello</span><b class="sp-es" lang="es">Hola</b><span class="sp-pr">OH-lah</span></div></div><div class="sp-s" aria-hidden="true"><div class="sp-card"><span class="sp-en">Good morning</span><b class="sp-es" lang="es">Buenos días</b><span class="sp-pr">BWEH-nohs DEE-ahs</span></div></div><div class="sp-s" aria-hidden="true"><div class="sp-card"><span class="sp-en">Thank you very much</span><b class="sp-es" lang="es">Muchas gracias</b><span class="sp-pr">MOO-chahs GRAH-see-ahs</span></div></div><div class="sp-s" aria-hidden="true"><div class="sp-card"><span class="sp-en">How are you?</span><b class="sp-es" lang="es">¿Cómo estás?</b><span class="sp-pr">KOH-moh ehs-TAHS</span></div></div><div class="sp-s" aria-hidden="true"><div class="sp-card"><span class="sp-en">Nice to meet you</span><b class="sp-es" lang="es">Mucho gusto</b><span class="sp-pr">MOO-choh GOOS-toh</span></div></div><div class="sp-s" aria-hidden="true"><div class="sp-card"><span class="sp-en">Where is the bathroom?</span><b class="sp-es" lang="es">¿Dónde está el baño?</b><span class="sp-pr">DOHN-deh ehs-TAH ehl BAH-nyoh</span></div></div></div>
-<button class="sp-n sp-a" type="button" aria-label="Previous">&#8249;</button>
-<button class="sp-n sp-b" type="button" aria-label="Next">&#8250;</button>
-<div class="sp-d" id="spD"></div>
-</section>
-<div class="wrap">
-<div id="app"></div>
 
+<div id="kbhead">
+<a id="kbtop" href="index.html" style="display:block" aria-label="Go to home"><img class="kb-logo" src="../logo.png?v=99" alt="KINGSBRIDGE English Academy"></a>
 </div>
+
+<div class="kb-top">
+<section class="kb-sl" id="kbsl" aria-roledescription="carousel" aria-label="Spanish for English speakers">
+  <div class="kb-sl-bar" id="kbslBar"></div>
+  <div class="kb-sl-t" id="kbslT">
+    <div class="kb-sl-s" data-n="I">
+      <span class="kb-sl-flag" aria-hidden="true"></span>
+      <div class="kb-eye">Leticia · Amazonas · Colombia</div>
+      <h1>Real Spanish <em>in the heart of the Amazon.</em></h1>
+      <p class="kb-sub">Practise the Spanish you will actually use: greetings, travel, work and everyday life.</p>
+      <div class="kb-cta"><a class="btn btn-p" href="practice/index.html">Start practising</a><a class="btn btn-s" href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener">WhatsApp</a></div>
+    </div>
+    <div class="kb-sl-s" data-n="II">
+      <div class="kb-eye">Interactive Spanish Practice</div>
+      <h2 class="kb-t">Level by level, <em>from A1 to C1</em></h2>
+      <p class="kb-sub">Choose your level and practise with exercises designed for English speakers.</p>
+      <div class="kb-sl-lv" aria-label="Levels A1 to C1"><i style="--c:#2f9e44">A1</i><i style="--c:#22b5c9">A2</i><i style="--c:#3b82f6">B1</i><i style="--c:#d6455d">B2</i><i style="--c:#a678f0">C1</i></div>
+      <div class="kb-cta"><a class="btn btn-p" href="practice/index.html">Start practising</a></div>
+    </div>
+    <div class="kb-sl-s" data-n="III">
+      <div class="kb-eye">Hear it · Understand it · Remember it</div>
+      <h2 class="kb-t">Every answer, <em>explained in English</em></h2>
+      <p class="kb-sub">Listen to each sentence in Spanish, learn why an answer is right or wrong, and review what you missed.</p>
+      <div class="kb-cta"><a class="btn btn-p" href="#how">See how it works</a></div>
+    </div>
+  </div>
+  <button class="kb-sl-n kb-sl-a" type="button" aria-label="Previous">&#8249;</button>
+  <button class="kb-sl-n kb-sl-b" type="button" aria-label="Next">&#8250;</button>
+  <div class="kb-sl-d" id="kbslD"></div>
+</section>
+<nav class="kb-quick" aria-label="Quick links">
+  <a class="kb-q" href="practice/index.html"><small>Practice</small><b>Start now</b></a>
+  <a class="kb-q" href="#levels"><small>Levels</small><b>A1 to C1</b></a>
+  <a class="kb-q" href="#how"><small>How it works</small><b>3 simple steps</b></a>
+  <a class="kb-q" href="#phrases"><small>First words</small><b>Useful phrases</b></a>
+</nav>
+</div>
+
+<section class="kb-sec kb-w rv" aria-labelledby="kb-i">
+  <div class="kb-about">
+    <div>
+      <div class="kb-eye">Spanish for English speakers</div>
+      <h2 class="kb-h" id="kb-i">Practise Spanish <em>the way it is spoken</em></h2>
+      <div class="kb-rule" style="justify-content:flex-start" aria-hidden="true">&#9670;</div>
+    </div>
+    <div>
+      <p class="kb-lead">Kingsbridge English Academy is based in Leticia, Amazonas, on the triple border between Colombia, Brazil and Peru, where Spanish is part of everyday life.</p>
+      <div class="kb-facts">
+        <div class="kb-fact"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></i><b>Five levels</b><span>From A1 to C1, following the CEFR scale.</span></div>
+        <div class="kb-fact"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l5 4V6L8 10H4z"/><path d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12"/></svg></i><b>Audio on every question</b><span>Listen to each sentence in Spanish, at normal or slow speed.</span></div>
+        <div class="kb-fact"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.500-3 8-7 10-4-2-7-5.500-7-10V6z"/><path d="M9 12l2.200 2.200L15.200 10"/></svg></i><b>Explained in English</b><span>Learn why an answer is right, and why the others are not.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="kb-paper rv" aria-label="Our approach">
+  <div class="kb-w">
+    <p class="kb-quote">Understand the reason behind every answer, and Spanish starts to make sense.</p>
+    <div class="kb-by">Kingsbridge English Academy</div>
+  </div>
+</section>
+
+<section class="kb-sec kb-w rv" id="levels" aria-labelledby="kb-l">
+  <div class="kb-eye">Levels</div>
+  <h2 class="kb-h" id="kb-l">What you will practise</h2>
+  <div class="kb-rule" aria-hidden="true">&#9670;</div>
+  <p class="kb-lead">Pick the level that fits you. You can change it at any time.</p>
+  <div class="kb-idx">
+    <div class="kb-row"><span class="kb-no">I</span><h3>A1 · Beginner</h3><p>Ser and estar, articles, gender, the present tense, numbers and everyday questions.</p></div><div class="kb-row"><span class="kb-no">II</span><h3>A2 · Elementary</h3><p>Preterite and imperfect, reflexive verbs, por and para, comparisons and object pronouns.</p></div><div class="kb-row"><span class="kb-no">III</span><h3>B1 · Intermediate</h3><p>First steps with the subjunctive, commands, the future, the conditional and double pronouns.</p></div><div class="kb-row"><span class="kb-no">IV</span><h3>B2 · Upper intermediate</h3><p>Hypothetical sentences, the passive se, time clauses, connectors and collocations.</p></div><div class="kb-row"><span class="kb-no">V</span><h3>C1 · Advanced</h3><p>Subjunctive nuances, concessive clauses, the passive voice, idioms and word formation.</p></div>
+  </div>
+  <div class="kb-cta" style="margin-top:28px"><a class="btn btn-p" href="practice/index.html">Start practising</a></div>
+</section>
+
+<section class="kb-paper rv" id="how" aria-labelledby="kb-h3">
+  <div class="kb-w">
+    <div class="kb-eye">How it works</div>
+    <h2 class="kb-h" id="kb-h3">Three ways to <em>practise</em></h2>
+    <div class="kb-rule" aria-hidden="true">&#9670;</div>
+    <div class="kb-idx kb-idx-d">
+      <div class="kb-row"><span class="kb-no">I</span><h3>Practise</h3><p>Eight questions with instant feedback. Green means correct, red means try again, and every answer comes with an explanation.</p></div>
+      <div class="kb-row"><span class="kb-no">II</span><h3>Smart review</h3><p>Questions you missed come back at spaced intervals, so what you learn stays with you.</p></div>
+      <div class="kb-row"><span class="kb-no">III</span><h3>Exam mode</h3><p>Ten timed questions with a score out of 100. Send your result to your teacher by WhatsApp.</p></div>
+    </div>
+    <div class="kb-cta" style="margin-top:28px"><a class="btn btn-d" href="practice/index.html">Start practising</a></div>
+  </div>
+</section>
+
+<section class="kb-sec kb-w rv" id="phrases" aria-labelledby="kb-ph">
+  <div class="kb-eye">First words</div>
+  <h2 class="kb-h" id="kb-ph">Useful phrases to <em>get started</em></h2>
+  <div class="kb-rule" aria-hidden="true">&#9670;</div>
+  <div class="kb-phs"><div class="kb-ph"><small>Hello</small><b lang="es">Hola</b></div><div class="kb-ph"><small>Good morning</small><b lang="es">Buenos días</b></div><div class="kb-ph"><small>Thank you very much</small><b lang="es">Muchas gracias</b></div><div class="kb-ph"><small>How are you?</small><b lang="es">¿Cómo estás?</b></div><div class="kb-ph"><small>Nice to meet you</small><b lang="es">Mucho gusto</b></div><div class="kb-ph"><small>Where is the bathroom?</small><b lang="es">¿Dónde está el baño?</b></div></div>
+</section>
+
+<section class="kb-sec kb-w rv" id="faq" aria-labelledby="kb-f">
+  <div class="kb-eye">Questions</div>
+  <h2 class="kb-h" id="kb-f">Frequently asked questions</h2>
+  <div class="kb-rule" aria-hidden="true">&#9670;</div>
+  <div class="kb-faq" style="margin-top:22px">
+    <details><summary>Do I need an account?</summary><p>No. Choose your level, pick an exercise and type a nickname. Your progress is saved on your own device.</p></details>
+    <details><summary>Which level should I choose?</summary><p>Start with the level that feels comfortable. If the questions are too easy or too hard, tap “Change level” at any time.</p></details>
+    <details><summary>Can I use it on my phone?</summary><p>Yes. The page is designed to work on phones, tablets and computers.</p></details>
+    <details><summary>Are the levels official?</summary><p>The levels follow the CEFR scale (A1 to C1), used worldwide to describe language ability. This page is not affiliated with Instituto Cervantes.</p></details>
+    <details><summary>Where is Kingsbridge English Academy?</summary><p>In Leticia, Amazonas, Colombia. The academy is registered with the Chamber of Commerce (No. 26395). You can reach us on <a href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener">WhatsApp</a>.</p></details>
+  </div>
+</section>
+
+<section class="kb-paper rv" aria-labelledby="kb-z">
+  <div class="kb-w">
+    <div class="kb-eye">Kingsbridge English Academy</div>
+    <h2 class="kb-h" id="kb-z">Take the first step toward <em>real Spanish</em></h2>
+    <div class="kb-rule" aria-hidden="true">&#9670;</div>
+    <div class="kb-cta">
+      <a class="btn btn-d" href="practice/index.html">Start practising</a>
+      <a class="btn btn-o" href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</section>
+
 <footer class="kb-pie">
   <span class="kb-seal">Kingsbridge</span>
   <p><b>English Academy</b> · Leticia, Amazonas, Colombia</p>
@@ -232,287 +331,44 @@ footer.kb-pie{margin:0;background:#0b1024;color:#a09ac0;text-align:center;font-s
   <p>&copy;2026 Kingsbridge English Academy</p>
   <p class="kb-dis">Spanish practice organised by CEFR levels (A1–C1). This page is not affiliated with Instituto Cervantes.</p>
 </footer>
-<script src="preguntas.js"></script>
+
 <script>
 (function(){
-var root=document.getElementById("spsl");if(!root)return;
-var T=document.getElementById("spT"),D=document.getElementById("spD"),BAR=document.getElementById("spBar"),n=T.children.length,i=0,tm=null,hold=false,seen=true,dots=[],TIME=5000;
-var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-for(var k=0;k<n;k++){(function(k){var b=document.createElement("button");b.type="button";b.setAttribute("aria-label","Phrase "+(k+1));b.onclick=function(){go(k)};D.appendChild(b);dots.push(b)})(k)}
-function go(x){i=(x+n)%n;T.style.transform="translateX(-"+i*100+"%)";dots.forEach(function(d,j){d.className=j===i?"on":""});[].forEach.call(T.children,function(s,j){s.setAttribute("aria-hidden",j===i?"false":"true")});play()}
-function play(){clearTimeout(tm);BAR.className="sp-bar";BAR.style.transitionDuration="0ms";void BAR.offsetWidth;if(hold||!seen||reduce||document.hidden)return;BAR.style.transitionDuration=TIME+"ms";BAR.className="sp-bar run";tm=setTimeout(function(){go(i+1)},TIME)}
-root.querySelector(".sp-a").onclick=function(){go(i-1)};root.querySelector(".sp-b").onclick=function(){go(i+1)};
-root.addEventListener("mouseenter",function(){hold=true;play()});root.addEventListener("mouseleave",function(){hold=false;play()});
-var sx=null;root.addEventListener("pointerdown",function(e){sx=e.clientX});
-root.addEventListener("pointerup",function(e){if(sx===null)return;var d=e.clientX-sx;sx=null;if(Math.abs(d)>50)go(d<0?i+1:i-1)});
-root.addEventListener("pointercancel",function(){sx=null});
-document.addEventListener("visibilitychange",play);
-if("IntersectionObserver" in window){new IntersectionObserver(function(en){seen=en[0].isIntersecting;play()},{threshold:.3}).observe(root)}
-window.kbSl=function(on){root.style.display=on?"":"none"};
+var root=document.getElementById('kbsl'),T=document.getElementById('kbslT'),D=document.getElementById('kbslD'),BAR=document.getElementById('kbslBar');
+if(!root)return;
+var n=T.children.length,i=0,tm=null,hold=false,seen=true,dots=[],TIME=7000;
+var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+for(var k=0;k<n;k++){(function(k){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Diapositiva '+(k+1));b.onclick=function(){go(k)};D.appendChild(b);dots.push(b)})(k)}
+function go(x){i=(x+n)%n;T.style.transform='translateX(-'+i*100+'%)';
+ dots.forEach(function(d,j){d.className=j===i?'on':''});
+ [].forEach.call(T.children,function(s,j){s.setAttribute('aria-hidden',j===i?'false':'true');[].forEach.call(s.querySelectorAll('a'),function(a){a.tabIndex=j===i?0:-1})});
+ play()}
+function play(){clearTimeout(tm);BAR.className='kb-sl-bar';BAR.style.transitionDuration='0ms';void BAR.offsetWidth;
+ if(hold||!seen||reduce||document.hidden)return;
+ BAR.style.transitionDuration=TIME+'ms';BAR.className='kb-sl-bar run';tm=setTimeout(function(){go(i+1)},TIME)}
+root.querySelector('.kb-sl-a').onclick=function(){go(i-1)};
+root.querySelector('.kb-sl-b').onclick=function(){go(i+1)};
+root.addEventListener('mouseenter',function(){hold=true;play()});
+root.addEventListener('mouseleave',function(){hold=false;play()});
+root.addEventListener('focusin',function(e){if(e.target.matches&&e.target.matches(':focus-visible')){hold=true;play()}});
+root.addEventListener('focusout',function(){hold=false;play()});
+root.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')go(i-1);else if(e.key==='ArrowRight')go(i+1)});
+var sx=null,moved=false;
+root.addEventListener('pointerdown',function(e){sx=e.clientX;moved=false});
+root.addEventListener('pointerup',function(e){if(sx===null)return;var d=e.clientX-sx;sx=null;if(Math.abs(d)>50){moved=true;go(d<0?i+1:i-1)}});
+root.addEventListener('pointercancel',function(){sx=null});
+root.addEventListener('click',function(e){if(moved){e.preventDefault();moved=false}},true);
+document.addEventListener('visibilitychange',play);
+if('IntersectionObserver' in window){new IntersectionObserver(function(en){seen=en[0].isIntersecting;play()},{threshold:.3}).observe(root)}
 go(0);
 })();
 </script>
 <script>
-(function(){
-"use strict";
-var Q=window.KB_PREGUNTAS||[],CFG=window.KB_CONFIG||{};
-var LEVELS=[["A1","Beginner","DELE A1"],["A2","Elementary","DELE A2"],["B1","Intermediate","DELE B1"],["B2","Upper intermediate","DELE B2"],["C1","Advanced","DELE C1"]];
-var RANKS=[[0,"Freshman","🎒"],[100,"Scholar","📖"],[300,"Graduate","🎓"],[600,"Master","🏛️"],[1000,"Fellow","🏆"]];
-var GAPS=[0,1,3,7,14],ROMAN=["I","II","III","IV","V"];
-var KEY="kb.spanish.v1",mem=null;
-function load(){try{var d=JSON.parse(localStorage.getItem(KEY));return d||{}}catch(e){return mem||{}}}
-function save(){try{localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){mem=DB}}
-var DB=load();DB.students=DB.students||{};DB.nivel=DB.nivel||"A1";DB.last="";
-var app=document.getElementById("app");
-var V={screen:"home",slow:false,msg:""};
-var timer=null;
-
-function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;")}
-function pad(n){return n<10?"0"+n:""+n}
-function dayStr(d){return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate())}
-function stu(){var n=DB.last;if(!n)return null;return DB.students[n]=DB.students[n]||{xp:0,streak:0,last:"",q:{},t:{}}}
-function rank(xp){var r=RANKS[0],nx=null;for(var i=0;i<RANKS.length;i++){if(xp>=RANKS[i][0]){r=RANKS[i];nx=RANKS[i+1]||null}}return{r:r,next:nx}}
-function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
-function byLevel(n){return Q.filter(function(q){return q.nivel===n})}
-function dueItems(s,n){var now=Date.now();return byLevel(n).filter(function(q){var r=s&&s.q[q.id];return r&&r.due<=now})}
-function mastery(s,code){var a=0,r=0;if(s)for(var k in s.t){if(k.indexOf(code+"|")===0){a+=s.t[k].a;r+=s.t[k].r}}return a?Math.round(r/a*100):0}
-function qHTML(q){return '<p class="q">'+esc(q.q).replace(/\n/g,"<br>")+'</p>'+(q.k?'<div class="kw">Key word: <b>'+esc(q.k)+'</b></div>':"")}
-function same(a,b){return a.length===b.length&&a.every(function(x){return b.indexOf(x)>-1})}
-
-/* ---------- audio ---------- */
-var synth=window.speechSynthesis||null,voice=null;
-function pickVoice(){if(!synth)return;var vs=synth.getVoices()||[];voice=null;for(var i=0;i<vs.length;i++){if(/^es[-_](CO|MX|US|419)/i.test(vs[i].lang)){voice=vs[i];break}}if(!voice)for(var j=0;j<vs.length;j++){if(/^es/i.test(vs[j].lang)){voice=vs[j];break}}}
-if(synth){pickVoice();if(synth.addEventListener)synth.addEventListener("voiceschanged",pickVoice)}
-function say(t){if(!synth)return;try{synth.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="es-MX";if(voice){u.voice=voice;u.lang=voice.lang}u.rate=V.slow?0.65:0.95;synth.speak(u)}catch(e){}}
-function sentence(q){return (q.s||q.q).replace("____",q.o[q.c[0]])}
-function spokenGap(q){return (q.s||q.q).replace("____",", en blanco, ")}
-function audioBar(q,fin){if(!synth)return"";return'<div class="aud"><button data-act="say" data-w="gap">🔊 Listen</button>'+(fin?'<button data-act="say" data-w="full">🔊 Full sentence</button>':"")+'<button data-act="slow" class="'+(V.slow?"on":"")+'">🐢 Slow</button></div>'}
-
-/* ---------- inicio ---------- */
-function home(){
- navR();
- var s=stu(),n=DB.nivel,lv=byLevel(n),due=dueItems(s,n).length;
- var h='<h1>Spanish Practice</h1>'+((V.expand||!DB.picked)?'<p class="lead">Practise your Spanish by level, from A1 to C1: fill-in-the-blank, vocabulary and word formation, with audio and smart review.</p>':"")+'<hr class="gold">';
- if(V.pending){h+='<div class="card" id="nmc"><label for="nm">Your nickname</label><input type="text" id="nm" maxlength="40" autocomplete="off" placeholder="Type your nickname" value=""><div class="err" id="er">'+esc(V.msg)+'</div><button class="btn gold" data-act="setname" style="margin:12px 0 0">Continue</button></div>'}
- if(s){var rk=rank(s.xp),pct=rk.next?Math.round((s.xp-rk.r[0])/(rk.next[0]-rk.r[0])*100):100;
-  h+='<div class="card"><div class="rank"><div class="ic">'+rk.r[2]+'</div><div style="flex:1"><b>'+esc(DB.last)+' · '+rk.r[1]+'</b><span>'+s.xp+' points'+(rk.next?' · next rank: '+rk.next[1]+' ('+rk.next[0]+')':' · top rank')+(s.streak>1?' · 🔥 '+s.streak+' day streak':"")+'</span><div class="xpbar"><i style="width:'+pct+'%"></i></div></div></div></div>'}
- if(V.expand||!DB.picked){
- h+='<div class="card"><h2>Choose your level</h2><div class="lvls" role="group" aria-label="Nivel">';
-  LEVELS.forEach(function(l,i){var code=l[0],on=code===n,m=mastery(s,code);
-   h+='<button class="lv lv-'+code+(on?" on":"")+'" data-act="nivel" data-v="'+code+'" aria-pressed="'+on+'"><span class="lv-c">'+code+'</span><span class="lv-r"></span><span class="lv-d">'+l[1]+'</span><span class="lv-x">'+l[2]+'</span><span class="lv-m"><i style="width:'+m+'%"></i></span><span class="lv-p">'+(m?m+"% mastery":"No data")+'</span>'+(on?'<span class="lv-seal">✓</span>':"")+'</button>'});
-  h+='</div></div>';
- }else{
-  var cur=LEVELS.filter(function(l){return l[0]===n})[0]||LEVELS[0];
-  h+='<div class="card cur lv-'+n+'"><div class="cur-b">'+n+'</div><div class="cur-t"><span>Selected level</span><b>'+cur[1]+'</b><em>'+cur[2]+'</em></div><button class="cur-c" data-act="cambiar">Change level</button></div>';
- }
- var ICO={p:'<path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 013 3L8 19l-4 1z"/><path d="M14.5 6.5l3 3"/>',r:'<path d="M20 12a8 8 0 11-2.4-5.7"/><path d="M20 4v4h-4"/>',e:'<circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/>'};
- function act(cls,act,ico,k,t,sub,dis,badge,fill){return '<button class="act '+cls+(fill?" fill":"")+'" data-act="'+act+'"'+(dis?" disabled":"")+'>'+(badge?'<span class="act-b">'+badge+'</span>':"")+'<span class="act-med"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ICO[ico]+'</svg></span><span class="act-tx"><span class="act-k">'+k+'</span><span class="act-t">'+t+'</span><span class="act-r"></span><span class="act-s">'+sub+'</span></span><span class="act-go" aria-hidden="true">›</span></button>'}
- h+='<div id="acts">';
- h+=act("ac-p","practice","p","Exercise","Practise","8 questions with instant feedback",false,0,true);
- h+=act("ac-r","review","r","Memory","Smart review",due?(due+(due===1?" question":" questions")+" ready to review"):"No questions to review at this level yet",!due,due,false);
- h+=act("ac-e","exam","e","Assessment","Exam mode",Math.min(10,lv.length)+" timed questions with a score out of 100",false,0,false);
- h+='</div>';
- var topics=[];lv.forEach(function(q){if(topics.indexOf(q.tema)<0)topics.push(q.tema)});
- h+='<div class="card lv-'+n+'"><h2>Your progress at '+n+'</h2>';
- topics.forEach(function(t){var r=(s&&s.t[n+"|"+t])||{a:0,r:0},p=r.a?Math.round(r.r/r.a*100):0;
-  h+='<div class="tp"><div class="r"><span>'+esc(t)+'</span><em>'+(r.a?p+"% first try · "+r.a+(r.a===1?" attempt":" attempts"):"no data")+'</em></div><div class="b"><i style="width:'+p+'%"></i></div></div>'});
- h+='</div>';
- app.innerHTML=h;
-}
-
-/* ---------- sesiones ---------- */
-function needName(){
- if(DB.last)return true;
- V.pending=V.act||"practice";V.msg="";home();
- var el=document.getElementById("nm"),c=document.getElementById("nmc");
- if(c){var rm=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;var nv=document.getElementById("nav"),hh=parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--kb-menu-h"))||0;window.scrollTo({top:Math.max(0,c.getBoundingClientRect().top+window.scrollY-hh-(nv?nv.offsetHeight:0)-14),behavior:rm?"auto":"smooth"})}
- if(el)try{el.focus({preventScroll:true})}catch(e){}
- return false;
-}
-function makeItems(arr){return arr.map(function(q){return{q:q,ord:shuffle(q.o.map(function(_,i){return i})),retry:false}})}
-function startPractice(review){
- if(!needName())return;
- var s=stu(),n=DB.nivel,pool,now=Date.now(),items;
- if(review){pool=dueItems(s,n)}
- else{
-  var all=byLevel(n),due=dueItems(s,n),fresh=all.filter(function(q){return !s.q[q.id]}),rest=all.filter(function(q){return s.q[q.id]&&s.q[q.id].due>now}).sort(function(a,b){return s.q[a.id].box-s.q[b.id].box});
-  pool=shuffle(due).concat(shuffle(fresh),rest);
- }
- items=makeItems(pool.slice(0,8));
- if(!items.length){V.msg="There are no questions at this level yet.";home();return}
- V.screen="practice";V.s={items:items,i:0,tried:[],done:false,first:0,total:0,xp:0,rev:[]};
- render();
-}
-function finished(it,tried){return it.q.c.every(function(k){return tried.indexOf(k)>-1})}
-function touchStreak(s){
- var t=dayStr(new Date());if(s.last===t)return;
- var y=dayStr(new Date(Date.now()-864e5));s.streak=(s.last===y)?s.streak+1:1;s.last=t;
-}
-function score(it,first){
- var s=stu(),q=it.q;if(it.retry)return 0;
- var r=s.q[q.id]||{box:0,due:0,seen:0,right:0};
- r.seen++;if(first){r.right++;r.box=Math.min(r.box+1,4)}else r.box=0;
- r.due=Date.now()+GAPS[r.box]*864e5;s.q[q.id]=r;
- var k=q.nivel+"|"+q.tema,t=s.t[k]||{a:0,r:0};t.a++;if(first)t.r++;s.t[k]=t;
- var gain=first?10:3;s.xp+=gain;touchStreak(s);save();return gain;
-}
-function why(q,k){
- var w=q.w&&q.w[k];
- var t=w?w[0]:"This option is not correct. "+q.e,x=w?w[1]:q.x;
- return'<div class="why"><b>Why not '+esc(q.o[k])+'</b>'+esc(t)+(x?'<div class="ex">'+esc(x)+'</div>'+(synth?'<button data-act="sayx" data-k="'+k+'">🔊 Listen to example</button>':""):"")+'</div>';
-}
-function pracQ(){
- var S=V.s,it=S.items[S.i],q=it.q,fin=S.done,L="ABCD";
- var h='<div class="top"><span>Question '+(S.i+1)+' of '+S.items.length+'</span><span class="xp">+'+S.xp+' points</span></div><div class="bar"><i style="width:'+(S.i/S.items.length*100)+'%"></i></div>';
- h+='<div class="card"><span class="tag tg-'+q.nivel+'">'+esc(q.tema)+' · '+q.nivel+(it.retry?" · again":"")+'</span><span class="tag tg-tipo">'+esc(q.tipo||"Cloze")+'</span>'+qHTML(q)+'<p class="hint">Tap an option: green if correct, red if not. There may be one or more correct answers.</p>'+audioBar(q,fin);
- it.ord.forEach(function(k,pos){
-  var t=S.tried.indexOf(k)>-1,ok=q.c.indexOf(k)>-1,cls="opt",mk="";
-  if(t&&ok){cls+=" ok";mk="Correct"}else if(t){cls+=" bad";mk="Incorrect"}
-  h+='<button class="'+cls+'" data-act="opt" data-k="'+k+'"'+(t||fin?" disabled":"")+'><span class="box">'+(t?(ok?"✓":"✕"):L[pos])+'</span><span>'+esc(q.o[k])+'</span><span class="mk">'+mk+'</span></button>'+(t&&!ok?why(q,k):"")});
- if(fin){
-  var errs=S.tried.filter(function(k){return q.c.indexOf(k)<0}).length;
-  h+='<div class="fb '+(errs?"bad":"ok")+'"><b>'+(errs?"You found them all, with "+errs+(errs>1?" wrong attempts":" wrong attempt"):"Perfect, first try!")+'</b>'+esc(q.e)+'<div class="ex">'+esc(q.x)+'</div><div class="tp2">'+esc(q.tip)+'</div></div>';
-  h+='<button class="btn gold" data-act="next">'+(S.i===S.items.length-1?"See result":"Next")+'</button>'}
- h+='</div>';return h;
-}
-function pracEnd(){
- var S=V.s,s=stu(),rk=rank(s.xp);
- var h='<h1>Session complete</h1><div class="card"><div class="score">'+S.first+' / '+S.total+'</div><p class="center mute">correct on the first try</p><hr class="gold"><p class="center"><span class="xp">+'+S.xp+' points</span> · '+rk.r[2]+' '+rk.r[1]+' ('+s.xp+' points)'+(s.streak>1?' · 🔥 '+s.streak+' day streak':"")+'</p>';
- if(S.rev.length){h+='<h2 style="margin-top:16px">To review</h2><ul class="rv">';S.rev.forEach(function(q){h+='<li><b>'+esc(q.tema)+'</b><br>'+esc(sentence(q))+'<br><span class="mute">'+esc(q.tip)+'</span></li>'});h+='</ul>'}
- else h+='<p class="center" style="margin-top:12px">No mistakes. Excellent work.</p>';
- h+='</div><button class="btn gold" data-act="practice">Keep practising</button><button class="btn ghost" data-act="home">Home</button>';
- return h;
-}
-
-/* ---------- examen ---------- */
-function startExam(){
- if(!needName())return;
- var items=makeItems(shuffle(byLevel(DB.nivel)).slice(0,10));
- if(!items.length){V.msg="There are no questions at this level yet.";home();return}
- var ms=items.length*60000;
- V.screen="exam";V.s={items:items,i:0,sel:[],ans:[],t0:Date.now(),end:Date.now()+ms};
- if(timer)clearInterval(timer);timer=setInterval(tick,1000);render();
-}
-function fmt(ms){var t=Math.max(0,Math.round(ms/1000));return pad(Math.floor(t/60))+":"+pad(t%60)}
-function tick(){
- if(V.screen!=="exam"){clearInterval(timer);return}
- var left=V.s.end-Date.now(),el=document.getElementById("tm");
- if(el){el.textContent=fmt(left);el.className="timer"+(left<60000?" low":"")}
- if(left<=0)finishExam();
-}
-function examQ(){
- var S=V.s,it=S.items[S.i],q=it.q,L="ABCD";
- var h='<div class="top"><span>Question '+(S.i+1)+' of '+S.items.length+'</span><span>Level '+q.nivel+'</span></div><div class="bar"><i style="width:'+(S.i/S.items.length*100)+'%"></i></div>';
- h+='<div class="card"><span class="tag tg-'+q.nivel+'">'+esc(q.tema)+'</span><span class="tag tg-tipo">'+esc(q.tipo||"Cloze")+'</span>'+qHTML(q)+'<p class="hint">Select all correct answers. There are no colours or hints in the exam.</p>'+(synth?'<div class="aud"><button data-act="say" data-w="gap">🔊 Escuchar</button></div>':"");
- it.ord.forEach(function(k,pos){var on=S.sel.indexOf(k)>-1;
-  h+='<button class="opt'+(on?" sel":"")+'" data-act="pick" data-k="'+k+'"><span class="box">'+L[pos]+'</span><span>'+esc(q.o[k])+'</span></button>'});
- h+='<button class="btn gold" data-act="enext"'+(S.sel.length?"":" disabled")+'>'+(S.i===S.items.length-1?"Finish exam":"Next")+'</button></div>';
- return h;
-}
-function finishExam(){
- if(V.screen!=="exam")return;
- clearInterval(timer);
- var S=V.s,right=0,res=[];
- S.items.forEach(function(it,i){var a=S.ans[i]||[],ok=same(a,it.q.c);if(ok)right++;res.push({q:it.q,a:a,ok:ok})});
- var total=S.items.length,nota=Math.round(right/total*100),secs=Math.min(S.end,Date.now())-S.t0;
- var s=stu();s.xp+=right*5;touchStreak(s);save();
- V.screen="exres";V.r={res:res,right:right,total:total,nota:nota,time:fmt(secs),nivel:DB.nivel,name:DB.last};render();
-}
-function waText(){var r=V.r;return"Spanish exam result – Kingsbridge English Academy\nStudent: "+r.name+"\nLevel: "+r.nivel+"\nScore: "+r.nota+" / 100 ("+r.right+" of "+r.total+" correct)\nTime: "+r.time}
-function exRes(){
- var r=V.r,L="ABCD";
- var h='<h1>Exam result</h1><div class="card"><div class="score">'+r.nota+' / 100</div><p class="center mute">'+r.right+' of '+r.total+' correct · level '+r.nivel+' · time '+r.time+'</p><hr class="gold"><p class="center mute">Send your result to your teacher.</p></div>';
- h+='<a class="btn wa" href="'+esc((CFG.whatsapp||"https://wa.me/")+"?text="+encodeURIComponent(waText()))+'" target="_blank" rel="noopener">Send result by WhatsApp</a>';
- h+='<button class="btn ghost" style="border:1.5px solid var(--line)" data-act="copy" id="cp">Copy result</button>';
- h+='<div class="card"><h2>Review</h2><ul class="rv">';
- r.res.forEach(function(x,i){
-  var ca=x.q.c.map(function(k){return x.q.o[k]}).join(" / "),ua=x.a.map(function(k){return x.q.o[k]}).join(" / ")||"no answer";
-  h+='<li><b class="'+(x.ok?"y":"n")+'">'+(x.ok?"✓ ":"✕ ")+(i+1)+'. '+esc(x.q.tema)+'</b><br>'+esc(x.q.q).replace(/\n/g,'<br>')+'<br>'+(x.ok?'':'Your answer: '+esc(ua)+'<br>')+'Correct: '+esc(ca)+'<br><span class="mute">'+esc(x.q.e)+'</span></li>'});
- h+='</ul></div><button class="btn gold" data-act="exam">Retake exam</button><button class="btn ghost" data-act="home">Home</button>';
- return h;
-}
-
-/* ---------- render y eventos ---------- */
-function navR(){
- var nv=document.getElementById("nav"),sc=V.screen,n=DB.nivel,cur=LEVELS.filter(function(l){return l[0]===n})[0]||LEVELS[0];
- var h='<div class="nav-in"><button class="nv'+(sc==="home"&&!V.expand?" on":"")+'" data-act="navhome"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span>Home</span></button>';
- if(DB.picked)h+='<button class="nv lv-'+n+(sc==="home"&&V.expand?" on":"")+'" data-act="navlevel" title="Change level"><span class="nv-b">'+n+'</span><span class="nv-t"><b>Change level</b><small>'+cur[2]+'</small></span></button>';
- var chip="";
- if(sc==="practice"){var S=V.s;chip=S.i>=S.items.length?"Summary":"Practice · "+(S.i+1)+"/"+S.items.length}
- else if(sc==="exam"){chip='Exam · '+(V.s.i+1)+"/"+V.s.items.length+' · <span class="timer" id="tm">'+fmt(V.s.end-Date.now())+'</span>'}
- else if(sc==="exres")chip="Result";
- if(chip)h+='<span class="nv-s">'+chip+'</span>';
- h+='</div>';
- if(V.confirm)h+='<div class="nav-c"><span>Leave the exam? Your answers will be lost.</span><span class="nav-cb"><button class="cf y" data-act="navyes">Yes, leave</button><button class="cf" data-act="navno">Stay</button></span></div>';
- nv.innerHTML=h;
-}
-function leave(target){
- if(timer)clearInterval(timer);
- V.screen="home";V.expand=(target==="level");V.confirm=null;render();
- if(target==="level"){var l=document.querySelector(".lvls");if(l)l.scrollIntoView({block:"center"})}
-}
-function render(){
- navR();if(window.kbSl)window.kbSl(V.screen==="home");
- if(V.screen==="home")home();
- else if(V.screen==="practice")app.innerHTML=V.s.i>=V.s.items.length?pracEnd():pracQ();
- else if(V.screen==="exam")app.innerHTML=examQ();
- else app.innerHTML=exRes();
- window.scrollTo(0,0);
-}
-function focusActs(){
- var ac=document.getElementById("acts");if(!ac)return;
- var cs=getComputedStyle(document.documentElement),hh=parseFloat(cs.getPropertyValue("--kb-menu-h"))||0,nv=document.getElementById("nav"),top=hh+(nv?nv.offsetHeight:0);
- var off=14;
- var target=ac.getBoundingClientRect().top+window.scrollY-top-off;if(target<0)target=0;
- var sp=document.createElement("div");sp.id="sp";app.appendChild(sp);
- var need=target-(document.documentElement.scrollHeight-window.innerHeight);if(need>0)sp.style.height=Math.ceil(need)+"px";
- var rm=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
- window.scrollTo({top:target,behavior:rm?"auto":"smooth"});
-}
-function rerender(){var y=window.scrollY;render();window.scrollTo(0,y)}
-function onClick(e){
- var b=e.target.closest("[data-act]");if(!b||b.disabled)return;
- var a=b.getAttribute("data-act"),S=V.s;
- if(a==="nivel"){V.pending=null;DB.nivel=b.getAttribute("data-v");DB.picked=true;V.expand=false;save();V.msg="";var nm=document.getElementById("nm");if(nm&&nm.value.trim()){DB.last=nm.value.trim();save()}home();focusActs()}
- else if(a==="cambiar"){V.expand=true;var nm0=document.getElementById("nm");if(nm0&&nm0.value.trim()){DB.last=nm0.value.trim();save()}home();var lv0=document.querySelector(".lvls");if(lv0)lv0.scrollIntoView({block:"center"})}
- else if(a==="practice"){V.act=a;startPractice(false)}
- else if(a==="review"){V.act=a;startPractice(true)}
- else if(a==="exam"){V.act=a;startExam()}
- else if(a==="setname"){var el0=document.getElementById("nm"),v0=el0?el0.value.trim():"";
-  if(!v0){V.msg="Type your nickname to continue.";var er0=document.getElementById("er");if(er0)er0.textContent=V.msg;if(el0)el0.focus();return}
-  DB.last=v0;V.msg="";var pa=V.pending||"practice";V.pending=null;save();
-  if(pa==="exam")startExam();else startPractice(pa==="review")}
- else if(a==="navhome"){if(V.screen==="exam"){V.confirm="home";navR()}else leave("home")}
- else if(a==="navlevel"){if(V.screen==="exam"){V.confirm="level";navR()}else leave("level")}
- else if(a==="navyes"){leave(V.confirm||"home")}
- else if(a==="navno"){V.confirm=null;navR()}
- else if(a==="exit"){if(V.arm&&Date.now()-V.arm<4000){V.arm=0;if(timer)clearInterval(timer);V.screen="home";render()}else{V.arm=Date.now();b.textContent="Sure? Tap again";b.classList.add("arm");setTimeout(function(){if(V.screen==="exam"&&b.isConnected){b.textContent="✕ Exit";b.classList.remove("arm")}},4000)}}
- else if(a==="home"){if(timer)clearInterval(timer);V.screen="home";render()}
- else if(a==="slow"){V.slow=!V.slow;rerender()}
- else if(a==="say"){var it=S&&S.items&&S.items[S.i];if(it)say(b.getAttribute("data-w")==="full"?sentence(it.q):spokenGap(it.q))}
- else if(a==="sayx"){var it3=S.items[S.i],w3=it3.q.w&&it3.q.w[+b.getAttribute("data-k")];say(w3?w3[1]:it3.q.x)}
- else if(a==="opt"){
-  var it2=S.items[S.i],k=+b.getAttribute("data-k");if(S.tried.indexOf(k)>-1||S.done)return;
-  S.tried.push(k);
-  if(finished(it2,S.tried)){
-   S.done=true;var first=S.tried.every(function(x){return it2.q.c.indexOf(x)>-1}),g=score(it2,first);
-   if(!it2.retry){S.total++;if(first)S.first++;else{S.rev.push(it2.q);S.items.push({q:it2.q,ord:shuffle(it2.q.o.map(function(_,i){return i})),retry:true})}}
-   S.xp+=g;if(first&&synth)say(sentence(it2.q));
-  }
-  rerender();
- }
- else if(a==="next"){S.i++;S.tried=[];S.done=false;render()}
- else if(a==="pick"){var k2=+b.getAttribute("data-k"),p=S.sel.indexOf(k2);if(p>-1)S.sel.splice(p,1);else S.sel.push(k2);rerender()}
- else if(a==="enext"){S.ans[S.i]=S.sel.slice();S.sel=[];S.i++;if(S.i>=S.items.length)finishExam();else render()}
- else if(a==="copy"){
-  var done=function(t){b.textContent=t};
-  try{navigator.clipboard.writeText(waText()).then(function(){done("Copied")},function(){done("Could not copy")})}catch(x){done("Could not copy")}
- }
-}
-app.addEventListener("click",onClick);app.addEventListener("keydown",function(e){if(e.key==="Enter"&&e.target&&e.target.id==="nm"){e.preventDefault();var bt=document.querySelector("[data-act=setname]");if(bt)bt.click()}});document.getElementById("nav").addEventListener("click",onClick);
-render();
-})();
+(function(){var els=[].slice.call(document.querySelectorAll('.rv'));
+if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.08,rootMargin:'0px 0px -6% 0px'});
+els.forEach(function(e){io.observe(e)});})();
 </script>
-<script src="../menu.js" data-logo="on" data-menu="off" defer></script>
+<script src="../menu.js" data-brand="off" data-after="#kbtop" data-lang="en" data-home="spanish/index.html" defer></script>
 </body>
 </html>
