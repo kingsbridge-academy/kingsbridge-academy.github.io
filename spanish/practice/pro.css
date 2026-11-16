@@ -119,6 +119,8 @@ html{scroll-behavior:smooth}
 html.kb-gated .gate.kb-fold>.gate-k,html.kb-gated .gate.kb-fold>h1,html.kb-gated .gate.kb-fold>form,html.kb-gated .gate.kb-fold>.gate-e,html.kb-gated .gate.kb-fold>p{display:none}
 html.kb-gated .kb-have{display:block;margin:6px auto 0;background:none;border:0;color:#24408f;font:500 15px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:10px}
 
+@media(max-width:600px){.kbp-nav div{padding:0 6px;gap:0;justify-content:space-between;overflow:visible}.kbp-nav a{flex:1 1 auto;text-align:center;padding:14px 4px;font-size:12.5px}}
+
 .kbp-soon{display:inline-block;margin-top:16px;font:700 11px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;background:#8a2340;color:#fff;padding:7px 14px;border-radius:999px}
 .kbp-pl2{grid-template-columns:repeat(2,1fr);max-width:760px;margin-left:auto;margin-right:auto}
 .kbp-ll{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:16px}
