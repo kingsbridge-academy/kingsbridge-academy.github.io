@@ -13,85 +13,188 @@
 <meta property="og:url" content="https://kingsbridge-academy.github.io/sobre-nosotros.html">
 <meta property="og:image" content="https://kingsbridge-academy.github.io/wisdom_legacywall.jpg">
 <style>
+@font-face{font-family:"KB Lora";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/lora.woff) format("woff")}
+@font-face{font-family:"KB Lora";font-weight:400;font-style:italic;font-display:swap;src:url(fonts/lora-italic.woff) format("woff")}
+@font-face{font-family:"KB Inter";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/inter-400.woff) format("woff")}
+@font-face{font-family:"KB Inter";font-weight:600;font-style:normal;font-display:swap;src:url(fonts/inter-600.woff) format("woff")}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#080b19;color:#fff;font-family:system-ui,sans-serif;text-align:center;line-height:1.6}
-.logo{display:block;width:100%;height:auto}
-.wrap{max-width:760px;margin:0 auto;padding:0 18px}
-.back{display:inline-block;margin:18px 0 0;color:#e2ba68;text-decoration:none;font-size:14px}
-.back:hover{text-decoration:underline}
-h1{font-family:Georgia,"Times New Roman",serif;font-weight:normal;font-size:clamp(2rem,7vw,3rem);line-height:1.15;color:#fff;margin:26px 0 8px}
-.lead{color:#a09ac0;font-size:16px;max-width:620px;margin:0 auto 10px}
-hr.gold{width:40%;margin:22px auto;border:0;border-top:2px solid #e2ba68}
-section{margin:36px 0}
-h2{font-family:Georgia,"Times New Roman",serif;font-weight:normal;font-size:clamp(1.4rem,5vw,1.9rem);color:#e2ba68;margin-bottom:12px;line-height:1.2}
-p{color:#d8d4ee;font-size:15px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:18px;text-align:center}
-.card{background:#11162b;border:1px solid rgba(226,186,104,.35);border-radius:14px;padding:20px 16px}
-.card h3{font-family:Georgia,"Times New Roman",serif;font-weight:normal;font-size:1.1rem;margin-bottom:6px;color:#fff}
-.card p{color:#a09ac0;font-size:14px}
-.quote{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:#fff;font-size:clamp(1.05rem,3.6vw,1.35rem);line-height:1.5}
-.reg{display:inline-block;margin-top:6px;padding:10px 16px;border:1px solid rgba(226,186,104,.35);border-radius:12px;color:#d8d4ee;font-size:14px;background:#11162b}
-.cta{max-width:400px;margin:0 auto}
-.cta a{display:block;text-decoration:none;color:#fff;padding:16px;border-radius:12px;font-weight:bold;font-size:16px;font-family:Arial,sans-serif;margin-bottom:14px}
-.cta .wa{background:#25D366}
-.cta .wa span{display:block;font-weight:normal;font-size:13px}
-.cta .form{background:#1E3A8A;border:1.5px solid #D4AF37}
-footer{margin:44px 0 28px;color:#8e8ab5;font-size:13px}
+:root{--navy:#0a1230;--gold:#b8893a;--gold2:#e2ba68;--ink:#1d2033;--mute:#5a5f78;--line:#e4e0d4;--serif:"KB Lora",Georgia,"Times New Roman",serif;--sans:"KB Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+html{-webkit-text-size-adjust:100%}
+body{background:#fff;color:var(--ink);font-family:var(--sans);line-height:1.7;font-size:17px}
+img{display:block;max-width:100%}
+a{color:inherit}
+/* encabezado compacto */
+#kb-menu .in{min-height:70px}
+#kb-menu .brand{display:block;line-height:0}
+#kb-menu .brand img{display:block;height:54px!important;width:auto!important;max-width:56vw!important;margin:0!important;border-radius:4px;box-shadow:0 0 0 1px rgba(226,186,104,.55)}
+@media(min-width:700px){#kb-menu .in{min-height:80px}#kb-menu .brand img{height:64px!important}}
+/* cabecera editorial */
+@media(min-width:880px) and (max-width:2599px){#kb-menu nav{display:none!important}#kb-menu button.tg{display:flex!important}#kb-menu .pn.open{display:block!important}}
+.hd{max-width:1060px;margin:0 auto;padding:46px 20px 0}
+.kick{display:flex;align-items:center;gap:12px;font:600 12px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.kick::before{content:"";width:34px;height:2px;background:var(--gold)}
+h1{font:500 clamp(2.2rem,8vw,4.3rem)/1.06 var(--serif);letter-spacing:-.012em;color:var(--navy);margin:18px 0 18px;max-width:900px}
+h1 em{font-style:italic;color:var(--gold)}
+.stand{font:400 clamp(1.1rem,3.2vw,1.38rem)/1.6 var(--sans);color:var(--mute);max-width:760px}
+.meta{display:flex;flex-wrap:wrap;gap:0;margin:28px 0 0;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font:600 11.5px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--navy)}
+.meta span{padding:4px 18px 4px 0;margin-right:18px;border-right:1px solid var(--line)}
+.meta span:last-child{border:0;margin:0;padding-right:0}
+@media(max-width:560px){.meta{flex-direction:column;gap:6px}.meta span{border:0;margin:0;padding:0}}
+.fig{max-width:1060px;margin:30px auto 0;padding:0 20px}
+.fig img{width:100%;height:auto;border-radius:3px}
+.fig figcaption{font:400 13px/1.5 var(--sans);color:var(--mute);margin-top:10px;padding-left:12px;border-left:2px solid var(--gold2)}
+/* cuerpo */
+.art{max-width:700px;margin:0 auto;padding:46px 20px 10px}
+.art section{margin:0 0 54px}
+h2{font:500 clamp(1.55rem,4.6vw,2.05rem)/1.2 var(--serif);color:var(--navy);margin:0 0 16px;padding-top:18px;position:relative}
+h2::before{content:"";position:absolute;top:0;left:0;width:44px;height:3px;background:var(--gold2)}
+.art p{margin:0 0 16px;font-size:1.06rem;line-height:1.8;color:#2b2f44}
+.pq{margin:10px 0 56px;padding:6px 0 6px 24px;border-left:4px solid var(--gold2)}
+.pq p{font:italic 400 clamp(1.4rem,4.8vw,2rem)/1.4 var(--serif);color:var(--navy);margin:0}
+.pq small{display:block;margin-top:12px;font:600 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.steps{list-style:none;counter-reset:s;margin:8px 0 0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:62px 1fr;gap:6px 14px;padding:20px 0;border-top:1px solid var(--line)}
+.steps li:last-child{border-bottom:1px solid var(--line)}
+.steps li::before{content:"0" counter(s);font:400 2.3rem/1 var(--serif);color:var(--gold);grid-row:1/3}
+.steps h3{font:500 1.22rem/1.25 var(--serif);color:var(--navy)}
+.steps p{margin:0!important;font-size:1rem!important;color:var(--mute)!important;line-height:1.65!important}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.chips span{font:600 13px/1 var(--sans);letter-spacing:.04em;color:var(--navy);border:1px solid #cfc8b4;border-radius:999px;padding:10px 16px;background:#fbf8ef}
+.facts{margin:22px 0 0;padding:6px 22px;background:#f6f3ea;border-top:3px solid var(--gold2)}
+.facts dl{display:grid;grid-template-columns:auto 1fr;gap:0 20px}
+.facts dt,.facts dd{padding:13px 0;border-bottom:1px solid #e4dec9;font-size:.95rem}
+.facts dt{font:600 11px/1.6 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);padding-top:15px}
+.facts dd{color:var(--navy);font-weight:600}
+.facts dt:nth-last-of-type(1),.facts dd:last-of-type{border-bottom:0}
+/* llamada final */
+.cta{margin:70px 0 0;background:linear-gradient(135deg,#0a1230,#10206a);color:#fff;text-align:center;padding:62px 20px 66px}
+.cta .k{font:600 11.5px var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold2)}
+.cta h2{color:#fff;font-size:clamp(1.9rem,6vw,2.7rem);margin:12px 0 10px;padding:0}
+.cta h2::before{display:none}
+.cta p{color:#c8cde6;max-width:480px;margin:0 auto 28px;font-size:1.02rem}
+.cta .b{display:flex;flex-direction:column;gap:12px;max-width:380px;margin:0 auto}
+.cta a{text-decoration:none;border-radius:999px;padding:15px 22px;font:600 15px/1.2 var(--sans);transition:transform .2s}
+.cta a:hover{transform:translateY(-2px)}
+.cta .wa{background:#fff;color:var(--navy)}
+.cta .wa span{display:block;font-weight:400;font-size:12.5px;color:var(--mute);margin-top:3px}
+.cta .f{background:linear-gradient(180deg,#4a74dc,#24408f);color:#fff;box-shadow:0 0 0 1px rgba(226,186,104,.7)}
+@media(min-width:700px){.cta .b{flex-direction:row;max-width:none;justify-content:center}.cta a{min-width:250px}}
+.kb-li{margin-top:60px}
+.sum{margin:0 0 50px;padding:22px 24px 8px;background:#f6f3ea;border-top:3px solid var(--gold2)}
+.sum h2{font-size:1.05rem;padding:0;margin:0 0 6px;letter-spacing:.16em;text-transform:uppercase;font:600 11.5px/1.4 var(--sans);color:var(--gold)}
+.sum h2::before{display:none}
+.sum ul{list-style:none}
+.sum li{padding:12px 0 12px 22px;border-top:1px solid #e4dec9;position:relative;font-size:1rem;line-height:1.6;color:var(--navy)}
+.sum li:first-child{border-top:0}
+.sum li::before{content:"";position:absolute;left:2px;top:21px;width:7px;height:7px;background:var(--gold2);transform:rotate(45deg)}
+.vals{display:grid;gap:0;margin-top:6px}
+.vals div{padding:18px 0;border-top:1px solid var(--line)}
+.vals div:last-child{border-bottom:1px solid var(--line)}
+.vals b{display:block;font:500 1.2rem/1.3 var(--serif);color:var(--navy)}
+.vals em{display:block;font:italic 400 .95rem/1.4 var(--serif);color:var(--gold);margin:2px 0 6px}
+.vals span{display:block;font-size:1rem;line-height:1.65;color:var(--mute)}
+.tools{display:grid;gap:12px;margin-top:8px}
+.tools a{display:grid;grid-template-columns:1fr auto;gap:2px 14px;align-items:center;text-decoration:none;padding:16px 18px;border:1px solid #d9d3bf;border-radius:10px;background:#fff;transition:border-color .2s,transform .2s}
+.tools a:hover{border-color:var(--gold);transform:translateY(-2px)}
+.tools b{font:500 1.12rem/1.3 var(--serif);color:var(--navy)}
+.tools span{grid-column:1;font-size:.95rem;line-height:1.5;color:var(--mute)}
+.tools i{grid-column:2;grid-row:1/3;font-style:normal;font-size:1.4rem;color:var(--gold)}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:18px 36px 18px 0;position:relative;font:500 1.12rem/1.4 var(--serif);color:var(--navy)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:14px;font:300 1.8rem/1 var(--sans);color:var(--gold)}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{margin:0 0 18px!important;font-size:1rem!important;color:var(--mute)!important;line-height:1.7!important}
+.faq a{color:var(--navy);text-decoration-color:var(--gold2);text-underline-offset:3px}
 </style>
+
 </head>
 <body>
-
-
-<main class="wrap">
-  <a class="back" href="index.html">&larr; Volver al inicio</a>
-
-  <h1>Sobre nosotros</h1>
-  <p class="lead">Kingsbridge English Academy ofrece clases particulares y de refuerzo de inglés en Leticia, Amazonas, en la triple frontera entre Colombia, Brasil y Perú.</p>
-  <hr class="gold">
-
+<header class="hd">
+  <div class="kick">Sobre nosotros</div>
+  <h1>Inglés real, en el corazón del <em>Amazonas</em></h1>
+  <p class="stand">Kingsbridge English Academy ofrece clases particulares y de refuerzo de inglés en Leticia, Amazonas, en la triple frontera entre Colombia, Brasil y Perú.</p>
+  <div class="meta"><span>Leticia · Amazonas · Colombia</span><span>Registro Cámara de Comercio No. 26385</span><span>Niños · Jóvenes · Adultos</span></div>
+</header>
+<figure class="fig">
+  <img src="wisdom_legacywall.jpg" width="1600" height="900" alt="Ilustración de un búho sobre un libro abierto entre dos columnas clásicas, en azul y dorado">
+  <figcaption>El conocimiento como camino: el espíritu con el que enseñamos en Kingsbridge.</figcaption>
+</figure>
+<main class="art">
+  <aside class="sum" aria-label="En resumen">
+    <h2>En resumen</h2>
+    <ul>
+      <li>Clases particulares y de refuerzo de inglés en Leticia, Amazonas.</li>
+      <li>Conversación desde el primer día, en grupos pequeños y con atención personalizada.</li>
+      <li>Para niños, jóvenes y adultos, con herramientas gratuitas para empezar hoy.</li>
+    </ul>
+  </aside>
   <section aria-labelledby="mision">
     <h2 id="mision">Nuestra misión</h2>
     <p>Nacimos con una misión: hacer que el inglés real sea accesible. Queremos que cada estudiante, desde el primer día, pueda hablar, entender y usar el idioma con seguridad.</p>
+    <p>Creemos que un idioma se aprende usándolo. Por eso cada clase está pensada para que el estudiante participe, pregunte, se equivoque y vuelva a intentarlo en un ambiente de confianza.</p>
   </section>
-
-  <section aria-labelledby="lema">
-    <p class="quote">Speak with courage.<br>Learn with purpose.<br>Let every word carry you further.</p>
+  <blockquote class="pq"><p>Speak with courage.<br>Learn with purpose.<br>Let every word carry you further.</p><small>Nuestro lema</small></blockquote>
+  <section aria-labelledby="vida">
+    <h2 id="vida">Inglés para la vida real</h2>
+    <p>Leticia es un punto de encuentro: aquí se cruzan viajeros de muchos países y se mezclan el español, el portugués y las lenguas de la región. En un lugar así, hablar inglés abre puertas en el turismo, en los estudios y en el trabajo.</p>
+    <p>Nuestro objetivo no es memorizar reglas, sino poder usar el inglés en situaciones reales: presentarse, preguntar, entender una conversación, escribir un mensaje o resolver un problema.</p>
   </section>
-
   <section aria-labelledby="como">
     <h2 id="como">Cómo enseñamos</h2>
-    <div class="grid">
-      <div class="card"><h3>Conversación</h3><p>Practicamos el idioma hablando desde el primer día.</p></div>
-      <div class="card"><h3>Grupos pequeños</h3><p>Clases en grupos pequeños, para que cada voz se escuche.</p></div>
-      <div class="card"><h3>Atención personalizada</h3><p>Acompañamiento cercano a cada estudiante.</p></div>
+    <ol class="steps">
+      <li><h3>Conversación</h3><p>Practicamos el idioma hablando desde el primer día.</p></li>
+      <li><h3>Grupos pequeños</h3><p>Clases en grupos pequeños, para que cada voz se escuche.</p></li>
+      <li><h3>Atención personalizada</h3><p>Acompañamiento cercano a cada estudiante.</p></li>
+    </ol>
+  </section>
+  <section aria-labelledby="valores">
+    <h2 id="valores">Lo que nos guía</h2>
+    <p>Nuestro lema resume la manera en que entendemos la enseñanza.</p>
+    <div class="vals">
+      <div><b>Hablar con valentía</b><em>Speak with courage</em><span>Equivocarse es parte de aprender. Animamos a cada estudiante a hablar sin miedo, desde sus primeras palabras.</span></div>
+      <div><b>Aprender con propósito</b><em>Learn with purpose</em><span>Cada ejercicio tiene un para qué: entender, comunicarse y avanzar paso a paso hacia una meta clara.</span></div>
+      <div><b>Llegar más lejos</b><em>Let every word carry you further</em><span>Cada palabra nueva es una puerta: para viajar, estudiar, trabajar y conocer gente.</span></div>
     </div>
   </section>
-
   <section aria-labelledby="para-quien">
     <h2 id="para-quien">Para quién es</h2>
     <p>Ofrecemos clases particulares para niños, jóvenes y adultos, y refuerzo para las clases de inglés del colegio.</p>
+    <div class="chips"><span>Niños</span><span>Jóvenes</span><span>Adultos</span><span>Refuerzo escolar</span></div>
   </section>
-
+  <section aria-labelledby="herr">
+    <h2 id="herr">Empieza hoy, sin costo</h2>
+    <p>Puedes conocer nuestra forma de trabajar antes de inscribirte, con herramientas y pruebas gratuitas que funcionan desde tu teléfono.</p>
+    <div class="tools">
+      <a href="index.html#herramientas"><b>Prueba de nivel</b><span>Seis preguntas para saber en qué punto estás, de A1 a C1.</span><i aria-hidden="true">&rarr;</i></a>
+      <a href="practica/index.html"><b>Práctica interactiva</b><span>Ejercicios con formato de examen, organizados según el Marco Común Europeo (MCER). Prueba 10 preguntas gratis.</span><i aria-hidden="true">&rarr;</i></a>
+      <a href="my-day-ninos.html"><b>My Day Games</b><span>Aprender inglés jugando: una propuesta pensada para niños.</span><i aria-hidden="true">&rarr;</i></a>
+    </div>
+  </section>
   <section aria-labelledby="donde">
     <h2 id="donde">Dónde estamos</h2>
     <p>Estamos en Leticia, Amazonas, Colombia: un lugar donde se cruzan tres países y varias lenguas, y donde hablar inglés abre más puertas.</p>
+    <div class="facts"><dl>
+      <dt>Ciudad</dt><dd>Leticia, Amazonas</dd>
+      <dt>País</dt><dd>Colombia</dd>
+      <dt>Frontera</dt><dd>Colombia · Brasil · Perú</dd>
+      <dt>Registro</dt><dd>Cámara de Comercio No. 26385</dd>
+      <dt>Estado</dt><dd>En etapa de lanzamiento</dd>
+    </dl></div>
   </section>
-
   <section aria-labelledby="registro">
     <h2 id="registro">Registro y estado de la academia</h2>
-    <p class="reg">Registro ante la Cámara de Comercio No. 26385</p>
-    <p style="margin-top:14px">Somos una academia fundada y registrada ante la Cámara de Comercio. Estamos en etapa de lanzamiento: organizando nuestras primeras clases y avanzando en los requisitos que corresponden.</p>
+    <p>Somos una academia fundada y registrada ante la Cámara de Comercio. Estamos en etapa de lanzamiento: organizando nuestras primeras clases y avanzando en los requisitos que corresponden.</p>
   </section>
-
-  <section aria-labelledby="contacto">
-    <h2 id="contacto">Empieza hoy</h2>
-    <p style="margin-bottom:18px">Escríbenos y cuéntanos qué necesitas.</p>
-    <div class="cta">
-      <a class="wa" href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener">Pide información y precios por WhatsApp<span>@kingsbridge.academy</span></a>
-      <a class="form" href="https://tally.so/r/2EQWlj" target="_blank" rel="noopener">📝 Pre-inscripción</a>
-    </div>
+  <section class="faq" aria-labelledby="faq">
+    <h2 id="faq">Preguntas frecuentes</h2>
+    <details><summary>¿Cómo empiezo?</summary><p>Puedes escribirnos por WhatsApp y contarnos qué necesitas, o dejar tus datos en el formulario de <a href="https://tally.so/r/2EQWlj" target="_blank" rel="noopener">pre-inscripción</a>. Te responderemos con la información de las clases.</p></details>
+    <details><summary>¿Para qué edades son las clases?</summary><p>Tenemos clases para niños, jóvenes y adultos. También ofrecemos refuerzo para las clases de inglés del colegio.</p></details>
+    <details><summary>¿Necesito saber inglés para empezar?</summary><p>No. Puedes empezar desde cero. Si no sabes cuál es tu nivel, haz nuestra prueba de nivel gratuita o escríbenos y te orientamos.</p></details>
+    <details><summary>¿Cuánto cuestan las clases?</summary><p>Escríbenos por WhatsApp y te enviamos la información de precios actualizada.</p></details>
+    <details><summary>¿La academia está registrada?</summary><p>Sí. Estamos registrados ante la Cámara de Comercio con el No. 26385 y nos encontramos en etapa de lanzamiento.</p></details>
   </section>
-
 </main>
 <style id="kb-pie0">.kb-pie{margin-top:48px;background:#0b1024;color:#8e8ab5;text-align:center;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:14px;padding:36px 20px;border-top:2px solid #e2ba68}.kb-pie p{margin:0}</style>
 <style id="kb-pie2">
@@ -134,6 +237,19 @@ footer{margin:44px 0 28px;color:#8e8ab5;font-size:13px}
   </div>
 </div>
 
+<section class="cta" aria-labelledby="contacto">
+  <div class="k">Contacto</div>
+  <h2 id="contacto">Empieza hoy</h2>
+  <p>Escríbenos y cuéntanos qué necesitas.</p>
+  <div class="b">
+    <a class="wa" href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener">Pide información y precios por WhatsApp<span>@kingsbridge.academy</span></a>
+    <a class="f" href="https://tally.so/r/2EQWlj" target="_blank" rel="noopener">Pre-inscripción</a>
+  </div>
+</section>
+<script>
+(function(){function fix(){var b=document.querySelector('#kb-menu .brand');if(!b||b.dataset.kbl)return;b.dataset.kbl='1';b.setAttribute('aria-label','Kingsbridge English Academy');b.innerHTML='<img src="logo.png" alt="Kingsbridge English Academy" width="217" height="54">'}
+new MutationObserver(fix).observe(document.documentElement,{childList:true,subtree:true});fix()})();
+</script>
 <footer class="kb-pie">
   <span class="kb-seal">Kingsbridge</span>
   <div class="kb-nm">English Academy</div>
@@ -144,7 +260,7 @@ footer{margin:44px 0 28px;color:#8e8ab5;font-size:13px}
   <p style="max-width:330px;margin:12px auto 0;font-size:11px;line-height:1.6;opacity:.75">Ejercicios organizados según el Marco Común Europeo de Referencia para las lenguas (MCER), de A1 a C1, para que avances paso a paso. Material de práctica creado por Kingsbridge English Academy, independiente de los exámenes oficiales.</p>
 </footer>
 
-<script src="menu.js" data-logo="on" defer></script>
+<script src="menu.js" defer></script>
 <script src="footer.js" defer></script>
 </body>
 </html>
