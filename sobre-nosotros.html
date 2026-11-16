@@ -106,6 +106,15 @@ h2::before{content:"";position:absolute;top:0;left:0;width:44px;height:3px;backg
 .faq summary::after{content:"+";position:absolute;right:4px;top:14px;font:300 1.8rem/1 var(--sans);color:var(--gold)}
 .faq details[open] summary::after{content:"\2212"}
 .faq details p{margin:0 0 18px!important;font-size:1rem!important;color:var(--mute)!important;line-height:1.7!important}
+.state{display:grid;gap:12px;margin:22px 0 4px}
+.state div{padding:18px 20px;border:1px solid #d9d3bf;border-radius:4px;background:#fff;position:relative}
+.state div.on{border-top:3px solid var(--gold2);background:#fbf8ef}
+.state small{display:flex;align-items:center;gap:9px;font:600 11px/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.state small::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--gold2)}
+.state div.next small::before{background:transparent;box-shadow:inset 0 0 0 2px var(--gold2)}
+.state b{display:block;font:500 1.2rem/1.3 var(--serif);color:var(--navy);margin:8px 0 6px}
+.state span{display:block;font-size:.98rem;line-height:1.65;color:var(--mute)}
+@media(min-width:700px){.state{grid-template-columns:1fr 1fr}}
 .faq a{color:var(--navy);text-decoration-color:var(--gold2);text-underline-offset:3px}
 </style>
 
@@ -180,12 +189,17 @@ h2::before{content:"";position:absolute;top:0;left:0;width:44px;height:3px;backg
       <dt>País</dt><dd>Colombia</dd>
       <dt>Frontera</dt><dd>Colombia · Brasil · Perú</dd>
       <dt>Registro</dt><dd>Cámara de Comercio No. 26385</dd>
-      <dt>Estado</dt><dd>En etapa de lanzamiento</dd>
+      <dt>Estado</dt><dd>Plataforma digital en funcionamiento · sede física en lanzamiento</dd>
     </dl></div>
   </section>
   <section aria-labelledby="registro">
-    <h2 id="registro">Registro y estado de la academia</h2>
-    <p>Somos una academia fundada y registrada ante la Cámara de Comercio. Estamos en etapa de lanzamiento: organizando nuestras primeras clases y avanzando en los requisitos que corresponden.</p>
+    <h2 id="registro">Registro y estado institucional</h2>
+    <p>Kingsbridge English Academy es una institución fundada y registrada ante la Cámara de Comercio bajo el número 26385. Su labor se desarrolla actualmente en dos planos complementarios, que responden a una misma concepción de la enseñanza de la lengua inglesa.</p>
+    <div class="state">
+      <div class="on"><small>En funcionamiento</small><b>Plano digital</b><span>La academia opera en línea de manera regular. Ofrece una plataforma de práctica interactiva organizada según el Marco Común Europeo de Referencia para las lenguas (MCER), una prueba de nivel y recursos de aprendizaje para niños y adultos, accesibles desde cualquier dispositivo.</span></div>
+      <div class="next"><small>En lanzamiento</small><b>Sede física en Leticia</b><span>Se encuentra en curso la apertura de la modalidad presencial: la conformación de los primeros grupos y el cumplimiento progresivo de los requisitos que corresponden a una institución de esta naturaleza.</span></div>
+    </div>
+    <p style="margin-top:20px">Esta secuencia es deliberada. La consolidación previa de una base digital sólida, con contenidos estructurados y criterios de evaluación claros, permite que la apertura presencial se apoye en una metodología ya probada y no en una improvisación. La academia continuará ampliando ambos planos de forma simultánea y ordenada.</p>
   </section>
   <section class="faq" aria-labelledby="faq">
     <h2 id="faq">Preguntas frecuentes</h2>
@@ -193,7 +207,8 @@ h2::before{content:"";position:absolute;top:0;left:0;width:44px;height:3px;backg
     <details><summary>¿Para qué edades son las clases?</summary><p>Tenemos clases para niños, jóvenes y adultos. También ofrecemos refuerzo para las clases de inglés del colegio.</p></details>
     <details><summary>¿Necesito saber inglés para empezar?</summary><p>No. Puedes empezar desde cero. Si no sabes cuál es tu nivel, haz nuestra prueba de nivel gratuita o escríbenos y te orientamos.</p></details>
     <details><summary>¿Cuánto cuestan las clases?</summary><p>Escríbenos por WhatsApp y te enviamos la información de precios actualizada.</p></details>
-    <details><summary>¿La academia está registrada?</summary><p>Sí. Estamos registrados ante la Cámara de Comercio con el No. 26385 y nos encontramos en etapa de lanzamiento.</p></details>
+    <details><summary>¿La academia está registrada?</summary><p>Sí. Estamos registrados ante la Cámara de Comercio con el No. 26385. La plataforma digital ya funciona y la sede física en Leticia se encuentra en fase de lanzamiento.</p></details>
+    <details><summary>¿Hay clases presenciales?</summary><p>La modalidad presencial está en fase de lanzamiento. Escríbenos por WhatsApp para conocer la disponibilidad de los primeros grupos.</p></details>
   </section>
 </main>
 <style id="kb-pie0">.kb-pie{margin-top:48px;background:#0b1024;color:#8e8ab5;text-align:center;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:14px;padding:36px 20px;border-top:2px solid #e2ba68}.kb-pie p{margin:0}</style>
