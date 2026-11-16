@@ -12,7 +12,7 @@
     li: ["Verified profile", "Official LinkedIn profile", "View LinkedIn profile", "LinkedIn \u00b7 Verified"],
     cols: [
       { h: "Spanish", l: [["Spanish for English speakers", "spanish/index.html"], ["Spanish Practice", "spanish/practice/index.html"], ["Travel Spanish", "spanish/travel.html"], ["Levels & access", "spanish/index.html#access"]] },
-      { h: "Academy", l: [["Kingsbridge English Academy", "index.html"], ["About us", "sobre-nosotros.html"], ["English practice (A1–C1)", "practica/index.html"], ["My Day Games", "my-day-ninos.html"]] },
+      { h: "Academy", l: [["Kingsbridge English Academy", "index.html"], ["About us", "spanish/about.html"], ["English practice (A1–C1)", "practica/index.html"], ["My Day Games", "my-day-ninos.html"]] },
       { h: "Contact", l: [["WhatsApp", "https://wa.me/kingsbridge.academy"], ["Pre-enrolment", "https://tally.so/r/2EQWlj"]]},
       { h: "Legal", l: [["Terms of the course", "spanish/terms.html"], ["Terms & privacy", "terminos-y-privacidad.html"]] }
     ],

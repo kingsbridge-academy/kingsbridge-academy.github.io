@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About us | KINGSBRIDGE ENGLISH ACADEMY</title>
+<meta name="description" content="Meet Kingsbridge English Academy: private English classes and school support in Leticia, Amazonas, with a mission to make real English accessible.">
+<meta name="theme-color" content="#080b19">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="About us | Kingsbridge English Academy">
+<meta property="og:description" content="Real English in the heart of the Amazon. Get to know our academy in Leticia, Amazonas.">
+<meta property="og:url" content="https://kingsbridge-academy.github.io/spanish/about.html">
+<meta property="og:image" content="https://kingsbridge-academy.github.io/wisdom_legacywall.jpg">
+<style>
+@font-face{font-family:"KB Lora";font-weight:400;font-style:normal;font-display:swap;src:url(../fonts/lora.woff) format("woff")}
+@font-face{font-family:"KB Lora";font-weight:400;font-style:italic;font-display:swap;src:url(../fonts/lora-italic.woff) format("woff")}
+@font-face{font-family:"KB Inter";font-weight:400;font-style:normal;font-display:swap;src:url(../fonts/inter-400.woff) format("woff")}
+@font-face{font-family:"KB Inter";font-weight:600;font-style:normal;font-display:swap;src:url(../fonts/inter-600.woff) format("woff")}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#0a1230;--gold:#b8893a;--gold2:#e2ba68;--ink:#1d2033;--mute:#5a5f78;--line:#e4e0d4;--serif:"KB Lora",Georgia,"Times New Roman",serif;--sans:"KB Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+html{-webkit-text-size-adjust:100%}
+body{background:#fff;color:var(--ink);font-family:var(--sans);line-height:1.7;font-size:17px}
+img{display:block;max-width:100%}
+a{color:inherit}
+/* encabezado compacto */
+#kb-menu .in{min-height:70px}
+#kb-menu .brand{display:block;line-height:0}
+#kb-menu .brand img{display:block;height:54px!important;width:auto!important;max-width:56vw!important;margin:0!important;border-radius:4px;box-shadow:0 0 0 1px rgba(226,186,104,.55)}
+@media(min-width:700px){#kb-menu .in{min-height:80px}#kb-menu .brand img{height:64px!important}}
+/* cabecera editorial */
+@media(min-width:880px) and (max-width:2599px){#kb-menu nav{display:none!important}#kb-menu button.tg{display:flex!important}#kb-menu .pn.open{display:block!important}}
+.hd{max-width:1060px;margin:0 auto;padding:46px 20px 0}
+.kick{display:flex;align-items:center;gap:12px;font:600 12px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.kick::before{content:"";width:34px;height:2px;background:var(--gold)}
+h1{font:500 clamp(2.2rem,8vw,4.3rem)/1.06 var(--serif);letter-spacing:-.012em;color:var(--navy);margin:18px 0 18px;max-width:900px}
+h1 em{font-style:italic;color:var(--gold)}
+.stand{font:400 clamp(1.1rem,3.2vw,1.38rem)/1.6 var(--sans);color:var(--mute);max-width:760px}
+.meta{display:flex;flex-wrap:wrap;gap:0;margin:28px 0 0;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font:600 11.5px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--navy)}
+.meta span{padding:4px 18px 4px 0;margin-right:18px;border-right:1px solid var(--line)}
+.meta span:last-child{border:0;margin:0;padding-right:0}
+@media(max-width:560px){.meta{flex-direction:column;gap:6px}.meta span{border:0;margin:0;padding:0}}
+.fig{max-width:1060px;margin:30px auto 0;padding:0 20px}
+.fig img{width:100%;height:auto;border-radius:3px}
+.fig figcaption{font:400 13px/1.5 var(--sans);color:var(--mute);margin-top:10px;padding-left:12px;border-left:2px solid var(--gold2)}
+/* cuerpo */
+.art{max-width:700px;margin:0 auto;padding:46px 20px 10px}
+.art section{margin:0 0 54px}
+h2{font:500 clamp(1.55rem,4.6vw,2.05rem)/1.2 var(--serif);color:var(--navy);margin:0 0 16px;padding-top:18px;position:relative}
+h2::before{content:"";position:absolute;top:0;left:0;width:44px;height:3px;background:var(--gold2)}
+.art p{margin:0 0 16px;font-size:1.06rem;line-height:1.8;color:#2b2f44}
+.pq{margin:10px 0 56px;padding:6px 0 6px 24px;border-left:4px solid var(--gold2)}
+.pq p{font:italic 400 clamp(1.4rem,4.8vw,2rem)/1.4 var(--serif);color:var(--navy);margin:0}
+.pq small{display:block;margin-top:12px;font:600 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.steps{list-style:none;counter-reset:s;margin:8px 0 0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:62px 1fr;gap:6px 14px;padding:20px 0;border-top:1px solid var(--line)}
+.steps li:last-child{border-bottom:1px solid var(--line)}
+.steps li::before{content:"0" counter(s);font:400 2.3rem/1 var(--serif);color:var(--gold);grid-row:1/3}
+.steps h3{font:500 1.22rem/1.25 var(--serif);color:var(--navy)}
+.steps p{margin:0!important;font-size:1rem!important;color:var(--mute)!important;line-height:1.65!important}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.chips span{font:600 13px/1 var(--sans);letter-spacing:.04em;color:var(--navy);border:1px solid #cfc8b4;border-radius:999px;padding:10px 16px;background:#fbf8ef}
+.facts{margin:22px 0 0;padding:6px 22px;background:#f6f3ea;border-top:3px solid var(--gold2)}
+.facts dl{display:grid;grid-template-columns:auto 1fr;gap:0 20px}
+.facts dt,.facts dd{padding:13px 0;border-bottom:1px solid #e4dec9;font-size:.95rem}
+.facts dt{font:600 11px/1.6 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);padding-top:15px}
+.facts dd{color:var(--navy);font-weight:600}
+.facts dt:nth-last-of-type(1),.facts dd:last-of-type{border-bottom:0}
+/* llamada final */
+.kcta{margin:70px 0 0;background:linear-gradient(135deg,#0a1230,#10206a);color:#fff;text-align:center;padding:62px 20px 66px}
+.kcta .k{font:600 11.5px var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold2)}
+.kcta h2{color:#fff;font-size:clamp(1.9rem,6vw,2.7rem);margin:12px 0 10px;padding:0}
+.kcta h2::before{display:none}
+.kcta p{color:#c8cde6;max-width:480px;margin:0 auto 28px;font-size:1.02rem}
+.kcta .b{display:flex;flex-direction:column;gap:12px;max-width:380px;margin:0 auto}
+.kcta a{text-decoration:none;border-radius:999px;padding:15px 22px;font:600 15px/1.2 var(--sans);transition:transform .2s}
+.kcta a:hover{transform:translateY(-2px)}
+.kcta .wa{background:#fff;color:var(--navy)}
+.kcta .wa span{display:block;font-weight:400;font-size:12.5px;color:var(--mute);margin-top:3px}
+.kcta .f{background:linear-gradient(180deg,#4a74dc,#24408f);color:#fff;box-shadow:0 0 0 1px rgba(226,186,104,.7)}
+@media(min-width:700px){.kcta .b{flex-direction:row;max-width:none;justify-content:center}.kcta a{min-width:250px}}
+.sum{margin:0 0 50px;padding:22px 24px 8px;background:#f6f3ea;border-top:3px solid var(--gold2)}
+.sum h2{font-size:1.05rem;padding:0;margin:0 0 6px;letter-spacing:.16em;text-transform:uppercase;font:600 11.5px/1.4 var(--sans);color:var(--gold)}
+.sum h2::before{display:none}
+.sum ul{list-style:none}
+.sum li{padding:12px 0 12px 22px;border-top:1px solid #e4dec9;position:relative;font-size:1rem;line-height:1.6;color:var(--navy)}
+.sum li:first-child{border-top:0}
+.sum li::before{content:"";position:absolute;left:2px;top:21px;width:7px;height:7px;background:var(--gold2);transform:rotate(45deg)}
+.vals{display:grid;gap:0;margin-top:6px}
+.vals div{padding:18px 0;border-top:1px solid var(--line)}
+.vals div:last-child{border-bottom:1px solid var(--line)}
+.vals b{display:block;font:500 1.2rem/1.3 var(--serif);color:var(--navy)}
+.vals em{display:block;font:italic 400 .95rem/1.4 var(--serif);color:var(--gold);margin:2px 0 6px}
+.vals span{display:block;font-size:1rem;line-height:1.65;color:var(--mute)}
+.tools{display:grid;gap:12px;margin-top:8px}
+.tools a{display:grid;grid-template-columns:1fr auto;gap:2px 14px;align-items:center;text-decoration:none;padding:16px 18px;border:1px solid #d9d3bf;border-radius:10px;background:#fff;transition:border-color .2s,transform .2s}
+.tools a:hover{border-color:var(--gold);transform:translateY(-2px)}
+.tools b{font:500 1.12rem/1.3 var(--serif);color:var(--navy)}
+.tools span{grid-column:1;font-size:.95rem;line-height:1.5;color:var(--mute)}
+.tools i{grid-column:2;grid-row:1/3;font-style:normal;font-size:1.4rem;color:var(--gold)}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:18px 36px 18px 0;position:relative;font:500 1.12rem/1.4 var(--serif);color:var(--navy)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:14px;font:300 1.8rem/1 var(--sans);color:var(--gold)}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{margin:0 0 18px!important;font-size:1rem!important;color:var(--mute)!important;line-height:1.7!important}
+.state{display:grid;gap:12px;margin:22px 0 4px}
+.state div{padding:18px 20px;border:1px solid #d9d3bf;border-radius:4px;background:#fff;position:relative}
+.state div.on{border-top:3px solid var(--gold2);background:#fbf8ef}
+.state small{display:flex;align-items:center;gap:9px;font:600 11px/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.state small::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--gold2)}
+.state div.next small::before{background:transparent;box-shadow:inset 0 0 0 2px var(--gold2)}
+.state b{display:block;font:500 1.2rem/1.3 var(--serif);color:var(--navy);margin:8px 0 6px}
+.state span{display:block;font-size:.98rem;line-height:1.65;color:var(--mute)}
+@media(min-width:700px){.state{grid-template-columns:1fr 1fr}}
+.faq a{color:var(--navy);text-decoration-color:var(--gold2);text-underline-offset:3px}
+</style>
+
+</head>
+<body>
+<header class="hd">
+  <div class="kick">About us</div>
+  <h1>Real English, in the heart of the <em>Amazon</em></h1>
+  <p class="stand">Kingsbridge English Academy offers private English classes and school support in Leticia, Amazonas, at the triple border between Colombia, Brazil and Peru.</p>
+  <div class="meta"><span>Leticia · Amazonas · Colombia</span><span>Chamber of Commerce registration No. 26385</span><span>Children · Teens · Adults</span></div>
+</header>
+<figure class="fig">
+  <img src="../wisdom_legacywall.jpg" width="1600" height="900" alt="Illustration of an owl on an open book between two classical columns, in blue and gold">
+  <figcaption>Knowledge as a path: the spirit in which we teach at Kingsbridge.</figcaption>
+</figure>
+<main class="art">
+  <aside class="sum" aria-label="At a glance">
+    <h2>At a glance</h2>
+    <ul>
+      <li>Private English classes and school support in Leticia, Amazonas.</li>
+      <li>Conversation from day one, in small groups with personal attention.</li>
+      <li>For children, teens and adults, with free tools to start today.</li>
+    </ul>
+  </aside>
+  <section aria-labelledby="mision">
+    <h2 id="mision">Our mission</h2>
+    <p>We were founded with one mission: to make real English accessible. We want every student, from the very first day, to speak, understand and use the language with confidence.</p>
+    <p>We believe a language is learned by using it. That is why every class is designed for students to take part, ask questions, make mistakes and try again in an atmosphere of trust.</p>
+  </section>
+  <blockquote class="pq"><p>Speak with courage.<br>Learn with purpose.<br>Let every word carry you further.</p><small>Our motto</small></blockquote>
+  <section aria-labelledby="vida">
+    <h2 id="vida">English for real life</h2>
+    <p>Leticia is a meeting point: travellers from many countries cross paths here, and Spanish, Portuguese and the languages of the region blend together. In a place like this, speaking English opens doors in tourism, in studies and at work.</p>
+    <p>Our goal is not to memorise rules, but to use English in real situations: introducing yourself, asking questions, following a conversation, writing a message or solving a problem.</p>
+  </section>
+  <section aria-labelledby="como">
+    <h2 id="como">How we teach</h2>
+    <ol class="steps">
+      <li><h3>Conversation</h3><p>We practise the language by speaking from the first day.</p></li>
+      <li><h3>Small groups</h3><p>Classes in small groups, so that every voice is heard.</p></li>
+      <li><h3>Personal attention</h3><p>Close support for every student.</p></li>
+    </ol>
+  </section>
+  <section aria-labelledby="valores">
+    <h2 id="valores">What guides us</h2>
+    <p>Our motto sums up how we understand teaching.</p>
+    <div class="vals">
+      <div><b>Speak with courage</b><em>Hablar con valentía</em><span>Making mistakes is part of learning. We encourage every student to speak without fear, from their very first words.</span></div>
+      <div><b>Learn with purpose</b><em>Aprender con propósito</em><span>Every exercise has a reason: to understand, to communicate and to move step by step towards a clear goal.</span></div>
+      <div><b>Let every word carry you further</b><em>Llegar más lejos</em><span>Every new word is a door: to travel, study, work and meet people.</span></div>
+    </div>
+  </section>
+  <section aria-labelledby="para-quien">
+    <h2 id="para-quien">Who it is for</h2>
+    <p>We offer private classes for children, teens and adults, and support for school English classes.</p>
+    <div class="chips"><span>Children</span><span>Teens</span><span>Adults</span><span>School support</span></div>
+  </section>
+  <section aria-labelledby="herr">
+    <h2 id="herr">Start today, at no cost</h2>
+    <p>You can get to know how we work before enrolling, with free tools and tests that run on your phone.</p>
+    <div class="tools">
+      <a href="practice/index.html"><b>Spanish Practice</b><span>Exam-style Spanish exercises with explanations in English, organised by the CEFR (A1 to C1). Try 10 questions free.</span><i aria-hidden="true">&rarr;</i></a>
+      <a href="travel.html"><b>Travel Spanish</b><span>60 real phrases for Colombia and the Amazon, with audio and pronunciation written for English speakers.</span><i aria-hidden="true">&rarr;</i></a>
+      <a href="../my-day-ninos.html"><b>My Day Games</b><span>Learning English through play: a proposal designed for children.</span><i aria-hidden="true">&rarr;</i></a>
+    </div>
+  </section>
+  <section aria-labelledby="donde">
+    <h2 id="donde">Where we are</h2>
+    <p>We are in Leticia, Amazonas, Colombia: a place where three countries and several languages meet, and where speaking English opens even more doors.</p>
+    <div class="facts"><dl>
+      <dt>City</dt><dd>Leticia, Amazonas</dd>
+      <dt>Country</dt><dd>Colombia</dd>
+      <dt>Border</dt><dd>Colombia · Brazil · Peru</dd>
+      <dt>Registration</dt><dd>Chamber of Commerce No. 26385</dd>
+      <dt>Status</dt><dd>Digital platform in operation · physical campus launching</dd>
+    </dl></div>
+  </section>
+  <section aria-labelledby="registro">
+    <h2 id="registro">Registration and institutional status</h2>
+    <p>Kingsbridge English Academy is an institution founded and registered with the Chamber of Commerce under number 26385. Its work currently unfolds on two complementary levels, both grounded in a single conception of how the English language should be taught.</p>
+    <div class="state">
+      <div class="on"><small>In operation</small><b>Digital level</b><span>The academy operates online on a regular basis. It offers an interactive practice platform organised according to the Common European Framework of Reference for Languages (CEFR), a level test and learning resources for children and adults, accessible from any device.</span></div>
+      <div class="next"><small>Launching</small><b>Physical campus in Leticia</b><span>The opening of in-person teaching is under way: the formation of the first groups and the progressive fulfilment of the requirements that apply to an institution of this nature.</span></div>
+    </div>
+    <p style="margin-top:20px">This sequence is deliberate. Consolidating a solid digital foundation first, with structured content and clear assessment criteria, allows the in-person opening to rest on a proven methodology rather than on improvisation. The academy will continue to expand both levels simultaneously and in an orderly way.</p>
+  </section>
+  <section class="faq" aria-labelledby="faq">
+    <h2 id="faq">Frequently asked questions</h2>
+    <details><summary>How do I get started?</summary><p>You can message us on WhatsApp and tell us what you need, or leave your details in the <a href="https://tally.so/r/2EQWlj" target="_blank" rel="noopener">pre-enrolment form</a>. We will reply with information about the classes.</p></details>
+    <details><summary>What ages are the classes for?</summary><p>We have classes for children, teens and adults. We also offer support for school English classes.</p></details>
+    <details><summary>Do I need to know English to start?</summary><p>No. You can start from zero. If you do not know your level, take our free level test or write to us and we will guide you.</p></details>
+    <details><summary>How much do the classes cost?</summary><p>Message us on WhatsApp and we will send you the current pricing.</p></details>
+    <details><summary>Is the academy registered?</summary><p>Yes. We are registered with the Chamber of Commerce under No. 26385. The digital platform is already running and the physical campus in Leticia is in its launch phase.</p></details>
+    <details><summary>Are there in-person classes?</summary><p>In-person teaching is in its launch phase. Message us on WhatsApp to find out about availability for the first groups.</p></details>
+  </section>
+</main>
+<style id="kb-pie0">.kb-pie{margin-top:48px;background:#0b1024;color:#8e8ab5;text-align:center;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:14px;padding:36px 20px;border-top:2px solid #e2ba68}.kb-pie p{margin:0}</style>
+<style id="kb-pie2">
+.kb-pie{padding:36px 20px 36px;line-height:1.6}
+.kb-pie .kb-seal{display:block;font-family:var(--serif,Georgia,serif);font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:#e2ba68;margin:0}
+.kb-pie .kb-nm{font-family:var(--serif,Georgia,serif);color:#fff;font-size:19px;margin:6px 0 4px}
+.kb-pie .kb-loc{font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.kb-pie .kb-dv{color:#e2ba68;font-size:11px;margin:16px 0 14px;display:flex;align-items:center;gap:12px;justify-content:center}
+.kb-pie .kb-dv:before,.kb-pie .kb-dv:after{content:"";height:1px;width:56px;background:linear-gradient(90deg,transparent,rgba(226,186,104,.6))}
+.kb-pie .kb-dv:after{transform:scaleX(-1)}
+.kb-pie .kb-reg{font-size:12.5px;line-height:1.7}
+.kb-pie .kb-reg b{display:block;color:#d9dbf2;font-family:inherit;font-weight:500;letter-spacing:.04em}
+.kb-pie .kb-cp{margin-top:16px;font-size:11px;opacity:.75}
+</style>
+<section class="kcta" aria-labelledby="contacto">
+  <div class="k">Contact</div>
+  <h2 id="contacto">Start today</h2>
+  <p>Write to us and tell us what you need.</p>
+  <div class="b">
+    <a class="wa" href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener">Ask for information and prices on WhatsApp<span>@kingsbridge.academy</span></a>
+    <a class="f" href="https://tally.so/r/2EQWlj" target="_blank" rel="noopener">Pre-enrolment</a>
+  </div>
+</section>
+<script>
+(function(){function fix(){var b=document.querySelector('#kb-menu .brand');if(!b||b.dataset.kbl)return;b.dataset.kbl='1';b.setAttribute('aria-label','Kingsbridge English Academy');b.innerHTML='<img src="../logo.png" alt="Kingsbridge English Academy" width="217" height="54">'}
+new MutationObserver(fix).observe(document.documentElement,{childList:true,subtree:true});fix()})();
+</script>
+<footer class="kb-pie">
+  <span class="kb-seal">Kingsbridge</span>
+  <div class="kb-nm">English Academy</div>
+  <div class="kb-loc">Leticia · Amazonas · Colombia</div>
+  <div class="kb-dv" aria-hidden="true">&#9670;</div>
+  <div class="kb-reg"><b>Registered business · No. 26385</b>Cámara de Comercio de Colombia<br><span style="opacity:.75">Launch stage</span></div>
+  <div class="kb-cp">&copy; 2026 Kingsbridge English Academy</div>
+  <p style="max-width:330px;margin:12px auto 0;font-size:11px;line-height:1.6;opacity:.75">Exercises organised by the Common European Framework of Reference for Languages (CEFR), A1 to C1, to help you progress step by step. Practice material created by Kingsbridge English Academy, independent of official exams.</p>
+</footer>
+
+<script src="../menu.js" data-lang="en" data-home="spanish/index.html" defer></script>
+<script src="../footer.js" data-lang="en" defer></script>
+</body>
+</html>

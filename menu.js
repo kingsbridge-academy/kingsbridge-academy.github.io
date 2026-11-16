@@ -20,7 +20,7 @@
     { label: "Inicio",               desc: "Página principal de la academia",         href: "index.html",           icon: "home" },
     { label: "Sobre nosotros",       desc: "Quiénes somos y cómo enseñamos",           href: "sobre-nosotros.html",  icon: "info" },
     { label: "Práctica interactiva", desc: "Ejercicios tipo examen",           href: "practica/index.html",  icon: "pen"  },
-    { label: "Herramientas gratis", desc: "Prueba de nivel y palabra del día", href: "index.html#herramientas", icon: "star" },
+    { label: "Herramientas gratis", desc: "Prueba de nivel gratuita", href: "index.html#herramientas", icon: "star" },
     { label: "My Day",               desc: "Aprender inglés jugando",                  href: "my-day-ninos.html",    icon: "star" },
     { label: "Pre-inscripción",      desc: "Reserva tu cupo",                          href: "https://tally.so/r/2EQWlj", icon: "form", external: true },
     { label: "For English speakers", desc: "Spanish for English speakers",             href: "spanish/index.html",   icon: "pen", flags: true },
@@ -33,6 +33,7 @@
     { label: "Spanish Practice",     desc: "Interactive exercises, A1 to C1",           href: "spanish/practice/index.html", icon: "pen"  },
     { label: "Travel Spanish",       desc: "60 phrases for your trip",                  href: "spanish/travel.html", icon: "star" },
     { label: "Get Access",           desc: "Full access, paid securely with PayPal",    href: "spanish/payment.html",        icon: "form" },
+    { label: "About us",             desc: "Who we are and how we teach",              href: "spanish/about.html",          icon: "info" },
     { label: "Kingsbridge Academy",  desc: "English classes",                href: "index.html",                  icon: "star" },
     { label: "WhatsApp",             desc: "Ask us anything",                          href: "https://wa.me/kingsbridge.academy", icon: "chat", external: true, cta: true }
   ];
