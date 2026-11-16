@@ -277,7 +277,7 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
 <style id="kb-swap">
 .kb-swap{display:grid;align-items:start;justify-items:start;letter-spacing:normal}.kb-sw-t{letter-spacing:.3em;padding-top:4px}
 .kb-swap>*{grid-area:1/1}
-.kb-sw-b{display:block;width:100%;max-width:520px;box-sizing:border-box;text-align:center;text-decoration:none;padding:26px 18px 28px;border:1.5px solid #e2ba68;border-radius:18px;background:radial-gradient(ellipse at 50% 0,rgba(226,186,104,.28),rgba(226,186,104,.04) 70%),#0b0f22;box-shadow:0 0 22px rgba(226,186,104,.28);opacity:0;visibility:hidden;transform:translateY(8px) scale(.97);text-transform:none;letter-spacing:normal}
+.kb-sw-b{display:block;width:100%;max-width:520px;box-sizing:border-box;text-align:center;text-decoration:none;padding:26px 18px 28px;border:1.5px solid #e2ba68;border-radius:18px;background:radial-gradient(ellipse at 50% 0,rgba(226,186,104,.28),rgba(226,186,104,.04) 70%),#0b0f22;box-shadow:0 0 22px rgba(226,186,104,.28);opacity:1;visibility:visible;text-transform:none;letter-spacing:normal}
 .kb-sw-b i{display:inline-block;font:700 12px/1 system-ui,sans-serif;font-style:normal;letter-spacing:.22em;text-transform:uppercase;color:#1a1405;background:linear-gradient(135deg,#f3d58a,#d9a93f);border-radius:999px;padding:5px 11px}
 .kb-sw-b strong{display:block;margin-top:16px!important;font:400 clamp(1.9rem,8.5vw,2.6rem)/1.08 var(--serif);color:#fff;margin:10px 0 0}
 .kb-sw-b strong em{display:block;color:#f3d58a;font-style:italic}
@@ -285,13 +285,9 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
 .kb-sw-b small{display:block;font:400 12px/1.5 system-ui,sans-serif;color:#b9bcd8;margin-top:14px;padding-top:12px;border-top:1px solid rgba(226,186,104,.35)}
 .kb-sw-b span b{color:#f3d58a}
 .kb-sw-b:hover{background:rgba(226,186,104,.18)}
-@media(prefers-reduced-motion:no-preference){
-.kb-sw-t{animation:kbswT 8s ease-in-out infinite}
-.kb-sw-b{animation:kbswB 8s ease-in-out infinite}
-}
+@media(prefers-reduced-motion:no-preference){.kb-sw-b{animation:kbswG 4s ease-in-out infinite}}
 @media(prefers-reduced-motion:reduce){.kb-swap{display:flex;gap:14px;flex-wrap:wrap}.kb-sw-b{opacity:1;visibility:visible;transform:none}}
-@keyframes kbswT{0%,82%{opacity:0;visibility:hidden;transform:translateY(-8px)}88%,96%{opacity:1;visibility:visible;transform:none}100%{opacity:0;visibility:hidden;transform:translateY(-8px)}}
-@keyframes kbswB{0%,78%{opacity:1;visibility:visible;transform:none;box-shadow:0 0 14px rgba(226,186,104,.35)}39%{box-shadow:0 0 30px rgba(226,186,104,.6)}84%,98%{opacity:0;visibility:hidden;transform:translateY(8px) scale(.97)}100%{opacity:1;visibility:visible;transform:none}}
+@keyframes kbswG{0%,100%{box-shadow:0 0 14px rgba(226,186,104,.35)}50%{box-shadow:0 0 30px rgba(226,186,104,.6)}}
 </style>
 </head>
 <body>
@@ -354,7 +350,7 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
 <section class="kb-sec kb-w rv" aria-labelledby="kb-i">
   <div class="kb-about">
     <div>
-      <div class="kb-eye kb-swap"><span class="kb-sw-t">Nuestra academia</span><a class="kb-sw-b" href="practica/index.html" aria-label="Empezar la prueba gratis"><i>Prueba gratis</i><strong>Prueba tus primeras <em>10 preguntas gratis</em></strong></a></div>
+      <div class="kb-eye kb-swap"><a class="kb-sw-b" href="practica/index.html" aria-label="Empezar la prueba gratis"><i>Prueba gratis</i><strong>Prueba tus primeras <em>10 preguntas gratis</em></strong></a></div>
       <h2 class="kb-h" id="kb-i">Clases particulares y de refuerzo <em>de inglés</em></h2>
       <div class="kb-rule" style="justify-content:flex-start" aria-hidden="true">&#9670;</div>
     </div>
