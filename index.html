@@ -286,12 +286,12 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
 .kb-sw-b span b{color:#f3d58a}
 .kb-sw-b:hover{background:rgba(226,186,104,.18)}
 @media(prefers-reduced-motion:no-preference){
-.kb-sw-t{animation:kbswT 9s ease-in-out infinite}
-.kb-sw-b{animation:kbswB 9s ease-in-out infinite}
+.kb-sw-t{animation:kbswT 8s ease-in-out infinite}
+.kb-sw-b{animation:kbswB 8s ease-in-out infinite}
 }
 @media(prefers-reduced-motion:reduce){.kb-swap{display:flex;gap:14px;flex-wrap:wrap}.kb-sw-b{opacity:1;visibility:visible;transform:none}}
-@keyframes kbswT{0%,38%{opacity:1;visibility:visible;transform:none}46%,92%{opacity:0;visibility:hidden;transform:translateY(-8px)}100%{opacity:1;visibility:visible;transform:none}}
-@keyframes kbswB{0%,40%{opacity:0;visibility:hidden;transform:translateY(8px) scale(.96)}50%{opacity:1;visibility:visible;transform:none;box-shadow:0 0 18px rgba(226,186,104,.55)}60%,86%{opacity:1;visibility:visible;transform:none;box-shadow:0 0 6px rgba(226,186,104,.25)}94%,100%{opacity:0;visibility:hidden;transform:translateY(8px) scale(.96)}}
+@keyframes kbswT{0%,10%{opacity:1;visibility:visible;transform:none}16%,94%{opacity:0;visibility:hidden;transform:translateY(-8px)}100%{opacity:1;visibility:visible;transform:none}}
+@keyframes kbswB{0%,11%{opacity:0;visibility:hidden;transform:translateY(8px) scale(.97)}20%{opacity:1;visibility:visible;transform:none;box-shadow:0 0 24px rgba(226,186,104,.55)}30%,88%{opacity:1;visibility:visible;transform:none;box-shadow:0 0 12px rgba(226,186,104,.3)}95%,100%{opacity:0;visibility:hidden;transform:translateY(8px) scale(.97)}}
 </style>
 </head>
 <body>
