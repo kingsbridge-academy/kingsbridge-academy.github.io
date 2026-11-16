@@ -231,16 +231,20 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
 </style>
 <style id="kb-pre">@media (min-width:700px) and (orientation:landscape),(min-width:900px) and (hover:hover){#kbtop:not(.kb-lg){display:block!important;height:84px;padding:6px 20px;background:#080b19;border-bottom:1px solid rgba(226,186,104,.35);box-sizing:border-box}#kbtop:not(.kb-lg) img{display:block!important;height:72px!important;width:auto!important;max-width:none!important;margin:0!important;border-radius:4px;box-shadow:0 0 0 1px rgba(226,186,104,.55)}}</style>
 <style id="kb-sl-land">
-/* tablet / landscape screen: the banner fits the screen height so the buttons are visible without scrolling */
+/* tableta / pantalla horizontal: el banner se ajusta a la altura de la pantalla y el contenido sube para que los botones se vean sin bajar */
 @media (min-width:700px) and (orientation:landscape) and (max-height:960px){
-.kb-sl-s{min-height:0;padding:clamp(20px,4vh,46px) 72px clamp(46px,8vh,66px)}
-.kb-sl h1,.kb-sl h2.kb-t{font-size:clamp(1.55rem,6.6vh,3.3rem);margin-top:clamp(8px,1.6vh,14px)}
-.kb-sl .kb-sub{margin-top:clamp(8px,1.8vh,16px);font-size:clamp(.9rem,2.5vh,1.15rem);line-height:1.5}
-.kb-sl .kb-cta{margin-top:clamp(12px,2.6vh,24px)}
-.kb-sl .kb-cta .btn{padding:clamp(10px,1.9vh,15px) 22px}
-.kb-sl-lv{margin-top:clamp(10px,2vh,20px)}
-.kb-sl-flag{width:clamp(38px,6.4vh,54px);height:clamp(26px,4.3vh,36px);margin-bottom:clamp(6px,1.4vh,14px)}
-.kb-sl-d{bottom:clamp(12px,2.4vh,22px)}
+.kb-new-strip{padding:7px 12px 0}
+.kb-sl-s{min-height:0;justify-content:flex-start;padding:clamp(12px,2.4vh,28px) 72px clamp(40px,6.5vh,56px)}
+.kb-sl h1,.kb-sl h2.kb-t{font-size:clamp(1.45rem,6vh,3rem);margin-top:clamp(6px,1.2vh,12px)}
+.kb-sl .kb-sub{margin-top:clamp(6px,1.4vh,14px);font-size:clamp(.88rem,2.3vh,1.1rem);line-height:1.45}
+.kb-sl .kb-cta{margin-top:clamp(10px,2vh,20px)}
+.kb-sl .kb-cta .btn{padding:clamp(9px,1.7vh,14px) 22px}
+.kb-sl-lv{margin-top:clamp(8px,1.6vh,16px)}
+.kb-sl-lv i{padding:clamp(6px,1.2vh,11px) 4px clamp(5px,1vh,9px)}
+.kb-sl-lv b{font-size:clamp(1.1rem,3vh,1.5rem)}
+.kb-sl-flags,.kb-sl-flag{margin-bottom:clamp(4px,1vh,10px)}
+.kb-sl-flags i,.kb-sl-flag{width:clamp(34px,5.6vh,48px);height:clamp(23px,3.8vh,32px)}
+.kb-sl-d{bottom:clamp(10px,2vh,18px)}
 }
 </style>
 </head>
