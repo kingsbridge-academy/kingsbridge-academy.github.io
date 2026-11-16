@@ -298,8 +298,7 @@ new MutationObserver(fix).observe(document.documentElement,{childList:true,subtr
 @media(max-width:420px){.kb-hero{border-radius:16px;padding:10px 12px}}
 </style>
 <style id="kb-title">
-@font-face{font-family:"KB Chorus";font-weight:500;font-style:italic;font-display:swap;src:url(../fonts/chorus.woff) format("woff")}
-.kb-h1{position:relative;font:italic 500 clamp(2.9rem,13.5vw,4.6rem)/1 "KB Chorus","Lora",Georgia,serif;letter-spacing:.01em;margin:10px 0 2px;padding:6px 0 0;background:linear-gradient(180deg,#fff3cf 0%,#e8c46f 45%,#b8893a 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 2px 14px rgba(226,186,104,.28))}
+.kb-h1{font:500 clamp(1.15rem,5.3vw,2rem)/1.2 "KB Lora",Georgia,serif;font-style:normal;letter-spacing:.14em;text-align:center;text-transform:uppercase;margin:12px 0 4px;padding:0;background:linear-gradient(180deg,#fff3cf 0%,#e8c46f 50%,#b8893a 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 2px 12px rgba(226,186,104,.25))}
 .kb-orn{display:flex;align-items:center;justify-content:center;gap:12px;margin:2px auto 14px;max-width:340px;color:#e2ba68}
 .kb-orn::before,.kb-orn::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(226,186,104,.75))}
 .kb-orn::after{transform:scaleX(-1)}
@@ -382,7 +381,7 @@ function home(){
  if(V.pending){h+='<div class="card" id="nmc"><label for="nm">Tu apodo</label><input type="text" id="nm" maxlength="40" autocomplete="off" placeholder="Escribe tu apodo" value=""><div class="err" id="er">'+esc(V.msg)+'</div><button class="btn gold" data-act="setname" style="margin:12px 0 0">Continuar</button></div>'}
  if(s){var rk=rank(s.xp),pct=rk.next?Math.round((s.xp-rk.r[0])/(rk.next[0]-rk.r[0])*100):100;
   h+='<div class="card"><div class="rank"><div class="ic">'+rk.r[2]+'</div><div style="flex:1"><b>'+esc(DB.last)+' · '+rk.r[1]+'</b><span>'+s.xp+' puntos'+(rk.next?' · próximo rango: '+rk.next[1]+' ('+rk.next[0]+')':' · rango máximo')+(s.streak>1?' · 🔥 '+s.streak+' días seguidos':"")+'</span><div class="xpbar"><i style="width:'+pct+'%"></i></div></div></div></div>'}
-if(window.KB_TRIAL){var TLf=window.KB_TRIAL.left(),TM=window.KB_TRIAL.max;h='<h1 class="kb-h1">Práctica interactiva</h1><div class="kb-orn" aria-hidden="true"><i></i><i></i><i></i></div><div class="kb-hero" role="status"><span class="kb-hero-k">Prueba gratis</span><span class="kb-hero-t">'+(TLf>=TM?'<b>'+TM+' preguntas</b> del nivel A1 · sin registro':TLf>0?'Te '+(TLf===1?'queda <b>1 pregunta</b>':'quedan <b>'+TLf+' preguntas</b>'):'Tu prueba <b>terminó</b> · ingresa tu código más abajo')+'</span></div>'+h.replace(/^<h1>[\s\S]*?<hr class="gold">/,'')}
+if(window.KB_TRIAL){var TLf=window.KB_TRIAL.left(),TM=window.KB_TRIAL.max;h='<h1 class="kb-h1">PRACTICA INTERACTIVA</h1><div class="kb-orn" aria-hidden="true"><i></i><i></i><i></i></div><div class="kb-hero" role="status"><span class="kb-hero-k">Prueba gratis</span><span class="kb-hero-t">'+(TLf>=TM?'<b>'+TM+' preguntas</b> del nivel A1 · sin registro':TLf>0?'Te '+(TLf===1?'queda <b>1 pregunta</b>':'quedan <b>'+TLf+' preguntas</b>'):'Tu prueba <b>terminó</b> · ingresa tu código más abajo')+'</span></div>'+h.replace(/^<h1>[\s\S]*?<hr class="gold">/,'')}
  if(V.expand||!DB.picked){
  h+='<div class="card"><h2>Elige tu nivel</h2><div class="lvls" role="group" aria-label="Nivel">';
   LEVELS.forEach(function(l,i){var code=l[0],on=code===n,m=mastery(s,code);
