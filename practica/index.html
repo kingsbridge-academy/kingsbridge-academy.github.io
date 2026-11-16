@@ -289,6 +289,14 @@ h2{letter-spacing:.01em}
 (function(){function fix(){var b=document.querySelector('#kb-menu .brand');if(!b||b.dataset.kbl)return;b.dataset.kbl='1';b.setAttribute('aria-label','Kingsbridge English Academy');b.innerHTML='<img src="../logo.png" alt="Kingsbridge English Academy" width="217" height="54">'}
 new MutationObserver(fix).observe(document.documentElement,{childList:true,subtree:true});fix()})();
 </script>
+<style id="kb-hero2">
+.kb-h1{font:500 clamp(1.5rem,5.5vw,2rem)/1.15 Georgia,"Times New Roman",serif;text-align:center;margin:6px 0 12px;letter-spacing:.005em;color:#fff}
+.kb-hero{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 12px;padding:10px 14px;margin:0 auto 18px;max-width:520px;text-align:center;border-radius:999px;border:1px solid rgba(226,186,104,.4);background:linear-gradient(90deg,rgba(226,186,104,.10),rgba(226,186,104,.03));box-shadow:none}
+.kb-hero-k{font:700 10px/1 system-ui,sans-serif;letter-spacing:.18em;padding:6px 10px;white-space:nowrap}
+.kb-hero-t{font:400 14px/1.35 -apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#d9dbf2}
+.kb-hero-t b{color:#f3d58a;font-weight:600}
+@media(max-width:420px){.kb-hero{border-radius:16px;padding:10px 12px}}
+</style>
 </head>
 <body>
 <nav id="nav" class="nav" aria-label="Menú de la práctica"></nav>
@@ -365,7 +373,7 @@ function home(){
  if(V.pending){h+='<div class="card" id="nmc"><label for="nm">Tu apodo</label><input type="text" id="nm" maxlength="40" autocomplete="off" placeholder="Escribe tu apodo" value=""><div class="err" id="er">'+esc(V.msg)+'</div><button class="btn gold" data-act="setname" style="margin:12px 0 0">Continuar</button></div>'}
  if(s){var rk=rank(s.xp),pct=rk.next?Math.round((s.xp-rk.r[0])/(rk.next[0]-rk.r[0])*100):100;
   h+='<div class="card"><div class="rank"><div class="ic">'+rk.r[2]+'</div><div style="flex:1"><b>'+esc(DB.last)+' · '+rk.r[1]+'</b><span>'+s.xp+' puntos'+(rk.next?' · próximo rango: '+rk.next[1]+' ('+rk.next[0]+')':' · rango máximo')+(s.streak>1?' · 🔥 '+s.streak+' días seguidos':"")+'</span><div class="xpbar"><i style="width:'+pct+'%"></i></div></div></div></div>'}
-if(window.KB_TRIAL){var TLf=window.KB_TRIAL.left(),TM=window.KB_TRIAL.max;h='<div class="kb-hero"><span class="kb-hero-k">Prueba gratis'+(TLf>=TM?' · '+TM+' preguntas':'')+'</span><h2>'+(TLf>=TM?'Práctica interactiva':TLf>0?(TLf===1?'Te queda <em>1 pregunta gratis</em>':'Te quedan <em>'+TLf+' preguntas gratis</em>'):'Tu prueba gratis <em>terminó</em>')+'</h2><p>'+(TLf>=TM?'Práctica con formato de examen: Cloze, Word formation y Key word transformation, con audio y repaso inteligente.':TLf>0?'¡Sigue así! Cada respuesta trae una explicación clara.':'Ingresa tu código de acceso para seguir practicando.')+'</p><p class="kb-hero-n">Ejercicios organizados según el Marco Común Europeo de Referencia para las lenguas (MCER), de A1 a C1, para que avances paso a paso. Material de práctica creado por Kingsbridge English Academy, independiente de los exámenes oficiales.</p></div>'+h.replace(/^<h1>[\s\S]*?<hr class="gold">/,'<hr class="gold">')}
+if(window.KB_TRIAL){var TLf=window.KB_TRIAL.left(),TM=window.KB_TRIAL.max;h='<h1 class="kb-h1">Práctica interactiva</h1><div class="kb-hero" role="status"><span class="kb-hero-k">Prueba gratis</span><span class="kb-hero-t">'+(TLf>=TM?'<b>'+TM+' preguntas</b> del nivel A1 · sin registro':TLf>0?'Te '+(TLf===1?'queda <b>1 pregunta</b>':'quedan <b>'+TLf+' preguntas</b>'):'Tu prueba <b>terminó</b> · ingresa tu código más abajo')+'</span></div>'+h.replace(/^<h1>[\s\S]*?<hr class="gold">/,'')}
  if(V.expand||!DB.picked){
  h+='<div class="card"><h2>Elige tu nivel</h2><div class="lvls" role="group" aria-label="Nivel">';
   LEVELS.forEach(function(l,i){var code=l[0],on=code===n,m=mastery(s,code);
