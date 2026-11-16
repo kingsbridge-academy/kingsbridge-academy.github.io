@@ -205,12 +205,16 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
 .kb-ofr-note a{color:var(--gold)}
 </style>
 <link rel="stylesheet" href="apple.css">
+<style id="kb-hd">
+#kb-menu .in{min-height:70px}
+#kb-menu .brand{display:block;line-height:0}
+#kb-menu .brand img{display:block;height:54px!important;width:auto!important;max-width:56vw!important;margin:0!important;border-radius:4px;box-shadow:0 0 0 1px rgba(226,186,104,.55)}
+@media(min-width:880px) and (max-width:2599px){#kb-menu nav{display:none!important}#kb-menu button.tg{display:flex!important}#kb-menu .pn.open{display:block!important}}
+:root{--kb-menu-h:73px}
+@media(min-width:700px){#kb-menu .in{min-height:80px}#kb-menu .brand img{height:60px!important}:root{--kb-menu-h:83px}}
+</style>
 </head>
 <body>
-<div id="kbhead">
-<a id="kbtop" href="index.html" style="display:block" aria-label="Go to home"><img class="kb-logo" src="../logo.png?v=99" alt="KINGSBRIDGE English Academy"></a>
-</div>
-
 <div class="kb-top"><div class="kb-w" style="padding-top:54px;padding-bottom:58px">
   <span class="kb-sl-flag" aria-hidden="true" style="margin:0 auto 14px"></span>
   <div class="kb-eye">Spanish for Latin America travelers</div>
@@ -307,7 +311,11 @@ var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isInter
 els.forEach(function(e){io.observe(e)});})();
 </script>
 <script src="pay-gate.js"></script>
-<script src="../menu.js" data-brand="off" data-after="#kbtop" data-lang="en" data-home="spanish/index.html" defer></script>
+<script src="../menu.js" data-lang="en" data-home="spanish/index.html" defer></script>
+<script>
+(function(){function fix(){var b=document.querySelector('#kb-menu .brand');if(!b||b.dataset.kbl)return;b.dataset.kbl='1';b.setAttribute('aria-label','Kingsbridge English Academy');b.innerHTML='<img src="../logo.png" alt="Kingsbridge English Academy" width="217" height="54">'}
+new MutationObserver(fix).observe(document.documentElement,{childList:true,subtree:true});fix()})();
+</script>
 <script src="../footer.js" data-lang="en" defer></script>
 </body>
 </html>
