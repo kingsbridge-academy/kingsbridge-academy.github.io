@@ -13,7 +13,7 @@
     cols: [
       { h: "Spanish", l: [["Spanish for English speakers", "spanish/index.html"], ["Spanish Practice", "spanish/practice/index.html"], ["Travel Spanish", "spanish/travel.html"], ["Levels & access", "spanish/index.html#access"]] },
       { h: "Academy", l: [["Kingsbridge English Academy", "index.html"], ["About us", "sobre-nosotros.html"], ["English practice (A1–C1)", "practica/index.html"], ["My Day Games", "my-day-ninos.html"]] },
-      { h: "Contact", l: [["WhatsApp", "https://wa.me/kingsbridge.academy"], ["Pre-enrolment", "https://tally.so/r/2EQWlj"]], t: "Leticia, Amazonas, Colombia" },
+      { h: "Contact", l: [["WhatsApp", "https://wa.me/kingsbridge.academy"], ["Pre-enrolment", "https://tally.so/r/2EQWlj"]]},
       { h: "Legal", l: [["Terms of the course", "spanish/terms.html"], ["Terms & privacy", "terminos-y-privacidad.html"]] }
     ],
     reg: "Registered business · No. 26385", reg2: "Cámara de Comercio de Colombia · Launch stage",
@@ -26,7 +26,7 @@
     cols: [
       { h: "Academia", l: [["Inicio", "index.html"], ["Sobre nosotros", "sobre-nosotros.html"], ["Programas", "index.html#programas"], ["Pre-inscripción", "https://tally.so/r/2EQWlj"]] },
       { h: "Aprende", l: [["Práctica interactiva", "practica/index.html"], ["My Day Games", "my-day-ninos.html"], ["Prueba gratis", "practica/index.html"], ["Learn Spanish", "spanish/index.html"]] },
-      { h: "Contacto", l: [["WhatsApp", "https://wa.me/kingsbridge.academy"]], t: "Leticia, Amazonas, Colombia" },
+      { h: "Contacto", l: [["WhatsApp", "https://wa.me/kingsbridge.academy"]]},
       { h: "Legal", l: [["Términos del curso", "terminos-curso.html"], ["Términos y privacidad", "terminos-y-privacidad.html"]] }
     ],
     reg: "Negocio registrado · No. 26385", reg2: "Cámara de Comercio de Colombia · Etapa de lanzamiento",
