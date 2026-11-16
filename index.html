@@ -195,7 +195,8 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
 .kb-new-es{display:block;width:17px;height:12px;border-radius:2px;box-shadow:0 0 0 1px rgba(226,186,104,.5);background:linear-gradient(180deg,#AA151B 0,#AA151B 25%,#F1BF00 25%,#F1BF00 75%,#AA151B 75%,#AA151B 100%);margin-left:-2px}
 .kb-new-bar{display:none}
 .kb-new-strip{display:flex;justify-content:center;padding:14px 12px 0}
-@media(max-width:700px){#kb-menu .in .kb-new-bar{display:inline-flex;margin-right:auto}.kb-new-strip{display:none}}
+@media(max-width:700px){#kb-menu .in .kb-new-bar{display:inline-flex;margin-right:auto}.kb-new-strip{display:flex;padding:10px 12px 0}.kb-new-strip .kb-new:not(.kb-free){display:none}}
+.kb-new-strip{gap:10px;flex-wrap:wrap}
 @media(prefers-reduced-motion:reduce){.kb-new,.kb-new::after{animation:none}}
 </style>
 <script>document.documentElement.className="js"</script>
@@ -506,7 +507,7 @@ els.forEach(function(e){io.observe(e)});})();
 <script>
 (function(){
 function mk(c){var a=document.createElement('a');a.className='kb-new '+c;a.href='spanish/practice/index.html';a.setAttribute('lang','en');a.innerHTML='<b>New</b><i class="kb-new-es"></i><span>Learn Spanish</span>';return a}
-var strip=document.createElement('div');strip.className='kb-new-strip';strip.appendChild(mk(''));
+var strip=document.createElement('div');strip.className='kb-new-strip';var fr=document.createElement('a');fr.className='kb-new kb-free';fr.href='practica/index.html';fr.innerHTML='<b>Gratis</b><span>Prueba tus primeras 10 preguntas</span>';strip.appendChild(fr);strip.appendChild(mk(''));
 var sl=document.querySelector('.kb-sl');if(sl)sl.parentNode.insertBefore(strip,sl);
 function bar(){var i=document.querySelector('#kb-menu .in');if(!i||i.querySelector('.kb-new-bar'))return !!i;i.insertBefore(mk('kb-new-bar'),i.firstChild);return true}
 if(!bar()){var n=0,t=setInterval(function(){if(bar()||++n>40)clearInterval(t)},100)}
