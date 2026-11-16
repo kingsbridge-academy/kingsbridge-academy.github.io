@@ -20,6 +20,7 @@
     { label: "Inicio",               desc: "Página principal de la academia",         href: "index.html",           icon: "home" },
     { label: "Sobre nosotros",       desc: "Quiénes somos y cómo enseñamos",           href: "sobre-nosotros.html",  icon: "info" },
     { label: "Práctica interactiva", desc: "Ejercicios tipo examen",           href: "practica/index.html",  icon: "pen"  },
+    { label: "Herramientas gratis", desc: "Prueba de nivel y palabra del día", href: "index.html#herramientas", icon: "star" },
     { label: "My Day",               desc: "Aprender inglés jugando",                  href: "my-day-ninos.html",    icon: "star" },
     { label: "Pre-inscripción",      desc: "Reserva tu cupo",                          href: "https://tally.so/r/2EQWlj", icon: "form", external: true },
     { label: "For English speakers", desc: "Spanish for English speakers",             href: "spanish/index.html",   icon: "pen", flags: true },
@@ -125,7 +126,7 @@
     var inline = "", panel = "";
     ITEMS.forEach(function (it) {
       var h = url(it.href), on = false;
-      if (!/^https?:/i.test(it.href)) { try { on = norm(new URL(h, location.href).pathname) === here } catch (e) {} }
+      if (!/^https?:/i.test(it.href) && it.href.indexOf("#") < 0) { try { on = norm(new URL(h, location.href).pathname) === here } catch (e) {} }
       var ext = it.external ? ' target="_blank" rel="noopener"' : "";
       inline += '<a class="it' + (on ? " on" : "") + (it.cta ? " cta" : "") + '" href="' + esc(h) + '"' + ext + (on ? ' aria-current="page"' : "") + ">" + ico(it) + "<span>" + esc(it.label) + fl(it) + "</span></a>";
       panel += '<a class="' + (on ? "on " : "") + (it.cta ? "cta" : "") + '" href="' + esc(h) + '"' + ext + (on ? ' aria-current="page"' : "") + '><span class="ic">' + ico(it) + '</span><span><b>' + esc(it.label) + fl(it) + '</b><span class="d">' + esc(it.desc || "") + "</span></span></a>";
