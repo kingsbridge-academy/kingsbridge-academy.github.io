@@ -275,6 +275,8 @@ h2{letter-spacing:.01em}
 @keyframes kbpulse{0%,100%{box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--c),0 14px 28px var(--glow)}50%{box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--c),0 18px 42px var(--glow)}}
 @media(prefers-reduced-motion:reduce){.lv.on{animation:none}}
 .lv-p{font-weight:600}
+.lvls .lv:last-child:nth-child(odd){width:calc(50% - 6px)}
+@media(min-width:560px){.lvls .lv:last-child:nth-child(odd){justify-self:stretch;width:auto}}
 </style>
 </head>
 <body>
