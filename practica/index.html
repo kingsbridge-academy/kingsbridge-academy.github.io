@@ -225,6 +225,57 @@ footer{margin:28px 0;color:#8e8ab5;font-size:12px;text-align:center}
 .lv.lock{opacity:1;filter:none}
 </style>
 <style id="kb-nojump">html,body{overflow-x:clip}.sp-sl{contain:paint}.sp-t,.sp-s{max-width:100%}</style>
+<style id="kb-restyle">
+/* Reskin: azul marino + oro, sobrio y consistente con el resto del sitio */
+:root{--bg:#0a1230;--card:#0f1a43;--gold:#e2ba68;--line:rgba(226,186,104,.3)}
+body{background:radial-gradient(ellipse at 50% -10%,#14225a 0,#0a1230 55%) fixed,#0a1230}
+.wrap{max-width:720px;padding:18px 16px 40px}
+.card{border-radius:8px;background:linear-gradient(180deg,#101b46,#0d1739);box-shadow:inset 0 0 0 4px #0d1739,inset 0 0 0 5px rgba(226,186,104,.22)}
+h1{font-weight:500}
+h2{letter-spacing:.01em}
+.kb-hero{padding:20px 16px 18px;border-radius:8px;margin:2px 0 16px;box-shadow:0 0 0 1px rgba(226,186,104,.2),0 22px 40px -28px rgba(0,0,0,.8);background:linear-gradient(180deg,rgba(226,186,104,.14),rgba(226,186,104,.03))}
+.kb-hero h2{font-size:clamp(1.7rem,7vw,2.2rem)}
+.kb-hero p{font-size:14px;margin-top:8px}
+.kb-hero .kb-hero-n{display:none}
+/* acciones: una sola familia, compactas */
+.ac-p,.ac-r,.ac-e{--c:#e2ba68;--c2:#b8893a;--glow:rgba(226,186,104,.25)}
+.act{margin-bottom:10px;padding:10px 14px 10px 12px;gap:12px;border-width:1.5px;border-radius:34px 10px 10px 34px;box-shadow:none}
+.act::before{border-radius:30px 6px 6px 30px;opacity:.3}
+.act-med{width:46px;height:46px}
+.act-med svg{width:22px;height:22px}
+.act-t{font-size:1.3rem;text-shadow:none;margin:0}
+.act-r{display:none}
+.act-s{font-size:13px;color:#b9c0d8}
+.act-k{font-size:9.5px}
+.act.fill{background:linear-gradient(160deg,#f1d58c,#c9983f 60%,#9a7227);box-shadow:0 14px 28px -12px rgba(0,0,0,.6)}
+.act.fill::after{display:none}
+.act.fill .act-s{color:#3a2a08}
+.act:hover,.act:focus-visible{box-shadow:0 10px 24px -10px rgba(226,186,104,.5)}
+.cur{padding:10px 12px}
+.cur-b{width:46px;height:54px;font-size:1.4rem;text-shadow:none}
+/* progreso plegable */
+.kb-fold>h2{cursor:pointer;display:flex;justify-content:space-between;align-items:center;margin:0}
+.kb-fold>h2::after{content:"+";font:300 26px/1 system-ui,sans-serif;color:#e2ba68}
+.kb-fold.open>h2{margin-bottom:12px}.kb-fold.open>h2::after{content:"\2212"}
+.kb-fold>.tp{display:none}.kb-fold.open>.tp{display:block}
+/* encabezado: Inicio discreto */
+.back{margin-top:10px}
+</style>
+<style id="kb-lv-pop">
+/* Mismo arco y colores; más presencia */
+.lvls{gap:12px}
+.lv{background:radial-gradient(130% 75% at 50% 0%,color-mix(in srgb,var(--c) 30%,transparent),transparent 68%),linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,0) 55%),#0d1226;box-shadow:0 14px 26px -16px var(--glow),inset 0 1px 0 rgba(255,255,255,.14)}
+.lv::before{opacity:.7;border-width:1.5px}
+.lv-c{font-size:3.2rem;text-shadow:0 0 28px var(--glow),0 2px 0 rgba(0,0,0,.35)}
+.lv-c::before{content:"";display:block;width:7px;height:7px;margin:0 auto 4px;background:var(--c);transform:rotate(45deg);border-radius:1px;box-shadow:0 0 10px var(--glow)}
+.lv-r{width:54%;height:6px;border-width:1px;opacity:.9}
+.lv:hover,.lv:focus-visible{box-shadow:0 18px 32px -12px var(--glow),inset 0 1px 0 rgba(255,255,255,.2)}
+.lv.on{box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--c),0 16px 34px var(--glow);animation:kbpulse 3.4s ease-in-out infinite}
+.lv.on .lv-c::before{background:#fff;box-shadow:0 0 12px rgba(255,255,255,.8)}
+@keyframes kbpulse{0%,100%{box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--c),0 14px 28px var(--glow)}50%{box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--c),0 18px 42px var(--glow)}}
+@media(prefers-reduced-motion:reduce){.lv.on{animation:none}}
+.lv-p{font-weight:600}
+</style>
 </head>
 <body>
 <nav id="nav" class="nav" aria-label="Menú de la práctica"></nav>
@@ -253,7 +304,7 @@ footer{margin:28px 0;color:#8e8ab5;font-size:12px;text-align:center}
   <div class="kb-cp">&copy; 2026 Kingsbridge English Academy</div>
   <p style="max-width:330px;margin:12px auto 0;font-size:11px;line-height:1.6;opacity:.75">Ejercicios organizados según el Marco Común Europeo de Referencia para las lenguas (MCER), de A1 a C1, para que avances paso a paso. Material de práctica creado por Kingsbridge English Academy, independiente de los exámenes oficiales.</p>
 </footer>
-<script src="access.js?v=20261115h"></script>
+<script src="access.js?v=20261116a"></script>
 <script type="text/plain" id="kbmain">
 (function(){
 "use strict";
@@ -523,7 +574,19 @@ app.addEventListener("click",onClick);app.addEventListener("keydown",function(e)
 render();
 })();
 </script>
-<script src="../menu.js" data-logo="on" data-menu="off" defer></script>
+<script src="../menu.js" data-logo="on" defer></script>
 <script src="../footer.js" defer></script>
+<script>
+(function(){var app=document.getElementById('app');if(!app)return;var busy=0;
+function tidy(){if(busy)return;busy=1;try{
+ var cs=app.querySelectorAll('.card');
+ for(var i=0;i<cs.length;i++){var c=cs[i],h=c.querySelector('h2');
+  if(h&&/^Tu progreso/.test(h.textContent)&&!c.classList.contains('kb-fold')){c.classList.add('kb-fold');h.setAttribute('role','button');h.setAttribute('tabindex','0');
+   (function(c,h){function t(){c.classList.toggle('open')}h.addEventListener('click',t);h.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t()}})})(c,h);
+   var u=app.querySelector('#unl');if(u&&u!==c.previousElementSibling&&!u.dataset.kbm){u.dataset.kbm='1';c.parentNode.insertBefore(u,c)}}}
+}finally{busy=0}}
+new MutationObserver(tidy).observe(app,{childList:true,subtree:true});tidy();
+})();
+</script>
 </body>
 </html>

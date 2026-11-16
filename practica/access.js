@@ -28,6 +28,6 @@ function gate(ended){
  app.innerHTML='<div class="gate">'+trial+'<span class="gate-k">'+(over?'Prueba gratis terminada':'Solo para miembros')+'</span><h1>'+(over?'Continúa con tu <em>código de acceso</em>':'Ingresa tu <em>código de acceso</em>')+'</h1>'+(over?'<p>Ya usaste tus preguntas gratis. Para seguir practicando, ingresa tu código.</p>':'')+'<form id="gf" autocomplete="off"><input id="gc" type="text" autocapitalize="characters" spellcheck="false" placeholder="KBE-A1-XXXX-XXXX" aria-label="Código de acceso"><button class="gate-b" type="submit">Desbloquear</button></form><p class="gate-e" id="ge" role="alert"></p><p>Tu código llega por correo o WhatsApp dentro de las 24 horas siguientes a tu pago. Abre el nivel o el paquete que compraste.</p><p class="gate-l"><a href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener">Consigue tu código por WhatsApp</a></p></div>';
  document.getElementById("gf").onsubmit=function(e){e.preventDefault();if(window.KB_ADDCODE(document.getElementById("gc").value)){if(over&&window.KB_TRIAL){location.reload()}else{app.innerHTML="";start()}}else{document.getElementById("ge").textContent="Ese código no es válido. Revísalo e inténtalo de nuevo."}};
  var gt=document.getElementById("gt");if(gt){var go=function(){app.innerHTML="";window.KB_TRIAL={max:MAX,left:left};start(["A1"])};gt.onclick=go;gt.onkeydown=function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();go()}}}}
-window.KB_TRIAL_GATE=function(){gate(true)};
-if(levels().length)start();else gate();
+window.KB_TRIAL_GATE=function(){location.reload()};
+if(levels().length)start();else{window.KB_TRIAL={max:MAX,left:left};start(["A1"])}
 })();
