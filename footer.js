@@ -63,14 +63,16 @@
     '.kbf-reg b{display:block;color:#fff;font:400 15px "KB Lora",Georgia,serif}' +
     '.kbf-reg span{display:block;font-size:12.5px;color:#7f84a3;margin-top:2px}' +
     '.kbf-note{margin:0;font-size:12px;line-height:1.65;color:#7f84a3;max-width:560px}' +
-    '.kbf-bot{border-top:1px solid rgba(255,255,255,.08);padding:20px 0 30px;display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center;font-size:12.5px;color:#7f84a3}' +
+    '.kbf-bot{border-top:1px solid rgba(255,255,255,.08);padding:20px 0 92px;display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center;font-size:12.5px;color:#7f84a3}' +
     '.kbf-lg{display:flex;align-items:center;gap:10px}' +
     '.kbf-lg svg{width:16px;height:16px;color:#e2ba68}' +
     '.kbf-lg a{padding:3px 10px;border:1px solid rgba(226,186,104,.35);border-radius:999px;font-size:12px}' +
     '.kbf-lg a[aria-current]{background:rgba(226,186,104,.16);color:#fff;border-color:#e2ba68}' +
     '.kbf-lnk{display:flex;gap:18px;flex-wrap:wrap}' +
+    '.kbf .kbf-bot a.kbf-bd{margin:0 0 0 auto}' +
+    '@media(max-width:860px){.kbf .kbf-bot a.kbf-bd{margin:6px 0 0 auto}}' +
     '@media(max-width:860px){.kbf-top{grid-template-columns:1fr;gap:30px;padding:44px 0 30px}.kbf-cols{grid-template-columns:repeat(2,1fr);gap:26px 20px}.kbf-mid{grid-template-columns:1fr}}' +
-    '@media(max-width:420px){.kbf-w{padding:0 20px}.kbf-nm{font-size:23px}.kbf-bot{flex-direction:column;align-items:flex-start}}';
+    '@media(max-width:420px){.kbf-w{padding:0 20px}.kbf-nm{font-size:23px}.kbf-bot{flex-direction:column;align-items:flex-start}.kbf-bot .kbf-bd{align-self:flex-end}}';
 
   function esc(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
   function col(c) {
@@ -92,9 +94,10 @@
     f.className = "kbf";
     f.setAttribute("aria-label", T.aria);
     var ck = '<svg class="kbf-bd-ck" viewBox="0 0 24 24" aria-hidden="true"><path fill="#378fe9" d="M12 1.2l2.3 1.7 2.8-.2 1.2 2.6 2.5 1.3-.2 2.8L22.4 12l-1.8 2.3.2 2.8-2.5 1.3-1.2 2.6-2.8-.2L12 22.8l-2.3-1.7-2.8.2-1.2-2.6-2.5-1.3.2-2.8L1.6 12l1.8-2.3-.2-2.8 2.5-1.3 1.2-2.6 2.8.2z"/><path fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M7.8 12.2l3 3 5.6-6"/></svg>';
-    f.innerHTML = '<div class="kbf-w"><div class="kbf-top"><div><span class="kbf-seal">Kingsbridge</span><div class="kbf-nm">English Academy</div><p class="kbf-tag">' + T.tag + '</p><a class="kbf-bd" href="https://www.linkedin.com/in/eduardo-lopez-kingsbridge" target="_blank" rel="noopener" aria-label="' + T.li[2] + '"><span class="kbf-bd-in" aria-hidden="true">in</span>' + ck + '<span class="kbf-bd-t">' + T.li[3] + '</span></a><div class="kbf-cols">' + cols + '</div></div>' +
+    var BADGE = '<a class="kbf-bd" href="https://www.linkedin.com/in/eduardo-lopez-kingsbridge" target="_blank" rel="noopener" aria-label="' + T.li[2] + '"><span class="kbf-bd-in" aria-hidden="true">in</span>' + ck + '<span class="kbf-bd-t">' + T.li[3] + '</span></a>';
+    f.innerHTML = '<div class="kbf-w"><div class="kbf-top"><div><span class="kbf-seal">Kingsbridge</span><div class="kbf-nm">English Academy</div><p class="kbf-tag">' + T.tag + '</p></div><div class="kbf-cols">' + cols + '</div></div>' +
       '<div class="kbf-mid"><div class="kbf-reg">' + shield + '<div><b>' + T.reg + '</b><span>' + T.reg2 + '</span></div></div><p class="kbf-note">' + T.note + '</p></div>' +
-      '<div class="kbf-bot"><span>' + T.cp + '</span><div class="kbf-lg">' + globe + '<span>' + T.lang + '</span><a href="' + u(T.l1[1]) + '" aria-current="true">' + T.l1[0] + '</a><a href="' + u(T.l2[1]) + '">' + T.l2[0] + '</a></div></div></div>';
+      '<div class="kbf-bot"><span>' + T.cp + '</span><div class="kbf-lg">' + globe + '<span>' + T.lang + '</span><a href="' + u(T.l1[1]) + '" aria-current="true">' + T.l1[0] + '</a><a href="' + u(T.l2[1]) + '">' + T.l2[0] + '</a></div>' + BADGE + '</div></div>';
     return f;
   }
   function run() {
