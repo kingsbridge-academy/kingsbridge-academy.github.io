@@ -28,7 +28,7 @@
 
   /* Menú en inglés para las páginas de Spanish (data-lang="en") */
   var ITEMS_EN = [
-    { label: "Home",                 desc: "Spanish for English speakers",             href: "spanish/index.html",          icon: "home" },
+    { label: "Home",                 desc: "Spanish for English speakers",             href: "spanish/index.html",          icon: "home", flags: true },
     { label: "Spanish Practice",     desc: "Interactive exercises, A1 to C1",           href: "spanish/practice/index.html", icon: "pen"  },
     { label: "Travel Spanish",       desc: "60 phrases for your trip",                  href: "spanish/travel.html", icon: "star" },
     { label: "Get Access",           desc: "Full access, paid securely with PayPal",    href: "spanish/payment.html",        icon: "form" },
