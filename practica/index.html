@@ -278,6 +278,16 @@ h2{letter-spacing:.01em}
 .lvls .lv:last-child:nth-child(odd){width:calc(50% - 6px)}
 @media(min-width:560px){.lvls .lv:last-child:nth-child(odd){justify-self:stretch;width:auto}}
 </style>
+<style id="kb-hd">
+#kb-menu .in{min-height:54px}
+#kb-menu .brand{display:block;line-height:0}
+#kb-menu .brand img{display:block;height:38px;width:auto;border-radius:4px;box-shadow:0 0 0 1px rgba(226,186,104,.55)}
+:root{--kb-menu-h:54px}
+</style>
+<script>
+(function(){function fix(){var b=document.querySelector('#kb-menu .brand');if(!b||b.dataset.kbl)return;b.dataset.kbl='1';b.setAttribute('aria-label','Kingsbridge English Academy');b.innerHTML='<img src="../logo.png" alt="Kingsbridge English Academy" width="153" height="38">'}
+new MutationObserver(fix).observe(document.documentElement,{childList:true,subtree:true});fix()})();
+</script>
 </head>
 <body>
 <nav id="nav" class="nav" aria-label="Menú de la práctica"></nav>
@@ -576,7 +586,7 @@ app.addEventListener("click",onClick);app.addEventListener("keydown",function(e)
 render();
 })();
 </script>
-<script src="../menu.js" data-logo="on" defer></script>
+<script src="../menu.js" defer></script>
 <script src="../footer.js" defer></script>
 <script>
 (function(){var app=document.getElementById('app');if(!app)return;var busy=0;
