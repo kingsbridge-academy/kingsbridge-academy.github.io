@@ -9,7 +9,7 @@
 
   var T = EN ? {
     tag: "English for Your Future",
-    li: ["Verified profile", "Official LinkedIn profile", "View LinkedIn profile"],
+    li: ["Verified profile", "Official LinkedIn profile", "View LinkedIn profile", "LinkedIn \u00b7 Verified"],
     cols: [
       { h: "Spanish", l: [["Spanish for English speakers", "spanish/index.html"], ["Spanish Practice", "spanish/practice/index.html"], ["Travel Spanish", "spanish/travel.html"], ["Levels & access", "spanish/index.html#access"]] },
       { h: "Academy", l: [["Kingsbridge English Academy", "index.html"], ["About us", "sobre-nosotros.html"], ["English practice (A1–C1)", "practica/index.html"], ["My Day Games", "my-day-ninos.html"]] },
@@ -22,7 +22,7 @@
     lang: "Language", l1: ["English", "spanish/index.html"], l2: ["Español", "index.html"], aria: "Site footer"
   } : {
     tag: "English for Your Future",
-    li: ["Perfil verificado", "Perfil oficial en LinkedIn", "Ver perfil en LinkedIn"],
+    li: ["Perfil verificado", "Perfil oficial en LinkedIn", "Ver perfil en LinkedIn", "LinkedIn \u00b7 Verificado"],
     cols: [
       { h: "Academia", l: [["Inicio", "index.html"], ["Sobre nosotros", "sobre-nosotros.html"], ["Programas", "index.html#programas"], ["Pre-inscripción", "https://tally.so/r/2EQWlj"]] },
       { h: "Aprende", l: [["Práctica interactiva", "practica/index.html"], ["My Day Games", "my-day-ninos.html"], ["Prueba gratis", "practica/index.html"], ["Learn Spanish", "spanish/index.html"]] },
@@ -44,7 +44,12 @@
     '.kbf-seal{display:block;font:600 12px "KB Lora",Georgia,serif;letter-spacing:.36em;text-transform:uppercase;color:#e2ba68}' +
     '.kbf-nm{font:400 26px/1.15 "KB Lora",Georgia,serif;color:#fff;margin:8px 0 6px}' +
     '.kbf-tag{font:italic 400 15px "KB Lora",Georgia,serif;color:#f3d58a;margin:0 0 14px}' +
-    '.kbf-li{display:flex;flex-direction:column;gap:14px;max-width:310px;padding:16px 18px;border:1px solid rgba(226,186,104,.4);border-radius:16px;background:linear-gradient(160deg,rgba(226,186,104,.12),rgba(226,186,104,.02));box-shadow:0 14px 30px -18px rgba(0,0,0,.8)}' +'.kbf-li-h{display:flex;align-items:center;gap:12px}' +'.kbf-li-in{flex:none;width:42px;height:42px;border-radius:10px;background:#0a66c2;color:#fff;display:grid;place-items:center;font:700 22px/1 Arial,Helvetica,sans-serif;letter-spacing:-1px;box-shadow:0 0 0 2px rgba(255,255,255,.12)}' +'.kbf-li-t b{display:flex;align-items:center;gap:6px;color:#fff;font:400 15px "KB Lora",Georgia,serif}' +'.kbf-li-t b svg{width:15px;height:15px;color:#e2ba68}' +'.kbf-li-t span{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#e2ba68;margin-top:2px}' +'.kbf a.kbf-li-b{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 18px;border-radius:999px;background:linear-gradient(135deg,#f3d58a,#d9a93f);color:#1a1405;font:700 13px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:.02em;text-decoration:none;transition:transform .15s,box-shadow .15s}' +'.kbf a.kbf-li-b:hover,.kbf a.kbf-li-b:focus-visible{color:#1a1405;text-decoration:none;transform:translateY(-1px);box-shadow:0 8px 22px -8px rgba(226,186,104,.7)}' +'.kbf-li-b svg{width:14px;height:14px}' +
+    '.kbf a.kbf-bd{display:inline-flex;align-items:center;gap:12px;margin:6px 0 10px;text-decoration:none;color:#e9d9b0}' +
+    '.kbf a.kbf-bd:hover{text-decoration:none;color:#fff}' +
+    '.kbf-bd-in{flex:none;width:44px;height:44px;border-radius:7px;background:#0a66c2;color:#fff;display:grid;place-items:center;font:700 27px/1 Arial,Helvetica,sans-serif;letter-spacing:-2px;transition:transform .2s}' +
+    '.kbf a.kbf-bd:hover .kbf-bd-in{transform:translateY(-2px)}' +
+    '.kbf-bd-ck{flex:none;width:26px;height:26px}' +
+    '.kbf-bd-t{font:500 clamp(15px,4vw,18px)/1.2 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:.01em;white-space:nowrap}' +
     '.kbf-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}' +
     '.kbf-cols h3{margin:0 0 14px;font:700 11px/1.2 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#e2ba68}' +
     '.kbf-cols ul{list-style:none;margin:0;padding:0}' +
@@ -86,7 +91,8 @@
     var f = document.createElement("footer");
     f.className = "kbf";
     f.setAttribute("aria-label", T.aria);
-    f.innerHTML = '<div class="kbf-w"><div class="kbf-top"><div><span class="kbf-seal">Kingsbridge</span><div class="kbf-nm">English Academy</div><p class="kbf-tag">' + T.tag + '</p><div class="kbf-li"><div class="kbf-li-h"><span class="kbf-li-in" aria-hidden="true">in</span><div class="kbf-li-t"><b>' + T.li[0] + shield + '</b><span>' + T.li[1] + '</span></div></div><a class="kbf-li-b" href="https://www.linkedin.com/in/eduardo-lopez-kingsbridge" target="_blank" rel="noopener">' + T.li[2] + arrow + '</a></div></div><div class="kbf-cols">' + cols + '</div></div>' +
+    var ck = '<svg class="kbf-bd-ck" viewBox="0 0 24 24" aria-hidden="true"><path fill="#378fe9" d="M12 1.2l2.3 1.7 2.8-.2 1.2 2.6 2.5 1.3-.2 2.8L22.4 12l-1.8 2.3.2 2.8-2.5 1.3-1.2 2.6-2.8-.2L12 22.8l-2.3-1.7-2.8.2-1.2-2.6-2.5-1.3.2-2.8L1.6 12l1.8-2.3-.2-2.8 2.5-1.3 1.2-2.6 2.8.2z"/><path fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M7.8 12.2l3 3 5.6-6"/></svg>';
+    f.innerHTML = '<div class="kbf-w"><div class="kbf-top"><div><span class="kbf-seal">Kingsbridge</span><div class="kbf-nm">English Academy</div><p class="kbf-tag">' + T.tag + '</p><a class="kbf-bd" href="https://www.linkedin.com/in/eduardo-lopez-kingsbridge" target="_blank" rel="noopener" aria-label="' + T.li[2] + '"><span class="kbf-bd-in" aria-hidden="true">in</span>' + ck + '<span class="kbf-bd-t">' + T.li[3] + '</span></a><div class="kbf-cols">' + cols + '</div></div>' +
       '<div class="kbf-mid"><div class="kbf-reg">' + shield + '<div><b>' + T.reg + '</b><span>' + T.reg2 + '</span></div></div><p class="kbf-note">' + T.note + '</p></div>' +
       '<div class="kbf-bot"><span>' + T.cp + '</span><div class="kbf-lg">' + globe + '<span>' + T.lang + '</span><a href="' + u(T.l1[1]) + '" aria-current="true">' + T.l1[0] + '</a><a href="' + u(T.l2[1]) + '">' + T.l2[0] + '</a></div></div></div>';
     return f;
