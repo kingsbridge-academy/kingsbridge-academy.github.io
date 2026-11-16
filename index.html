@@ -275,11 +275,14 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
 @media(min-width:900px){.kb-bt-g{grid-template-columns:repeat(3,1fr)}}
 </style>
 <style id="kb-swap">
-.kb-swap{display:grid;align-items:center;justify-items:start;min-height:34px}
+.kb-swap{display:grid;align-items:start;justify-items:start;letter-spacing:normal}.kb-sw-t{letter-spacing:.3em;padding-top:4px}
 .kb-swap>*{grid-area:1/1}
-.kb-sw-b{display:inline-flex;align-items:center;gap:10px;padding:7px 16px 7px 8px;border:1px solid rgba(226,186,104,.6);border-radius:999px;background:rgba(226,186,104,.08);color:#f2d27c;font:700 11px var(--serif);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;opacity:0;visibility:hidden;transform:translateY(8px) scale(.96);box-shadow:0 0 0 rgba(226,186,104,0)}
-.kb-sw-b b{padding:4px 10px;border-radius:999px;background:linear-gradient(135deg,#f2d27c,#c9962f);color:#1b1405;letter-spacing:.12em}
-@media(max-width:420px){.kb-sw-b{letter-spacing:.06em;font-size:10px;gap:8px}}
+.kb-sw-b{display:block;width:100%;max-width:360px;box-sizing:border-box;text-align:center;text-decoration:none;padding:16px 16px 15px;border:1.5px solid #e2ba68;border-radius:18px;background:radial-gradient(ellipse at 50% 0,rgba(226,186,104,.28),rgba(226,186,104,.04) 70%),#0b0f22;box-shadow:0 0 22px rgba(226,186,104,.28);opacity:0;visibility:hidden;transform:translateY(8px) scale(.97);text-transform:none;letter-spacing:normal}
+.kb-sw-b i{display:inline-block;font:700 10px/1 system-ui,sans-serif;font-style:normal;letter-spacing:.22em;text-transform:uppercase;color:#1a1405;background:linear-gradient(135deg,#f3d58a,#d9a93f);border-radius:999px;padding:5px 11px}
+.kb-sw-b strong{display:block;font:400 1.35rem/1.15 var(--serif);color:#fff;margin:10px 0 0}
+.kb-sw-b strong em{display:block;color:#f3d58a;font-style:italic}
+.kb-sw-b span{display:block;font:400 13px/1.45 system-ui,sans-serif;color:#d9dbf2;margin-top:8px}
+.kb-sw-b span b{color:#f3d58a}
 .kb-sw-b:hover{background:rgba(226,186,104,.18)}
 @media(prefers-reduced-motion:no-preference){
 .kb-sw-t{animation:kbswT 9s ease-in-out infinite}
@@ -350,7 +353,7 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
 <section class="kb-sec kb-w rv" aria-labelledby="kb-i">
   <div class="kb-about">
     <div>
-      <div class="kb-eye kb-swap"><span class="kb-sw-t">Nuestra academia</span><a class="kb-sw-b" href="practica/index.html"><b>Gratis</b><span>Prueba tus primeras 10 preguntas</span></a></div>
+      <div class="kb-eye kb-swap"><span class="kb-sw-t">Nuestra academia</span><a class="kb-sw-b" href="practica/index.html" aria-label="Empezar la prueba gratis"><i>Prueba gratis</i><strong>Prueba tus primeras <em>10 preguntas gratis</em></strong><span>Nivel A1, de regalo. Sin registro. <b>Toca aquí para empezar.</b></span></a></div>
       <h2 class="kb-h" id="kb-i">Clases particulares y de refuerzo <em>de inglés</em></h2>
       <div class="kb-rule" style="justify-content:flex-start" aria-hidden="true">&#9670;</div>
     </div>
