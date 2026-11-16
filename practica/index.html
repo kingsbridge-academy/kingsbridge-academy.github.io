@@ -279,13 +279,14 @@ h2{letter-spacing:.01em}
 @media(min-width:560px){.lvls .lv:last-child:nth-child(odd){justify-self:stretch;width:auto}}
 </style>
 <style id="kb-hd">
-#kb-menu .in{min-height:54px}
+#kb-menu .in{min-height:70px}
 #kb-menu .brand{display:block;line-height:0}
-#kb-menu .brand img{display:block;height:38px;width:auto;border-radius:4px;box-shadow:0 0 0 1px rgba(226,186,104,.55)}
-:root{--kb-menu-h:54px}
+#kb-menu .brand img{display:block;height:54px!important;width:auto!important;max-width:56vw!important;margin:0!important;border-radius:4px;box-shadow:0 0 0 1px rgba(226,186,104,.55)}
+:root{--kb-menu-h:73px}
+@media(min-width:700px){#kb-menu .in{min-height:80px}#kb-menu .brand img{height:64px!important}:root{--kb-menu-h:83px}}
 </style>
 <script>
-(function(){function fix(){var b=document.querySelector('#kb-menu .brand');if(!b||b.dataset.kbl)return;b.dataset.kbl='1';b.setAttribute('aria-label','Kingsbridge English Academy');b.innerHTML='<img src="../logo.png" alt="Kingsbridge English Academy" width="153" height="38">'}
+(function(){function fix(){var b=document.querySelector('#kb-menu .brand');if(!b||b.dataset.kbl)return;b.dataset.kbl='1';b.setAttribute('aria-label','Kingsbridge English Academy');b.innerHTML='<img src="../logo.png" alt="Kingsbridge English Academy" width="217" height="54">'}
 new MutationObserver(fix).observe(document.documentElement,{childList:true,subtree:true});fix()})();
 </script>
 </head>
