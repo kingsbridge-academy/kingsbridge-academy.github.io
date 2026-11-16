@@ -195,8 +195,7 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
 .kb-new-es{display:block;width:17px;height:12px;border-radius:2px;box-shadow:0 0 0 1px rgba(226,186,104,.5);background:linear-gradient(180deg,#AA151B 0,#AA151B 25%,#F1BF00 25%,#F1BF00 75%,#AA151B 75%,#AA151B 100%);margin-left:-2px}
 .kb-new-bar{display:none}
 .kb-new-strip{display:flex;justify-content:center;padding:14px 12px 0}
-@media(max-width:700px){#kb-menu .in .kb-new-bar{display:inline-flex;margin-right:auto}.kb-new-strip{display:flex;padding:10px 12px 0}.kb-new-strip .kb-new:not(.kb-free){display:none}}
-.kb-new-strip{gap:10px;flex-wrap:wrap}
+@media(max-width:700px){#kb-menu .in .kb-new-bar{display:inline-flex;margin-right:auto}.kb-new-strip{display:none}}
 @media(prefers-reduced-motion:reduce){.kb-new,.kb-new::after{animation:none}}
 </style>
 <script>document.documentElement.className="js"</script>
@@ -275,6 +274,21 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
 @keyframes kbtbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 @media(min-width:900px){.kb-bt-g{grid-template-columns:repeat(3,1fr)}}
 </style>
+<style id="kb-swap">
+.kb-swap{display:grid;align-items:center;justify-items:start;min-height:34px}
+.kb-swap>*{grid-area:1/1}
+.kb-sw-b{display:inline-flex;align-items:center;gap:10px;padding:7px 16px 7px 8px;border:1px solid rgba(226,186,104,.6);border-radius:999px;background:rgba(226,186,104,.08);color:#f2d27c;font:700 11px var(--serif);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;opacity:0;visibility:hidden;transform:translateY(8px) scale(.96);box-shadow:0 0 0 rgba(226,186,104,0)}
+.kb-sw-b b{padding:4px 10px;border-radius:999px;background:linear-gradient(135deg,#f2d27c,#c9962f);color:#1b1405;letter-spacing:.12em}
+@media(max-width:420px){.kb-sw-b{letter-spacing:.06em;font-size:10px;gap:8px}}
+.kb-sw-b:hover{background:rgba(226,186,104,.18)}
+@media(prefers-reduced-motion:no-preference){
+.kb-sw-t{animation:kbswT 9s ease-in-out infinite}
+.kb-sw-b{animation:kbswB 9s ease-in-out infinite}
+}
+@media(prefers-reduced-motion:reduce){.kb-swap{display:flex;gap:14px;flex-wrap:wrap}.kb-sw-b{opacity:1;visibility:visible;transform:none}}
+@keyframes kbswT{0%,38%{opacity:1;visibility:visible;transform:none}46%,92%{opacity:0;visibility:hidden;transform:translateY(-8px)}100%{opacity:1;visibility:visible;transform:none}}
+@keyframes kbswB{0%,40%{opacity:0;visibility:hidden;transform:translateY(8px) scale(.96)}50%{opacity:1;visibility:visible;transform:none;box-shadow:0 0 18px rgba(226,186,104,.55)}60%,86%{opacity:1;visibility:visible;transform:none;box-shadow:0 0 6px rgba(226,186,104,.25)}94%,100%{opacity:0;visibility:hidden;transform:translateY(8px) scale(.96)}}
+</style>
 </head>
 <body>
 
@@ -336,7 +350,7 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
 <section class="kb-sec kb-w rv" aria-labelledby="kb-i">
   <div class="kb-about">
     <div>
-      <div class="kb-eye">Nuestra academia</div>
+      <div class="kb-eye kb-swap"><span class="kb-sw-t">Nuestra academia</span><a class="kb-sw-b" href="practica/index.html"><b>Gratis</b><span>Prueba tus primeras 10 preguntas</span></a></div>
       <h2 class="kb-h" id="kb-i">Clases particulares y de refuerzo <em>de inglés</em></h2>
       <div class="kb-rule" style="justify-content:flex-start" aria-hidden="true">&#9670;</div>
     </div>
@@ -507,7 +521,7 @@ els.forEach(function(e){io.observe(e)});})();
 <script>
 (function(){
 function mk(c){var a=document.createElement('a');a.className='kb-new '+c;a.href='spanish/practice/index.html';a.setAttribute('lang','en');a.innerHTML='<b>New</b><i class="kb-new-es"></i><span>Learn Spanish</span>';return a}
-var strip=document.createElement('div');strip.className='kb-new-strip';var fr=document.createElement('a');fr.className='kb-new kb-free';fr.href='practica/index.html';fr.innerHTML='<b>Gratis</b><span>Prueba tus primeras 10 preguntas</span>';strip.appendChild(fr);strip.appendChild(mk(''));
+var strip=document.createElement('div');strip.className='kb-new-strip';strip.appendChild(mk(''));
 var sl=document.querySelector('.kb-sl');if(sl)sl.parentNode.insertBefore(strip,sl);
 function bar(){var i=document.querySelector('#kb-menu .in');if(!i||i.querySelector('.kb-new-bar'))return !!i;i.insertBefore(mk('kb-new-bar'),i.firstChild);return true}
 if(!bar()){var n=0,t=setInterval(function(){if(bar()||++n>40)clearInterval(t)},100)}
