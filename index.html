@@ -272,7 +272,7 @@ html{scroll-padding-top:calc(min(100vw,1100px)*.245 + 60px)}
 @keyframes kbpop{from{opacity:0;transform:translateY(14px) scale(.85)}to{opacity:1;transform:none}}
 @keyframes kbfl{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 @keyframes kbtbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-@media(min-width:900px){.kb-bt-g{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:900px){.kb-bt-g{grid-template-columns:repeat(2,1fr)}}
 </style>
 <style id="kb-swap">
 .kb-swap{margin-bottom:30px;display:grid;align-items:start;justify-items:start;letter-spacing:normal}.kb-sw-t{letter-spacing:.3em;padding-top:4px}
@@ -433,6 +433,8 @@ body{background:#fff;color:#1d2033;font-family:var(--sans);-webkit-font-smoothin
 .kb-top{--bg:#080b19;--card:#11162b;--gold:#e2ba68;--line:rgba(226,186,104,.35);--txt:#d8d4ee;--mute:#a09ac0;--navy:#161d4a;color:#fff}
 .kb-tl-g{grid-template-columns:minmax(0,640px)!important;justify-content:center}
 </style>
+<style id="kb-lvbtn">.kb-tl-g{margin-top:26px!important}#kbLv:has(#kbLvGo){background:none;box-shadow:none;padding:0;min-height:0;border-radius:0;align-items:center}#kbLv:has(#kbLvGo) .kb-tcb{margin:0;padding:0}</style>
+<style id="kb-tight">#practica.kb-bt{padding-top:52px!important;padding-bottom:48px!important}.kb-free{padding-top:44px!important;padding-bottom:44px!important}#herramientas{padding-top:52px!important;padding-bottom:52px!important}#programas{margin-top:0!important}#preguntas{padding-top:56px!important}.kb-end{padding-top:48px!important;padding-bottom:52px!important}.kbf{margin-top:0!important}</style>
 </head>
 <body>
 
@@ -511,13 +513,7 @@ body{background:#fff;color:#1d2033;font-family:var(--sans);-webkit-font-smoothin
         <div class="kb-bt-art" aria-hidden="true"><div class="kb-bt-k" id="kbBtK"></div></div>
         <div class="kb-bt-b"><span class="kb-bt-p">Nuevo &middot; Ni&ntilde;os de 3 a 5 a&ntilde;os</span><h3>Tu hijo aprende ingl&eacute;s jugando</h3><p class="t">My Day Games: siete juegos con dibujos, voz en ingl&eacute;s y una canci&oacute;n para los m&aacute;s peque&ntilde;os.</p><div class="kb-bt-s"></div><span class="kb-bt-l">Conocer My Day</span></div>
       </a>
-      <a class="kb-bt-c kb-bt-3" href="spanish/index.html" lang="en">
-        <div class="kb-bt-art" aria-hidden="true"><svg viewBox="0 0 400 190" preserveAspectRatio="xMidYMid meet"><defs><filter id="pke"><feGaussianBlur stdDeviation="24"/></filter></defs>
-<g filter="url(#pke)" opacity=".6"><circle cx="60" cy="150" r="50" fill="#a5c8ff"/><circle cx="350" cy="30" r="52" fill="#c7b8ff"/><circle cx="340" cy="170" r="40" fill="#9be7ff"/></g>
-<g transform="translate(26 30)"><g class="kb-b1"><path d="M0 14a14 14 0 0 1 14-14h190a14 14 0 0 1 14 14v34a14 14 0 0 1-14 14H44L22 80V62H14A14 14 0 0 1 0 48z" fill="#1d1d1f"/><text x="16" y="24" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Arial,sans-serif" font-weight="700" font-size="9" fill="#e2ba68" letter-spacing="1.4">ESPA&#209;OL</text><text x="16" y="45" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Arial,sans-serif" font-weight="700" font-size="15" fill="#fff">&#191;C&#243;mo est&#225;s?</text></g></g>
-<g transform="translate(150 108)"><g class="kb-b2"><path d="M14 0h196a14 14 0 0 1 14 14v34a14 14 0 0 1-14 14h-8v18l-22-18H14A14 14 0 0 1 0 48V14A14 14 0 0 1 14 0z" fill="#fff"/><text x="16" y="24" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Arial,sans-serif" font-weight="700" font-size="9" fill="#2563eb" letter-spacing="1.4">ENGLISH</text><text x="16" y="45" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Arial,sans-serif" font-weight="700" font-size="15" fill="#1d1d1f">How are you?</text></g></g></svg></div>
-        <div class="kb-bt-b"><span class="kb-bt-p">New &middot; For English speakers</span><h3>Learn Spanish the Kingsbridge way</h3><p class="t">Interactive Spanish practice with audio and exam mode. Try 10 questions free.</p><div class="kb-bt-s"></div><span class="kb-bt-l">Start learning Spanish</span></div>
-      </a>
+      
     </div>
   </div>
   <script>(function(){var s=document.currentScript.parentNode;
@@ -535,30 +531,10 @@ try{if(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches)
 <p class="kb-tl-lead">Sin registro y sin costo. Hazlo en dos minutos.</p>
 <div class="kb-tl-g">
 <div class="kb-tc" id="kbLv" aria-live="polite">
-<small>Prueba de nivel</small><h3>&iquest;Cu&aacute;l es tu nivel de ingl&eacute;s?</h3>
-<p class="d">Seis preguntas r&aacute;pidas, de A1 a C1. Al final te decimos tu nivel probable.</p>
 <div class="kb-tcb"><button type="button" class="kb-btn" id="kbLvGo">Empezar la prueba</button></div>
 </div>
 </div></div></section>
 <!--/kb-tools-->
-
-<section class="kb-sec kb-w rv" aria-labelledby="kb-i">
-  <div class="kb-about">
-    <div>
-      <div class="kb-eye">Nuestra academia</div>
-      <h2 class="kb-h" id="kb-i">Clases particulares y de refuerzo <em>de inglés</em></h2>
-      <div class="kb-rule" style="justify-content:flex-start" aria-hidden="true">&#9670;</div>
-    </div>
-    <div>
-      <p class="kb-lead">En Leticia, Amazonas, en la triple frontera entre Colombia, Brasil y Perú.</p>
-      <div class="kb-facts">
-    <div class="kb-fact"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9.5" r="2.3"/><path d="M2.5 20c0-3.3 2.5-5.5 5.5-5.5s5.500 2.200 5.500 5.500M14.500 20c0-2.600 1.300-4.300 3.300-4.300 1.900 0 3.700 1.500 3.700 4.300"/></svg></i><b>Niños, jóvenes y adultos</b><span>Y refuerzo para el colegio.</span></div>
-
-    <div class="kb-fact"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 2.500 4.500 6 4.500 9.500L14.500 16h-5L7.500 12.500C7.500 9 9 5.500 12 3z"/><circle cx="12" cy="9.500" r="1.600"/><path d="M9.500 16l-2 4M14.500 16l2 4M12 17.500V21"/></svg></i><b>Etapa de lanzamiento</b><span>Academia fundada en Leticia.</span></div>
-  </div>
-    </div>
-  </div>
-</section>
 
 <section class="kb-prog rv" id="programas" aria-labelledby="kb-p"><div class="kb-w kb-in">
   <div class="kb-eye">PROGRAMAS ACADÉMICOS</div>
