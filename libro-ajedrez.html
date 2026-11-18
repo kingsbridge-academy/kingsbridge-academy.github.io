@@ -197,11 +197,30 @@ h2::before{content:"";position:absolute;top:0;left:0;width:44px;height:3px;backg
  .app #hint{max-width:none}
 }
 @media(max-width:899px){
- .bk{padding:0;margin-top:22px}
- .app{border-radius:0;border-left:0;border-right:0}
- .app .bar{border-radius:0}
- .app #stage{position:sticky;top:var(--kbh,72px);z-index:5;box-shadow:0 12px 22px -12px #000c}
- .app #panel{border-radius:0;min-height:62svh}
+ .hd{padding-top:22px}.hd .stand,.hd .meta{display:none}.hd h1{margin:10px 0 14px;font-size:2rem}
+ .bk{padding:0;margin-top:0;scroll-margin-top:var(--kbh,72px)}
+ .app{border-radius:0;border-left:0;border-right:0;display:flex;flex-direction:column;height:calc(100svh - var(--kbh,72px))}
+ .app .main{display:flex;flex-direction:column;flex:1;min-height:0}
+ .app .bar{border-radius:0;padding:6px 10px}
+ .app .pill{padding:6px 11px;min-height:32px;font-size:12.5px}
+ .app #stage{flex:none;height:34svh;min-height:200px}
+ .app #panel{flex:1;min-height:0;overflow:auto;border-radius:0;padding:10px 12px 14px;-webkit-overflow-scrolling:touch}
+ .app #tabs{margin-bottom:10px}
+ .app .tab{min-height:38px;padding:5px 4px;font-size:13px}
+ .app .tab b{width:20px;height:20px;font-size:11px}
+ .app #body h3{display:none}
+ .app .goal{font-size:13.5px;line-height:1.45}
+ .app .lbl{margin:10px 0 6px}
+ .app .words{gap:6px}.app .chip{padding:6px 11px;min-height:30px;font-size:12.5px}
+ .app .q{font-size:1rem;line-height:1.4;margin:4px 0 10px}
+ .app .opts{gap:8px}
+ .app .opt,.app .btn{padding:10px 13px;min-height:42px;font-size:14.5px;border-radius:12px}
+ .app .btn.small{min-height:34px;padding:6px 12px}
+ .app .msg{margin:8px 0;padding:9px 12px;font-size:14px;min-height:0}
+ .app .statement{font-size:1.05rem;padding:10px 12px}
+ .app .reveal{font-size:14px;padding:10px 12px}
+ .app .row{margin:8px 0}
+ .app #live{display:none!important}
 }
 @media(max-width:420px){.app .tab small{display:none}.app #hint{display:none}}
 /* sección explicativa */
@@ -799,11 +818,12 @@ T.scale=function(L){
 var last=performance.now();
 function frame(now){var dt=Math.min(.05,(now-last)/1000);last=now;stepTweens(dt);scaleUpdate(dt);updateCam(dt);renderer.render(scene,cam);updateTags();requestAnimationFrame(frame);}
 function kbh(){var h=document.getElementById('kb-head')||document.getElementById('kb-menu');document.documentElement.style.setProperty('--kbh',(h?Math.round(h.getBoundingClientRect().height):0)+'px');}
-function start(){kbh();window.addEventListener('resize',kbh);setTimeout(kbh,600);setTimeout(kbh,1800);resize();if(stage.clientWidth/stage.clientHeight<1.3)setView('board');loadLesson(0);$('loading').style.display='none';requestAnimationFrame(frame);}
+function start(){kbh();window.addEventListener('resize',kbh);setTimeout(kbh,600);setTimeout(kbh,1800);resize();if(stage.clientWidth/stage.clientHeight<1.9)setView('board');loadLesson(0);$('loading').style.display='none';requestAnimationFrame(frame);}
 start();
 if(document.fonts&&document.fonts.load){Promise.all([document.fonts.load('400 40px "KB Lora"'),document.fonts.load('italic 400 40px "KB Lora"'),document.fonts.load('400 24px "KB Inter"'),document.fonts.load('600 24px "KB Inter"')]).then(function(){drawPages();}).catch(function(){});}
 })();
 </script>
+<script>(function(){if(window.innerWidth<900&&!location.hash){window.addEventListener('load',function(){setTimeout(function(){var e=document.getElementById('libro');if(e&&window.scrollY<40)e.scrollIntoView();},700);});}})();</script>
 <script src="menu.js" defer></script>
 <script src="footer.js" defer></script>
 </body>

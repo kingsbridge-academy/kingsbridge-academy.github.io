@@ -25,7 +25,7 @@
     li: ["Perfil verificado", "Perfil oficial en LinkedIn", "Ver perfil en LinkedIn", "LinkedIn \u00b7 Verificado"],
     cols: [
       { h: "Academia", l: [["Inicio", "index.html"], ["Sobre nosotros", "sobre-nosotros.html"], ["Programas", "index.html#programas"], ["Pre-inscripción", "https://tally.so/r/2EQWlj"]] },
-      { h: "Aprende", l: [["Práctica interactiva", "practica/index.html"], ["My Day Games", "my-day-ninos.html"], ["Prueba gratis", "practica/index.html"], ["Learn Spanish", "spanish/index.html"]] },
+      { h: "Aprende", l: [["Práctica interactiva", "practica/index.html"], ["My Day Games", "my-day-ninos.html"], ["Libro 3D de ajedrez", "libro-ajedrez.html"], ["Prueba gratis", "practica/index.html"], ["Learn Spanish", "spanish/index.html"]] },
       { h: "Contacto", l: [["WhatsApp", "https://wa.me/kingsbridge.academy"]]},
       { h: "Legal", l: [["Términos del curso", "terminos-curso.html"], ["Términos y privacidad", "terminos-y-privacidad.html"]] }
     ],
