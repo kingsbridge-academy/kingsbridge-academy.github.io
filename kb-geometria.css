@@ -1,0 +1,17 @@
+/* Kingsbridge · monograma 3D sobre geometría sagrada animada */
+.kb-geo{background:radial-gradient(circle at 50% 50%,#24479f 0%,#1b378a 42%,#0b1a47 100%);padding:34px 0;overflow:hidden;border-bottom:1px solid var(--line)}
+.kb-geo-in{position:relative;width:min(92vw,520px);aspect-ratio:1;margin:0 auto;display:flex;align-items:center;justify-content:center;perspective:1100px}
+.kb-geo svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.kb-geo svg .a{transform-origin:0 0;animation:kbgspin 90s linear infinite}
+.kb-geo svg .b{transform-origin:0 0;animation:kbgspin 140s linear infinite reverse;opacity:.45}
+.kb-geo svg circle{fill:none;stroke:#e2ba68;stroke-width:1.1;opacity:.55}
+.kb-geo svg .ring{stroke-width:2.2;opacity:.8}
+.kb-geo svg .pulse{animation:kbgpulse 6s ease-in-out infinite}
+.kb-geo-logo{position:relative;width:48%;transform-style:preserve-3d;animation:kbgturn 14s linear infinite}
+.kb-geo-logo img{display:block;width:100%;height:auto;backface-visibility:hidden;-webkit-backface-visibility:hidden;filter:drop-shadow(0 10px 18px rgba(0,0,0,.4))}
+.kb-geo-logo img+img{position:absolute;inset:0;transform:rotateY(180deg)}
+.kb-geo-name{position:absolute;bottom:7%;left:0;right:0;text-align:center;color:#faecc4;letter-spacing:.14em;font:400 clamp(13px,3.4vw,22px) var(--serif)}
+@keyframes kbgspin{to{transform:rotate(360deg)}}
+@keyframes kbgpulse{50%{opacity:.25}}
+@keyframes kbgturn{from{transform:rotateX(-8deg) rotateY(0)}to{transform:rotateX(-8deg) rotateY(360deg)}}
+@media (prefers-reduced-motion:reduce){.kb-geo svg g,.kb-geo svg .pulse,.kb-geo-logo{animation:none}}
