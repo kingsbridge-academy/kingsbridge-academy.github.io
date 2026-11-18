@@ -21,6 +21,7 @@
     { label: "Sobre nosotros",       desc: "Quiénes somos y cómo enseñamos",           href: "sobre-nosotros.html",  icon: "info" },
     { label: "Práctica interactiva", desc: "Ejercicios tipo examen",           href: "practica/index.html",  icon: "pen"  },
     { label: "Herramientas gratis", desc: "Prueba de nivel gratuita", href: "index.html#herramientas", icon: "star" },
+    { label: "Examen de nivel",     desc: "Descubre tu nivel de inglés, A1–C1",       href: "examen-de-nivel.html", icon: "star" },
     { label: "My Day",               desc: "Aprender inglés jugando",                  href: "my-day-ninos.html",    icon: "star" },
     { label: "Pre-inscripción",      desc: "Reserva tu cupo",                          href: "https://tally.so/r/2EQWlj", icon: "form", external: true },
     { label: "For English speakers", desc: "Spanish for English speakers",             href: "spanish/index.html",   icon: "pen", flags: true },
@@ -31,6 +32,7 @@
   var ITEMS_EN = [
     { label: "Home",                 desc: "Spanish for English speakers",             href: "spanish/index.html",          icon: "home", flags: true },
     { label: "Spanish Practice",     desc: "Interactive exercises, A1 to C1",           href: "spanish/practice/index.html", icon: "pen"  },
+    { label: "Level Test",           desc: "Find your Spanish level, A1 to C1",         href: "spanish/level-test.html", icon: "star" },
     { label: "Travel Spanish",       desc: "60 phrases for your trip",                  href: "spanish/travel.html", icon: "star" },
     { label: "Get Access",           desc: "Full access, paid securely with PayPal",    href: "spanish/payment.html",        icon: "form" },
     { label: "About us",             desc: "Who we are and how we teach",              href: "spanish/about.html",          icon: "info" },
