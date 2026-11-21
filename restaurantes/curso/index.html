@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Curso: Inglés para restaurantes | KINGSBRIDGE ENGLISH ACADEMY</title>
+<meta name="description" content="Curso interactivo de inglés para personal de restaurante: 8 lecciones y examen final.">
+<meta name="theme-color" content="#080b19">
+<meta name="robots" content="noindex,nofollow">
+<style>
+@font-face{font-family:"KB Lora";font-weight:400;font-style:normal;font-display:swap;src:url(../../fonts/lora.woff) format("woff")}
+@font-face{font-family:"KB Lora";font-weight:400;font-style:italic;font-display:swap;src:url(../../fonts/lora-italic.woff) format("woff")}
+@font-face{font-family:"KB Inter";font-weight:400;font-style:normal;font-display:swap;src:url(../../fonts/inter-400.woff) format("woff")}
+@font-face{font-family:"KB Inter";font-weight:600;font-style:normal;font-display:swap;src:url(../../fonts/inter-600.woff) format("woff")}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#0a1230;--gold:#b8893a;--gold2:#e2ba68;--ink:#1d2033;--mute:#5a5f78;--line:#e4e0d4;--ok:#1f7a4d;--bad:#b3362f;--serif:"KB Lora",Georgia,"Times New Roman",serif;--sans:"KB Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+html{-webkit-text-size-adjust:100%}
+body{background:#fff;color:var(--ink);font-family:var(--sans);line-height:1.65;font-size:17px}
+a{color:inherit}
+#kb-menu .in{min-height:70px}
+#kb-menu .brand{display:block;line-height:0}
+#kb-menu .brand img{display:block;height:54px!important;width:auto!important;max-width:56vw!important;margin:0!important;border-radius:4px;box-shadow:0 0 0 1px rgba(226,186,104,.55)}
+@media(min-width:700px){#kb-menu .in{min-height:80px}#kb-menu .brand img{height:64px!important}}
+@media(min-width:880px) and (max-width:2599px){#kb-menu nav{display:none!important}#kb-menu button.tg{display:flex!important}#kb-menu .pn.open{display:block!important}}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+.kick{display:flex;align-items:center;gap:12px;font:600 12px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.kick::before{content:"";width:34px;height:2px;background:var(--gold)}
+h1{font:500 clamp(2rem,7vw,3.4rem)/1.08 var(--serif);letter-spacing:-.01em;color:var(--navy);margin:16px 0 14px}
+h1 em{font-style:italic;color:var(--gold)}
+h2{font:500 clamp(1.4rem,4.4vw,1.8rem)/1.2 var(--serif);color:var(--navy);margin:34px 0 14px;padding-top:16px;position:relative}
+h2::before{content:"";position:absolute;top:0;left:0;width:44px;height:3px;background:var(--gold2)}
+.stand{font-size:1.1rem;color:var(--mute);max-width:640px}
+.top{padding:36px 0 8px}
+.crumb{margin:0 0 6px;font:600 12px var(--sans);letter-spacing:.1em;text-transform:uppercase}
+.crumb button{background:none;border:0;color:var(--gold);cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:inherit;padding:0}
+/* tarjetas de lección */
+.grid{display:grid;gap:14px;margin:22px 0 10px}
+@media(min-width:680px){.grid{grid-template-columns:1fr 1fr}}
+.card{display:block;width:100%;text-align:left;font:inherit;border:1px solid #d9d3bf;border-top:3px solid var(--gold2);border-radius:4px;background:#fbf8ef;padding:18px 18px 16px;cursor:pointer;color:var(--ink);position:relative}
+.card:hover{box-shadow:0 0 0 1px var(--gold2)}
+.card .n{font:400 2rem/1 var(--serif);color:var(--gold)}
+.card h3{font:500 1.15rem/1.3 var(--serif);color:var(--navy);margin:6px 0 4px}
+.card p{font-size:.92rem;color:var(--mute);line-height:1.5}
+.card .st{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font:600 11.5px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.card .st b{color:var(--ok)}
+.card.lock{background:#f3f1ea}
+.card.lock .n,.card.lock h3{opacity:.55}
+.free{display:inline-block;margin-left:8px;padding:2px 8px;border-radius:99px;background:var(--navy);color:var(--gold2);font:600 10.5px var(--sans);letter-spacing:.12em;text-transform:uppercase;vertical-align:middle}
+.exam{background:linear-gradient(135deg,#0a1230,#10206a);color:#fff;border:0;border-radius:6px;box-shadow:0 0 0 1px rgba(226,186,104,.55);padding:22px}
+.card.exam.lock{background:linear-gradient(135deg,#0a1230,#10206a)}.card.exam.lock .n,.card.exam.lock h3{opacity:1}.card.exam.lock p,.card.exam.lock .st{opacity:.8}
+.exam h3{color:#fff}.exam p{color:#c8cdea}.exam .n{color:var(--gold2)}.exam .st{color:#aab1d6}.exam .st b{color:#7fe0a8}
+/* acceso */
+.gate{margin:26px 0 10px;padding:22px;background:#f6f3ea;border-top:3px solid var(--gold2)}
+.gate h2{margin:0 0 8px;padding:0;font-size:1.3rem}.gate h2::before{display:none}
+.gate p{font-size:.98rem;color:var(--mute);margin-bottom:12px}
+.gate form{display:flex;gap:10px;flex-wrap:wrap}
+.gate input{flex:1;min-width:200px;font:inherit;padding:13px 14px;border:1.5px solid #cfc8b0;border-radius:6px;background:#fff;color:var(--navy);text-transform:uppercase;letter-spacing:.08em}
+.gate input:focus{outline:2px solid var(--gold);outline-offset:1px}
+.btn{display:inline-block;font:600 .95rem var(--sans);border:0;border-radius:6px;padding:13px 22px;background:var(--navy);color:var(--gold2);cursor:pointer;text-decoration:none;box-shadow:0 0 0 1px rgba(226,186,104,.7)}
+.btn.ghost{background:#fff;color:var(--navy);box-shadow:0 0 0 1px var(--line)}
+.btn.wa{background:#1f9d55;color:#fff;box-shadow:none}
+.err{color:var(--bad);font-size:.92rem;min-height:1.2em;margin-top:8px}
+.lk{font-size:.92rem;margin-top:10px}.lk a{color:var(--gold);font-weight:600}
+/* lección */
+.meta{padding:14px 18px;background:#f6f3ea;border-left:3px solid var(--gold2);color:var(--navy);margin:18px 0 8px}
+table{width:100%;border-collapse:collapse;margin:8px 0 6px;font-size:.96rem}
+th{font:600 11.5px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--gold);text-align:left;padding:8px 10px;border-bottom:2px solid var(--gold2)}
+td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+td.en{font-weight:600;color:var(--navy)}td.ex{color:var(--mute);font-style:italic}
+.sp{width:34px;height:34px;border-radius:50%;border:0;background:var(--navy);color:var(--gold2);cursor:pointer;font-size:14px;flex:none;box-shadow:0 0 0 1px rgba(226,186,104,.7)}
+.sp:hover{transform:scale(1.07)}
+@media(max-width:620px){.tv thead{display:none}.tv tr{display:block;padding:10px 0;border-bottom:1px solid var(--line)}.tv td{display:block;border:0;padding:2px 0}}
+.ph{display:flex;gap:12px;align-items:center;padding:12px 14px;border:1px solid #d9d3bf;border-left:3px solid var(--gold2);background:#fbf8ef;margin:0 0 10px;border-radius:3px}
+.ph span{font:500 1.05rem/1.4 var(--serif);color:var(--navy)}
+.steps{list-style:none;counter-reset:s;margin:6px 0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:42px 1fr;gap:10px;padding:12px 0;border-top:1px solid var(--line);color:var(--navy)}
+.steps li::before{content:counter(s);font:400 1.7rem/1 var(--serif);color:var(--gold)}
+.note{margin:10px 0;padding:14px 16px;background:#fff7e3;border:1px solid var(--gold2);color:#5b4410;font-size:.95rem}
+.dlg .l{display:flex;gap:10px;align-items:flex-start;margin:0 0 10px}
+.dlg .who{flex:none;width:68px;font:600 11px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--gold);padding-top:9px}
+.dlg .tx{flex:1;padding:10px 14px;border-radius:4px;background:#f3f1ea;color:var(--ink)}
+.dlg .l.me .tx{background:var(--navy);color:#fff}
+/* quiz */
+.qz{border:1px solid #d9d3bf;border-top:3px solid var(--gold2);background:#fbf8ef;padding:20px 20px 16px;border-radius:4px;margin:12px 0}
+.bar{height:6px;background:#e9e4d3;border-radius:3px;overflow:hidden;margin:0 0 16px}.bar i{display:block;height:100%;background:var(--gold);transition:width .25s}
+.qt{font:600 11.5px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.q{font:500 1.15rem/1.45 var(--serif);color:var(--navy);margin-bottom:14px}
+.psg{padding:12px 14px;margin:0 0 14px;background:#fff;border-left:3px solid var(--gold2);font-size:.95rem;color:var(--ink)}
+.opt{display:block;width:100%;text-align:left;font:inherit;background:#fff;color:var(--ink);border:1.5px solid #d9d3bf;border-radius:8px;padding:12px 14px;margin:0 0 9px;cursor:pointer}
+.opt:hover:not([disabled]){border-color:var(--gold)}
+.opt.sel{border-color:var(--navy);box-shadow:0 0 0 1px var(--navy)}
+.opt.ok{border-color:var(--ok);background:#e9f6ef}
+.opt.no{border-color:var(--bad);background:#fbeceb}
+.opt[disabled]{cursor:default}
+.fb{margin:10px 0 4px;font-size:.95rem;color:var(--mute)}.fb b.ok{color:var(--ok)}.fb b.no{color:var(--bad)}
+.res{text-align:center;padding:24px 10px}
+.res .big{font:400 3.2rem/1 var(--serif);color:var(--navy)}
+.res p{margin:10px auto;max-width:520px;color:var(--mute)}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.sc{margin:22px 0 14px}.sc li{margin:0 0 10px 18px;color:var(--navy)}
+.sc li small{display:block;color:var(--mute)}
+.pie{height:36px}
+</style>
+<script src="../../kb-logo3d.js" defer></script>
+</head>
+<body>
+<div class="wrap top">
+  <div class="kick">Curso interactivo</div>
+  <h1>Inglés para <em>restaurantes</em></h1>
+  <p class="stand">8 lecciones con vocabulario, frases, diálogos y ejercicios, más un examen final. Cocina, menú, atención al cliente, reclamos y diplomacia.</p>
+</div>
+<main class="wrap" id="app" aria-live="polite"></main>
+<div class="pie"></div>
+<script>
+(function(){function fix(){var b=document.querySelector('#kb-menu .brand');if(!b||b.dataset.kbl)return;b.dataset.kbl='1';b.setAttribute('aria-label','Kingsbridge English Academy');b.innerHTML='<img src="../../logo.png" alt="Kingsbridge English Academy" width="217" height="54">'}
+new MutationObserver(fix).observe(document.documentElement,{childList:true,subtree:true});fix()})();
+</script>
+<footer class="kb-pie">
+  <span class="kb-seal">Kingsbridge</span>
+  <div class="kb-nm">English Academy</div>
+  <div class="kb-loc">Leticia · Amazonas · Colombia</div>
+</footer>
+<script src="datos.js?v=1"></script>
+<script src="access.js?v=1"></script>
+<script>
+(function(){
+"use strict";
+var C=window.KBR_CURSO,app=document.getElementById("app"),WA="https://wa.me/kingsbridge.academy",PK="kb.restaurantes.progreso1";
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function prog(){try{return JSON.parse(localStorage.getItem(PK))||{}}catch(e){return window.__kbrp||{}}}
+function setProg(p){try{localStorage.setItem(PK,JSON.stringify(p))}catch(e){window.__kbrp=p}}
+function open(n){return n===1||window.KBR_ACCESS.has()}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function speak(t){try{var u=new SpeechSynthesisUtterance(String(t).replace(/^\(.*?\)\s*/,""));u.lang="en-US";u.rate=.9;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
+function spk(t){return '<button class="sp" type="button" data-say="'+esc(t)+'" aria-label="Escuchar en inglés">&#9654;</button>'}
+app.addEventListener("click",function(e){var b=e.target.closest("[data-say]");if(b){speak(b.getAttribute("data-say"))}});
+window.scrollTo(0,0);
+
+/* ---------- inicio ---------- */
+function home(){
+ var p=prog(),unl=window.KBR_ACCESS.has(),h="";
+ if(!unl){
+  h+='<div class="gate"><h2>Desbloquea el curso completo</h2><p>La lección 1 es gratis. Para abrir las lecciones 2 a 8 y el examen final, ingresa tu código de acceso.</p>'+
+  '<form id="gf" autocomplete="off"><input id="gc" type="text" autocapitalize="characters" spellcheck="false" placeholder="KBR-XXXX-XXXX" aria-label="Código de acceso"><button class="btn" type="submit">Desbloquear</button></form>'+
+  '<div class="err" id="ge" role="alert"></div><p class="lk">¿No tienes código? <a href="'+WA+'" target="_blank" rel="noopener">Pídelo por WhatsApp</a></p></div>';
+ }
+ h+='<div class="grid">';
+ C.lecciones.forEach(function(l){
+  var r=p["l"+l.n],o=open(l.n);
+  h+='<button class="card'+(o?'':' lock')+'" type="button" data-l="'+l.n+'"><div class="n">'+(l.n<10?"0":"")+l.n+(l.n===1?'<span class="free">Gratis</span>':'')+'</div><h3>'+esc(l.t)+'</h3><p>'+esc(l.meta)+'</p><div class="st"><span>'+(o?(r?'Mejor puntaje':'Empezar'):'Bloqueada')+'</span>'+(o&&r?'<b>'+r.s+'/'+r.t+'</b>':'<span>'+(o?'':'&#128274;')+'</span>')+'</div></button>';
+ });
+ var ex=p.ex;
+ h+='<button class="card exam'+(unl?'':' lock')+'" type="button" data-ex="1" style="grid-column:1/-1"><div class="n">Examen final</div><h3>Evaluación del curso</h3><p>20 preguntas de vocabulario, frases de servicio y comprensión. La escritura y el rol-play se evalúan con tu profesor.</p><div class="st"><span>'+(unl?(ex?'Mejor puntaje':'Empezar'):'Bloqueado')+'</span>'+(unl&&ex?'<b>'+ex.s+'/'+ex.t+'</b>':'<span>'+(unl?'':'&#128274;')+'</span>')+'</div></button></div>';
+ app.innerHTML=h;
+ var gf=document.getElementById("gf");
+ if(gf)gf.onsubmit=function(e){e.preventDefault();if(window.KBR_ACCESS.add(document.getElementById("gc").value)){home()}else{document.getElementById("ge").textContent="Ese código no es válido. Revísalo e inténtalo de nuevo."}};
+ app.querySelectorAll("[data-l]").forEach(function(b){b.onclick=function(){var n=+b.getAttribute("data-l");if(open(n))lesson(n);else{var g=document.getElementById("gc");if(g){g.focus();window.scrollTo(0,0)}}}});
+ var eb=app.querySelector("[data-ex]");
+ eb.onclick=function(){if(unl)examen();else{var g=document.getElementById("gc");if(g){g.focus();window.scrollTo(0,0)}}};
+}
+
+/* ---------- lección ---------- */
+function lesson(n){
+ var l=C.lecciones[n-1],h='<p class="crumb"><button type="button" id="bk">&larr; Todas las lecciones</button></p>';
+ h+='<h1 style="font-size:clamp(1.7rem,5.6vw,2.6rem)">Lección '+l.n+': <em>'+esc(l.t)+'</em></h1><div class="meta"><b>Objetivo:</b> '+esc(l.meta)+'</div>';
+ h+='<h2>Vocabulario clave</h2><table class="tv"><thead><tr><th></th><th>English</th><th>Español</th><th>Ejemplo</th></tr></thead><tbody>';
+ l.vocab.forEach(function(v){h+='<tr><td>'+spk(v[0])+'</td><td class="en">'+esc(v[0])+'</td><td>'+esc(v[1])+'</td><td class="ex">'+esc(v[2])+'</td></tr>'});
+ h+='</tbody></table>';
+ if(l.extra){h+='<h2>'+esc(l.extra.titulo)+'</h2><table><tbody>';l.extra.filas.forEach(function(f){h+='<tr><td class="en">'+esc(f[0])+'</td><td class="ex">'+esc(f[1])+'</td></tr>'});h+='</tbody></table>'}
+ if(l.tabla){h+='<h2>'+esc(l.tabla.titulo)+'</h2><table class="tv"><thead><tr><th></th><th>Directo (evitar)</th><th>Diplomático (usar)</th></tr></thead><tbody>';l.tabla.filas.forEach(function(f){h+='<tr><td>'+spk(f[1])+'</td><td class="ex">'+esc(f[0])+'</td><td class="en">'+esc(f[1])+'</td></tr>'});h+='</tbody></table>'}
+ if(l.regla){h+='<h2>'+esc(l.regla.titulo)+'</h2><ol class="steps">';l.regla.pasos.forEach(function(s){h+='<li>'+esc(s)+'</li>'});h+='</ol><div class="note">'+esc(l.regla.nota)+'</div>'}
+ h+='<h2>Frases útiles</h2>';
+ l.frases.forEach(function(f){h+='<div class="ph">'+spk(f)+'<span>'+esc(f)+'</span></div>'});
+ h+='<h2>Diálogo modelo</h2><div class="dlg">';
+ l.dialogo.forEach(function(d){var me=/^(Waiter|Host|Cook|Manager)$/.test(d[0]);h+='<div class="l'+(me?' me':'')+'"><div class="who">'+esc(d[0])+'</div><div class="tx">'+esc(d[1])+'</div>'+spk(d[1])+'</div>'});
+ h+='</div><h2>Ejercicios</h2><div id="qz"></div>';
+ if(n<8)h+='<div class="row"><button class="btn ghost" type="button" id="nx">Siguiente lección &rarr;</button></div>';
+ app.innerHTML=h;window.scrollTo(0,0);
+ document.getElementById("bk").onclick=home;
+ var nx=document.getElementById("nx");if(nx)nx.onclick=function(){if(open(n+1))lesson(n+1);else home()};
+ quiz(document.getElementById("qz"),l.quiz,{feedback:true,done:function(s,t){var p=prog(),k="l"+n;if(!p[k]||s>p[k].s)p[k]={s:s,t:t};setProg(p)}});
+}
+
+/* ---------- motor de preguntas ---------- */
+function quiz(box,items,opt){
+ var i=0,score=0,wrong=[],qs=items.map(function(q){return{q:q.q,o:shuffle(q.o.map(function(t,k){return{t:t,c:k===q.a}})),w:q.w,t:q.t,p:q.p}}),psg="";
+ function show(){
+  if(i>=qs.length)return end();
+  var q=qs[i],pct=Math.round(i/qs.length*100);
+  if(q.t)psg=q.t;
+  var h='<div class="qz"><div class="bar"><i style="width:'+pct+'%"></i></div><div class="qt">Pregunta '+(i+1)+' de '+qs.length+(q.p?' · Parte '+q.p:'')+'</div>'+(q.p==="C"&&psg?'<div class="psg">'+esc(psg)+'</div>':'')+'<div class="q">'+esc(q.q)+'</div>';
+  q.o.forEach(function(o,k){h+='<button class="opt" type="button" data-k="'+k+'">'+esc(o.t)+'</button>'});
+  h+='<div class="fb" id="fb"></div></div>';
+  box.innerHTML=h;
+  box.querySelectorAll(".opt").forEach(function(b){b.onclick=function(){pick(+b.getAttribute("data-k"),b)}});
+ }
+ function pick(k,btn){
+  var q=qs[i],ok=q.o[k].c;
+  if(ok)score++;else wrong.push({q:q.q,mine:q.o[k].t,right:q.o.filter(function(o){return o.c})[0].t});
+  var bs=box.querySelectorAll(".opt");
+  if(opt.feedback){
+   bs.forEach(function(b,j){b.disabled=true;if(q.o[j].c)b.classList.add("ok");else if(j===k)b.classList.add("no")});
+   document.getElementById("fb").innerHTML=(ok?'<b class="ok">¡Correcto!</b> ':'<b class="no">Casi.</b> ')+esc(q.w||"")+'<div class="row"><button class="btn" type="button" id="go">'+(i+1<qs.length?'Siguiente':'Ver resultado')+'</button></div>';
+   document.getElementById("go").onclick=function(){i++;show()};
+  }else{i++;show()}
+ }
+ function end(){
+  var t=qs.length,pc=Math.round(score/t*100);
+  if(opt.done)opt.done(score,t);
+  var msg=pc>=90?"Excelente. Estás listo para atender a clientes extranjeros.":pc>=70?"Muy bien. Repasa lo que fallaste y sigue practicando.":"Sigue practicando: repite la lección y vuelve a intentarlo.";
+  var h='<div class="qz res"><div class="qt">Resultado</div><div class="big">'+score+' / '+t+'</div><p><b>'+pc+' %</b>. '+msg+'</p>';
+  if(opt.exam)h+=opt.exam(score,t,pc);
+  if(wrong.length){h+='<div style="text-align:left"><h2 style="margin-top:20px">Para repasar</h2><ul class="sc">';wrong.forEach(function(w){h+='<li>'+esc(w.q)+'<small>Tu respuesta: '+esc(w.mine)+' · Correcta: <b>'+esc(w.right)+'</b></small></li>'});h+='</ul></div>'}
+  h+='<div class="row" style="justify-content:center"><button class="btn" type="button" id="rt">Intentar de nuevo</button><button class="btn ghost" type="button" id="hm">Volver al inicio</button></div></div>';
+  box.innerHTML=h;
+  document.getElementById("rt").onclick=function(){i=0;score=0;wrong=[];psg="";qs.forEach(function(q){q.o=shuffle(q.o)});show()};
+  document.getElementById("hm").onclick=home;
+ }
+ show();
+}
+
+/* ---------- examen final ---------- */
+function examen(){
+ var h='<p class="crumb"><button type="button" id="bk">&larr; Todas las lecciones</button></p><h1 style="font-size:clamp(1.7rem,5.6vw,2.6rem)">Examen <em>final</em></h1><div class="meta">20 preguntas: A) vocabulario culinario y de servicio, B) frases de servicio, C) comprensión de lectura. Las respuestas se muestran al final. Se aprueba con 70 % o más.</div><div id="qz"></div>';
+ app.innerHTML=h;window.scrollTo(0,0);
+ document.getElementById("bk").onclick=home;
+ quiz(document.getElementById("qz"),C.examen,{feedback:false,
+  done:function(s,t){var p=prog();if(!p.ex||s>p.ex.s)p.ex={s:s,t:t};setProg(p)},
+  exam:function(s,t,pc){
+   var txt="Hola, terminé el examen final del curso Inglés para restaurantes: "+s+"/"+t+" ("+pc+" %). Quiero hacer la parte de escritura y el rol-play.";
+   return '<div style="text-align:left"><div class="note"><b>Faltan dos partes con tu profesor:</b> escritura (describir un plato y responder una queja) y rol-play oral con una de estas situaciones.</div><ul class="sc">'+C.escenarios.map(function(e){return '<li>'+esc(e)+'</li>'}).join("")+'</ul></div><div class="row" style="justify-content:center"><a class="btn wa" target="_blank" rel="noopener" href="'+WA+'?text='+encodeURIComponent(txt)+'">Enviar mi resultado por WhatsApp</a></div>'
+  }});
+}
+home();
+})();
+</script>
+<script src="../../menu.js" defer></script>
+<script src="../../footer.js" defer></script>
+</body>
+</html>
