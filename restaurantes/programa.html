@@ -116,7 +116,18 @@ h2{font-family:var(--disp);font-weight:700;letter-spacing:-.025em;line-height:1.
 h2::before{height:4px;width:36px}
 .kick{font-family:var(--disp);font-weight:600;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase}
 .btn{font-family:var(--disp);font-weight:700;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;border-radius:2px;padding:16px 28px}
-.btn.buy{background:var(--gold2);color:var(--navy);box-shadow:none}
+.btn{position:relative;overflow:hidden;transition:transform .18s ease,box-shadow .25s ease,background .25s ease,color .25s ease}
+.btn::after{content:"92";display:inline-block;margin-left:10px;transition:transform .22s ease}
+.btn:hover::after{transform:translateX(5px)}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(0) scale(.98)}
+.btn.buy{background:linear-gradient(110deg,#c9962f 0%,#f3d58a 45%,#d9a83e 100%);color:#0a1230;box-shadow:0 6px 18px rgba(226,186,104,.38),0 0 0 1px rgba(255,236,190,.6) inset;animation:kbglow 2.6s ease-in-out infinite}
+.btn.buy::before{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.65),transparent);transform:skewX(-20deg);animation:kbshine 3.2s ease-in-out infinite}
+.btn.buy:hover{box-shadow:0 10px 28px rgba(226,186,104,.6),0 0 0 1px rgba(255,236,190,.8) inset}
+.btn.ghost:hover{background:var(--navy);color:var(--gold2)}
+.kcta .btn.ghost:hover{background:var(--gold2);color:var(--navy)}
+@keyframes kbshine{0%,55%{left:-70%}100%{left:130%}}
+@keyframes kbglow{0%,100%{box-shadow:0 6px 18px rgba(226,186,104,.32),0 0 0 1px rgba(255,236,190,.6) inset}50%{box-shadow:0 8px 28px rgba(226,186,104,.65),0 0 0 1px rgba(255,236,190,.8) inset}}
+@media(prefers-reduced-motion:reduce){.btn.buy,.btn.buy::before{animation:none}.btn,.btn::after{transition:none}}
 .stand{font-family:var(--disp);font-style:normal;font-weight:400}
 .lessons h3,.steps h3,.box h3,.card h3{font-family:var(--disp);font-weight:700;letter-spacing:-.015em}
 .lessons li::before,.steps li::before{font-family:var(--disp);font-weight:700;font-size:1.35rem;letter-spacing:0}
@@ -187,6 +198,17 @@ td.en,.ph span,.psg,.q{font-family:var(--disp);font-style:normal;font-weight:600
 .tapdemo .tr{color:#fff;cursor:pointer}
 .tapdemo .tr.on{background:rgba(226,186,104,.28);color:#fff}
 .tap .tn{font:600 .78rem var(--disp)!important;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)!important;margin:16px 0 0!important}
+
+.nums{gap:12px;border:0;margin:0;padding:0}
+.nums div{--a:#e2ba68;position:relative;overflow:hidden;padding:26px 14px 20px;border:0!important;border-radius:4px;background:linear-gradient(150deg,#0a1230 0%,#14257a 100%);box-shadow:0 10px 24px rgba(10,18,48,.22);transition:transform .2s ease,box-shadow .2s ease}
+.nums div::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:var(--a)}
+.nums div::after{content:"";position:absolute;right:-30px;bottom:-30px;width:110px;height:110px;border-radius:50%;background:var(--a);opacity:.16}
+.nums div:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(10,18,48,.3)}
+.nums div:nth-child(4n+1){--a:#f3c35a}.nums div:nth-child(4n+2){--a:#4fd1c0}.nums div:nth-child(4n+3){--a:#ff8a6b}.nums div:nth-child(4n+4){--a:#8fa2ff}
+.nums i{color:var(--a);text-shadow:0 0 22px color-mix(in srgb,var(--a) 45%,transparent);position:relative;z-index:1}
+.nums strong{color:#fff;position:relative;z-index:1}
+.nums em{color:#b9c2ee;position:relative;z-index:1}
+.price .btn{margin-left:auto}
 </style>
 <script src="../kb-logo3d.js" defer></script>
 </head>
