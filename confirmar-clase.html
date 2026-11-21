@@ -26,6 +26,7 @@ button{display:block;width:100%;min-height:52px;border:0;border-radius:999px;fon
 .o{padding:0 20px 20px;display:none}
 .o.on{display:block}
 textarea{min-height:190px;resize:vertical;line-height:1.4}
+.inf{margin:0 0 14px;padding:10px 14px;border-radius:12px;background:#fff;border:1px dashed #d8c999;font-size:14px;color:#5a4a2a;display:none}.inf.on{display:block}
 .e{color:#a3262a;font-weight:600;font-size:14px;min-height:1.3em;margin:0 0 10px}
 .m{font-size:13px;color:#5a4a2a;text-align:center;margin:0;padding:0 20px 20px}
 </style>
@@ -34,7 +35,8 @@ textarea{min-height:190px;resize:vertical;line-height:1.4}
 <div class="w"><div class="card">
 <div class="hd"><small>Solo para ti</small><h1>Confirmar clase</h1><p>Genera el mensaje con el enlace al calendario.</p></div>
 <form id="f" novalidate>
-<div class="r"><label for="n">Nombre del estudiante o tutor</label><input id="n" type="text" maxlength="60"></div>
+<p class="inf" id="inf"></p>
+<div class="g r"><div><label for="n">Estudiante o tutor</label><input id="n" type="text" maxlength="60"></div><div><label for="w">WhatsApp</label><input id="w" type="tel" inputmode="tel" maxlength="20" placeholder="300 123 4567"></div></div>
 <div class="g r"><div><label for="d">Fecha</label><input id="d" type="date"></div><div><label for="h">Hora</label><input id="h" type="time"></div></div>
 <div class="g r"><div><label for="du">Duración (min)</label><input id="du" type="number" min="15" max="240" step="15" value="60"></div><div><label for="l">Lugar</label><input id="l" type="text" maxlength="80" placeholder="Barrio o dirección"></div></div>
 <p class="e" id="e" role="alert"></p>
@@ -43,7 +45,8 @@ textarea{min-height:190px;resize:vertical;line-height:1.4}
 <div class="o" id="o">
 <label for="t">Mensaje para WhatsApp</label>
 <textarea id="t"></textarea>
-<button class="s" type="button" id="c" style="margin-top:12px">Copiar mensaje</button>
+<button class="p" type="button" id="wa" style="margin-top:12px">Enviar por WhatsApp</button>
+<button class="s" type="button" id="c">Copiar mensaje</button>
 <button class="s" type="button" id="i">Descargar archivo para tu calendario (.ics)</button>
 <a id="g" target="_blank" rel="noopener" style="display:block;text-align:center;color:#0a1230;font-weight:600;margin-bottom:8px">Abrir en mi Google Calendar</a>
 </div>
@@ -69,6 +72,15 @@ var g="https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encode
 cur={s:s,su:stamp(d,h,300)+"Z",eu:stamp(d,h,du+300)+"Z",ti:ti,l:l,de:de};
 $("t").value="Estimado(a) "+n+":\n\nLe confirmamos la primera clase con evaluación, a domicilio, programada para el "+nice(d,h)+", en "+l+".\n\nPuede agregarla a su calendario con el siguiente enlace:\n"+g+"\n\nSi requiere algún cambio, le agradecemos avisarnos por este medio.\n\nCordialmente,\nKingsbridge English Academy";
 $("g").href=g;$("o").className="o on";$("o").scrollIntoView({behavior:"smooth"})});
+
+(function(){var q=new URLSearchParams(location.search),g=function(k){return(q.get(k)||"").trim()};
+if(g("n"))$("n").value=g("n");if(g("w"))$("w").value=g("w");if(g("l"))$("l").value=g("l");
+var inf=[];if(g("e"))inf.push("Edad: "+g("e"));if(g("d"))inf.push("Día preferido: "+g("d"));
+if(inf.length){$("inf").textContent="Solicitud recibida. "+inf.join(" · ");$("inf").className="inf on"}})();
+function waNum(v){var d=(v||"").replace(/\D/g,"");if(d.length===10&&d.charAt(0)==="3")d="57"+d;return d}
+$("wa").addEventListener("click",function(){var d=waNum($("w").value);
+if(d.length<11){$("e").textContent="Escribe el WhatsApp del padre o tutor para abrir el chat.";$("e").scrollIntoView({behavior:"smooth"});return}
+var u="https://wa.me/"+d+"?text="+encodeURIComponent($("t").value);var w=window.open(u,"_blank");if(!w)location.href=u});
 $("c").addEventListener("click",function(){var t=$("t");t.select();
 var ok=function(){$("c").textContent="¡Copiado!";setTimeout(function(){$("c").textContent="Copiar mensaje"},1800)};
 if(navigator.clipboard){navigator.clipboard.writeText(t.value).then(ok,function(){document.execCommand("copy");ok()})}else{document.execCommand("copy");ok()}});
