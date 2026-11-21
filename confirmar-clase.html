@@ -34,7 +34,7 @@ textarea{min-height:190px;resize:vertical;line-height:1.4}
 <div class="w"><div class="card">
 <div class="hd"><small>Solo para ti</small><h1>Confirmar clase</h1><p>Genera el mensaje con el enlace al calendario.</p></div>
 <form id="f" novalidate>
-<div class="r"><label for="n">Nombre del padre o madre</label><input id="n" type="text" maxlength="60"></div>
+<div class="r"><label for="n">Nombre del estudiante o tutor</label><input id="n" type="text" maxlength="60"></div>
 <div class="g r"><div><label for="d">Fecha</label><input id="d" type="date"></div><div><label for="h">Hora</label><input id="h" type="time"></div></div>
 <div class="g r"><div><label for="du">Duración (min)</label><input id="du" type="number" min="15" max="240" step="15" value="60"></div><div><label for="l">Lugar</label><input id="l" type="text" maxlength="80" placeholder="Barrio o dirección"></div></div>
 <p class="e" id="e" role="alert"></p>
@@ -67,7 +67,7 @@ de="Clase a domicilio. La confirmación y el valor se acordaron por WhatsApp.",
 s=stamp(d,h,0),en=stamp(d,h,du);
 var g="https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent(ti)+"&dates="+s+"/"+en+"&ctz=America%2FBogota&location="+encodeURIComponent(l)+"&details="+encodeURIComponent(de);
 cur={s:s,su:stamp(d,h,300)+"Z",eu:stamp(d,h,du+300)+"Z",ti:ti,l:l,de:de};
-$("t").value="Hola, "+n+". Queda confirmada la primera clase con evaluación, a domicilio: "+nice(d,h)+", en "+l+".\n\nPuedes agregarla a tu calendario con este enlace:\n"+g+"\n\nCualquier cambio me avisas por aquí. ¡Hasta pronto!\nKingsbridge English Academy";
+$("t").value="Estimado(a) "+n+":\n\nLe confirmamos la primera clase con evaluación, a domicilio, programada para el "+nice(d,h)+", en "+l+".\n\nPuede agregarla a su calendario con el siguiente enlace:\n"+g+"\n\nSi requiere algún cambio, le agradecemos avisarnos por este medio.\n\nCordialmente,\nKingsbridge English Academy";
 $("g").href=g;$("o").className="o on";$("o").scrollIntoView({behavior:"smooth"})});
 $("c").addEventListener("click",function(){var t=$("t");t.select();
 var ok=function(){$("c").textContent="¡Copiado!";setTimeout(function(){$("c").textContent="Copiar mensaje"},1800)};
