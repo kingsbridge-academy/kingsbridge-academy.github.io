@@ -101,6 +101,34 @@ h2{font-family:var(--disp);font-weight:650;letter-spacing:-.015em}
 .kcta h2{font-weight:700}
 .kcta h2::after{display:none}
 .art p{font-size:1.07rem}
+
+/* ===== tipografía formal (corporativa): Inter ===== */
+@font-face{font-family:"KB Inter";font-weight:500;font-style:normal;font-display:swap;src:url(../fonts/inter-500.woff2) format("woff2")}
+@font-face{font-family:"KB Inter";font-weight:700;font-style:normal;font-display:swap;src:url(../fonts/inter-700.woff2) format("woff2")}
+@font-face{font-family:"KB Inter";font-weight:800;font-style:normal;font-display:swap;src:url(../fonts/inter-800.woff2) format("woff2")}
+:root{--disp:"KB Inter",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--caps:var(--disp);--serif:var(--disp)}
+body{font-feature-settings:"kern","liga","calt","tnum" 0;-webkit-font-smoothing:antialiased;line-height:1.65}
+h1{font-family:var(--disp);font-weight:800;letter-spacing:-.04em;line-height:1.02}
+h1 em{font-style:normal;font-weight:800;background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--gold);padding:0}
+h1::after{width:72px;height:4px;background:var(--gold2)}
+h2{font-family:var(--disp);font-weight:700;letter-spacing:-.025em;line-height:1.15}
+h2::before{height:4px;width:36px}
+.kick{font-family:var(--disp);font-weight:600;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase}
+.btn{font-family:var(--disp);font-weight:700;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;border-radius:2px;padding:16px 28px}
+.btn.buy{background:var(--gold2);color:var(--navy);box-shadow:none}
+.stand{font-family:var(--disp);font-style:normal;font-weight:400}
+.lessons h3,.steps h3,.box h3,.card h3{font-family:var(--disp);font-weight:700;letter-spacing:-.015em}
+.lessons li::before,.steps li::before{font-family:var(--disp);font-weight:700;font-size:1.35rem;letter-spacing:0}
+.lessons li::before{content:"0" counter(s)}.steps li::before{content:"0" counter(t)}
+.meta{font-family:var(--disp);font-style:normal;font-weight:600}
+.demo .k,.demo p b{font-family:var(--disp);font-weight:700;font-style:normal}
+.demo p{font-family:var(--disp)!important;font-style:normal!important;font-weight:400!important;font-size:1.05rem!important}
+.card .n{font-family:var(--disp);font-weight:700;font-size:1.35rem;letter-spacing:0}
+.card .st,.qt,th,.crumb,.free,.dlg .who{font-family:var(--disp);font-weight:700;letter-spacing:.1em}
+td.en,.ph span,.psg,.q{font-family:var(--disp);font-style:normal;font-weight:600}
+.dlg .tx{font-family:var(--disp);font-weight:500;font-size:1rem}
+.res .big{font-family:var(--disp);font-weight:800;letter-spacing:-.04em}
+.btn,.box,.demo,.kcta,.price,.hero img,.card,.fich img{border-radius:2px}
 </style>
 <script src="../kb-logo3d.js" defer></script>
 </head>
@@ -110,7 +138,7 @@ h2{font-family:var(--disp);font-weight:650;letter-spacing:-.015em}
   <h1>Inglés para <em>restaurantes</em></h1>
   <p class="stand">El inglés que tu personal necesita para recibir, explicar la carta, servir, resolver quejas y manejar situaciones difíciles con diplomacia.</p>
   <div class="cta">
-    <a class="btn wa" href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener">Pedir información por WhatsApp</a>
+    <a class="btn buy" href="programa.html#comprar">Comprar el programa</a>
     <a class="btn ghost" href="curso/">Ver el curso</a>
   </div>
   <div class="meta"><span>8 lecciones</span><span>Examen final</span><span>Nivel A2 – B1</span><span>Para hispanohablantes</span></div>
@@ -174,10 +202,10 @@ h2{font-family:var(--disp);font-weight:650;letter-spacing:-.015em}
 
   <section class="kcta">
     <h2>Empieza hoy el curso</h2>
-    <p>Para abrir el curso completo, escríbenos y te enviamos tu código de acceso.</p>
+    <p>Para abrir el curso completo, consigue tu código de acceso en la página del programa.</p>
     <div class="cta">
-      <a class="btn" href="curso/">Ver el curso</a>
-      <a class="btn ghost wa" href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener">Pedir mi código por WhatsApp<span>@kingsbridge.academy</span></a>
+      <a class="btn buy" href="programa.html#comprar">Comprar el programa</a>
+      <a class="btn ghost" href="curso/">Ver el curso</a>
     </div>
   </section>
 </main>

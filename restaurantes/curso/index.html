@@ -135,6 +135,34 @@ td.en{font-family:var(--disp);font-style:italic;font-weight:600;font-size:1.1rem
 .card{transition:transform .18s,box-shadow .18s}.card:hover{transform:translateY(-2px)}
 .tr{cursor:pointer;border-bottom:1.5px dotted var(--gold2);-webkit-tap-highlight-color:transparent;transition:background .15s}@media (hover:hover){.tr:hover{background:#fbf3d9}.dlg .l.me .tx .tr:hover{background:rgba(226,186,104,.2)}}.tr.on{font-style:normal;color:#7a5410;background:#fff3cf;border-bottom:1.5px solid var(--gold2);border-radius:2px}.tip{font:500 .92rem/1.5 var(--sans);color:var(--mute);margin:10px 0 0}.td.ex .sp,td.ex .sp{margin-right:8px;vertical-align:middle}
 .dlg .l.me .tx .tr{color:#fff;background:transparent}.dlg .l.me .tx .tr.on{color:#fff;background:rgba(226,186,104,.28)}.dlg .l.me .tx .tr{border-bottom-color:rgba(226,186,104,.8)}
+
+/* ===== tipografía formal (corporativa): Inter ===== */
+@font-face{font-family:"KB Inter";font-weight:500;font-style:normal;font-display:swap;src:url(../../fonts/inter-500.woff2) format("woff2")}
+@font-face{font-family:"KB Inter";font-weight:700;font-style:normal;font-display:swap;src:url(../../fonts/inter-700.woff2) format("woff2")}
+@font-face{font-family:"KB Inter";font-weight:800;font-style:normal;font-display:swap;src:url(../../fonts/inter-800.woff2) format("woff2")}
+:root{--disp:"KB Inter",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--caps:var(--disp);--serif:var(--disp)}
+body{font-feature-settings:"kern","liga","calt","tnum" 0;-webkit-font-smoothing:antialiased;line-height:1.65}
+h1{font-family:var(--disp);font-weight:800;letter-spacing:-.04em;line-height:1.02}
+h1 em{font-style:normal;font-weight:800;background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--gold);padding:0}
+h1::after{width:72px;height:4px;background:var(--gold2)}
+h2{font-family:var(--disp);font-weight:700;letter-spacing:-.025em;line-height:1.15}
+h2::before{height:4px;width:36px}
+.kick{font-family:var(--disp);font-weight:600;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase}
+.btn{font-family:var(--disp);font-weight:700;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;border-radius:2px;padding:16px 28px}
+.btn.buy{background:var(--gold2);color:var(--navy);box-shadow:none}
+.stand{font-family:var(--disp);font-style:normal;font-weight:400}
+.lessons h3,.steps h3,.box h3,.card h3{font-family:var(--disp);font-weight:700;letter-spacing:-.015em}
+.lessons li::before,.steps li::before{font-family:var(--disp);font-weight:700;font-size:1.35rem;letter-spacing:0}
+.lessons li::before{content:"0" counter(s)}.steps li::before{content:"0" counter(t)}
+.meta{font-family:var(--disp);font-style:normal;font-weight:600}
+.demo .k,.demo p b{font-family:var(--disp);font-weight:700;font-style:normal}
+.demo p{font-family:var(--disp)!important;font-style:normal!important;font-weight:400!important;font-size:1.05rem!important}
+.card .n{font-family:var(--disp);font-weight:700;font-size:1.35rem;letter-spacing:0}
+.card .st,.qt,th,.crumb,.free,.dlg .who{font-family:var(--disp);font-weight:700;letter-spacing:.1em}
+td.en,.ph span,.psg,.q{font-family:var(--disp);font-style:normal;font-weight:600}
+.dlg .tx{font-family:var(--disp);font-weight:500;font-size:1rem}
+.res .big{font-family:var(--disp);font-weight:800;letter-spacing:-.04em}
+.btn,.box,.demo,.kcta,.price,.hero img,.card,.fich img{border-radius:2px}
 </style>
 <script src="../../kb-logo3d.js" defer></script>
 </head>
@@ -162,13 +190,13 @@ new MutationObserver(fix).observe(document.documentElement,{childList:true,subtr
 <script>
 (function(){
 "use strict";
-var C=window.KBR_CURSO,app=document.getElementById("app"),WA="https://wa.me/kingsbridge.academy",PK="kb.restaurantes.progreso1";
+var C=window.KBR_CURSO,app=document.getElementById("app"),WA="../programa.html",PK="kb.restaurantes.progreso1";
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 function prog(){try{return JSON.parse(localStorage.getItem(PK))||{}}catch(e){return window.__kbrp||{}}}
 function setProg(p){try{localStorage.setItem(PK,JSON.stringify(p))}catch(e){window.__kbrp=p}}
 function open(n){return n===1||window.KBR_ACCESS.has()}
 function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
-var RM=["","I","II","III","IV","V","VI","VII","VIII"];
+var RM=["","01","02","03","04","05","06","07","08"];
 var AU=window.KBR_AUDIO||{},cur=null;
 function speak(t){
  var f=AU[t];
@@ -189,7 +217,7 @@ function home(){
  if(!unl){
   h+='<div class="gate"><h2>Desbloquea el curso completo</h2><p>Para abrir todas las lecciones y el examen final, ingresa tu código de acceso.</p>'+
   '<form id="gf" autocomplete="off"><input id="gc" type="text" autocapitalize="characters" spellcheck="false" placeholder="KBR-XXXX-XXXX" aria-label="Código de acceso"><button class="btn" type="submit">Desbloquear</button></form>'+
-  '<div class="err" id="ge" role="alert"></div><p class="lk">¿No tienes código? <a href="'+WA+'" target="_blank" rel="noopener">Pídelo por WhatsApp</a></p></div>';
+  '<div class="err" id="ge" role="alert"></div><p class="lk">¿No tienes código? <a href="'+WA+'#comprar">Consíguelo aquí</a></p></div>';
  }
  h+='<div class="grid">';
  C.lecciones.forEach(function(l){
@@ -277,7 +305,7 @@ function examen(){
   done:function(s,t){var p=prog();if(!p.ex||s>p.ex.s)p.ex={s:s,t:t};setProg(p)},
   exam:function(s,t,pc){
    var txt="Hola, terminé el examen final del curso Inglés para restaurantes: "+s+"/"+t+" ("+pc+" %). Quiero hacer la parte de escritura y el rol-play.";
-   return '<div style="text-align:left"><div class="note"><b>Faltan dos partes con tu profesor:</b> escritura (describir un plato y responder una queja) y rol-play oral con una de estas situaciones.</div><ul class="sc">'+C.escenarios.map(function(e){return '<li>'+esc(e)+'</li>'}).join("")+'</ul></div><div class="row" style="justify-content:center"><a class="btn wa" target="_blank" rel="noopener" href="'+WA+'?text='+encodeURIComponent(txt)+'">Enviar mi resultado por WhatsApp</a></div>'
+   return '<div style="text-align:left"><div class="note"><b>Faltan dos partes con tu profesor:</b> escritura (describir un plato y responder una queja) y rol-play oral con una de estas situaciones.</div><ul class="sc">'+C.escenarios.map(function(e){return '<li>'+esc(e)+'</li>'}).join("")+'</ul></div><div class="row" style="justify-content:center"><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/kingsbridge.academy?text='+encodeURIComponent(txt)+'">Enviar mi resultado por WhatsApp</a></div>'
   }});
 }
 home();

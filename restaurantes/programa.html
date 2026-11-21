@@ -102,6 +102,34 @@ h2{font-family:var(--disp);font-weight:650;letter-spacing:-.015em}
 .kcta h2{font-weight:700}
 .kcta h2::after{display:none}
 .art p{font-size:1.07rem}
+
+/* ===== tipografía formal (corporativa): Inter ===== */
+@font-face{font-family:"KB Inter";font-weight:500;font-style:normal;font-display:swap;src:url(../fonts/inter-500.woff2) format("woff2")}
+@font-face{font-family:"KB Inter";font-weight:700;font-style:normal;font-display:swap;src:url(../fonts/inter-700.woff2) format("woff2")}
+@font-face{font-family:"KB Inter";font-weight:800;font-style:normal;font-display:swap;src:url(../fonts/inter-800.woff2) format("woff2")}
+:root{--disp:"KB Inter",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--caps:var(--disp);--serif:var(--disp)}
+body{font-feature-settings:"kern","liga","calt","tnum" 0;-webkit-font-smoothing:antialiased;line-height:1.65}
+h1{font-family:var(--disp);font-weight:800;letter-spacing:-.04em;line-height:1.02}
+h1 em{font-style:normal;font-weight:800;background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--gold);padding:0}
+h1::after{width:72px;height:4px;background:var(--gold2)}
+h2{font-family:var(--disp);font-weight:700;letter-spacing:-.025em;line-height:1.15}
+h2::before{height:4px;width:36px}
+.kick{font-family:var(--disp);font-weight:600;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase}
+.btn{font-family:var(--disp);font-weight:700;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;border-radius:2px;padding:16px 28px}
+.btn.buy{background:var(--gold2);color:var(--navy);box-shadow:none}
+.stand{font-family:var(--disp);font-style:normal;font-weight:400}
+.lessons h3,.steps h3,.box h3,.card h3{font-family:var(--disp);font-weight:700;letter-spacing:-.015em}
+.lessons li::before,.steps li::before{font-family:var(--disp);font-weight:700;font-size:1.35rem;letter-spacing:0}
+.lessons li::before{content:"0" counter(s)}.steps li::before{content:"0" counter(t)}
+.meta{font-family:var(--disp);font-style:normal;font-weight:600}
+.demo .k,.demo p b{font-family:var(--disp);font-weight:700;font-style:normal}
+.demo p{font-family:var(--disp)!important;font-style:normal!important;font-weight:400!important;font-size:1.05rem!important}
+.card .n{font-family:var(--disp);font-weight:700;font-size:1.35rem;letter-spacing:0}
+.card .st,.qt,th,.crumb,.free,.dlg .who{font-family:var(--disp);font-weight:700;letter-spacing:.1em}
+td.en,.ph span,.psg,.q{font-family:var(--disp);font-style:normal;font-weight:600}
+.dlg .tx{font-family:var(--disp);font-weight:500;font-size:1rem}
+.res .big{font-family:var(--disp);font-weight:800;letter-spacing:-.04em}
+.btn,.box,.demo,.kcta,.price,.hero img,.card,.fich img{border-radius:2px}
 .hero{display:block;margin:30px 0 0}.hero img{display:block;width:100%;height:auto;border-radius:6px;box-shadow:0 0 0 1px rgba(226,186,104,.6),0 18px 40px rgba(10,18,48,.18)}
 .price{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;justify-content:space-between;margin:26px 0 0;padding:20px 24px;background:linear-gradient(135deg,#0a1230,#10206a);color:#fff;border-radius:6px;box-shadow:0 0 0 1px rgba(226,186,104,.55)}
 .price b{font:700 2.6rem/1 var(--disp);color:var(--gold2)}.price b small{font:600 .8rem var(--caps);letter-spacing:.14em;color:#c8cdea;margin-left:8px}
@@ -132,6 +160,22 @@ h2{font-family:var(--disp);font-weight:650;letter-spacing:-.015em}
 .faq summary{cursor:pointer;font:620 1.1rem/1.4 var(--disp);color:var(--navy)}
 .faq details p{margin:10px 0 0!important}
 .fich{margin:22px 0 0}.fich img{display:block;width:100%;max-width:560px;height:auto;border-radius:6px;box-shadow:0 0 0 1px rgba(226,186,104,.6)}
+
+/* ===== programa: ajustes formales ===== */
+.price b{font:800 2.6rem/1 var(--disp);color:var(--gold2);letter-spacing:-.03em}.price b small{font:600 .72rem var(--disp);letter-spacing:.16em}
+.price{gap:16px 28px}
+.price .btn{margin-left:auto}
+.nums i{font:800 2.7rem/1 var(--disp);font-style:normal;letter-spacing:-.04em;color:var(--navy)}
+.nums strong{font:700 .72rem/1.35 var(--disp);letter-spacing:.12em}
+.nums em{font:400 .9rem var(--disp);font-style:normal}
+.feat li b{font-family:var(--disp);font-weight:700}.feat li em{font:400 .93rem var(--disp);font-style:normal}
+.un b{font:700 1.35rem/1 var(--disp);letter-spacing:0;color:var(--gold)}
+.un h3{font-family:var(--disp);font-weight:700;letter-spacing:-.015em}.un em{font-family:var(--disp);font-style:normal}
+.kcta{padding:44px 26px}
+.kcta .amt{font:800 clamp(2.6rem,9vw,3.6rem)/1 var(--disp)!important;letter-spacing:-.04em;color:var(--gold2)!important;margin:0 auto 6px!important}
+.kcta .amt small{font:600 .75rem var(--disp);letter-spacing:.16em;text-transform:uppercase;color:#c8cdea;margin-left:8px}
+.kcta h2{font-weight:800}
+.faq summary{font-family:var(--disp);font-weight:600}
 </style>
 <script src="../kb-logo3d.js" defer></script>
 </head>
@@ -141,14 +185,14 @@ h2{font-family:var(--disp);font-weight:650;letter-spacing:-.015em}
   <h1>Inglés para <em>restaurantes</em></h1>
   <p class="stand">English for Restaurants. El inglés que tu personal necesita para recibir, explicar la carta, servir, resolver quejas y manejar situaciones difíciles con diplomacia.</p>
   <div class="cta">
-    <a class="btn wa" href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener">Pedir mi código por WhatsApp</a>
+    <a class="btn buy" href="#comprar">Comprar el programa</a>
     <a class="btn ghost" href="curso/">Ver el curso</a>
   </div>
   <picture class="hero">
     <source media="(min-width:760px)" srcset="img/portada-horizontal.jpg" width="1200" height="630">
     <img src="img/portada-vertical.jpg" width="1080" height="1350" alt="Mesero atendiendo a una pareja en un restaurante elegante. Portada del programa Inglés para restaurantes, Kingsbridge English Academy">
   </picture>
-  <div class="price"><div><b>79 USD<small>PAGO ÚNICO</small></b></div><p>Acceso a las 8 unidades, al examen final y a todo el audio. Recibes tu código personal por WhatsApp.</p></div>
+  <div class="price"><div><b>79 USD<small>PAGO ÚNICO</small></b></div><p>Acceso a las 8 unidades, al examen final y a todo el audio. Pago seguro con PayPal; tu código llega a tu correo.</p><a class="btn buy" href="#comprar">Comprar ahora</a></div>
 </header>
 <main class="art">
   <section>
@@ -187,21 +231,22 @@ h2{font-family:var(--disp);font-weight:650;letter-spacing:-.015em}
   <section>
     <h2>Las 8 unidades</h2>
     <ol class="un">
-<li><b>I</b><h3>Bienvenida, reservas y mesas</h3><em>Welcome, reservations and seating</em><p>Saludar con calidez, tomar una reserva y llevar al cliente a su mesa.</p></li>
-<li><b>II</b><h3>La cocina: ingredientes, utensilios y técnicas</h3><em>The kitchen: ingredients, utensils and techniques</em><p>Nombrar ingredientes y utensilios, describir cómo se cocina un plato y comunicarse con seguridad en la cocina.</p></li>
-<li><b>III</b><h3>El menú, las recetas y las especialidades</h3><em>The menu, recipes and house specialties</em><p>Explicar un plato (ingredientes, preparación, sabor), presentar especialidades y recomendar con seguridad.</p></li>
-<li><b>IV</b><h3>Tomar el pedido, alergias y recomendaciones</h3><em>Taking orders, allergies and recommendations</em><p>Tomar un pedido completo, confirmar detalles y manejar alergias y restricciones con seguridad.</p></li>
-<li><b>V</b><h3>Servicio en mesa, la cuenta y los pagos</h3><em>Table service, the check and payments</em><p>Servir correctamente, presentar la cuenta, cobrar con distintos medios de pago y despedir con calidez.</p></li>
-<li><b>VI</b><h3>Quejas y problemas comunes</h3><em>Complaints and common problems</em><p>Escuchar una queja, disculparse, ofrecer una solución y comprobar que el cliente quedó satisfecho.</p></li>
-<li><b>VII</b><h3>Situaciones fuera de control y reclamos serios</h3><em>Out-of-control situations and serious claims</em><p>Reconocer cuándo una situación supera al mesero, escalarla a tiempo y registrar el incidente.</p></li>
-<li><b>VIII</b><h3>Diplomacia en la atención al cliente</h3><em>Diplomacy in customer service</em><p>Usar un inglés cortés y suave, decir “no” sin ofender, dar malas noticias y bajar la tensión.</p></li>
+<li><b>01</b><h3>Bienvenida, reservas y mesas</h3><em>Welcome, reservations and seating</em><p>Saludar con calidez, tomar una reserva y llevar al cliente a su mesa.</p></li>
+<li><b>02</b><h3>La cocina: ingredientes, utensilios y técnicas</h3><em>The kitchen: ingredients, utensils and techniques</em><p>Nombrar ingredientes y utensilios, describir cómo se cocina un plato y comunicarse con seguridad en la cocina.</p></li>
+<li><b>03</b><h3>El menú, las recetas y las especialidades</h3><em>The menu, recipes and house specialties</em><p>Explicar un plato (ingredientes, preparación, sabor), presentar especialidades y recomendar con seguridad.</p></li>
+<li><b>04</b><h3>Tomar el pedido, alergias y recomendaciones</h3><em>Taking orders, allergies and recommendations</em><p>Tomar un pedido completo, confirmar detalles y manejar alergias y restricciones con seguridad.</p></li>
+<li><b>05</b><h3>Servicio en mesa, la cuenta y los pagos</h3><em>Table service, the check and payments</em><p>Servir correctamente, presentar la cuenta, cobrar con distintos medios de pago y despedir con calidez.</p></li>
+<li><b>06</b><h3>Quejas y problemas comunes</h3><em>Complaints and common problems</em><p>Escuchar una queja, disculparse, ofrecer una solución y comprobar que el cliente quedó satisfecho.</p></li>
+<li><b>07</b><h3>Situaciones fuera de control y reclamos serios</h3><em>Out-of-control situations and serious claims</em><p>Reconocer cuándo una situación supera al mesero, escalarla a tiempo y registrar el incidente.</p></li>
+<li><b>08</b><h3>Diplomacia en la atención al cliente</h3><em>Diplomacy in customer service</em><p>Usar un inglés cortés y suave, decir “no” sin ofender, dar malas noticias y bajar la tensión.</p></li>
     </ol>
     <div class="fich"><img src="img/contenido-programa.jpg" width="1080" height="1350" loading="lazy" alt="Contenido del programa: 8 unidades, 81 palabras y expresiones, 55 frases útiles, 8 diálogos modelo, 48 ejercicios, 20 preguntas de examen final y 274 audios"></div>
   </section>
   <section>
     <h2>Cómo funciona</h2>
     <ol class="steps">
-      <li><h3>Pide tu código</h3><p>Escríbenos por WhatsApp y recibe tu código de acceso personal.</p></li>
+      <li><h3>Compra con PayPal</h3><p>Pagas 79 USD una sola vez, con tarjeta o con tu cuenta de PayPal.</p></li>
+      <li><h3>Recibe tu código</h3><p>Tu código de acceso personal llega al correo que usaste en el pago.</p></li>
       <li><h3>Entra al curso</h3><p>Abre el curso en el navegador del celular o del computador. No necesitas instalar nada.</p></li>
       <li><h3>Estudia una unidad</h3><p>Vocabulario, frases, diálogo modelo y seis ejercicios. Escucha cada audio y toca las frases para ver su traducción.</p></li>
       <li><h3>Presenta el examen final</h3><p>Veinte preguntas con tu resultado al terminar. Luego haces la escritura y el rol-play con tu profesor.</p></li>
@@ -225,15 +270,17 @@ h2{font-family:var(--disp);font-weight:650;letter-spacing:-.015em}
     <h2>Preguntas frecuentes</h2>
     <details><summary>¿Qué nivel de inglés necesito?</summary><p>El programa está pensado para hispanohablantes entre los niveles A2 y B1. Todo el vocabulario tiene su traducción al español.</p></details>
     <details><summary>¿Funciona en el celular?</summary><p>Sí. El curso se abre en el navegador del celular, de la tableta o del computador, sin instalar ninguna aplicación.</p></details>
-    <details><summary>¿Cómo recibo mi código?</summary><p>Después de tu pago, escríbenos por WhatsApp y te enviamos tu código de acceso personal.</p></details>
+    <details><summary>¿Cómo recibo mi código?</summary><p>Al terminar el pago con PayPal, tu código de acceso personal llega al correo electrónico que usaste. Lo escribes en el curso y se abren todas las unidades y el examen final.</p></details>
+    <details><summary>¿El pago es seguro?</summary><p>Sí. El pago se hace en PayPal, con tarjeta o con tu cuenta. Kingsbridge English Academy no ve ni guarda los datos de tu tarjeta.</p></details>
     <details><summary>¿Sirve para cocineros y meseros por igual?</summary><p>Sí. Hay una unidad completa de cocina y seguridad alimentaria, y las demás cubren el servicio en el salón, el menú, los pedidos, la cuenta, las quejas y la diplomacia.</p></details>
     <details><summary>¿Quién organiza el programa?</summary><p>Kingsbridge English Academy, en Leticia, Amazonas, Colombia.</p></details>
   </section>
-  <section class="kcta">
+  <section class="kcta" id="comprar">
     <h2>Lleva el inglés de tu restaurante al siguiente nivel</h2>
-    <p>79 USD, pago único. Pide tu código y empieza hoy.</p>
+    <p class="amt">79 USD <small>pago único</small></p>
+    <p>Acceso a las 8 unidades, al examen final y a los 274 audios. Pago seguro con PayPal.</p>
     <div class="cta">
-      <a class="btn" href="https://wa.me/kingsbridge.academy" target="_blank" rel="noopener">Pedir mi código por WhatsApp</a>
+      <a class="btn buy" id="pagar" href="#comprar">Pagar con PayPal</a>
       <a class="btn ghost" href="curso/">Ver el curso</a>
     </div>
   </section>

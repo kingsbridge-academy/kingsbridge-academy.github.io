@@ -8,3 +8,4 @@ Texto de la licencia: https://openfontlicense.org
 
 Fraunces (fraunces-wght.woff2, fraunces-wght-italic.woff2): Copyright 2020 The Fraunces Project Authors. SIL Open Font License 1.1.
 Cinzel (cinzel-600.woff2, cinzel-700.woff2): Copyright 2012 The Cinzel Project Authors. SIL Open Font License 1.1.
+Inter (inter-500/700/800.woff2): Copyright The Inter Project Authors. SIL Open Font License 1.1.
