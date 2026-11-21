@@ -66,7 +66,7 @@ h2::before{content:"";position:absolute;top:0;left:0;width:44px;height:3px;backg
 table{width:100%;border-collapse:collapse;margin:8px 0 6px;font-size:.96rem}
 th{font:600 11.5px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--gold);text-align:left;padding:8px 10px;border-bottom:2px solid var(--gold2)}
 td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
-td.en{font-weight:600;color:var(--navy)}td.ex{color:var(--mute);font-style:italic}
+td.en{font-weight:600;color:var(--navy)}td.ex{color:var(--mute);font-style:italic}td.ex[data-say]{cursor:pointer}
 .sp{width:34px;height:34px;border-radius:50%;border:0;background:var(--navy);color:var(--gold2);cursor:pointer;font-size:14px;flex:none;box-shadow:0 0 0 1px rgba(226,186,104,.7)}
 .sp:hover{transform:scale(1.07)}
 @media(max-width:620px){.tv thead{display:none}.tv tr{display:block;padding:10px 0;border-bottom:1px solid var(--line)}.tv td{display:block;border:0;padding:2px 0}}
@@ -122,6 +122,7 @@ new MutationObserver(fix).observe(document.documentElement,{childList:true,subtr
 </footer>
 <script src="datos.js?v=1"></script>
 <script src="access.js?v=1"></script>
+<script src="audio-map.js?v=1"></script>
 <script>
 (function(){
 "use strict";
@@ -131,7 +132,11 @@ function prog(){try{return JSON.parse(localStorage.getItem(PK))||{}}catch(e){ret
 function setProg(p){try{localStorage.setItem(PK,JSON.stringify(p))}catch(e){window.__kbrp=p}}
 function open(n){return n===1||window.KBR_ACCESS.has()}
 function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
-function speak(t){try{var u=new SpeechSynthesisUtterance(String(t).replace(/^\(.*?\)\s*/,""));u.lang="en-US";u.rate=.9;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
+var AU=window.KBR_AUDIO||{},cur=null;
+function speak(t){
+ var f=AU[t];
+ if(f){try{if(cur){cur.pause()}cur=new Audio("../../audio/restaurantes/"+f);cur.play();return}catch(e){}}
+ try{var u=new SpeechSynthesisUtterance(String(t).replace(/^\(.*?\)\s*/,""));u.lang="en-US";u.rate=.9;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
 function spk(t){return '<button class="sp" type="button" data-say="'+esc(t)+'" aria-label="Escuchar en inglés">&#9654;</button>'}
 app.addEventListener("click",function(e){var b=e.target.closest("[data-say]");if(b){speak(b.getAttribute("data-say"))}});
 window.scrollTo(0,0);
@@ -164,9 +169,9 @@ function lesson(n){
  var l=C.lecciones[n-1],h='<p class="crumb"><button type="button" id="bk">&larr; Todas las lecciones</button></p>';
  h+='<h1 style="font-size:clamp(1.7rem,5.6vw,2.6rem)">Lección '+l.n+': <em>'+esc(l.t)+'</em></h1><div class="meta"><b>Objetivo:</b> '+esc(l.meta)+'</div>';
  h+='<h2>Vocabulario clave</h2><table class="tv"><thead><tr><th></th><th>English</th><th>Español</th><th>Ejemplo</th></tr></thead><tbody>';
- l.vocab.forEach(function(v){h+='<tr><td>'+spk(v[0])+'</td><td class="en">'+esc(v[0])+'</td><td>'+esc(v[1])+'</td><td class="ex">'+esc(v[2])+'</td></tr>'});
+ l.vocab.forEach(function(v){h+='<tr><td>'+spk(v[0])+'</td><td class="en">'+esc(v[0])+'</td><td>'+esc(v[1])+'</td><td class="ex" data-say="'+esc(v[2])+'" title="Toca para escuchar">'+esc(v[2])+'</td></tr>'});
  h+='</tbody></table>';
- if(l.extra){h+='<h2>'+esc(l.extra.titulo)+'</h2><table><tbody>';l.extra.filas.forEach(function(f){h+='<tr><td class="en">'+esc(f[0])+'</td><td class="ex">'+esc(f[1])+'</td></tr>'});h+='</tbody></table>'}
+ if(l.extra){h+='<h2>'+esc(l.extra.titulo)+'</h2><table><tbody>';l.extra.filas.forEach(function(f){h+='<tr><td>'+spk(f[1])+'</td><td class="en">'+esc(f[0])+'</td><td class="ex">'+esc(f[1])+'</td></tr>'});h+='</tbody></table>'}
  if(l.tabla){h+='<h2>'+esc(l.tabla.titulo)+'</h2><table class="tv"><thead><tr><th></th><th>Directo (evitar)</th><th>Diplomático (usar)</th></tr></thead><tbody>';l.tabla.filas.forEach(function(f){h+='<tr><td>'+spk(f[1])+'</td><td class="ex">'+esc(f[0])+'</td><td class="en">'+esc(f[1])+'</td></tr>'});h+='</tbody></table>'}
  if(l.regla){h+='<h2>'+esc(l.regla.titulo)+'</h2><ol class="steps">';l.regla.pasos.forEach(function(s){h+='<li>'+esc(s)+'</li>'});h+='</ol><div class="note">'+esc(l.regla.nota)+'</div>'}
  h+='<h2>Frases útiles</h2>';
