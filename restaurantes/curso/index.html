@@ -12,6 +12,10 @@
 @font-face{font-family:"KB Lora";font-weight:400;font-style:italic;font-display:swap;src:url(../../fonts/lora-italic.woff) format("woff")}
 @font-face{font-family:"KB Inter";font-weight:400;font-style:normal;font-display:swap;src:url(../../fonts/inter-400.woff) format("woff")}
 @font-face{font-family:"KB Inter";font-weight:600;font-style:normal;font-display:swap;src:url(../../fonts/inter-600.woff) format("woff")}
+@font-face{font-family:"KB Fraunces";font-style:normal;font-weight:100 900;font-display:swap;src:url(../../fonts/fraunces-wght.woff2) format("woff2")}
+@font-face{font-family:"KB Fraunces";font-style:italic;font-weight:100 900;font-display:swap;src:url(../../fonts/fraunces-wght-italic.woff2) format("woff2")}
+@font-face{font-family:"KB Cinzel";font-weight:600;font-display:swap;src:url(../../fonts/cinzel-600.woff2) format("woff2")}
+@font-face{font-family:"KB Cinzel";font-weight:700;font-display:swap;src:url(../../fonts/cinzel-700.woff2) format("woff2")}
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--navy:#0a1230;--gold:#b8893a;--gold2:#e2ba68;--ink:#1d2033;--mute:#5a5f78;--line:#e4e0d4;--ok:#1f7a4d;--bad:#b3362f;--serif:"KB Lora",Georgia,"Times New Roman",serif;--sans:"KB Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
 html{-webkit-text-size-adjust:100%}
@@ -30,7 +34,7 @@ h1 em{font-style:italic;color:var(--gold)}
 h2{font:500 clamp(1.4rem,4.4vw,1.8rem)/1.2 var(--serif);color:var(--navy);margin:34px 0 14px;padding-top:16px;position:relative}
 h2::before{content:"";position:absolute;top:0;left:0;width:44px;height:3px;background:var(--gold2)}
 .stand{font-size:1.1rem;color:var(--mute);max-width:640px}
-.top{padding:36px 0 8px}
+.top{padding:36px 20px 8px}
 .crumb{margin:0 0 6px;font:600 12px var(--sans);letter-spacing:.1em;text-transform:uppercase}
 .crumb button{background:none;border:0;color:var(--gold);cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:inherit;padding:0}
 /* tarjetas de lección */
@@ -100,6 +104,35 @@ td.en{font-weight:600;color:var(--navy)}td.ex{color:var(--mute);font-style:itali
 .sc{margin:22px 0 14px}.sc li{margin:0 0 10px 18px;color:var(--navy)}
 .sc li small{display:block;color:var(--mute)}
 .pie{height:36px}
+
+/* tipografía de autor: Fraunces (voz en inglés y títulos) + Cinzel (rótulos) */
+:root{--disp:"KB Fraunces","KB Lora",Georgia,serif;--caps:"KB Cinzel","KB Lora",Georgia,serif}
+body{font-feature-settings:"liga","kern"}
+h1{font-family:var(--disp);font-weight:700;letter-spacing:-.03em;line-height:1}
+h1 em{font-style:italic;font-weight:600;background:linear-gradient(100deg,#8f6417 0%,#e2ba68 48%,#b8893a 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em}
+h1::after{content:"";display:block;width:104px;height:3px;margin-top:18px;background:linear-gradient(90deg,#b8893a,#e2ba68,transparent)}
+h2{font-family:var(--disp);font-weight:650;letter-spacing:-.015em}
+.kick{font-family:var(--caps);font-weight:700;letter-spacing:.3em}
+.btn{font-family:var(--caps);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem}
+.stand{font-family:var(--disp);font-weight:380;font-style:italic}
+.card .n{font-family:var(--caps);font-weight:700;font-size:1.65rem;letter-spacing:.1em}
+.card h3{font-family:var(--disp);font-weight:620;letter-spacing:-.01em}
+.card .st,.qt,th,.crumb,.free,.dlg .who{font-family:var(--caps);font-weight:700}
+.exam .n{font-size:1.5rem}
+td.en{font-family:var(--disp);font-style:italic;font-weight:600;font-size:1.1rem}
+.ph span{font-family:var(--disp);font-style:italic;font-weight:500;font-size:1.12rem}
+.dlg .tx{font-family:var(--disp);font-weight:420;font-size:1.05rem;line-height:1.55}
+.steps li::before{font-family:var(--caps);font-weight:700}
+.q{font-family:var(--disp);font-weight:620;font-size:1.22rem}
+.psg{font-family:var(--disp);font-weight:400;font-style:italic}
+.res .big{font-family:var(--disp);font-weight:700;letter-spacing:-.03em}
+.meta{font-family:var(--disp);font-style:italic;font-size:1.05rem}
+.top h1::after,h1::after{margin-left:0}
+.qt{font-family:var(--sans)!important;font-weight:600!important;letter-spacing:.16em}
+.card .st b{font-family:var(--sans);font-weight:600}
+.kick{letter-spacing:.22em}
+.top.off{display:none}
+.card{transition:transform .18s,box-shadow .18s}.card:hover{transform:translateY(-2px)}
 </style>
 <script src="../../kb-logo3d.js" defer></script>
 </head>
@@ -132,6 +165,7 @@ function prog(){try{return JSON.parse(localStorage.getItem(PK))||{}}catch(e){ret
 function setProg(p){try{localStorage.setItem(PK,JSON.stringify(p))}catch(e){window.__kbrp=p}}
 function open(n){return n===1||window.KBR_ACCESS.has()}
 function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+var RM=["","I","II","III","IV","V","VI","VII","VIII"];
 var AU=window.KBR_AUDIO||{},cur=null;
 function speak(t){
  var f=AU[t];
@@ -143,6 +177,7 @@ window.scrollTo(0,0);
 
 /* ---------- inicio ---------- */
 function home(){
+ document.querySelector(".top").classList.remove("off");
  var p=prog(),unl=window.KBR_ACCESS.has(),h="";
  if(!unl){
   h+='<div class="gate"><h2>Desbloquea el curso completo</h2><p>La lección 1 es gratis. Para abrir las lecciones 2 a 8 y el examen final, ingresa tu código de acceso.</p>'+
@@ -152,7 +187,7 @@ function home(){
  h+='<div class="grid">';
  C.lecciones.forEach(function(l){
   var r=p["l"+l.n],o=open(l.n);
-  h+='<button class="card'+(o?'':' lock')+'" type="button" data-l="'+l.n+'"><div class="n">'+(l.n<10?"0":"")+l.n+(l.n===1?'<span class="free">Gratis</span>':'')+'</div><h3>'+esc(l.t)+'</h3><p>'+esc(l.meta)+'</p><div class="st"><span>'+(o?(r?'Mejor puntaje':'Empezar'):'Bloqueada')+'</span>'+(o&&r?'<b>'+r.s+'/'+r.t+'</b>':'<span>'+(o?'':'&#128274;')+'</span>')+'</div></button>';
+  h+='<button class="card'+(o?'':' lock')+'" type="button" data-l="'+l.n+'"><div class="n">'+RM[l.n]+(l.n===1?'<span class="free">Gratis</span>':'')+'</div><h3>'+esc(l.t)+'</h3><p>'+esc(l.meta)+'</p><div class="st"><span>'+(o?(r?'Mejor puntaje':'Empezar'):'Bloqueada')+'</span>'+(o&&r?'<b>'+r.s+'/'+r.t+'</b>':'<span>'+(o?'':'&#128274;')+'</span>')+'</div></button>';
  });
  var ex=p.ex;
  h+='<button class="card exam'+(unl?'':' lock')+'" type="button" data-ex="1" style="grid-column:1/-1"><div class="n">Examen final</div><h3>Evaluación del curso</h3><p>20 preguntas de vocabulario, frases de servicio y comprensión. La escritura y el rol-play se evalúan con tu profesor.</p><div class="st"><span>'+(unl?(ex?'Mejor puntaje':'Empezar'):'Bloqueado')+'</span>'+(unl&&ex?'<b>'+ex.s+'/'+ex.t+'</b>':'<span>'+(unl?'':'&#128274;')+'</span>')+'</div></button></div>';
@@ -166,8 +201,9 @@ function home(){
 
 /* ---------- lección ---------- */
 function lesson(n){
+document.querySelector(".top").classList.add("off");
  var l=C.lecciones[n-1],h='<p class="crumb"><button type="button" id="bk">&larr; Todas las lecciones</button></p>';
- h+='<h1 style="font-size:clamp(1.7rem,5.6vw,2.6rem)">Lección '+l.n+': <em>'+esc(l.t)+'</em></h1><div class="meta"><b>Objetivo:</b> '+esc(l.meta)+'</div>';
+ h+='<h1 style="font-size:clamp(1.7rem,5.6vw,2.6rem)">Lección '+RM[l.n]+': <em>'+esc(l.t)+'</em></h1><div class="meta"><b>Objetivo:</b> '+esc(l.meta)+'</div>';
  h+='<h2>Vocabulario clave</h2><table class="tv"><thead><tr><th></th><th>English</th><th>Español</th><th>Ejemplo</th></tr></thead><tbody>';
  l.vocab.forEach(function(v){h+='<tr><td>'+spk(v[0])+'</td><td class="en">'+esc(v[0])+'</td><td>'+esc(v[1])+'</td><td class="ex" data-say="'+esc(v[2])+'" title="Toca para escuchar">'+esc(v[2])+'</td></tr>'});
  h+='</tbody></table>';
@@ -226,6 +262,7 @@ function quiz(box,items,opt){
 
 /* ---------- examen final ---------- */
 function examen(){
+ document.querySelector('.top').classList.add('off');
  var h='<p class="crumb"><button type="button" id="bk">&larr; Todas las lecciones</button></p><h1 style="font-size:clamp(1.7rem,5.6vw,2.6rem)">Examen <em>final</em></h1><div class="meta">20 preguntas: A) vocabulario culinario y de servicio, B) frases de servicio, C) comprensión de lectura. Las respuestas se muestran al final. Se aprueba con 70 % o más.</div><div id="qz"></div>';
  app.innerHTML=h;window.scrollTo(0,0);
  document.getElementById("bk").onclick=home;

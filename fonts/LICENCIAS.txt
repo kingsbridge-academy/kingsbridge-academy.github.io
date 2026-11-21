@@ -5,3 +5,6 @@ Tipografías incluidas en esta carpeta (subconjuntos latinos, formato WOFF):
 - Poppins (The Poppins Project Authors). Licencia SIL Open Font License 1.1.
 
 Texto de la licencia: https://openfontlicense.org
+
+Fraunces (fraunces-wght.woff2, fraunces-wght-italic.woff2): Copyright 2020 The Fraunces Project Authors. SIL Open Font License 1.1.
+Cinzel (cinzel-600.woff2, cinzel-700.woff2): Copyright 2012 The Cinzel Project Authors. SIL Open Font License 1.1.
