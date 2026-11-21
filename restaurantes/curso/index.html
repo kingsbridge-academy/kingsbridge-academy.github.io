@@ -225,7 +225,7 @@ function home(){
   h+='<button class="card'+(o?'':' lock')+'" type="button" data-l="'+l.n+'"><div class="n">'+RM[l.n]+'</div><h3>'+esc(l.t)+'</h3><p>'+esc(l.meta)+'</p><div class="st"><span>'+(o?(r?'Mejor puntaje':'Empezar'):'Bloqueada')+'</span>'+(o&&r?'<b>'+r.s+'/'+r.t+'</b>':'<span>'+(o?'':'&#128274;')+'</span>')+'</div></button>';
  });
  var ex=p.ex;
- h+='<button class="card exam'+(unl?'':' lock')+'" type="button" data-ex="1" style="grid-column:1/-1"><div class="n">Examen final</div><h3>Evaluación del curso</h3><p>20 preguntas de vocabulario, frases de servicio y comprensión. La escritura y el rol-play se evalúan con tu profesor.</p><div class="st"><span>'+(unl?(ex?'Mejor puntaje':'Empezar'):'Bloqueado')+'</span>'+(unl&&ex?'<b>'+ex.s+'/'+ex.t+'</b>':'<span>'+(unl?'':'&#128274;')+'</span>')+'</div></button></div>';
+ h+='<button class="card exam'+(unl?'':' lock')+'" type="button" data-ex="1" style="grid-column:1/-1"><div class="n">Examen final</div><h3>Evaluación del curso</h3><p>20 preguntas de vocabulario, frases de servicio y comprensión.</p><div class="st"><span>'+(unl?(ex?'Mejor puntaje':'Empezar'):'Bloqueado')+'</span>'+(unl&&ex?'<b>'+ex.s+'/'+ex.t+'</b>':'<span>'+(unl?'':'&#128274;')+'</span>')+'</div></button></div>';
  app.innerHTML=h;
  var gf=document.getElementById("gf");
  if(gf)gf.onsubmit=function(e){e.preventDefault();if(window.KBR_ACCESS.add(document.getElementById("gc").value)){home()}else{document.getElementById("ge").textContent="Ese código no es válido. Revísalo e inténtalo de nuevo."}};
@@ -304,8 +304,7 @@ function examen(){
  quiz(document.getElementById("qz"),C.examen,{feedback:false,
   done:function(s,t){var p=prog();if(!p.ex||s>p.ex.s)p.ex={s:s,t:t};setProg(p)},
   exam:function(s,t,pc){
-   var txt="Hola, terminé el examen final del curso Inglés para restaurantes: "+s+"/"+t+" ("+pc+" %). Quiero hacer la parte de escritura y el rol-play.";
-   return '<div style="text-align:left"><div class="note"><b>Faltan dos partes con tu profesor:</b> escritura (describir un plato y responder una queja) y rol-play oral con una de estas situaciones.</div><ul class="sc">'+C.escenarios.map(function(e){return '<li>'+esc(e)+'</li>'}).join("")+'</ul></div><div class="row" style="justify-content:center"><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/kingsbridge.academy?text='+encodeURIComponent(txt)+'">Enviar mi resultado por WhatsApp</a></div>'
+   return ''
   }});
 }
 home();
