@@ -133,6 +133,8 @@ td.en{font-family:var(--disp);font-style:italic;font-weight:600;font-size:1.1rem
 .kick{letter-spacing:.22em}
 .top.off{display:none}
 .card{transition:transform .18s,box-shadow .18s}.card:hover{transform:translateY(-2px)}
+.tr{cursor:pointer;border-bottom:1.5px dotted var(--gold2);-webkit-tap-highlight-color:transparent;transition:background .15s}.tr:hover{background:#fbf3d9}.tr.on{font-style:normal;color:#7a5410;background:#fff3cf;border-bottom:1.5px solid var(--gold2);border-radius:2px}.tip{font:500 .92rem/1.5 var(--sans);color:var(--mute);margin:10px 0 0}.td.ex .sp,td.ex .sp{margin-right:8px;vertical-align:middle}
+.dlg .l.me .tx .tr.on{color:#fff;background:rgba(226,186,104,.28)}.dlg .l.me .tx .tr{border-bottom-color:rgba(226,186,104,.8)}
 </style>
 <script src="../../kb-logo3d.js" defer></script>
 </head>
@@ -156,6 +158,7 @@ new MutationObserver(fix).observe(document.documentElement,{childList:true,subtr
 <script src="datos.js?v=1"></script>
 <script src="access.js?v=1"></script>
 <script src="audio-map.js?v=1"></script>
+<script src="es-map.js?v=1"></script>
 <script>
 (function(){
 "use strict";
@@ -171,8 +174,12 @@ function speak(t){
  var f=AU[t];
  if(f){try{if(cur){cur.pause()}cur=new Audio("../../audio/restaurantes/"+f);cur.play();return}catch(e){}}
  try{var u=new SpeechSynthesisUtterance(String(t).replace(/^\(.*?\)\s*/,""));u.lang="en-US";u.rate=.9;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
+function tx(t){var e=(window.KBR_ES||{})[t];return e?'<span class="tr" tabindex="0" role="button" data-es="'+esc(e)+'" title="Toca para ver la traducción">'+esc(t)+'</span>':esc(t)}
+function tq(p){return esc(p).replace(/\u201c([^\u201d]+)\u201d/,function(m,q){return "\u201c"+tx(q.replace(/&amp;/g,"&").replace(/&#39;/g,"'").replace(/&quot;/g,"\""))+"\u201d"})}
 function spk(t){return '<button class="sp" type="button" data-say="'+esc(t)+'" aria-label="Escuchar en inglés">&#9654;</button>'}
-app.addEventListener("click",function(e){var b=e.target.closest("[data-say]");if(b){speak(b.getAttribute("data-say"))}});
+app.addEventListener("click",function(e){var t=e.target.closest(".tr");if(t){flip(t);return}var b=e.target.closest("[data-say]");if(b){speak(b.getAttribute("data-say"))}});
+app.addEventListener("keydown",function(e){if((e.key==="Enter"||e.key===" ")&&e.target.classList&&e.target.classList.contains("tr")){e.preventDefault();flip(e.target)}});
+function flip(t){if(t.classList.contains("on")){t.textContent=t.getAttribute("data-en");t.classList.remove("on")}else{t.setAttribute("data-en",t.textContent);t.textContent=t.getAttribute("data-es");t.classList.add("on")}}
 window.scrollTo(0,0);
 
 /* ---------- inicio ---------- */
@@ -203,17 +210,17 @@ function home(){
 function lesson(n){
 document.querySelector(".top").classList.add("off");
  var l=C.lecciones[n-1],h='<p class="crumb"><button type="button" id="bk">&larr; Todas las lecciones</button></p>';
- h+='<h1 style="font-size:clamp(1.7rem,5.6vw,2.6rem)">Lección '+RM[l.n]+': <em>'+esc(l.t)+'</em></h1><div class="meta"><b>Objetivo:</b> '+esc(l.meta)+'</div>';
+ h+='<h1 style="font-size:clamp(1.7rem,5.6vw,2.6rem)">Lección '+RM[l.n]+': <em>'+esc(l.t)+'</em></h1><div class="meta"><b>Objetivo:</b> '+esc(l.meta)+'</div><p class="tip">Toca cualquier frase en inglés <span class="tr" style="pointer-events:none">subrayada</span> para ver su traducción. Vuelve a tocarla para regresar al inglés.</p>';
  h+='<h2>Vocabulario clave</h2><table class="tv"><thead><tr><th></th><th>English</th><th>Español</th><th>Ejemplo</th></tr></thead><tbody>';
- l.vocab.forEach(function(v){h+='<tr><td>'+spk(v[0])+'</td><td class="en">'+esc(v[0])+'</td><td>'+esc(v[1])+'</td><td class="ex" data-say="'+esc(v[2])+'" title="Toca para escuchar">'+esc(v[2])+'</td></tr>'});
+ l.vocab.forEach(function(v){h+='<tr><td>'+spk(v[0])+'</td><td class="en">'+esc(v[0])+'</td><td>'+esc(v[1])+'</td><td class="ex">'+spk(v[2])+tx(v[2])+'</td></tr>'});
  h+='</tbody></table>';
- if(l.extra){h+='<h2>'+esc(l.extra.titulo)+'</h2><table><tbody>';l.extra.filas.forEach(function(f){h+='<tr><td>'+spk(f[1])+'</td><td class="en">'+esc(f[0])+'</td><td class="ex">'+esc(f[1])+'</td></tr>'});h+='</tbody></table>'}
- if(l.tabla){h+='<h2>'+esc(l.tabla.titulo)+'</h2><table class="tv"><thead><tr><th></th><th>Directo (evitar)</th><th>Diplomático (usar)</th></tr></thead><tbody>';l.tabla.filas.forEach(function(f){h+='<tr><td>'+spk(f[1])+'</td><td class="ex">'+esc(f[0])+'</td><td class="en">'+esc(f[1])+'</td></tr>'});h+='</tbody></table>'}
- if(l.regla){h+='<h2>'+esc(l.regla.titulo)+'</h2><ol class="steps">';l.regla.pasos.forEach(function(s){h+='<li>'+esc(s)+'</li>'});h+='</ol><div class="note">'+esc(l.regla.nota)+'</div>'}
+ if(l.extra){h+='<h2>'+esc(l.extra.titulo)+'</h2><table><tbody>';l.extra.filas.forEach(function(f){h+='<tr><td>'+spk(f[1])+'</td><td class="en">'+esc(f[0])+'</td><td class="ex">'+tx(f[1])+'</td></tr>'});h+='</tbody></table>'}
+ if(l.tabla){h+='<h2>'+esc(l.tabla.titulo)+'</h2><table class="tv"><thead><tr><th></th><th>Directo (evitar)</th><th>Diplomático (usar)</th></tr></thead><tbody>';l.tabla.filas.forEach(function(f){h+='<tr><td>'+spk(f[1])+'</td><td class="ex">'+tx(f[0])+'</td><td class="en">'+tx(f[1])+'</td></tr>'});h+='</tbody></table>'}
+ if(l.regla){h+='<h2>'+esc(l.regla.titulo)+'</h2><ol class="steps">';l.regla.pasos.forEach(function(s){h+='<li><div>'+(window.KBR_ES&&window.KBR_ES[s]?tx(s):tq(s))+'</div></li>'});h+='</ol><div class="note">'+esc(l.regla.nota)+'</div>'}
  h+='<h2>Frases útiles</h2>';
- l.frases.forEach(function(f){h+='<div class="ph">'+spk(f)+'<span>'+esc(f)+'</span></div>'});
+ l.frases.forEach(function(f){h+='<div class="ph">'+spk(f)+'<span>'+tx(f)+'</span></div>'});
  h+='<h2>Diálogo modelo</h2><div class="dlg">';
- l.dialogo.forEach(function(d){var me=/^(Waiter|Host|Cook|Manager)$/.test(d[0]);h+='<div class="l'+(me?' me':'')+'"><div class="who">'+esc(d[0])+'</div><div class="tx">'+esc(d[1])+'</div>'+spk(d[1])+'</div>'});
+ l.dialogo.forEach(function(d){var me=/^(Waiter|Host|Cook|Manager)$/.test(d[0]);h+='<div class="l'+(me?' me':'')+'"><div class="who">'+esc(d[0])+'</div><div class="tx">'+tx(d[1])+'</div>'+spk(d[1])+'</div>'});
  h+='</div><h2>Ejercicios</h2><div id="qz"></div>';
  if(n<8)h+='<div class="row"><button class="btn ghost" type="button" id="nx">Siguiente lección &rarr;</button></div>';
  app.innerHTML=h;window.scrollTo(0,0);
