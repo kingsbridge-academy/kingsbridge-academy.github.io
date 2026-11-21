@@ -187,14 +187,14 @@ function home(){
  document.querySelector(".top").classList.remove("off");
  var p=prog(),unl=window.KBR_ACCESS.has(),h="";
  if(!unl){
-  h+='<div class="gate"><h2>Desbloquea el curso completo</h2><p>La lección 1 es gratis. Para abrir las lecciones 2 a 8 y el examen final, ingresa tu código de acceso.</p>'+
+  h+='<div class="gate"><h2>Desbloquea el curso completo</h2><p>Para abrir todas las lecciones y el examen final, ingresa tu código de acceso.</p>'+
   '<form id="gf" autocomplete="off"><input id="gc" type="text" autocapitalize="characters" spellcheck="false" placeholder="KBR-XXXX-XXXX" aria-label="Código de acceso"><button class="btn" type="submit">Desbloquear</button></form>'+
   '<div class="err" id="ge" role="alert"></div><p class="lk">¿No tienes código? <a href="'+WA+'" target="_blank" rel="noopener">Pídelo por WhatsApp</a></p></div>';
  }
  h+='<div class="grid">';
  C.lecciones.forEach(function(l){
   var r=p["l"+l.n],o=open(l.n);
-  h+='<button class="card'+(o?'':' lock')+'" type="button" data-l="'+l.n+'"><div class="n">'+RM[l.n]+(l.n===1?'<span class="free">Gratis</span>':'')+'</div><h3>'+esc(l.t)+'</h3><p>'+esc(l.meta)+'</p><div class="st"><span>'+(o?(r?'Mejor puntaje':'Empezar'):'Bloqueada')+'</span>'+(o&&r?'<b>'+r.s+'/'+r.t+'</b>':'<span>'+(o?'':'&#128274;')+'</span>')+'</div></button>';
+  h+='<button class="card'+(o?'':' lock')+'" type="button" data-l="'+l.n+'"><div class="n">'+RM[l.n]+'</div><h3>'+esc(l.t)+'</h3><p>'+esc(l.meta)+'</p><div class="st"><span>'+(o?(r?'Mejor puntaje':'Empezar'):'Bloqueada')+'</span>'+(o&&r?'<b>'+r.s+'/'+r.t+'</b>':'<span>'+(o?'':'&#128274;')+'</span>')+'</div></button>';
  });
  var ex=p.ex;
  h+='<button class="card exam'+(unl?'':' lock')+'" type="button" data-ex="1" style="grid-column:1/-1"><div class="n">Examen final</div><h3>Evaluación del curso</h3><p>20 preguntas de vocabulario, frases de servicio y comprensión. La escritura y el rol-play se evalúan con tu profesor.</p><div class="st"><span>'+(unl?(ex?'Mejor puntaje':'Empezar'):'Bloqueado')+'</span>'+(unl&&ex?'<b>'+ex.s+'/'+ex.t+'</b>':'<span>'+(unl?'':'&#128274;')+'</span>')+'</div></button></div>';
