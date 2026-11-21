@@ -608,6 +608,94 @@ t.innerHTML=h;
   </div>
 </section>
 
+<style id="kb-pc">
+.kpc{padding:64px 20px 8px}
+.kpc-card{max-width:560px;margin:0 auto;border-radius:22px;overflow:hidden;background:#fbf6e8;box-shadow:0 0 0 1px rgba(184,137,58,.55),0 26px 50px -28px rgba(10,18,48,.5)}
+.kpc-head{background:#0a1230;color:#fff;text-align:center;padding:30px 24px 26px;border-bottom:4px solid #e2ba68}
+.kpc-head .kpc-eye{font:600 11.5px/1.2 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:#e2ba68}
+.kpc-head h2{font-family:var(--serif,"Lora",Georgia,serif);font-weight:500;font-size:clamp(1.7rem,6vw,2.3rem);line-height:1.15;margin:10px 0 8px;padding:0;color:#fff}
+.kpc-head p{text-wrap:balance;margin:0;color:#c8cde6;font-size:1.02rem;line-height:1.45}
+.kpc-form{padding:26px 24px 8px}
+.kpc-f{border:0;margin:0 0 20px;padding:0;min-width:0}
+.kpc-l{display:block;font:600 14px/1.3 var(--sans);color:#0a1230;margin:0 0 8px;padding:0}
+.kpc-in{width:100%;box-sizing:border-box;min-height:48px;padding:12px 14px;border:1.5px solid #d8c999;border-radius:14px;background:#fff;color:#1d2033;font:400 16px/1.3 var(--sans)}
+.kpc-in:focus{outline:3px solid rgba(226,186,104,.65);outline-offset:1px;border-color:#b8893a}
+.kpc-opts{display:flex;flex-wrap:wrap;gap:10px}
+.kpc-opt{position:relative;flex:1 1 auto}
+.kpc-opt input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.kpc-opt span{display:flex;align-items:center;justify-content:center;text-align:center;min-height:48px;padding:10px 16px;border:1.5px solid #d8c999;border-radius:14px;background:#fff;color:#0a1230;font:600 15px/1.2 var(--sans);transition:background .15s,border-color .15s}
+.kpc-opt input:checked+span{background:#0a1230;border-color:#0a1230;color:#e2ba68}
+.kpc-opt input:focus-visible+span{outline:3px solid rgba(226,186,104,.8);outline-offset:2px}
+.kpc-3 .kpc-opt{flex:1 1 0;min-width:0}.kpc-3 .kpc-opt span{padding:10px 4px;font-size:14.5px}
+.kpc-err{min-height:1.3em;margin:0 0 12px;font:600 14px/1.3 var(--sans);color:#a3262a}
+.kpc-btn{display:block;width:100%;min-height:54px;border:0;border-radius:999px;padding:15px 22px;background:linear-gradient(180deg,#f0cd78,#d8a845);color:#0a1230;font:700 16px/1.2 var(--sans);cursor:pointer;box-shadow:0 10px 22px -12px rgba(138,106,34,.9);transition:transform .2s}
+.kpc-btn:hover{transform:translateY(-2px)}
+.kpc-btn:focus-visible{outline:3px solid #0a1230;outline-offset:3px}
+.kpc-note{margin:0;padding:16px 24px 24px;text-align:center;font:400 13.5px/1.45 var(--sans);color:#5a4a2a}
+@media(prefers-reduced-motion:reduce){.kpc-btn,.kpc-opt span{transition:none}}
+</style>
+<section class="kpc rv" id="primera-clase" aria-labelledby="kpc-h">
+  <div class="kpc-card">
+    <div class="kpc-head">
+      <div class="kpc-eye">Clase de bienvenida</div>
+      <h2 id="kpc-h">Tu primera clase</h2>
+      <p>Una primera clase con evaluaci&oacute;n, en tu casa.</p>
+    </div>
+    <form class="kpc-form" id="kpcForm" novalidate>
+      <div class="kpc-f">
+        <label class="kpc-l" for="kpcNombre">Nombre del padre o madre</label>
+        <input class="kpc-in" id="kpcNombre" name="nombre" type="text" autocomplete="name" maxlength="60" required>
+      </div>
+      <fieldset class="kpc-f">
+        <legend class="kpc-l">Edad del ni&ntilde;o o ni&ntilde;a</legend>
+        <div class="kpc-opts kpc-3">
+          <label class="kpc-opt"><input type="radio" name="edad" value="3 a 6 años"><span>3 a 6 a&ntilde;os</span></label>
+          <label class="kpc-opt"><input type="radio" name="edad" value="7 a 12 años"><span>7 a 12 a&ntilde;os</span></label>
+          <label class="kpc-opt"><input type="radio" name="edad" value="13 a 17 años"><span>13 a 17 a&ntilde;os</span></label>
+        </div>
+      </fieldset>
+      <div class="kpc-f">
+        <label class="kpc-l" for="kpcBarrio">Barrio</label>
+        <input class="kpc-in" id="kpcBarrio" name="barrio" type="text" autocomplete="off" maxlength="60" placeholder="Solo el barrio, sin direcci&oacute;n" required>
+      </div>
+      <fieldset class="kpc-f">
+        <legend class="kpc-l">D&iacute;a preferido</legend>
+        <div class="kpc-opts">
+          <label class="kpc-opt"><input type="radio" name="dia" value="entre semana en la tarde"><span>Entre semana, tarde</span></label>
+          <label class="kpc-opt"><input type="radio" name="dia" value="sábado"><span>S&aacute;bado</span></label>
+          <label class="kpc-opt"><input type="radio" name="dia" value="domingo"><span>Domingo</span></label>
+        </div>
+      </fieldset>
+      <p class="kpc-err" id="kpcErr" role="alert" aria-live="polite"></p>
+      <button class="kpc-btn" type="submit">Agendar por WhatsApp</button>
+      <noscript><p class="kpc-note">Para agendar, escr&iacute;benos por <a href="https://wa.me/kingsbridge.academy">WhatsApp</a>.</p></noscript>
+    </form>
+    <p class="kpc-note">Plan orientativo. La fecha y el valor se confirman por WhatsApp.</p>
+  </div>
+</section>
+<script>
+(function(){
+var f=document.getElementById("kpcForm");if(!f)return;
+f.addEventListener("submit",function(e){
+e.preventDefault();
+var n=f.nombre.value.trim(),b=f.barrio.value.trim(),
+ed=f.querySelector('input[name="edad"]:checked'),di=f.querySelector('input[name="dia"]:checked'),
+er=document.getElementById("kpcErr"),m=[];
+if(!n)m.push("tu nombre");
+if(!ed)m.push("la edad");
+if(!b)m.push("el barrio");
+if(!di)m.push("el día preferido");
+if(m.length){er.textContent="Completa: "+m.join(", ")+".";
+var first=!n?f.nombre:!ed?f.querySelector('input[name="edad"]'):!b?f.barrio:f.querySelector('input[name="dia"]');first.focus();return}
+er.textContent="";
+var msg="Hola, soy "+n+". Quiero agendar una primera clase con evaluación, a domicilio, para mi hijo o hija de "+ed.value+". Barrio: "+b+". Día preferido: "+di.value+". Quedo atento(a) a la confirmación de fecha y valor.";
+var a=document.querySelector(".kcta a.wa"),base=a?a.getAttribute("href"):"https://wa.me/kingsbridge.academy";
+var url=base+(base.indexOf("?")>-1?"&":"?")+"text="+encodeURIComponent(msg);
+var w=window.open(url,"_blank");if(w){w.opener=null}else{location.href=url}
+});
+})();
+</script>
+
 <div class="kb-gap g5" aria-hidden="true"></div>
 <section class="kcta rv" aria-labelledby="contacto">
   <div class="k">Contacto</div>
