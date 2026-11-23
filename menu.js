@@ -22,7 +22,6 @@
     { label: "Práctica interactiva", desc: "Ejercicios tipo examen",           href: "practica/index.html",  icon: "pen"  },
     { label: "Cursos", icon: "star", children: [
       { label: "Inglés de negocios",          desc: "Finanzas, bolsa y cripto en inglés",   href: "ingles-negocios.html",      icon: "star" },
-      { label: "Inglés para restaurantes",    desc: "Curso para dueños y personal",         href: "restaurantes/index.html",   icon: "star" },
       { label: "Pronunciación con profesor",  desc: "Audio por frase, bien explicado",      href: "pronunciacion.html",        icon: "pen"  }
     ] },
     { label: "Herramientas gratis", desc: "Prueba de nivel gratuita", href: "index.html#herramientas", icon: "star" },
