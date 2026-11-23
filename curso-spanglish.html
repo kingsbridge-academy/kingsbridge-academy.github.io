@@ -88,6 +88,22 @@ h3{font:500 1.22rem/1.3 var(--serif);color:var(--navy);margin:26px 0 8px}
 .sc li::before{content:"";position:absolute;left:2px;top:19px;width:7px;height:7px;background:var(--gold2);transform:rotate(45deg)}
 .sc li b{color:var(--navy);font-weight:600}
 .sc .l{display:flex;gap:12px;align-items:flex-start}
+
+.conv{border:1px solid #d9d3bf;border-top:3px solid var(--gold2);background:#fbf8ef;margin:0 0 16px;padding:18px 18px 12px}
+.conv .t{font:600 11px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.conv .tt{font:500 clamp(1.15rem,3.8vw,1.4rem)/1.35 var(--serif);color:var(--navy);margin:6px 0 12px}
+.conv audio{width:100%;height:44px;margin:0 0 12px}
+.conv details{border-top:1px solid #e4dec9}
+.conv summary{cursor:pointer;padding:14px 0;font:600 13px/1.4 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--navy)}
+.ln{display:grid;grid-template-columns:64px 1fr;gap:10px;margin:0!important;padding:9px 0;border-top:1px solid #efe9d6;font-size:.98rem!important;line-height:1.6!important;color:var(--navy)!important}
+.ln b{font:600 11px/1.9 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.ln.m b{color:#24408f}
+mark{background:linear-gradient(transparent 60%,rgba(226,186,104,.55) 60%);color:inherit;padding:0 1px}
+.conv ul{list-style:none;margin:6px 0 0;border-top:1px solid #e4dec9}
+.conv li{padding:10px 0 10px 22px;border-bottom:1px solid #e4dec9;position:relative;font-size:.98rem;line-height:1.6;color:var(--mute)}
+.conv li:last-child{border-bottom:0}
+.conv li::before{content:"";position:absolute;left:2px;top:19px;width:7px;height:7px;background:var(--gold2);transform:rotate(45deg)}
+.conv li b{color:var(--navy);font-weight:600}
 .pl{flex:0 0 auto;width:40px;height:40px;border-radius:50%;border:0;background:var(--navy);color:var(--gold2);font-size:14px;line-height:1;cursor:pointer;box-shadow:0 0 0 1px rgba(226,186,104,.7);transition:transform .2s;vertical-align:middle;margin-right:8px}
 .pl:hover{transform:scale(1.07)}
 .pl:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
@@ -246,6 +262,26 @@ td i{color:var(--mute)}
     <div class="sc"><div class="t">Escena 4 · En la calle</div>
       <div class="l"><button type="button" class="pl" data-src="audio/spanglish/esc-4.mp3" aria-label="Escuchar">&#9654;</button><span>“Parquea la troca allá, que aquí no se puede.”</span></div>
       <ul><li><b>Tipo:</b> dos préstamos adaptados, <i>parquear</i> y <i>troca</i> (de <i>truck</i>), comunes en el suroeste de Estados Unidos.</li></ul>
+    </div>
+
+    <h3>Conversación completa: una noche de cine</h3>
+    <p>Escucha primero sin leer. Después abre la transcripción: las partes subrayadas son las palabras o frases que mezclan los dos idiomas. Dura unos tres minutos y está en dos voces: Laura y Mateo.</p>
+    <div class="conv">
+      <div class="t">Diálogo · Vida cotidiana</div>
+      <div class="tt">Laura y Mateo van al cine</div>
+      <audio controls preload="none" src="audio/spanglish/conversacion-cine.mp3"></audio>
+      <details><summary>Ver transcripción</summary>
+<p class="ln f"><b>Laura</b><span>Hola, Mateo. ¿Todavía quieres ir al cine esta noche?</span></p><p class="ln m"><b>Mateo</b><span>Claro que sí. Ya <mark>chequeé</mark> la cartelera. <mark>There’s a comedy at seven and an action movie at eight thirty.</mark></span></p><p class="ln f"><b>Laura</b><span>Uf, <mark>I’m really tired.</mark> Mejor la comedia, ¿no? Así llegamos temprano y después vamos a cenar.</span></p><p class="ln m"><b>Mateo</b><span>Perfecto. Voy a comprar los <mark>tickets</mark> en la <mark>app</mark> ahora mismo. ¿Prefieres sentarte adelante o atrás?</span></p><p class="ln f"><b>Laura</b><span>Atrás, por favor. Cuando me siento adelante me duele el cuello. <mark>Actually</mark>, ¿puedes escoger los asientos del medio?</span></p><p class="ln m"><b>Mateo</b><span>Listo. Fila ocho, asientos cinco y seis. Ya pagué y me llegó el <mark>email</mark> de confirmación.</span></p><p class="ln f"><b>Laura</b><span>Genial. ¿A qué hora nos vemos?</span></p><p class="ln m"><b>Mateo</b><span>A las seis y quince, en la entrada. Si llegamos tarde, no vamos a encontrar dónde <mark>parquear</mark>. El <mark>mall</mark> siempre está <mark>full</mark> los viernes.</span></p><p class="ln f"><b>Laura</b><span>Tienes razón. Te llamo cuando llegue. Y si no contestas, <mark>te llamo para atrás</mark> en cinco minutos.</span></p><p class="ln m"><b>Mateo</b><span>Está bien. Oye, ¿y si comemos algo antes? <mark>I’m starving.</mark></span></p><p class="ln f"><b>Laura</b><span>No, mejor después de la película. En el cine siempre compramos <mark>popcorn</mark> y luego no tenemos hambre.</span></p><p class="ln m"><b>Mateo</b><span>Ok, pero esta vez yo pago el <mark>popcorn</mark> y las <mark>sodas</mark>.</span></p><p class="ln f"><b>Laura</b><span>Trato hecho. Nos vemos a las seis y quince. <mark>Don’t be late!</mark></span></p><p class="ln f"><b>Laura</b><span>Mateo, ya estoy en la entrada, al lado de la fila de los <mark>tickets</mark>. ¿Dónde estás?</span></p><p class="ln m"><b>Mateo</b><span>Ya voy. Estoy buscando dónde <mark>parquear</mark> la <mark>troca</mark>. Esto está lleno de carros.</span></p><p class="ln f"><b>Laura</b><span>Apúrate, que los <mark>trailers</mark> ya van a empezar. Y no se te olvide poner el teléfono en silencio.</span></p><p class="ln m"><b>Mateo</b><span>Ya lo hice. Mira, aquí estoy. ¿Vamos a la concesión? Quiero un <mark>popcorn</mark> grande con mantequilla.</span></p><p class="ln f"><b>Laura</b><span>Sí, y dos <mark>sodas</mark> medianas. Después de la película, <mark>you’re buying dinner too</mark>, ¿verdad?</span></p><p class="ln m"><b>Mateo</b><span>¡Eso no fue parte del trato! Está bien, pero tú escoges el restaurante.</span></p><p class="ln f"><b>Laura</b><span>¿Y qué te pareció la película?</span></p><p class="ln m"><b>Mateo</b><span>Me encantó. <mark>I couldn’t stop laughing.</mark> Sobre todo la escena del restaurante, cuando el mesero se equivoca de mesa.</span></p><p class="ln f"><b>Laura</b><span>Sí, esa fue la mejor. Pero el final fue un poco predecible, ¿no crees?</span></p><p class="ln m"><b>Mateo</b><span>Un poco. Pero <mark>eventualmente</mark> todo sale bien, y eso me gusta. Me gustan las películas que terminan con una sonrisa.</span></p><p class="ln f"><b>Laura</b><span>A mí también. Bueno, ¿dónde cenamos? Quiero tacos.</span></p><p class="ln m"><b>Mateo</b><span>Conozco un lugar nuevo cerca del <mark>mall</mark>. <mark>I heard the tacos are amazing.</mark> Y el estacionamiento es gratis.</span></p><p class="ln f"><b>Laura</b><span>Perfecto. Te sigo en mi carro. Tú ya pagaste el <mark>popcorn</mark>, así que yo pago el postre.</span></p><p class="ln m"><b>Mateo</b><span><mark>Deal.</mark> Y mañana, ¿vemos otra película?</span></p><p class="ln f"><b>Laura</b><span>No te pases. Mañana tengo un <mark>meeting</mark> temprano. Pero el sábado sí, <mark>if you promise to be on time.</mark></span></p><p class="ln m"><b>Mateo</b><span>Lo prometo. <mark>Let’s go</mark>, que ya tengo hambre otra vez.</span></p>
+      </details>
+      <details><summary>Qué observar</summary>
+        <ul>
+          <li><b>Préstamos adaptados:</b> <i>chequeé</i>, <i>parquear</i> y <i>troca</i> tienen forma española.</li>
+          <li><b>Cambios de código:</b> “There’s a comedy at seven…”, “Don’t be late!” y “I couldn’t stop laughing.” ocurren al empezar o terminar una frase.</li>
+          <li><b>Palabras inglesas insertadas:</b> <i>tickets</i>, <i>email</i>, <i>mall</i>, <i>popcorn</i>, <i>trailers</i>, <i>meeting</i>.</li>
+          <li><b>Calco:</b> “te llamo para atrás” copia <i>I’ll call you back</i>. En español estándar: “te devuelvo la llamada”.</li>
+          <li><b>Falso amigo:</b> “eventualmente todo sale bien” usa <i>eventualmente</i> con el sentido de <i>eventually</i> (finalmente). En español significa “a veces, de manera ocasional”.</li>
+        </ul>
+      </details>
     </div>
 
     <h3>Variedades con nombre propio</h3>
