@@ -87,6 +87,14 @@ h3{font:500 1.22rem/1.3 var(--serif);color:var(--navy);margin:26px 0 8px}
 .sc li:last-child{border-bottom:0}
 .sc li::before{content:"";position:absolute;left:2px;top:19px;width:7px;height:7px;background:var(--gold2);transform:rotate(45deg)}
 .sc li b{color:var(--navy);font-weight:600}
+.sc .l{display:flex;gap:12px;align-items:flex-start}
+.pl{flex:0 0 auto;width:40px;height:40px;border-radius:50%;border:0;background:var(--navy);color:var(--gold2);font-size:14px;line-height:1;cursor:pointer;box-shadow:0 0 0 1px rgba(226,186,104,.7);transition:transform .2s;vertical-align:middle;margin-right:8px}
+.pl:hover{transform:scale(1.07)}
+.pl:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.pl.on{background:var(--gold);color:var(--navy)}
+.pl.err{opacity:.45;cursor:not-allowed}
+td .pl{width:34px;height:34px;font-size:12px}
+.fb .pl{width:34px;height:34px;font-size:12px;margin:0 0 0 6px}
 /* tablas */
 .tbl{overflow-x:auto;margin:14px 0 20px;border-top:3px solid var(--gold2);background:#fbf8ef}
 table{border-collapse:collapse;width:100%;min-width:540px;font-size:.96rem}
@@ -224,19 +232,19 @@ td i{color:var(--mute)}
     <p>El Spanglish se escucha en casas, escuelas, canciones, publicidad, redes sociales y lugares de trabajo. No es una sola variedad: el de Nueva York, Florida, Texas y California son distintos entre sí, porque reflejan el español y el inglés que se hablan en cada lugar. A continuación, cuatro escenas ilustrativas, escritas para el curso.</p>
 
     <div class="sc"><div class="t">Escena 1 · En casa</div>
-      <div class="l">“Mamá, ya hice el homework. ¿Puedo ir a jugar con mis amigos?”</div>
-      <ul><li><b>Tipo:</b> cambio de código dentro de la oración. <i>Homework</i> no tiene un equivalente corto en español de uso cotidiano (“tarea”), y el niño elige la palabra que usa en la escuela.</li></ul>
+      <div class="l"><button type="button" class="pl" data-src="audio/spanglish/esc-1.mp3" aria-label="Escuchar">&#9654;</button><span>“Mamá, ya hice el homework. ¿Puedo ir a jugar con mis amigos?”</span></div>
+      <ul><li><b>Tipo:</b> cambio de código dentro de la oración. El niño usa <i>homework</i> en lugar de “tarea” porque es la palabra que oye en la escuela.</li></ul>
     </div>
     <div class="sc"><div class="t">Escena 2 · En el trabajo</div>
-      <div class="l">“Voy a chequear el email y te mando el file en un rato.”</div>
+      <div class="l"><button type="button" class="pl" data-src="audio/spanglish/esc-2.mp3" aria-label="Escuchar">&#9654;</button><span>“Voy a chequear el email y te mando el file en un rato.”</span></div>
       <ul><li><b>Tipo:</b> préstamos adaptados (<i>chequear</i>) y palabras inglesas insertadas (<i>email</i>, <i>file</i>).</li><li><b>Versión estándar:</b> “Voy a revisar el correo y te envío el archivo en un rato.”</li></ul>
     </div>
     <div class="sc"><div class="t">Escena 3 · Entre amigos</div>
-      <div class="l">“Fuimos al mall, pero estaba full. Total, we left.”</div>
+      <div class="l"><button type="button" class="pl" data-src="audio/spanglish/esc-3.mp3" aria-label="Escuchar">&#9654;</button><span>“Fuimos al mall, pero estaba full. Total, we left.”</span></div>
       <ul><li><b>Tipo:</b> cambio de código al final de la frase. <i>Total, we left</i> funciona como cierre del relato, igual que “total, nos fuimos”.</li></ul>
     </div>
     <div class="sc"><div class="t">Escena 4 · En la calle</div>
-      <div class="l">“Parquea la troca allá, que aquí no se puede.”</div>
+      <div class="l"><button type="button" class="pl" data-src="audio/spanglish/esc-4.mp3" aria-label="Escuchar">&#9654;</button><span>“Parquea la troca allá, que aquí no se puede.”</span></div>
       <ul><li><b>Tipo:</b> dos préstamos adaptados, <i>parquear</i> y <i>troca</i> (de <i>truck</i>), comunes en el suroeste de Estados Unidos.</li></ul>
     </div>
 
@@ -263,9 +271,9 @@ td i{color:var(--mute)}
     <div class="tbl"><table>
       <thead><tr><th>Spanglish</th><th>Español estándar</th><th>English estándar</th></tr></thead>
       <tbody>
-        <tr><td>Te llamo para atrás.</td><td>Te devuelvo la llamada.</td><td>I’ll call you back.</td></tr>
-        <tr><td>Voy a aplicar a ese trabajo.</td><td>Voy a solicitar ese trabajo.</td><td>I’m going to apply for that job.</td></tr>
-        <tr><td>Tengo un meeting a las tres.</td><td>Tengo una reunión a las tres.</td><td>I have a meeting at three.</td></tr>
+        <tr><td>Te llamo para atrás.</td><td>Te devuelvo la llamada.</td><td><button type="button" class="pl" data-src="audio/spanglish/tabla-1.mp3" aria-label="Escuchar">&#9654;</button>I’ll call you back.</td></tr>
+        <tr><td>Voy a aplicar a ese trabajo.</td><td>Voy a solicitar ese trabajo.</td><td><button type="button" class="pl" data-src="audio/spanglish/tabla-2.mp3" aria-label="Escuchar">&#9654;</button>I’m going to apply for that job.</td></tr>
+        <tr><td>Tengo un meeting a las tres.</td><td>Tengo una reunión a las tres.</td><td><button type="button" class="pl" data-src="audio/spanglish/tabla-3.mp3" aria-label="Escuchar">&#9654;</button>I have a meeting at three.</td></tr>
       </tbody>
     </table></div>
 
@@ -274,14 +282,14 @@ td i{color:var(--mute)}
     <div class="tbl"><table>
       <thead><tr><th>Inglés</th><th>Significa en español</th><th>No confundir con</th></tr></thead>
       <tbody>
-        <tr><td><b>actually</b></td><td>en realidad, de hecho</td><td><i>actualmente</i> = currently</td></tr>
-        <tr><td><b>embarrassed</b></td><td>avergonzado</td><td><i>embarazada</i> = pregnant</td></tr>
-        <tr><td><b>library</b></td><td>biblioteca</td><td><i>librería</i> = bookstore</td></tr>
-        <tr><td><b>carpet</b></td><td>alfombra</td><td><i>carpeta</i> = folder</td></tr>
-        <tr><td><b>eventually</b></td><td>finalmente, con el tiempo</td><td><i>eventualmente</i> = possibly, occasionally</td></tr>
-        <tr><td><b>assist</b></td><td>ayudar</td><td><i>asistir</i> = attend</td></tr>
-        <tr><td><b>sensible</b></td><td>sensato</td><td><i>sensible</i> = sensitive</td></tr>
-        <tr><td><b>exit</b></td><td>salida</td><td><i>éxito</i> = success</td></tr>
+        <tr><td><button type="button" class="pl" data-src="audio/spanglish/falso-1.mp3" aria-label="Escuchar">&#9654;</button><b>actually</b></td><td>en realidad, de hecho</td><td><i>actualmente</i> = currently</td></tr>
+        <tr><td><button type="button" class="pl" data-src="audio/spanglish/falso-2.mp3" aria-label="Escuchar">&#9654;</button><b>embarrassed</b></td><td>avergonzado</td><td><i>embarazada</i> = pregnant</td></tr>
+        <tr><td><button type="button" class="pl" data-src="audio/spanglish/falso-3.mp3" aria-label="Escuchar">&#9654;</button><b>library</b></td><td>biblioteca</td><td><i>librería</i> = bookstore</td></tr>
+        <tr><td><button type="button" class="pl" data-src="audio/spanglish/falso-4.mp3" aria-label="Escuchar">&#9654;</button><b>carpet</b></td><td>alfombra</td><td><i>carpeta</i> = folder</td></tr>
+        <tr><td><button type="button" class="pl" data-src="audio/spanglish/falso-5.mp3" aria-label="Escuchar">&#9654;</button><b>eventually</b></td><td>finalmente, con el tiempo</td><td><i>eventualmente</i> = possibly, occasionally</td></tr>
+        <tr><td><button type="button" class="pl" data-src="audio/spanglish/falso-6.mp3" aria-label="Escuchar">&#9654;</button><b>assist</b></td><td>ayudar</td><td><i>asistir</i> = attend</td></tr>
+        <tr><td><button type="button" class="pl" data-src="audio/spanglish/falso-7.mp3" aria-label="Escuchar">&#9654;</button><b>sensible</b></td><td>sensato</td><td><i>sensible</i> = sensitive</td></tr>
+        <tr><td><button type="button" class="pl" data-src="audio/spanglish/falso-8.mp3" aria-label="Escuchar">&#9654;</button><b>exit</b></td><td>salida</td><td><i>éxito</i> = success</td></tr>
       </tbody>
     </table></div>
   </section>
@@ -385,6 +393,21 @@ td i{color:var(--mute)}
 (function(){function fix(){var b=document.querySelector('#kb-menu .brand');if(!b||b.dataset.kbl)return;b.dataset.kbl='1';b.setAttribute('aria-label','Kingsbridge English Academy');b.innerHTML='<img src="logo.png" alt="Kingsbridge English Academy" width="217" height="54">'}
 new MutationObserver(fix).observe(document.documentElement,{childList:true,subtree:true});fix()})();
 
+/* Reproductor de audios: uno a la vez; si falta el archivo, el botón se atenúa */
+(function(){
+  var cur=null,curBtn=null;
+  function stop(){if(cur){cur.pause();cur=null}if(curBtn){curBtn.classList.remove('on');curBtn=null}}
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('.pl');if(!b)return;
+    if(b===curBtn){stop();return}
+    stop();
+    var a=new Audio(b.dataset.src);cur=a;curBtn=b;b.classList.add('on');b.classList.remove('err');
+    a.onended=stop;
+    a.onerror=function(){b.classList.remove('on');b.classList.add('err');b.title='Audio no disponible todavía';cur=null;curBtn=null};
+    var r=a.play();if(r&&r.catch)r.catch(function(){});
+  });
+})();
+
 /* Ejercicios con corrección inmediata */
 (function(){
   var DATA = {
@@ -406,11 +429,11 @@ new MutationObserver(fix).observe(document.documentElement,{childList:true,subtr
       {p:"Ves el cartel <i>EXIT</i> en un edificio. ¿Qué indica?", o:["Éxito","Entrada","Salida"], c:2, e:"<i>Exit</i> = salida. <i>Éxito</i> se dice <i>success</i>."}
     ],
     c: [
-      {p:"Quieres decir “Te llamo para atrás”.", o:["I’ll call you to back.","I’ll call you back.","I call you backward."], c:1, e:"<i>Call back</i> es el verbo compuesto correcto: <b>I’ll call you back.</b>"},
-      {p:"Quieres decir “Voy a la librería a estudiar” (quieres decir biblioteca).", o:["I’m going to the bookstore to study.","I’m going to the librería to study.","I’m going to the library to study."], c:2, e:"Para el lugar donde se estudia y se prestan libros se dice <b>library</b>."},
-      {p:"Quieres decir “Estoy avergonzado porque me caí delante de todos”.", o:["I’m embarrassed because I fell in front of everyone.","I’m pregnant because I fell in front of everyone.","I’m embarazado because I fell in front of everyone."], c:0, e:"<b>Embarrassed</b> = avergonzado. <i>Pregnant</i> = embarazada."},
-      {p:"Quieres decir “Tengo cita con el dentista a las tres”.", o:["I have a date with the dentist at three.","I have a dentist appointment at three.","I have a quote with the dentist at three."], c:1, e:"<b>Appointment</b> es la cita médica o profesional. <i>Date</i> es una cita romántica o una fecha."},
-      {p:"Quieres decir “Estaciona el carro aquí”.", o:["Parquea the car here.","Park the car here.","Park the carro here."], c:1, e:"En inglés estándar, <b>park</b> es el verbo y <i>car</i> la palabra completa. No se mezclan idiomas."}
+      {a:"audio/spanglish/tabla-1.mp3", p:"Quieres decir “Te llamo para atrás”.", o:["I’ll call you to back.","I’ll call you back.","I call you backward."], c:1, e:"<i>Call back</i> es el verbo compuesto correcto: <b>I’ll call you back.</b>"},
+      {a:"audio/spanglish/c-2.mp3", p:"Quieres decir “Voy a la librería a estudiar” (quieres decir biblioteca).", o:["I’m going to the bookstore to study.","I’m going to the librería to study.","I’m going to the library to study."], c:2, e:"Para el lugar donde se estudia y se prestan libros se dice <b>library</b>."},
+      {a:"audio/spanglish/c-3.mp3", p:"Quieres decir “Estoy avergonzado porque me caí delante de todos”.", o:["I’m embarrassed because I fell in front of everyone.","I’m pregnant because I fell in front of everyone.","I’m embarazado because I fell in front of everyone."], c:0, e:"<b>Embarrassed</b> = avergonzado. <i>Pregnant</i> = embarazada."},
+      {a:"audio/spanglish/c-4.mp3", p:"Quieres decir “Tengo cita con el dentista a las tres”.", o:["I have a date with the dentist at three.","I have a dentist appointment at three.","I have a quote with the dentist at three."], c:1, e:"<b>Appointment</b> es la cita médica o profesional. <i>Date</i> es una cita romántica o una fecha."},
+      {a:"audio/spanglish/c-5.mp3", p:"Quieres decir “Estaciona el carro aquí”.", o:["Parquea the car here.","Park the car here.","Park the carro here."], c:1, e:"En inglés estándar, <b>park</b> es el verbo y <i>car</i> la palabra completa. No se mezclan idiomas."}
     ],
     d: [
       {p:"Presentas el examen oral de Cambridge.", o:["Inglés estándar","Spanglish natural"], c:0, e:"Los exámenes evalúan tu inglés. Mezclar con el español no demuestra tu nivel."},
@@ -446,7 +469,7 @@ new MutationObserver(fix).observe(document.documentElement,{childList:true,subtr
             all.forEach(function(x,j){x.disabled=true;if(j===it.c)x.classList.add('ok')});
             var good=(k===it.c);
             if(!good)b.classList.add('no');
-            fb.innerHTML=(good?'<b>Correcto.</b> ':'<b>No exactamente.</b> ')+it.e;fb.classList.add('on');
+            fb.innerHTML=(good?'<b>Correcto.</b> ':'<b>No exactamente.</b> ')+it.e;if(it.a){var pb=el('button','pl','&#9654;');pb.type='button';pb.dataset.src=it.a;pb.setAttribute('aria-label','Escuchar la frase correcta');fb.appendChild(pb)}fb.classList.add('on');
             done++;if(good)score++;
             cnt.textContent='Aciertos: '+score+' de '+items.length;
             if(done===items.length){end.innerHTML='<b>'+score+' de '+items.length+'.</b> '+msgs[0](score,items.length);end.classList.add('on')}
