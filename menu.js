@@ -24,6 +24,7 @@
     { label: "Examen de nivel",     desc: "Descubre tu nivel de inglés, A1–C1",       href: "examen-de-nivel.html", icon: "star" },
     { label: "My Day",               desc: "Aprender inglés jugando",                  href: "my-day-ninos.html",    icon: "star" },
     { label: "Libro 3D de ajedrez",   desc: "Aprende inglés con un libro interactivo",   href: "libro-ajedrez.html",   icon: "star" },
+    { label: "Inglés de negocios",   desc: "Finanzas, bolsa y cripto en inglés",        href: "ingles-negocios.html", icon: "star" },
     { label: "Pre-inscripción",      desc: "Reserva tu cupo",                          href: "https://tally.so/r/2EQWlj", icon: "form", external: true },
     { label: "For English speakers", desc: "Spanish for English speakers",             href: "spanish/index.html",   icon: "pen", flags: true },
     { label: "WhatsApp",             desc: "Pide información y precios",               href: "https://wa.me/kingsbridge.academy", icon: "chat", external: true, cta: true }
