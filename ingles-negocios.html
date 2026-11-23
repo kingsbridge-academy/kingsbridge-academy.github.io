@@ -292,7 +292,13 @@ document.getElementById("chkQuiz").onclick=function(){
   document.getElementById("quizScore").textContent="Result: "+s+" / "+Q.length;
 };
 </script>
+<link rel="preload" href="logo-sin-kb.webp" as="image">
+<link rel="preload" href="kb-monograma-hd.png" as="image">
 <script src="menu.js" defer></script>
+<script>
+(function(){function fix(){var b=document.querySelector('#kb-menu .brand');if(!b||b.dataset.kbl)return;b.dataset.kbl='1';b.setAttribute('aria-label','Kingsbridge English Academy');b.innerHTML='<img src="logo.png" alt="Kingsbridge English Academy" width="217" height="54">'}
+new MutationObserver(fix).observe(document.documentElement,{childList:true,subtree:true});fix()})();
+</script>
 <script src="footer.js" defer></script>
 </body>
 </html>
