@@ -23,7 +23,8 @@
     { label: "Examen de nivel",      desc: "Descubre tu nivel de inglés, A1–C1",       href: "examen-de-nivel.html", icon: "star" },
     { label: "Cursos", icon: "star", children: [
       { label: "Inglés de negocios",          desc: "Finanzas, bolsa y cripto en inglés",   href: "ingles-negocios.html",      icon: "star" },
-      { label: "Pronunciación con profesor",  desc: "Audio por frase, bien explicado",      href: "pronunciacion.html",        icon: "pen"  }
+      { label: "Pronunciación con profesor",  desc: "Audio por frase, bien explicado",      href: "pronunciacion.html",        icon: "pen"  },
+      { label: "Spanglish",                   desc: "Historia, uso real y práctica",        href: "curso-spanglish.html",      icon: "star" }
     ] },
     { label: "Más", icon: "star", children: [
       { label: "Herramientas gratis",   desc: "Prueba de nivel gratuita",                 href: "index.html#herramientas",  icon: "star" },
