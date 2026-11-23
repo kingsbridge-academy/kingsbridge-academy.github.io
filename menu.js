@@ -23,7 +23,8 @@
     { label: "Examen de nivel",      desc: "Descubre tu nivel de inglés, A1–C1",       href: "examen-de-nivel.html", icon: "star" },
     { label: "Cursos", icon: "star", children: [
       { label: "Inglés de negocios",          desc: "Finanzas, bolsa y cripto en inglés",   href: "ingles-negocios.html",      icon: "star" },
-      { label: "Pronunciación con profesor",  desc: "Audio por frase, bien explicado",      href: "pronunciacion.html",        icon: "pen"  }
+      { label: "Pronunciación con profesor",  desc: "Audio por frase, bien explicado",      href: "pronunciacion.html",        icon: "pen"  },
+      { label: "Spanglish",                   desc: "Historia, uso real y práctica",        href: "curso-spanglish.html",      icon: "star" }
     ] },
     { label: "Más", icon: "star", children: [
       { label: "Herramientas gratis",   desc: "Prueba de nivel gratuita",                 href: "index.html#herramientas",  icon: "star" },
@@ -68,6 +69,18 @@
   var OPT = (me && me.dataset) || {};
   var EN = OPT.lang === "en", HOME = OPT.home || "index.html";
   if (EN) ITEMS = ITEMS_EN;
+
+  /* Una página puede ocultar botones del menú con:
+     <script>window.KB_MENU_HIDE=["pronunciacion.html"]</script>   (antes de menu.js) */
+  var HIDE = window.KB_MENU_HIDE || [];
+  if (HIDE.length) {
+    ITEMS = ITEMS.map(function (it) {
+      if (!it.children) return it;
+      var c = {}; for (var k in it) c[k] = it[k];
+      c.children = it.children.filter(function (x) { return HIDE.indexOf(x.href) < 0; });
+      return c;
+    }).filter(function (it) { return HIDE.indexOf(it.href) < 0; });
+  }
   if (me && me.src) base = me.src.replace(/[^\/]*([?#].*)?$/, "");
   function url(h) { return /^https?:/i.test(h) ? h : base + h; }
   function norm(p) { return p.replace(/index\.html$/, "").replace(/\/+$/, "") || "/"; }
